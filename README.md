@@ -28,8 +28,10 @@ claude
 
 ### 2. Clidev skill installeren
 
+De skill staat in de centrale skills-repo van de organisatie:
+
 ```bash
-npx skills add cedanl/clidev-presentaties
+npx skills add cedanl/.github
 ```
 
 De skill installeert de Slidev basisskill automatisch als die nog niet aanwezig is.
