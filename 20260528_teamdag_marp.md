@@ -53,10 +53,12 @@ Pak een **flip-over vel** en schrijf kort op waar je aan werkt en waar je groots
 Groepjes (niet op scherm):
 - Groep 1: Steven, Hibo, Tomer
 - Groep 2: Ed, Shirley, Aslam
-- Groep 3: Edwin, Ash, Corneel
+- Groep 3: Edwin, Ash, Muhammet
+
+Corneel
 
 Andere vormen:
-- One-pagers, website, toolkit,
+- One-pagers in html, website, toolkit,
 
 -->
 
@@ -113,8 +115,8 @@ Doelgroep: IR / niet-programmeurs
 
 Werken met **[Onderwijs Data Chat](https://github.com/cedanl/onderwijsdata-chat)** en open datasets. Drie rondes.
 
-**Groep A:** Ash, Aslam, Ed, Hibo
-**Groep B:** Tomer, Steven, Edwin, Shirley
+**Groep A:** Ash, Aslam, Edwin, Hibo
+**Groep B:** Tomer, Steven, Muhammet, Shirley
 
 ---
 
@@ -173,3 +175,12 @@ Code delen!
 - Wat willen we als vervolgstap?
 
 **Borrel vanaf 16:30**
+
+---
+
+# Volgende teamdag — 24 juni
+
+- Workshop Publieke waarden (EU AI Act)?
+- AI Development Playbook?
+- Events najaar extra invulling?
+- Etentje!
