@@ -49,7 +49,7 @@ Feedback is het doel van vandaag.
       <span class="np-num">1</span><strong>Demo</strong>
     </div>
     <div style="display: flex; align-items: center; gap: 0.7rem;">
-      <span class="np-num" style="background: var(--np-orange);">2</span><strong>De fout</strong>
+      <span class="np-num" style="background: var(--np-orange);">2</span><strong>De uitdaging</strong>
     </div>
     <div style="display: flex; align-items: center; gap: 0.7rem;">
       <span class="np-num" style="background: var(--np-orange);">3</span><strong>Waarom het gebeurt</strong>
@@ -73,31 +73,6 @@ Feedback is het doel van vandaag.
 PRESENTER — Kort langslopen. Stap 5 en 7 zijn de gespreksdelen; daar onderscheidt
 dit zich van een presentatie. Bij tijdnood: stap 4 inkorten (twee clusters), 5 en 7
 beschermen.
--->
-
----
-
-<!-- RODE DRAAD — quote/highlight (Slide3.PNG) -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 2rem;">
-  <p class="eyebrow">De rode draad</p>
-  <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.45; color: var(--np-blue); max-width: 760px;">
-    "Een taalmodel is goed in taal en slecht in cijfers. Dus laat het model de taal doen, en de computer de cijfers."
-  </div>
-</div>
-
-</div>
-
-<!--
-PRESENTER — Dit is het enige idee dat het publiek moet meenemen. Alles daarna is dit
-principe waterdicht en controleerbaar maken. Kort houden; de theorie komt bij stap 3.
-De vakterm-vertaling van dit principe komt straks terug bij "Wat we deden":
-tool calls = het model roept alleen vaste functies aan (de computer rekent);
-scaffolding = de vaste regels en routing eromheen; harness = de testset die meet of
-het werkt. Noem die woorden hier NIET — het publiek heeft er nu niks aan.
 -->
 
 ---
@@ -131,13 +106,36 @@ feedback is het doel.
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Het probleem</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Nu de fout</h1>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">De uitdaging</p>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Waar het wringt</h1>
   </div>
 </div>
 
 <!--
 PRESENTER — ± 6 min · tonen + laten raden. Dit is de haak van de sessie.
+-->
+
+---
+
+<!-- RODE DRAAD — quote/highlight (Slide3.PNG) -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 2rem;">
+  <p class="eyebrow">De rode draad</p>
+  <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.45; color: var(--np-blue); max-width: 760px;">
+    "Een taalmodel is goed in taal en slecht in cijfers. Dus laat het model de taal doen, en de computer de cijfers."
+  </div>
+</div>
+
+</div>
+
+<!--
+PRESENTER — De these van dit blok: het idee dat alles draagt. Zet het neer en laat
+hierna de VU-tabel zien wat er gebeurt als je je er niet aan houdt. Kort houden; het
+mechanisme (waarom) komt op de slide erna, de maatregelen bij "Wat we hebben gedaan".
+De vaktermen (tool calls / scaffolding / harness) hier nog NIET noemen.
 -->
 
 ---
@@ -257,6 +255,110 @@ tool calls / scaffolding / harness:
 · Cluster C = HARNESS: het meetsysteem eromheen — een testset en logboek die vaststellen
   dat het werkt en fouten zichtbaar maken.
 Je kunt die drie woorden hier één keer laten vallen als kapstok.
+-->
+
+---
+
+<!-- STAP 4 — De beslissingen die het model neemt (Slide3.PNG) -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Welke beslissingen het model neemt
+
+<p class="np-subtitle">Bij elke vraag maakt het model een paar keuzes. Bij elke keuze kan het misgaan — daar grijpen de clusters in.</p>
+
+<div style="display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.5rem; font-size: 0.92rem;">
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-dark-blue);">1</span>
+    <div><strong>Heb ik hier data voor nodig?</strong> <span class="muted">Zo nee: gewoon antwoorden. Zo ja: nooit uit het geheugen — altijd live ophalen.</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-dark-blue);">2</span>
+    <div><strong>Is de vraag scherp genoeg?</strong> <span class="muted">Te vaag? Eerst terugvragen in plaats van gokken.</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-orange);">3</span>
+    <div><strong>Welke bron en welk filter?</strong> <span class="muted">CBS, DUO of RIO — in de praktijk de grootste bron van foute antwoorden. <strong style="color: var(--np-orange);">→ cluster B</strong></span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-blue);">4</span>
+    <div><strong>Zelf rekenen of laten rekenen?</strong> <span class="muted">Nooit zelf — de computer telt, middelt en tekent met de echte cijfers. <strong style="color: var(--np-blue);">→ cluster A</strong></span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-green);">5</span>
+    <div><strong>Zou ik een fout überhaupt zien?</strong> <span class="muted">Meestal geen foutmelding — dus meten en loggen. <strong style="color: var(--np-green);">→ cluster C</strong></span></div>
+  </div>
+</div>
+
+<div class="np-bottomline" style="margin-top: 0.8rem;">
+  Het model kiest de weg; de <strong>computer doet de cijfers</strong>. De clusters hierna maken elke keuze veilig.
+</div>
+
+</div>
+
+<!--
+PRESENTER — Overzicht vóór de details: dit is hoe het ongeveer werkt, uitgedrukt als de
+keuzes die het model bij elke vraag maakt. Beslissing 1–2 = het model doet de taal
+(data nodig? vraag scherp genoeg?). Beslissing 3–5 zijn precies waar de drie clusters op
+ingrijpen: welke bron (B), zelf rekenen of niet (A), en zie ik een fout wel (C).
+Zo is dit het kapstokje: hier de keuzes, hierna per cluster de concrete maatregelen.
+Vereenvoudiging van het echte patroon (catalogus zoeken, caching, iteratielus max 10
+stappen) — wie het volledige plaatje wil: de docs-pagina "Tools".
+-->
+
+---
+
+<!-- ALT SLIDE 9 — de zes keuzes (Slide3.PNG) -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<p class="eyebrow" style="color: var(--np-orange);">Alternatief voor slide 9</p>
+
+# De zes keuzes bij elke vraag
+
+<p class="np-subtitle">Het model beslist zelf wélke stap nodig is; de computer voert 'm uit.</p>
+
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.4rem; font-size: 0.9rem;">
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-green);">1</span>
+    <div><strong>Eerst terugvragen</strong> <span class="muted">— als de vraag meerdere geldige lezingen heeft.</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-orange);">2</span>
+    <div><strong>De catalogus doorzoeken</strong> <span class="muted">— als de vraag geen concrete dataset noemt.</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-orange);">3</span>
+    <div><strong>Dataset-details ophalen</strong> <span class="muted">— als onduidelijk is welke filters en kolommen er zijn.</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-blue);">4</span>
+    <div><strong>De data queryen</strong> <span class="muted">— als er gefilterd, gegroepeerd of geclusterd moet worden.</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-blue);">5</span>
+    <div><strong>Analyse draaien in Python</strong> <span class="muted">— bij echt rekenen: transformaties of koppelingen (joins).</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-blue);">6</span>
+    <div><strong>Visualiseren</strong> <span class="muted">— als de vraag om een grafiek/kaart vraagt, of de data te complex is voor tekst.</span></div>
+  </div>
+</div>
+
+<div class="np-bottomline" style="margin-top: 0.7rem;">
+  De computer doet de cijfers — de clusters hierna maken elke stap veilig.
+</div>
+
+</div>
+
+<!--
+PRESENTER — Alternatief voor slide 9, nu met de zes concrete keuzes uit de docs
+("Keuzes die het LLM maakt") in gewone taal. Volgorde: van "snap ik de vraag"
+(terugvragen) via de juiste bron (2–3) naar rekenen en tonen (4–6). Kleur = cluster:
+oranje bron (B), blauw rekenen/tonen (A), groen de check (C). Kies deze óf de huidige
+slide 9; de niet-gekozen versie kan weg.
 -->
 
 ---
@@ -463,7 +565,7 @@ testvraag zodat hij niet stil kan terugkeren.
 PRESENTER — ± 12 min · GESPREK. Het interessantste deel voor dit publiek — zij hebben
 deze suggesties zelf al klaarliggen. OPEN MET EEN VRAAG en verzamel op de flip-over
 vóór je de volgende slide onthult: "Als je dit hoort — hallucinerende AI op cijfers —
-wat zou jíj inzetten?" Meestal komen precies de vier op de volgende slide langs.
+wat zou jíj inzetten?" Meestal komen precies de drie op de volgende slide langs.
 -->
 
 ---
@@ -473,7 +575,7 @@ wat zou jíj inzetten?" Meestal komen precies de vier op de volgende slide langs
 
 <div class="fill">
 
-# Vier suggesties — en waarom niet
+# Drie suggesties — en waarom niet
 
 <p class="np-subtitle">Geen enkel idee is onzin. Ze passen alleen niet bij dít probleem.</p>
 
@@ -492,11 +594,6 @@ wat zou jíj inzetten?" Meestal komen precies de vier op de volgende slide langs
     <h3 style="font-size: 1rem;">Tweede AI die de eerste controleert</h3>
     <p style="font-size: 0.72rem; color: var(--np-orange); font-family: monospace; margin: 0.15rem 0 0.3rem;">multi-agent verification</p>
     <p class="muted" style="font-size: 0.78rem; margin: 0;">Dubbele kosten en wachttijd; zelfde model deelt dezelfde blinde vlekken. <strong>Wel:</strong> als smalle checker tegen data.</p>
-  </div>
-  <div class="np-card accent-pink">
-    <h3 style="font-size: 1rem;">Chat laat cijfer duiden</h3>
-    <p style="font-size: 0.72rem; color: var(--np-orange); font-family: monospace; margin: 0.15rem 0 0.3rem;">automatische duiding</p>
-    <p class="muted" style="font-size: 0.78rem; margin: 0;">Duiding vraagt context die niet in de data zit (corona!). Een model dat dat invult, gokt. Duiding blijft bij de gebruiker.</p>
   </div>
 </div>
 
@@ -517,10 +614,6 @@ PRESENTER — Pas onthullen ná het uitlokken. Per suggestie: waarom niet, en de
    verdubbelt kosten en wachttijd, en twee exemplaren van hetzelfde model delen dezelfde blinde
    vlekken — dan bevestigt de controleur de fout. WEL denkbaar: als smalle checker die tegen de
    data toetst (niet tegen een mening), alleen bij zware output.
-4. Chat laat het cijfer duiden (goed/slecht nieuws?). Waarom niet: duiding vraagt context die
-   niet in de data zit en per instelling verschilt — corona is hét voorbeeld. Een model dat dat
-   invult, gokt uit voorkennis (precies wat we bij cluster A verbieden). Duiding blijft bij de
-   gebruiker.
 
 WAT ZIJN EVAL-SCORES: het cijfer op 100 uit onze testset (golden dataset). Elk model krijgt
 dezelfde productievragen; per vraag checkt een script 6 dingen (juiste tools · data opgehaald ·
@@ -544,11 +637,10 @@ we anders al opgelost hebben. Dat onderscheid maken is het echte werk.
 
 <div style="font-size: 0.9rem; line-height: 1.55; margin-top: 0.3rem;">
 
-- **Elk getal automatisch narekenen** — een controle die elk getal in de tekst terugzoekt in de opgehaalde cijfers.
-- **Duim omhoog / omlaag** — een knop om een fout antwoord aan te wijzen. Elke bevestigde fout wordt een testvraag.
-- **Strikvragen in de testset** — data met een onmogelijke combinatie: geeft het model dat toe of strijkt het glad?
-- **Proberen de chat te misleiden** — weerbaarheidstest tegen instructies verstopt in een geüpload bestand.
-- **Begrippen vastleggen in code** — één plek waar staat wat "instroom" of "marktaandeel" precies is. Regel wordt garantie.
+- **Elk getal automatisch narekenen** — een controle die ieder getal in de tekst terugzoekt in de opgehaalde cijfers.
+- **Duim omhoog / omlaag** — een knop om een fout antwoord aan te wijzen; elke bevestigde fout wordt een nieuwe testvraag.
+- **De testset verzwaren** — nu toetst hij vooral het makkelijke pad. Toevoegen: strikvragen (onmogelijke combinaties — geeft het model dat toe of strijkt het glad?) én misleidingspogingen (instructies verstopt in een geüpload bestand).
+- **Begrippen vastleggen in code** — één plek waar staat wat "instroom" of "marktaandeel" precies is: een regel wordt een garantie.
 
 </div>
 
@@ -559,9 +651,10 @@ PRESENTER — ± 4 min · vertellen. Kort houden, geen uitweiding — dit is een
 Correspondeert met de open/deels-problemen (2, 14, 15, 18, 19).
 Toelichting per punt indien gevraagd:
 · Narekencontrole = het grootste resterende gat, met gewone code te dichten.
-· Strikvragen = de testset test nu vooral het makkelijke pad; de gevaarlijkste fout is een
-  zelfverzekerd antwoord op een vraag die de data niet kan beantwoorden.
-· Misleiden = nu de tool bij externe gebruikers ligt, is prompt-injection relevant.
+· Testset verzwaren = die test nu vooral het makkelijke pad. Twee soorten die er nog bij moeten,
+  allebei testset-werk: (a) strikvragen — de gevaarlijkste fout is een zelfverzekerd antwoord op
+  een vraag die de data niet kan beantwoorden; (b) misleidingspogingen — nu de tool bij externe
+  gebruikers ligt, is prompt-injection (instructies in een geüpload bestand) relevant.
 · Begrippen in code (semantische laag) = het grootste knelpunt dat IR'ers noemen is niet het
   gebrek aan cijfers, maar het harmoniseren van definities.
 -->
