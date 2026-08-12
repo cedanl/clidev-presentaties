@@ -28,12 +28,7 @@ mdc: true
 </div>
 
 <!--
-PRESENTER — ± 60 min, interactief. Dit is een workshop, geen praatje: stap 5 (Wat we
-niet doen) en stap 7 (Zelf proberen) zijn gesprekken en krijgen de meeste ruimte.
-Kernboodschap die alles draagt — zeg hardop: "Een taalmodel is goed in taal en slecht
-in cijfers. Dus bouw je eromheen zodat het model de taal doet en de computer de cijfers."
-CEDA bouwt aan de Open Onderwijs Data Chat (werknaam), nog volop in ontwikkeling.
-Feedback is het doel van vandaag.
+PRESENTER — ± 60 min, interactief. 
 -->
 
 ---
@@ -70,9 +65,7 @@ Feedback is het doel van vandaag.
 </div>
 
 <!--
-PRESENTER — Kort langslopen. Stap 5 en 7 zijn de gespreksdelen; daar onderscheidt
-dit zich van een presentatie. Bij tijdnood: stap 4 inkorten (twee clusters), 5 en 7
-beschermen.
+PRESENTER — Kort langslopen. 
 -->
 
 ---
@@ -87,16 +80,11 @@ beschermen.
 </div>
 
 <!--
-PRESENTER — ± 7 min · tonen. Doel: vertrouwen wekken — laat zien dat het werkt vóór
-je laat zien waar het misgaat. Schakel nu naar de LIVE APPLICATIE.
+PRESENTER — Schakel nu naar de LIVE APPLICATIE.
 Stel één duidelijke, controleerbare vraag (bijv. aantal MBO-studenten in een recent
 jaar, of instroom bij een instelling die iemand kent). Laat het antwoord in gewone taal
 zien, met bronvermelding en uitklapbare stappen. Benoem kort: live ophalen bij CBS, DUO
 en RIO, met de herkomst van elk cijfer.
-VRAAG AAN DE ZAAL: "Wat zou je hier zelf mee willen vragen?" Noteer 1–2 vragen op de
-flip-over — die komen terug bij stap 7.
-Achtergrond in één zin: CEDA bouwt aan de Open Onderwijs Data Chat; nog in ontwikkeling,
-feedback is het doel.
 -->
 
 ---
@@ -112,30 +100,7 @@ feedback is het doel.
 </div>
 
 <!--
-PRESENTER — ± 6 min · tonen + laten raden. Dit is de haak van de sessie.
--->
-
----
-
-<!-- RODE DRAAD — quote/highlight (Slide3.PNG) -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 2rem;">
-  <p class="eyebrow">De rode draad</p>
-  <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.45; color: var(--np-blue); max-width: 760px;">
-    "Een taalmodel is goed in taal en slecht in cijfers. Dus laat het model de taal doen, en de computer de cijfers."
-  </div>
-</div>
-
-</div>
-
-<!--
-PRESENTER — De these van dit blok: het idee dat alles draagt. Zet het neer en laat
-hierna de VU-tabel zien wat er gebeurt als je je er niet aan houdt. Kort houden; het
-mechanisme (waarom) komt op de slide erna, de maatregelen bij "Wat we hebben gedaan".
-De vaktermen (tool calls / scaffolding / harness) hier nog NIET noemen.
+PRESENTER — Net laten zien, handig veel datasets. Limitaties llm, issues gebruik chat.
 -->
 
 ---
@@ -147,7 +112,7 @@ De vaktermen (tool calls / scaffolding / harness) hier nog NIET noemen.
 
 # Hoeveel eerstejaars stroomden in bij de VU?
 
-<p class="np-subtitle">Een echte vraag uit onze logs. De chat haalde de data netjes op — en telde toen zélf op.</p>
+<p class="np-subtitle">Een echte vraag uit onze logs.</p>
 
 <div style="display: flex; gap: 1.6rem; align-items: center; margin-top: 0.2rem;">
 <div style="flex: 1.1;">
@@ -184,14 +149,37 @@ De vaktermen (tool calls / scaffolding / harness) hier nog NIET noemen.
 </div>
 
 <!--
-PRESENTER — Vertel: uit onze eigen logs. Hoeveel eerstejaars bachelorstudenten
-stroomden in bij de VU? De chat haalde netjes ~40 rijen per jaar op en telde ze
-vervolgens in zijn hoofd op.
+PRESENTER — Vertel: uit onze eigen logs. 
+Kernpunt: geen foutmelding, en de foute getallen belandden in de grafiek — de vorm die
+mensen onthouden en in een presentatie plakken.
+
 LATEN RADEN: "Alle vijf de jaren zitten ernaast, in wisselende richting. Wat is hier
 volgens jullie gebeurd?" Iemand komt vaak zelf op "het heeft zelf zitten rekenen".
 Geef daar de tijd voor; niet meteen het antwoord geven.
-Kernpunt: geen foutmelding, en de foute getallen belandden in de grafiek — de vorm die
-mensen onthouden en in een presentatie plakken.
+
+-->
+
+---
+
+<!-- RODE DRAAD — quote/highlight (Slide3.PNG) -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 2rem;">
+  <p class="eyebrow">De rode draad</p>
+  <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.45; color: var(--np-blue); max-width: 760px;">
+    "Een taalmodel is goed in taal en slecht in cijfers. Dus laat het model de taal doen, en de computer de cijfers."
+  </div>
+</div>
+
+</div>
+
+<!--
+PRESENTER — Dit is de LES. Nu de zaal net zelf heeft geraden "hij heeft zitten rekenen", vat je het samen in
+één zin: een taalmodel is goed in taal en slecht in cijfers — dus laat het model de taal
+doen en de computer de cijfers. 
+De vaktermen (tool calls / scaffolding / harness) hier nog NIET noemen.
 -->
 
 ---
@@ -224,7 +212,7 @@ mensen onthouden en in een presentatie plakken.
 </div>
 
 <!--
-PRESENTER — ± 4 min · vertellen. Kort en scherp, dit is de theorie.
+PRESENTER — vertellen. Kort en scherp, dit is de theorie.
 Een taalmodel voorspelt tekst; het rekent niet en weet niet wanneer het gokt. Veertig
 getallen optellen → plausibel getal dat ernaast zit, in een keurige zin. Oorzaak VU-fout:
 geen rekenfunctie. Naar het principe: model doet de taal, computer de cijfers — de rest
@@ -244,77 +232,15 @@ van de sessie is dat waterdicht en controleerbaar maken.
 </div>
 
 <!--
-PRESENTER — ± 15 min · vertellen (+ evt. live). Niet alle 21 maatregelen aflopen — drie
-clusters, elk met één voorbeeld. Bij tijdnood: twee clusters.
-Hier komt het principe van slide 3 terug, nu mét de vaktermen — de drie clusters ZIJN
-tool calls / scaffolding / harness:
-· Cluster A = TOOL CALLS: het model rekent en haalt niet zelf op, het roept vaste
-  functies aan (de computer doet de cijfers).
-· Cluster B = SCAFFOLDING: het geraamte van vaste regels eromheen — welke bron, welk
-  filter, welke conventie — zodat het model niet hoeft te gokken.
-· Cluster C = HARNESS: het meetsysteem eromheen — een testset en logboek die vaststellen
-  dat het werkt en fouten zichtbaar maken.
-Je kunt die drie woorden hier één keer laten vallen als kapstok.
+PRESENTER — kort en door
 -->
 
 ---
 
-<!-- STAP 4 — De beslissingen die het model neemt (Slide3.PNG) -->
+<!-- STAP 4 — De zes keuzes bij elke vraag (Slide3.PNG) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
-
-# Welke beslissingen het model neemt
-
-<p class="np-subtitle">Bij elke vraag maakt het model een paar keuzes. Bij elke keuze kan het misgaan — daar grijpen de clusters in.</p>
-
-<div style="display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.5rem; font-size: 0.92rem;">
-  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
-    <span class="np-num" style="background: var(--np-dark-blue);">1</span>
-    <div><strong>Heb ik hier data voor nodig?</strong> <span class="muted">Zo nee: gewoon antwoorden. Zo ja: nooit uit het geheugen — altijd live ophalen.</span></div>
-  </div>
-  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
-    <span class="np-num" style="background: var(--np-dark-blue);">2</span>
-    <div><strong>Is de vraag scherp genoeg?</strong> <span class="muted">Te vaag? Eerst terugvragen in plaats van gokken.</span></div>
-  </div>
-  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
-    <span class="np-num" style="background: var(--np-orange);">3</span>
-    <div><strong>Welke bron en welk filter?</strong> <span class="muted">CBS, DUO of RIO — in de praktijk de grootste bron van foute antwoorden. <strong style="color: var(--np-orange);">→ cluster B</strong></span></div>
-  </div>
-  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
-    <span class="np-num" style="background: var(--np-blue);">4</span>
-    <div><strong>Zelf rekenen of laten rekenen?</strong> <span class="muted">Nooit zelf — de computer telt, middelt en tekent met de echte cijfers. <strong style="color: var(--np-blue);">→ cluster A</strong></span></div>
-  </div>
-  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
-    <span class="np-num" style="background: var(--np-green);">5</span>
-    <div><strong>Zou ik een fout überhaupt zien?</strong> <span class="muted">Meestal geen foutmelding — dus meten en loggen. <strong style="color: var(--np-green);">→ cluster C</strong></span></div>
-  </div>
-</div>
-
-<div class="np-bottomline" style="margin-top: 0.8rem;">
-  Het model kiest de weg; de <strong>computer doet de cijfers</strong>. De clusters hierna maken elke keuze veilig.
-</div>
-
-</div>
-
-<!--
-PRESENTER — Overzicht vóór de details: dit is hoe het ongeveer werkt, uitgedrukt als de
-keuzes die het model bij elke vraag maakt. Beslissing 1–2 = het model doet de taal
-(data nodig? vraag scherp genoeg?). Beslissing 3–5 zijn precies waar de drie clusters op
-ingrijpen: welke bron (B), zelf rekenen of niet (A), en zie ik een fout wel (C).
-Zo is dit het kapstokje: hier de keuzes, hierna per cluster de concrete maatregelen.
-Vereenvoudiging van het echte patroon (catalogus zoeken, caching, iteratielus max 10
-stappen) — wie het volledige plaatje wil: de docs-pagina "Tools".
--->
-
----
-
-<!-- ALT SLIDE 9 — de zes keuzes (Slide3.PNG) -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<p class="eyebrow" style="color: var(--np-orange);">Alternatief voor slide 9</p>
 
 # De zes keuzes bij elke vraag
 
@@ -354,11 +280,21 @@ stappen) — wie het volledige plaatje wil: de docs-pagina "Tools".
 </div>
 
 <!--
-PRESENTER — Alternatief voor slide 9, nu met de zes concrete keuzes uit de docs
-("Keuzes die het LLM maakt") in gewone taal. Volgorde: van "snap ik de vraag"
-(terugvragen) via de juiste bron (2–3) naar rekenen en tonen (4–6). Kleur = cluster:
-oranje bron (B), blauw rekenen/tonen (A), groen de check (C). Kies deze óf de huidige
-slide 9; de niet-gekozen versie kan weg.
+PRESENTER — De kernboodschap: het model volgt geen vast script; bij élke vraag kiest het zélf welke van deze zes stappen nodig zijn — soms één, soms alle
+zes. Wíj bepalen niet vooraf de route, we zorgen dat elke stap veilig is. 
+
+1. EERST TERUGVRAGEN — raag meerdere geldige lezingen heeft, niet gokken maar verduidelijken. Voorbeeld: "hoeveel studenten in Utrecht?" — bedoel je de stad of deprovincie? Woonplaats of studieplaats? Het model vraagt dat eerst na. 
+2. DE CATALOGUS DOORZOEKEN — 
+   model zoeken wélke tabel hierbij hoort. 
+3. DATASET-DETAILS OPHALEN — tabel gevonden, maar hoe zit hij in elkaar? Welke kolommen,
+   welke filters, hoe heten de jaren? 
+4. DE DATA QUERYEN — het gerichte ophalen: filteren op instelling, groeperen per jaar. Als
+   een zoekopdracht in een spreadsheet: geef me alleen deze rijen en kolommen. 
+5. ANALYSE DRAAIEN IN PYTHON — pas als er écht gerekend moet worden: optellen,tabellen aan elkaar knopen.
+    Dit is de stap die de VU-fout voorkomt — niet het model telt op, maar Python. 
+6. VISUALISEREN — als de vraag om een grafiek of kaart vraagt, of de data te complex is voor een zin.
+    De grafiek leest de échte opgehaalde cijfers, niet wat het model onthield.
+
 -->
 
 ---
@@ -391,10 +327,15 @@ slide 9; de niet-gekozen versie kan weg.
 </div>
 
 <!--
-PRESENTER — Introduceer de drie clusters, dan per cluster een verdiepingsslide.
-A: niet rekenen, niet zelf ophalen. B: de juiste bron/filter — in de praktijk de grootste
-bron van slechte antwoorden (correcte cijfers, verkeerde tabel). C: fouten zonder
-foutmelding, plus een meetlaag.
+PRESENTER — Introduceer de drie clusters.
+
+· Cluster A = TOOL CALLS: het model rekent en haalt niet zelf op, het roept vaste
+  functies aan (de computer doet de cijfers).
+· Cluster B = SCAFFOLDING: het geraamte van vaste regels eromheen — welke bron, welk
+  filter, welke conventie — zodat het model niet hoeft te gokken.
+· Cluster C = HARNESS: het meetsysteem eromheen — een testset en logboek die vaststellen
+  dat het werkt en fouten zichtbaar maken.
+
 -->
 
 ---
@@ -431,8 +372,7 @@ foutmelding, plus een meetlaag.
 </div>
 
 <!--
-PRESENTER — Raakt problemen 1, 2 en 3. Kern: de computer doet de cijfers, het model de taal.
-VAKTERMEN (voor als iemand vraagt wat ze betekenen — en welke maatregel erbij hoort):
+PRESENTER — 
 · tool calling — het model verzint geen data, het roept vaste, vooraf gebouwde functies
   aan ("haal instroom VU op"). Maatregel: álle datatoegang loopt via die functies.
 · server-side aggregatie — optellen/middelen gebeurt in Python (pandas) op de server, niet
@@ -441,8 +381,7 @@ VAKTERMEN (voor als iemand vraagt wat ze betekenen — en welke maatregel erbij 
   een beschrijving en vraagt gerichte stukjes op. Maatregel: data niet in de prompt proppen.
 · pass-by-reference — grafieken krijgen een verwijzing naar de opgeslagen dataset i.p.v. losse
   getallen, en lezen de echte waarden zelf. Maatregel: geen overtypstap tussen bron en beeld.
-OPTIONEEL LIVE: stel de VU-vraag opnieuw in de app en laat zien dat het nu klopt, met de
-uitklapbare rekenstap. Bewijs dat cluster A werkt.
+
 -->
 
 ---
@@ -479,17 +418,18 @@ uitklapbare rekenstap. Bewijs dat cluster A werkt.
 </div>
 
 <!--
-PRESENTER — Raakt problemen 4 t/m 9. In de praktijk de grootste bron van slechte
+In de praktijk de grootste bron van slechte
 antwoorden: correcte cijfers, verkeerde tabel of verkeerde periode.
 VAKTERMEN (met de maatregel erbij):
 · routing rules — vaste regels welke bron bij welk onderwerp hoort (VSV→CBS, prognoses→DUO,
-  actueel→RIO, historie→CBS/DUO). Maatregel: die regels staan in de systeemprompt.
-· capability-based filtering — alleen datasets tonen die de chat écht kan laden en gebruiken;
-  archief (60% van de CBS-sets!) en niet-laadbare leveranciers eruit. Maatregel: filter in de
-  zoekfunctie.
+  actueel→RIO, historie→CBS/DUO). 
+· capability-based filtering — in gewone taal: laat de chat alleen datasets zíen die hij ook
+  echt kán ophalen en verwerken. De catalogus van CBS/DUO staat vol met sets die de chat
+  technisch niet kan laden — puur archief (bij CBS ~60% is verouderd/gearchiveerd), of van een
+  leverancier waar geen werkende koppeling voor is. Zonder filter koos het model soms zo'n set,
+  begon te laden, en kreeg niets of iets kapots terug. "kan de chat er iets mee?"; alleen die sets blijven zichtbaar. 
 · veldgewogen ranking — een treffer in de TITEL weegt zwaarder dan diep in de omschrijving, plus
-  onderwijssynoniemen ("uitval" vindt ook "voortijdig schoolverlaten"). Maatregel: betere
-  catalogus-zoekfunctie.
+  onderwijssynoniemen ("uitval" vindt ook "voortijdig schoolverlaten"). 
 Voorbeeld: schooljaarcodering 2022SJ00 — een off-by-one die geen foutmelding gaf en alleen
 opviel als je het antwoord al kende. Bij DUO speelt dezelfde: jaar 2022 = peildatum 1-10-2022.
 -->
@@ -528,7 +468,7 @@ opviel als je het antwoord al kende. Bij DUO speelt dezelfde: jaar 2022 = peilda
 </div>
 
 <!--
-PRESENTER — Raakt problemen 10 t/m 16. De gevaarlijkste fouten geven geen foutmelding.
+PRESENTER —  De gevaarlijkste fouten geven geen foutmelding.
 VAKTERMEN (met de maatregel erbij):
 · cache key collision — twee opvragingen kregen hetzelfde opslaglabel, de tweede overschreef
   de eerste (grafiek "mannen" toonde vrouwendata). Maatregel: het filter meenemen in het label.
@@ -539,11 +479,11 @@ VAKTERMEN (met de maatregel erbij):
 · audit logging — elke vraag, elk antwoord, elke functie-aanroep en cataloguszoekopdracht wordt
   vastgelegd, ook in productie. Maatregel: fouten zijn terug te vinden — zo is de VU-fout ontdekt.
 
-WAT ZIJN EVAL-SCORES (als iemand vraagt): we hebben een "golden dataset" — productievragen
-waarvan we vooraf hebben uitgezocht welke dataset erbij hoort, welke stappen, welke getallen
+EVAL-SCORES : we hebben een "golden dataset" — productievragen waarvan we vooraf hebben uitgezocht welke dataset erbij hoort, welke stappen, welke getallen
 (met speling) en welke woorden in het antwoord horen. Een script legt elk model dezelfde vragen
-voor en geeft een cijfer op 100, opgebouwd uit 6 criteria: juiste tools gebruikt · data echt
-opgehaald · via een script gerekend · grafiek gemaakt · niets verzonnen · bronnen vermeld.
+voor en geeft een cijfer op 100,
+
+ opgebouwd uit 6 criteria: juiste tools gebruikt · data echtopgehaald · via een script gerekend · grafiek gemaakt · niets verzonnen · bronnen vermeld.
 Bij ons: DeepSeek R1 88, Hy3 82, Haiku 60 (Haiku koos vaak de verkeerde bron). Zo kiezen we een
 model op meetbare prestaties i.p.v. onderbuikgevoel, en elke gevonden fout wordt een nieuwe
 testvraag zodat hij niet stil kan terugkeren.
@@ -557,15 +497,12 @@ testvraag zodat hij niet stil kan terugkeren.
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">De afwegingen</p>
-    <h1 style="color: #FFFFFF !important; font-size: 2.7rem;">Wat iedereen voorstelt, en wij niet doen</h1>
+    <h1 style="color: #FFFFFF !important; font-size: 2.7rem;">Andere opties — en welke wij kozen</h1>
   </div>
 </div>
 
 <!--
-PRESENTER — ± 12 min · GESPREK. Het interessantste deel voor dit publiek — zij hebben
-deze suggesties zelf al klaarliggen. OPEN MET EEN VRAAG en verzamel op de flip-over
-vóór je de volgende slide onthult: "Als je dit hoort — hallucinerende AI op cijfers —
-wat zou jíj inzetten?" Meestal komen precies de drie op de volgende slide langs.
+PRESENTER — Zijn er nog stappen die jullie zouden inzetten?
 -->
 
 ---
@@ -600,7 +537,7 @@ wat zou jíj inzetten?" Meestal komen precies de drie op de volgende slide langs
 </div>
 
 <!--
-PRESENTER — Pas onthullen ná het uitlokken. Per suggestie: waarom niet, en de nuance.
+PRESENTER — 
 1. Bijtrainen op onze data (fine-tuning = het model op eigen voorbeelden verder trainen;
    RLHF = bijsturen met menselijke voorkeuren). Waarom niet: we draaien modellen van derden
    en kunnen hun gewichten niet aanpassen; het vraagt duizenden voorbeelden; en de fouten
@@ -620,8 +557,7 @@ dezelfde productievragen; per vraag checkt een script 6 dingen (juiste tools · 
 via script gerekend · grafiek · niets verzonnen · bronnen vermeld). Bij ons: DeepSeek R1 88,
 Hy3 82, Haiku 60. Daarom kiezen we "selecteren op eval-scores" i.p.v. het model bijtrainen.
 
-RODE DRAAD: geen idee is onzin, ze passen alleen niet bij dit probleem — of lossen iets op wat
-we anders al opgelost hebben. Dat onderscheid maken is het echte werk.
+
 -->
 
 ---
@@ -640,17 +576,17 @@ we anders al opgelost hebben. Dat onderscheid maken is het echte werk.
 - **Elk getal automatisch narekenen** — een controle die ieder getal in de tekst terugzoekt in de opgehaalde cijfers.
 - **Duim omhoog / omlaag** — een knop om een fout antwoord aan te wijzen; elke bevestigde fout wordt een nieuwe testvraag.
 - **De testset verzwaren** — nu toetst hij vooral het makkelijke pad. Toevoegen: strikvragen (onmogelijke combinaties — geeft het model dat toe of strijkt het glad?) én misleidingspogingen (instructies verstopt in een geüpload bestand).
-- **Begrippen vastleggen in code** — één plek waar staat wat "instroom" of "marktaandeel" precies is: een regel wordt een garantie.
+- **Begrippen vastleggen in code** — één plek waar staat wat "instroom" of "marktaandeel" precies is: een regel wordt een garantie. https://www.informatie-encyclopedie.nl/
 
 </div>
 
 </div>
 
 <!--
-PRESENTER — ± 4 min · vertellen. Kort houden, geen uitweiding — dit is een rijtje.
-Correspondeert met de open/deels-problemen (2, 14, 15, 18, 19).
-Toelichting per punt indien gevraagd:
+PRESENTER —Kort houden, geen uitweiding — dit is een rijtje.
+
 · Narekencontrole = het grootste resterende gat, met gewone code te dichten.
+· Duim dit is niet 'fout', als in feitelijk incorrect. Maar 'fout' als in vanuit gebruiker niet prettig
 · Testset verzwaren = die test nu vooral het makkelijke pad. Twee soorten die er nog bij moeten,
   allebei testset-werk: (a) strikvragen — de gevaarlijkste fout is een zelfverzekerd antwoord op
   een vraag die de data niet kan beantwoorden; (b) misleidingspogingen — nu de tool bij externe
@@ -673,11 +609,12 @@ Toelichting per punt indien gevraagd:
 </div>
 
 <!--
-PRESENTER — ± 12 min · SAMEN DOEN. De kern van een summer school-workshop: niet laten zien
-dát het werkt, maar samen ontdekken waar het (nog) niet klopt. Laat de zaal vragen aandragen
-— ook de twee die je in de demo noteerde — en stel ze live in de app.
+PRESENTER — SAMEN DOEN. De kern van een summer school-workshop: niet laten zien dát het werkt, maar samen ontdekken waar het (nog) niet klopt. 
+De gedeelde vraag:Wat is het marktaandeel van HU in Utrecht?
+Verken de interface:instellingen en pas je rol aan (bestuurder / docent / onderzoeker): verandert het antwoord?
+Fouten in de chat:stel een vraag waarvan je het antwoord al weet, of waarvan je vermoedt dat chat hem niet aankan.
 
-GOEDE VRAGEN OM AAN TE REIKEN (elk raakt een cluster uit stap 4):
+VRAGEN OM AAN TE REIKEN (elk raakt een cluster uit stap 4):
 · Iets over een schooljaar — wordt het juiste jaar gebruikt? (cluster B)
 · Voortijdig schoolverlaten — welke bron wordt gekozen? (cluster B)
 · Een marktaandeel in een regio — gaat het over waar de student woont of waar de school staat?
@@ -688,13 +625,54 @@ GOEDE VRAGEN OM AAN TE REIKEN (elk raakt een cluster uit stap 4):
 · Iets waarvan je zeker weet dat de data het niet kan beantwoorden — geeft de chat dat toe of
   verzint hij iets? (cluster C / eval)
 
-AFSLUITEN — zeg dit hardop: "Vond iemand een fout? Geef de vraag, het antwoord en het moment
-door." Met het logboek is terug te halen welke datasets zijn overwogen, welke is gekozen en
-welke berekening is gedaan. Elke bevestigde fout kan een testvraag worden — en dan kan hij niet
-stil terugkeren. Sluit af: feedback en suggesties zijn precies waarvoor deze sessie bedoeld is.
+
 -->
 
 ---
 
 <!-- AFSLUITSLIDE (Slide17.PNG) — geen tekst -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
+
+---
+
+<!-- OPDRACHT — blijft staan tijdens het zelf proberen (Slide3.PNG) -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<p class="eyebrow">Jullie beurt</p>
+
+# Zelf aan de slag 
+
+
+<div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.4rem; font-size: 0.92rem;">
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-orange);">1</span>
+    <div><strong>De gedeelde vraag</strong> <span class="muted">—  "Wat is het marktaandeel van HU in Utrecht?"</span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-blue);">2</span>
+    <div><strong>Verken de interface</strong> <span class="muted">— ga naar <strong>instellingen</strong> en pas je rol aan (bestuurder / docent / onderzoeker): verandert het antwoord? </span></div>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 0.7rem;">
+    <span class="np-num" style="background: var(--np-green);">3</span>
+    <div><strong>Fouten in de chat</strong> <span class="muted">— stel een vraag waarvan je het antwoord al weet, of waarvan je vermoedt dat chat hem niet aankan.</span></div>
+  </div>
+</div>
+
+<div class="np-bottomline" style="margin-top: 0.8rem;">
+  Vond je een fout? <strong>Laat het ons weten</strong> — elke bevestigde fout wordt een nieuwe testvraag.
+</div>
+
+</div>
+
+<!--
+PRESENTER — Deze slide laat je stáán tijdens het zelf proberen, zodat groepjes kunnen
+teruglezen wat de bedoeling is. Drie blokken:
+(1) een gedeelde vraag zodat we achteraf kunnen vergelijken — de marktaandeel-vraag is
+    bewust dubbelzinnig (woon- vs studieplaats, cluster B);
+(2) de interface verkennen (rol wisselen in instellingen, stappen uitklappen, vervolgvraag)
+    zodat mensen écht klikken i.p.v. één vraag stellen en afhaken;
+(3) vrije ruimte om hem te breken.
+Sluit na ~10 min af met een korte flip-over-ronde: "wie kreeg wat?"
+-->
