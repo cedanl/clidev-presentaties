@@ -138,7 +138,7 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 </div>
 <div style="font-size: 0.88rem; line-height: 1.6;">
 
-- **Rapport** exporteerbaar en instelbaar (chat-interactie is out of scope)
+- **Rapport** exporteerbaar en instelbaar, zodat instellingen het indien gewenst gemakkelijk kunnen delen (chat-interactie is out of scope)
 - **Verwijzing Handboek Selectie** bij uitkomsten en beleidskeuzes
 - **Cohorten** vergelijken; alvast experimenteren met de **selectiedata-template**
 
@@ -243,28 +243,28 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 
 # Drie werkpakketten, dan borgen
 
-<p class="np-subtitle">Elk deel een werkpakket, steeds in co-creatie met 3 à 4 instellingen. Daarna adoptie en overdracht.</p>
+<p class="np-subtitle">Elk werkpakket is een afgebakend geheel, steeds in co-creatie met 3 à 4 instellingen. Daarna adoptie en overdracht.</p>
 
 <div class="np-grid-3" style="margin-top: 0.4rem; align-items: start;">
   <div class="np-card accent-blue">
     <span class="np-badge blue">WP1 · nov '26 – feb '27</span>
-    <h3 style="margin-top: 0.5rem;">Deel 1 + kick-off</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Opschalingsworkshop, deel 1, extra technisch testen en valideren.</p>
+    <h3 style="margin-top: 0.5rem;">Resultaten + kick-off</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Opschalingsworkshop, verbetering MVP en integratie van <strong>vakresultaten</strong> en vooropleidingscijfers.</p>
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">WP2 · mrt – jun '27</span>
-    <h3 style="margin-top: 0.5rem;">Deel 2 interne evaluatie</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">In co-creatie met de actieve gebruikersgroep van instellingen en opleidingen.</p>
+    <h3 style="margin-top: 0.5rem;">Fairness binnen selectie</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Data van álle deelnemers aan de selectie, met als doel inzicht in <strong>diversiteit en fairness</strong>.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">WP3 · sep – dec '27</span>
-    <h3 style="margin-top: 0.5rem;">Deel 3 weging</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Scope aanpasbaar i.o.m. het NKO — of juist doorontwikkeling WP1/WP2.</p>
+    <h3 style="margin-top: 0.5rem;">Weging binnen selectie</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Weging evalueren en via simulatie een advies. <strong>Scope aanpasbaar</strong> i.o.m. het NKO.</p>
   </div>
 </div>
 
 <div class="np-bottomline" style="margin-top: 0.7rem;">
-  <strong>€50k software per werkpakket</strong> · daarna 2027–2030 <strong>adoptie</strong> tot <strong>€30k/jaar</strong> (werkelijke kosten): workshops, webinars, website, overdracht.
+  <strong>€50k software per werkpakket</strong> · daarna 2027–2030 <strong>adoptie</strong> tot <strong>€30k/jaar</strong> (werkelijke kosten): workshops, webinars, vindbaar via het Onderwijskennis-portal van NKO, overdracht.
 </div>
 
 </div>
@@ -287,9 +287,9 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 
 | Onderdeel | Periode | Bedrag |
 |-----------|---------|-------:|
-| **WP1** — Deel 1 + kick-off | nov '26 – feb '27 | € 50.000 |
-| **WP2** — Deel 2 interne evaluatie | mrt – jun '27 | € 50.000 |
-| **WP3** — Deel 3 weging | sep – dec '27 | € 50.000 |
+| **WP1** — Resultaten + kick-off | nov '26 – feb '27 | € 50.000 |
+| **WP2** — Fairness binnen selectie | mrt – jun '27 | € 50.000 |
+| **WP3** — Weging binnen selectie | sep – dec '27 | € 50.000 |
 | **Werkpakketten samen** | 2026 – 2027 | **€ 150.000** |
 
 </div>
@@ -297,7 +297,7 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
   <div class="np-card accent-orange">
     <h3>Twee typen activiteiten</h3>
     <p style="font-size: 0.88rem; color: var(--np-dark-gray); line-height: 1.55; margin: 0.4rem 0 0;">
-      <strong>Software</strong>: de werkpakketten, vaste prijs €50k, concreet deel als resultaat.
+      <strong>Software</strong>: de werkpakketten, vaste prijs €50k, met specifiek kader.
     </p>
     <p style="font-size: 0.88rem; color: var(--np-dark-gray); line-height: 1.55; margin: 0.5rem 0 0;">
       <strong>Adoptie</strong>: plafond €30k/jaar (2027–2030), alleen naar daadwerkelijk gemaakte kosten.
@@ -307,7 +307,7 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 </div>
 
 <div class="np-bottomline" style="margin-top: 0.9rem;">
-  Gevraagd: <strong>€150k</strong> software (werkpakketten) + <strong>adoptie</strong> tot <strong>€30k/jaar</strong> (2027–2030) o.b.v. werkelijke kosten.
+  Gevraagd: <strong>€150k</strong> software in cocreatie (werkpakketten) + <strong>adoptie</strong> tot <strong>€30k/jaar</strong> (2027–2030) o.b.v. werkelijke kosten.
 </div>
 
 </div>

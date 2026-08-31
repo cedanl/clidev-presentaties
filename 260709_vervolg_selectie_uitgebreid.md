@@ -331,7 +331,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 <div class="np-grid-2" style="margin-top: 0.5rem; align-items: start;">
   <div class="np-card accent-green">
     <h3>Rapport</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Goed exporteerbaar maken en instelbaar. Optioneel (en alleen geaggregeerd) delen met CEDA. <strong>Out of scope:</strong> interactie via chat (AI Hub).</p>
+    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Goed exporteerbaar maken en instelbaar, zodat instellingen het indien gewenst gemakkelijk kunnen delen. <strong>Out of scope:</strong> interactie via chat.</p>
   </div>
   <div class="np-card accent-blue">
     <h3>Verwijzing Handboek Selectie</h3>
@@ -441,7 +441,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 # Drie werkpakketten
 
-<p class="np-subtitle">Elk werkpakket levert een deel op — steeds in co-creatie met een actieve groep van 3 à 4 instellingen.</p>
+<p class="np-subtitle">Elk werkpakket is een afgebakend geheel — steeds in co-creatie met een actieve groep van 3 à 4 instellingen.</p>
 
 <div class="np-grid-3" style="margin-top: 0.4rem; align-items: start;">
   <div class="np-card accent-blue">
@@ -451,13 +451,13 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">WP2 · mrt – jun '27</span>
-    <h3 style="margin-top: 0.5rem;">Fairnes binnen selectie</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Focus op data die bekend is van alle deelnemers aan de selectie met als resultaat inzicht in de <strong>diversiteit en fairness</strong> van de selectiepprocedure.</p>
+    <h3 style="margin-top: 0.5rem;">Fairness binnen selectie</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Focus op data die bekend is van alle deelnemers aan de selectie met als doel inzicht in de <strong>diversiteit en fairness</strong> van de selectiepprocedure.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">WP3 · sep – dec '27</span>
     <h3 style="margin-top: 0.5rem;">Weging binnen selectie</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Weging van diverse onderdelen evalueren en d.m.v. simulatie optimale weging adviseren. <strong>Scope aanpasbaar</strong> in afstemming met het NKO</p>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Weging van diverse onderdelen evalueren en d.m.v. simulatie een advies over de weging. <strong>Scope aanpasbaar</strong> in afstemming met het NKO</p>
   </div>
 </div>
 
@@ -517,13 +517,13 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
   <div class="np-card accent-blue">
     <span class="np-badge blue">2027</span>
     <p style="font-size: 0.72rem; color: var(--np-dark-gray); line-height: 1.45; margin: 0.4rem 0 0;">
-      ≥1 workshop + 1 webinar (vóór en na de zomer). Start <strong>website met ondersteuningsmateriaal</strong> — gebruik én randvoorwaarden (databronnen, netwerken, compliance). Presentaties bij overleggen en conferenties.
+      ≥1 workshop + 1 webinar (vóór en na de zomer). Tenminste vindbaar via Onderwijskennis portal van NKO, met daarbij (verwijzingen naar) <strong>ondersteuningsmateriaal</strong> — gebruik én randvoorwaarden (databronnen, netwerken, compliance). Presentaties bij overleggen en conferenties.
     </p>
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">2028</span>
     <p style="font-size: 0.72rem; color: var(--np-dark-gray); line-height: 1.45; margin: 0.4rem 0 0;">
-      ≥1 workshop + 1 webinar. <strong>Evaluatie met de betrokken instellingen</strong>. Website afronden. Presentaties + ad-hoc ondersteuning. Start verkenning duurzame borging.
+      ≥1 workshop + 1 webinar. <strong>Evaluatie met de betrokken instellingen</strong>. Ondersteuningsmateriaal beschikbaar maken. Presentaties + ad-hoc ondersteuning. Start verkenning duurzame borging.
     </p>
   </div>
   <div class="np-card accent-orange">
@@ -577,9 +577,9 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 | Onderdeel | Periode | Bedrag |
 |-----------|---------|-------:|
-| **WP1** — Deel 1 + kick-off | nov '26 – feb '27 | € 50.000 |
-| **WP2** — Deel 2 interne evaluatie | mrt – jun '27 | € 50.000 |
-| **WP3** — Deel 3 weging | sep – dec '27 | € 50.000 |
+| **WP1** — Resultaten + kick-off | nov '26 – feb '27 | € 50.000 |
+| **WP2** — Fairness binnen selectie | mrt – jun '27 | € 50.000 |
+| **WP3** — Weging binnen selectie | sep – dec '27 | € 50.000 |
 | **Werkpakketten samen** | 2026 – 2027 | **€ 150.000** |
 
 </div>
@@ -587,7 +587,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
   <div class="np-card accent-orange">
     <h3>Twee typen activiteiten</h3>
     <p style="font-size: 0.88rem; color: var(--np-dark-gray); line-height: 1.55; margin: 0.4rem 0 0;">
-      <strong>Software</strong> — de werkpakketten, vaste prijs €50k, elk een concreet deel als resultaat.
+      <strong>Software</strong> — de werkpakketten, vaste prijs €50k, met specifiek kader.
     </p>
     <p style="font-size: 0.88rem; color: var(--np-dark-gray); line-height: 1.55; margin: 0.5rem 0 0;">
       <strong>Adoptie</strong> — plafond €30k/jaar (2027–2030), alleen benut naar daadwerkelijk gemaakte kosten.
@@ -597,7 +597,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 </div>
 
 <div class="np-bottomline" style="margin-top: 0.9rem;">
-  Gevraagd: <strong>€150k</strong> software (werkpakketten, 2026–2027) + <strong>adoptie</strong> tot <strong>€30k/jaar</strong> (2027–2030) o.b.v. werkelijke kosten.
+  Gevraagd: <strong>€150k</strong> software in cocreatie (werkpakketten, 2026–2027) + <strong>adoptie</strong> tot <strong>€30k/jaar</strong> (2027–2030) o.b.v. werkelijke kosten.
 </div>
 
 </div>
