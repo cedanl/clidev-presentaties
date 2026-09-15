@@ -250,9 +250,9 @@ Dit is de kern. Analytics is geen vervanging van de menselijke relatie — het i
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 3</p>
-    <h1 style="color: var(--np-white, #fff); font-size: 3rem;">Beginnen</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Concrete eerste stappen voor je instelling</p>
+    <p class="eyebrow">Deel 3</p>
+    <h1 style="color: var(--np-ink); font-size: 3rem;">Beginnen</h1>
+    <p style="color: var(--np-ink); font-size: 1.15rem; margin-top: 0.5rem; opacity: 0.7;">Concrete eerste stappen voor je instelling</p>
   </div>
 </div>
 
