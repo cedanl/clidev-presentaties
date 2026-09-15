@@ -84,15 +84,13 @@ mdc: true
 <p class="np-subtitle">Uitval wordt zichtbaar als het al te laat is.</p>
 
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: center; gap: 2.5rem;">
-<div style="font-size: 0.9rem; line-height: 1.8;">
-
-- Risicosignalen zijn zichtbaar in data, maar niemand leest ze
-- Studieadviseurs reageren op meldingen — niet op patronen
-- Elke instelling herontdekt hetzelfde wiel, apart
-- Interventies zijn niet gekoppeld aan bewijs van wat werkt
-- Privacy-angst blokkeert datagebruik voordat het begint
-
-</div>
+<ul style="font-size: 0.9rem; line-height: 1.8; padding-left: 1.3rem; margin: 0;">
+  <li>Risicosignalen zijn zichtbaar in data, maar niemand leest ze</li>
+  <li>Studieadviseurs reageren op meldingen — niet op patronen</li>
+  <li>Elke instelling herontdekt hetzelfde wiel, apart</li>
+  <li>Interventies zijn niet gekoppeld aan bewijs van wat werkt</li>
+  <li>Privacy-angst blokkeert datagebruik voordat het begint</li>
+</ul>
 <div style="display: flex; justify-content: center; align-items: center;">
   <img src="/npuls/powerpoint_illustrations/learninganalystics.svg" style="width: 210px;" />
 </div>
@@ -191,15 +189,13 @@ mdc: true
 <p class="np-subtitle">Instellingen die vooropliggen, doen vier dingen anders.</p>
 
 <div class="np-grid-2" style="margin-top: 0.5rem; align-items: center; gap: 2.5rem;">
-<div style="font-size: 0.9rem; line-height: 1.8;">
-
-- **Tijdige feedback** verlaagt uitval met 8 tot 15 procentpunt
-- Studenten reageren op persoonlijk contact, niet op bulk-mail
-- Docenten gebruiken dashboards alleen als ze intuïtief zijn
-- Kleine interventies op het juiste moment hebben groot effect
-- Succes begint bij **vertrouwen in data**, niet bij betere tools
-
-</div>
+<ul style="font-size: 0.9rem; line-height: 1.8; padding-left: 1.3rem; margin: 0;">
+  <li><strong>Tijdige feedback</strong> verlaagt uitval met 8 tot 15 procentpunt</li>
+  <li>Studenten reageren op persoonlijk contact, niet op bulk-mail</li>
+  <li>Docenten gebruiken dashboards alleen als ze intuïtief zijn</li>
+  <li>Kleine interventies op het juiste moment hebben groot effect</li>
+  <li>Succes begint bij <strong>vertrouwen in data</strong>, niet bij betere tools</li>
+</ul>
 <div style="display: flex; justify-content: center; align-items: center;">
   <img src="/npuls/powerpoint_illustrations/hersenen.svg" style="width: 210px;" />
 </div>
@@ -215,7 +211,7 @@ mdc: true
 <div style="display: grid; grid-template-columns: 38% 62%; height: 100%; align-items: center;">
   <div style="padding: 2.5rem 1rem 2.5rem 2.8rem;">
     <p class="eyebrow">Aanpak</p>
-    <h2 style="font-size: 1.9rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--np-orange);">
+    <h2 style="font-size: 1.9rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--np-ink);">
       Vier stappen<br/>naar impact
     </h2>
     <p class="muted" style="font-size: 0.85rem; line-height: 1.6;">Van data verzamelen naar studenten die beter slagen.</p>
@@ -335,15 +331,13 @@ mdc: true
 <p class="np-subtitle">Vertrouwen is de basis — niet een juridisch checkbox.</p>
 
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: center; gap: 2.5rem;">
-<div style="font-size: 0.9rem; line-height: 1.8;">
-
-- Studenten accepteren datagebruik als het **doel helder** is
-- Transparantie over welke data, waarvoor en hoe lang
-- Opt-in werkt beter dan opt-out voor langetermijn vertrouwen
-- Recht op inzage en correctie versterkt acceptatie
-- Privacy by design is goedkoper dan achteraf repareren
-
-</div>
+<ul style="font-size: 0.9rem; line-height: 1.8; padding-left: 1.3rem; margin: 0;">
+  <li>Studenten accepteren datagebruik als het <strong>doel helder</strong> is</li>
+  <li>Transparantie over welke data, waarvoor en hoe lang</li>
+  <li>Opt-in werkt beter dan opt-out voor langetermijn vertrouwen</li>
+  <li>Recht op inzage en correctie versterkt acceptatie</li>
+  <li>Privacy by design is goedkoper dan achteraf repareren</li>
+</ul>
 <div style="display: flex; justify-content: center; align-items: center;">
   <img src="/npuls/powerpoint_illustrations/Slot.svg" style="width: 140px;" />
 </div>
