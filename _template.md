@@ -60,6 +60,35 @@ Sprekersnotities horen in een HTML-commentaarblok onderaan elke slide.
 
 ---
 
+<!-- VASTE CEDA-SLIDE (Slide16.PNG) — woordelijk overnemen, niet aanpassen
+     of weglaten. Staat vroeg in elk deck (direct na de agenda, vóór de
+     eerste hoofdstukdivider), zodat elke luisteraar al weet wie CEDA is
+     voordat de inhoud begint. Zie SKILL.md, sectie "Vaste CEDA-slide". -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide16.PNG);"></div>
+
+<!-- De roze rechthoek in Slide16.PNG begint exact bij 50% breedte (niet 60%);
+     content-kolom eindigt daarom ruim vóór 50%. -->
+<div style="position: absolute; inset: 0; display: grid; grid-template-columns: 50% 50%;">
+  <div style="display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 2.2rem 2.2rem 3rem;">
+    <p class="eyebrow">Wie is CEDA</p>
+    <h1 style="font-size: 1.7rem;">Centre of Educational Data Analytics</h1>
+    <p class="np-subtitle" style="margin-top: 0.4rem; max-width: 100%;">Eén team binnen Npuls. Van ruwe data tot AI-toepassing, open source.</p>
+    <ul style="font-size: 0.86rem; line-height: 1.6;">
+      <li>Data, analytics en generatieve AI in één keten</li>
+      <li>Altijd in co-creatie met mbo, hbo en wo</li>
+      <li>Open source, voor elke instelling</li>
+    </ul>
+    <p class="muted" style="font-size: 0.76rem; margin-top: 0.8rem; line-height: 1.7;">
+      <strong style="color: var(--np-blue);">GitHub</strong> github.com/cedanl &middot;
+      <strong style="color: var(--np-green);">Community</strong> community.npuls.nl/groups/data-ai &middot;
+      <strong style="color: var(--np-orange);">Email</strong> ceda@surf.nl
+    </p>
+  </div>
+  <div></div>
+</div>
+
+---
+
 <!-- HOOFDSTUKDIVIDER (Slide13/14/15.PNG) — witte tekst verplicht, geen bullets -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide14.PNG);"></div>
 
@@ -286,33 +315,6 @@ print(df.head())
 </div>
 </div>
 
-</div>
-
----
-
-<!-- VASTE CEDA-SLIDE (Slide16.PNG) — woordelijk overnemen, niet aanpassen
-     of weglaten. Elke CEDA/Npuls-presentatie sluit hiermee af (direct vóór
-     de afsluitslide), zodat elke luisteraar dezelfde, consistente uitleg
-     over CEDA krijgt. Zie SKILL.md, sectie "Vaste CEDA-slide". -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide16.PNG);"></div>
-
-<div style="position: absolute; inset: 0; display: grid; grid-template-columns: 60% 40%;">
-  <div style="display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 3.5rem 2.2rem 3rem;">
-    <p class="eyebrow">Wie is CEDA</p>
-    <h1 style="font-size: 2rem;">Centre of Educational Data Analytics</h1>
-    <p class="np-subtitle" style="margin-top: 0.4rem; max-width: 100%;">Eén team binnen Npuls. Eén keten, van ruwe data tot AI-toepassing — open source, gebouwd om te delen.</p>
-    <ul style="font-size: 0.88rem; line-height: 1.7;">
-      <li>Preparatie, analytics en generatieve AI in één doorlopende keten</li>
-      <li>Altijd in co-creatie met mbo, hbo en wo</li>
-      <li>Alles open source, direct beschikbaar voor elke instelling</li>
-    </ul>
-    <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.9rem; font-size: 0.82rem;">
-      <div><span class="np-badge blue">GitHub</span> <span class="muted" style="margin-left: 0.4rem;">github.com/cedanl</span></div>
-      <div><span class="np-badge green">Community</span> <span class="muted" style="margin-left: 0.4rem;">community.npuls.nl/groups/data-ai</span></div>
-      <div><span class="np-badge orange">Email</span> <span class="muted" style="margin-left: 0.4rem;">ceda@surf.nl</span></div>
-    </div>
-  </div>
-  <div></div>
 </div>
 
 ---
