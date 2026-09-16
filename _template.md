@@ -290,5 +290,28 @@ print(df.head())
 
 ---
 
+<!-- VASTE CEDA-SLIDE (Slide16.PNG) — woordelijk overnemen, niet aanpassen
+     of weglaten. Elke CEDA/Npuls-presentatie sluit hiermee af (direct vóór
+     de afsluitslide), zodat elke luisteraar dezelfde, consistente uitleg
+     over CEDA krijgt. Zie SKILL.md, sectie "Vaste CEDA-slide". -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide16.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: grid; grid-template-columns: 60% 40%;">
+  <div style="display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 3.5rem 2.2rem 3rem;">
+    <p class="eyebrow">Wie is CEDA</p>
+    <h1 style="font-size: 2rem;">Centre of Educational Data Analytics</h1>
+    <p class="np-subtitle" style="margin-top: 0.4rem; max-width: 100%;">Eén team binnen Npuls. Eén keten, van ruwe data tot AI-toepassing — open source, gebouwd om te delen.</p>
+    <ul style="font-size: 0.88rem; line-height: 1.7;">
+      <li>Preparatie, analytics en generatieve AI in één doorlopende keten</li>
+      <li>Altijd in co-creatie met mbo, hbo en wo</li>
+      <li>Alles open source, direct beschikbaar voor elke instelling</li>
+    </ul>
+    <p style="font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.9rem;">Tweede verdieping, Npuls-vleugel, naast het SURF-restaurant &middot; vrijwel elke dinsdag en donderdag</p>
+  </div>
+  <div></div>
+</div>
+
+---
+
 <!-- AFSLUITSLIDE (Slide17.PNG) — geen tekst -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
