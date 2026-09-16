@@ -39,6 +39,15 @@
   --np-pink:   #F4D9DC;
   --np-black:  #000000;
 
+  /* Secondaire/lichte varianten, 1-op-1 uit vormgever-npuls-huisstijl
+     (colors.secondary in design-tokens.json). Gebruikt o.a. als classDef-
+     vulkleur in mermaid-diagrammen (zie clidev SKILL.md, sectie Mermaid). */
+  --np-light-blue:   #D6E2FD;
+  --np-light-orange: #FFE4D8;
+  --np-light-green:  #CCEEE6;
+  --np-light-yellow: #FCF5D4;
+  --np-light-pink:   #FAEAEA;
+
   --np-dark-blue:  #1B2A6B;
   --np-ink:        #1A1A2E;
   --np-dark-gray:  #374151;
@@ -127,6 +136,13 @@ code {
   font-size: 1rem;
   margin: 0 0 0.9rem;
   max-width: 760px;
+}
+
+/* ---- Live dashboard embeds ----
+   The iframe shows the live tab during the talk; in PDF export it is hidden
+   so the screenshot behind it (the fallback) is what gets rendered. */
+@media print {
+  .embed-live { display: none !important; }
 }
 
 /* ---- Cards ---- */
