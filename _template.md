@@ -73,16 +73,11 @@ Sprekersnotities horen in een HTML-commentaarblok onderaan elke slide.
     <p class="eyebrow">Wie is CEDA</p>
     <h1 style="font-size: 1.7rem;">Centre of Educational Data Analytics</h1>
     <p class="np-subtitle" style="margin-top: 0.4rem; max-width: 100%;">Eén team binnen Npuls. Van ruwe data tot AI-toepassing, open source.</p>
-    <ul style="font-size: 0.86rem; line-height: 1.6;">
+    <ul style="font-size: 0.88rem; line-height: 1.7;">
       <li>Data, analytics en generatieve AI in één keten</li>
       <li>Altijd in co-creatie met mbo, hbo en wo</li>
       <li>Open source, voor elke instelling</li>
     </ul>
-    <p class="muted" style="font-size: 0.76rem; margin-top: 0.8rem; line-height: 1.7;">
-      <strong style="color: var(--np-blue);">GitHub</strong> github.com/cedanl &middot;
-      <strong style="color: var(--np-green);">Community</strong> community.npuls.nl/groups/data-ai &middot;
-      <strong style="color: var(--np-orange);">Email</strong> ceda@surf.nl
-    </p>
   </div>
   <div></div>
 </div>
@@ -319,5 +314,29 @@ print(df.head())
 
 ---
 
-<!-- AFSLUITSLIDE (Slide17.PNG) — geen tekst -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
+<!-- VASTE AFSLUITSLIDE (Slide1.PNG) — woordelijk overnemen, niet aanpassen
+     of weglaten. Altijd de laatste slide van het deck: bevat de vaste
+     CEDA-links, zodat ze zichtbaar blijven zodra het publiek vragen stelt.
+     De introslide (Slide16, na de agenda) bevat bewust geen links — die
+     staan alleen hier. Zie SKILL.md, sectie "Vaste afsluitslide". -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide1.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
+  <p class="eyebrow">Tot slot</p>
+  <h1 style="font-size: 2.6rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">Blijf in contact</h1>
+  <p style="font-size: 1.05rem; color: var(--np-dark-gray); max-width: 600px; line-height: 1.5;">Vragen, feedback of zin om mee te bouwen? We horen graag van je.</p>
+  <div style="display: flex; gap: 1rem; margin-top: 1.6rem; flex-wrap: wrap; justify-content: center;">
+    <div class="np-card accent-blue" style="padding: 0.9rem 1.4rem; text-align: center;">
+      <span class="np-badge blue">GitHub</span>
+      <p style="margin: 0.5rem 0 0; font-size: 0.86rem; color: var(--np-dark-gray);">github.com/cedanl</p>
+    </div>
+    <div class="np-card accent-green" style="padding: 0.9rem 1.4rem; text-align: center;">
+      <span class="np-badge green">Community</span>
+      <p style="margin: 0.5rem 0 0; font-size: 0.86rem; color: var(--np-dark-gray);">community.npuls.nl/groups/data-ai</p>
+    </div>
+    <div class="np-card accent-orange" style="padding: 0.9rem 1.4rem; text-align: center;">
+      <span class="np-badge orange">Email</span>
+      <p style="margin: 0.5rem 0 0; font-size: 0.86rem; color: var(--np-dark-gray);">ceda@surf.nl</p>
+    </div>
+  </div>
+</div>
