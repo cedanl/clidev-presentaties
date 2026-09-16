@@ -306,7 +306,11 @@ print(df.head())
       <li>Altijd in co-creatie met mbo, hbo en wo</li>
       <li>Alles open source, direct beschikbaar voor elke instelling</li>
     </ul>
-    <p style="font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.9rem;">Tweede verdieping, Npuls-vleugel, naast het SURF-restaurant &middot; vrijwel elke dinsdag en donderdag</p>
+    <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.9rem; font-size: 0.82rem;">
+      <div><span class="np-badge blue">GitHub</span> <span class="muted" style="margin-left: 0.4rem;">github.com/cedanl</span></div>
+      <div><span class="np-badge green">Community</span> <span class="muted" style="margin-left: 0.4rem;">community.npuls.nl/groups/data-ai</span></div>
+      <div><span class="np-badge orange">Email</span> <span class="muted" style="margin-left: 0.4rem;">ceda@surf.nl</span></div>
+    </div>
   </div>
   <div></div>
 </div>
