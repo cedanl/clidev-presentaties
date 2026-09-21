@@ -303,3 +303,43 @@ code {
 .text-center { text-align: center; }
 .muted { color: var(--np-mid-gray); }
 .fill { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 3rem; }
+
+/* ---- Tabel (np-table): kaartachtige tabel, leesbaar en toegankelijk ----
+   Gebruik: <div class="np-table" style="font-size: 0.8rem;"> markdown-tabel </div>
+   - kop in blauw met wit, voldoende contrast
+   - eerste kolom vet met oranje accent, zebra-strepen voor het volgen van een rij
+   - status als tekst in een badge (nooit alleen kleur) */
+.np-table { margin-top: 0.3rem; }
+.np-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(26, 26, 46, 0.06);
+}
+.np-table th {
+  background: var(--np-blue);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.55em 0.9em;
+}
+.np-table th strong { color: white; }
+.np-table td {
+  padding: 0.5em 0.9em;
+  border-top: 1px solid var(--np-light-gray);
+  vertical-align: middle;
+  color: var(--np-ink);
+}
+.np-table tbody tr:nth-child(even) td { background: var(--np-bg); }
+.np-table td:first-child {
+  font-weight: 600;
+  border-left: 4px solid var(--np-orange);
+}
+.np-table td strong { color: var(--np-ink); }
+/* badges in tabellen: donkere tekst op groen en oranje voor voldoende contrast */
+.np-table .np-badge { white-space: nowrap; }
+.np-table .np-badge.green, .np-table .np-badge.orange { color: var(--np-ink); }

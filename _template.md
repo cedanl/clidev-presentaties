@@ -281,10 +281,14 @@ print(df.head())
 
 # Slidetitel
 
+<div class="np-table" style="font-size: 0.86rem;">
+
 | Kolom A | Kolom B | Kolom C |
 |---------|---------|---------|
-| Waarde 1 | Waarde 2 | Waarde 3 |
-| Waarde 4 | Waarde 5 | Waarde 6 |
+| Waarde 1 | <span class="np-badge green">Ja</span> | Waarde 3 |
+| Waarde 4 | <span class="np-badge orange">Nee</span> | Waarde 6 |
+
+</div>
 
 </div>
 

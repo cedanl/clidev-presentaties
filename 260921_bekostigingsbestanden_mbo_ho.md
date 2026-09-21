@@ -286,7 +286,7 @@ mdc: true
 
 <p class="np-subtitle">Dezelfde vragen, in beide sectoren een bestand dat ze beantwoordt. Uitleg per term: zie de woordenlijst achterin.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Vraag** | **MBO** | **HO** |
 |-------|-----|----|
@@ -314,14 +314,14 @@ mdc: true
 
 <p class="np-subtitle">Wat de ene sector heeft en de andere niet. Gaat over gegevens en uitleg, niet over regels.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Onderwerp** | **HO** | **MBO** | **Waarom nuttig** |
 |---|---|---|---|
-| Bewerkt studentenbestand | 1CijferHO | Bestaat niet | Context en vergelijking |
-| Historisch overzicht | HISBEK | Niet gevonden | Rendement over jaren |
-| Aanleverdatum per inschrijving | Ja | Nee | Tijdigheid zichtbaar |
-| Kwaliteitscontrole, wekelijks | Niet gevonden | Ja | Een actielijst per week |
+| Bewerkt studentenbestand | 1CijferHO | <span class="np-badge orange">Bestaat niet</span> | Context en vergelijking |
+| Historisch overzicht | HISBEK | <span class="np-badge yellow">Niet gevonden</span> | Rendement over jaren |
+| Aanleverdatum per inschrijving | <span class="np-badge green">Ja</span> | <span class="np-badge orange">Nee</span> | Tijdigheid zichtbaar |
+| Kwaliteitscontrole, wekelijks | <span class="np-badge yellow">Niet gevonden</span> | <span class="np-badge green">Ja</span> | Een actielijst per week |
 | Uitkomst zonder aanvraag | Nee, alleen op aanvraag | Ja: TBG-i vier keer per jaar | Doorlopend volgen |
 | Uitleg bij een reden | Korte statuscode | Signaal met parameters | Rijkere uitleg per student |
 
@@ -407,7 +407,7 @@ mdc: true
 
 <p class="np-subtitle">Kleine verschillen, die samen veel handwerk kosten.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Onderdeel** | **MBO** | **HO** |
 |---|---|---|
@@ -437,7 +437,7 @@ mdc: true
 
 <p class="np-subtitle">Alleen beschreven. Er is geen advies aan verbonden.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Onderwerp** | **MBO** | **HO** |
 |---|---|---|
@@ -541,16 +541,16 @@ mdc: true
 
 <p class="np-subtitle">Zes soorten tools die wij kunnen bouwen op de bestanden zoals ze nu zijn.</p>
 
-<div style="font-size: 0.76rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.76rem;">
 
 | **Idee** | **Wat het toont** | **Voor** | **Zie bijlage** | **Stand** |
 | --- | --- | --- | --- | --- |
-| Waarom niet bekostigd | Aantallen per stap, uitleg in gewone taal, voorlopig naast definitief | Beide | B.1, B.2 | MBO-aantallen bestaan al |
-| Actielijst | Gegevens die de instelling kan nakijken of corrigeren | Beide | B.2, B.7 | Nog te bouwen. Aanname |
-| Waar gaan studenten heen | Blijft, wisselt, stapelt, stopt of begint | Beide | B.3 | HO bestaat al (wisselstroom) |
-| Rendement over jaren | Cohorten volgen en de tijd tot een graad | HO | B.4 | 1CijferHO doet dit al. HISBEK ook. Aanname |
-| Kwaliteit van aanlevering | Aanleveringstempo, terugkerende signalen, selecties voor de accountant | Beide | B.5, B.6 | Nog te bouwen |
-| Combineren | 1CijferHO of SIS erbij via het BSN, per locatie, open data | Beide | B.8-10 | Open data deels al |
+| Waarom niet bekostigd | Aantallen per stap, uitleg in gewone taal, voorlopig naast definitief | <span class="np-badge pink">Beide</span> | B.1, B.2 | MBO-aantallen bestaan al |
+| Actielijst | Gegevens die de instelling kan nakijken of corrigeren | <span class="np-badge pink">Beide</span> | B.2, B.7 | Nog te bouwen. Aanname |
+| Waar gaan studenten heen | Blijft, wisselt, stapelt, stopt of begint | <span class="np-badge pink">Beide</span> | B.3 | HO bestaat al (wisselstroom) |
+| Rendement over jaren | Cohorten volgen en de tijd tot een graad | <span class="np-badge green">HO</span> | B.4 | 1CijferHO doet dit al. HISBEK ook. Aanname |
+| Kwaliteit van aanlevering | Aanleveringstempo, terugkerende signalen, selecties voor de accountant | <span class="np-badge pink">Beide</span> | B.5, B.6 | Nog te bouwen |
+| Combineren | 1CijferHO of SIS erbij via het BSN, per locatie, open data | <span class="np-badge pink">Beide</span> | B.8-10 | Open data deels al |
 
 </div>
 
@@ -601,7 +601,7 @@ mdc: true
 
 <p class="np-subtitle">1 tot en met 4 zijn klein (bijpubliceren). 5 tot en met 8 zijn groter of vragen een privacytoets.</p>
 
-<div style="font-size: 0.7rem; overflow: visible; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.7rem;">
 
 | **Aanpassing** | **Wat houdt het in** | **Wat het oplevert of wat open is** |
 |---|---|---|
@@ -631,7 +631,7 @@ mdc: true
 
 <p class="np-subtitle">Wat er verandert voor tools en gebruikers als de bestanden meer op elkaar lijken.</p>
 
-<div style="font-size: 0.76rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.76rem;">
 
 | **Onderwerp** | **Nu** | **Na de aanpassingen** |
 |---|---|---|
@@ -765,16 +765,16 @@ mdc: true
 
 <p class="np-subtitle">Overeenstemming is geen uniformiteit.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Onderdeel** | **Gelijk maken?** | **Voorbeeld** | **Waarom** |
 |---|---|---|---|
-| Vorm | **Ja** | Datumnotatie, schema, bestandsnamen | Geen inhoudelijke reden voor verschil |
-| Sleutels | **Ja, waar mogelijk** | Codes uit één register, niet dezelfde codes | Voorkomt botsingen en vertaalfouten |
-| Begrippen | **Deels** | Diploma en graad | Gelijke namen, of een duidelijke vertaling |
-| Uitleg van redenen | **Ja, de indeling** | Statuscodes en signalen in dezelfde groepen | Categorieën bovenop de bestaande codes |
-| Sector-eigen onderdelen | **Nee** | Stage (MBO), joint degrees (HO) | Verschillen horen bij de sector |
-| Bekostigingsregels | **Buiten dit rapport** | Telmomenten, gewogen waarde | Alleen beschreven |
+| Vorm | <span class="np-badge green">Ja</span> | Datumnotatie, schema, bestandsnamen | Geen inhoudelijke reden voor verschil |
+| Sleutels | <span class="np-badge green">Ja, waar mogelijk</span> | Codes uit één register, niet dezelfde codes | Voorkomt botsingen en vertaalfouten |
+| Begrippen | <span class="np-badge yellow">Deels</span> | Diploma en graad | Gelijke namen, of een duidelijke vertaling |
+| Uitleg van redenen | <span class="np-badge green">Ja, de indeling</span> | Statuscodes en signalen in dezelfde groepen | Categorieën bovenop de bestaande codes |
+| Sector-eigen onderdelen | <span class="np-badge orange">Nee</span> | Stage (MBO), joint degrees (HO) | Verschillen horen bij de sector |
+| Bekostigingsregels | <span class="np-badge blue">Buiten dit rapport</span> | Telmomenten, gewogen waarde | Alleen beschreven |
 
 </div>
 
@@ -857,18 +857,18 @@ mdc: true
 
 <p class="np-subtitle">Wat het is: zie deel 3. De eerste stappen zijn ons voorstel en raken de regels niet.</p>
 
-<div style="font-size: 0.7rem; overflow: visible; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.7rem;">
 
 | **Aanpassing** | **Eerste stap** | **Wanneer** |
 |---|---|---|
-| 1. Schema | Publiceer per bestandssoort een tabel | **Nu** |
-| 2. Codelijsten | Publiceer als tabel, met groep en wat na te kijken | **Nu** |
-| 3. Beschrijving = praktijk | Controleer velden. Versienummer en wijzigingslog | **Nu** |
-| 4. Begrippen en redengroepen | Gezamenlijke lijst, codes in dezelfde groepen | **Nu** |
-| 5. Notatie | Eén notatie bij de volgende PvE-versie | Verkennen |
-| 6. Stabiele codes | Uitzoeken hoe RIO nu wordt gebruikt | Verkennen |
-| 7. Vanzelf laten komen | Begin met één bestand, bijvoorbeeld de TBG-i | Verkennen |
-| 8. Aanvullen | Vraag welke gegevens uit de andere sector zinvol zijn | Verkennen |
+| 1. Schema | Publiceer per bestandssoort een tabel | <span class="np-badge green">Nu</span> |
+| 2. Codelijsten | Publiceer als tabel, met groep en wat na te kijken | <span class="np-badge green">Nu</span> |
+| 3. Beschrijving = praktijk | Controleer velden. Versienummer en wijzigingslog | <span class="np-badge green">Nu</span> |
+| 4. Begrippen en redengroepen | Gezamenlijke lijst, codes in dezelfde groepen | <span class="np-badge green">Nu</span> |
+| 5. Notatie | Eén notatie bij de volgende PvE-versie | <span class="np-badge orange">Verkennen</span> |
+| 6. Stabiele codes | Uitzoeken hoe RIO nu wordt gebruikt | <span class="np-badge orange">Verkennen</span> |
+| 7. Vanzelf laten komen | Begin met één bestand, bijvoorbeeld de TBG-i | <span class="np-badge orange">Verkennen</span> |
+| 8. Aanvullen | Vraag welke gegevens uit de andere sector zinvol zijn | <span class="np-badge orange">Verkennen</span> |
 
 </div>
 
@@ -934,7 +934,7 @@ mdc: true
 
 <p class="np-subtitle">Daarnaast levert de instelling een assurance-rapport van de accountant, dat DUO vastlegt (MBO-PvE).</p>
 
-<div style="font-size: 0.68rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.68rem;">
 
 | **Bestand** | **Wat er in staat** | **Vorm en naam** |
 |---|---|---|
@@ -1008,7 +1008,7 @@ SLR  sluitrecord: aantallen</pre>
 
 <p class="np-subtitle">De bekostigingsbestanden van DUO voor een HO-instelling, en hoe ze eruitzien.</p>
 
-<div style="font-size: 0.68rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.68rem;">
 
 | **Bestand** | **Wat er in staat** | **Vorm en naam** |
 |---|---|---|
@@ -1080,7 +1080,7 @@ Analysebestand:
 
 <p class="np-subtitle">Tussen haakjes staat in welk bestand de regel voorkomt. Deels dezelfde codes, deels anders.</p>
 
-<div style="font-size: 0.74rem; overflow: visible; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.74rem;">
 
 | **Wat** | **MBO** | **HO** |
 |---|---|---|
@@ -1110,7 +1110,7 @@ Analysebestand:
 
 <p class="np-subtitle">Waar MBO en HO dezelfde soort gegevens anders indelen.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Onderwerp** | **MBO** | **HO** |
 |---|---|---|
@@ -1307,7 +1307,7 @@ Analysebestand:
 
 <p class="np-subtitle">Zo ziet een actielijst eruit: vijf controles uit het wekelijkse kwaliteitscontrolebestand (MBO).</p>
 
-<div style="font-size: 0.7rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.7rem;">
 
 | **Signaal van DUO** | **Wat DUO controleert** | **Wat de instelling kan doen** |
 |---|---|---|
@@ -1336,7 +1336,7 @@ Analysebestand:
 
 <p class="np-subtitle">De uitkomst volgt uit gegevens en regels. Herstellen gaat over de gegevens erachter.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Soort** | **Voorbeelden uit de PvE** | **Wat de instelling kan doen** |
 |---|---|---|
@@ -1465,7 +1465,7 @@ Analysebestand:
 
 <p class="np-subtitle">Nu staat elk veld in een PDF. Een schema is dezelfde lijst als tabel, zodat een tool hem kan lezen.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Positie** | **Veldnaam** | **Type** | **Verplicht** | **Codelijst** |
 |-------------|--------------|----------|---------------|---------------|
@@ -1570,7 +1570,7 @@ Analysebestand:
 
 <p class="np-subtitle">Zo toont een tool statuscodes in gewone taal, en groepeert ze.</p>
 
-<div style="font-size: 0.86rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.86rem;">
 
 | **Code** | **Omschrijving** | **Groep** |
 |----------|------------------|-----------|
@@ -1598,7 +1598,7 @@ Analysebestand:
 
 <p class="np-subtitle">Interessant voor DUO, buiten wat onze tools nodig hebben.</p>
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Dwarsverband** | **Wat er nu is** | **Waarom relevant** |
 |---|---|---|
@@ -1624,7 +1624,7 @@ Analysebestand:
 
 <p class="np-subtitle">Punten voor vervolggesprekken met DUO.</p>
 
-<div style="font-size: 0.72rem; overflow: visible; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.76rem;">
 
 | **Vraag** | **Waarom het ertoe doet** |
 |---|---|
@@ -1653,7 +1653,7 @@ Analysebestand:
 
 <p class="np-subtitle">Punten voor vervolggesprekken met een paar instellingen.</p>
 
-<div style="font-size: 0.86rem; overflow: visible; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.86rem;">
 
 | **Vraag** | **Waarom het ertoe doet** |
 |---|---|
@@ -1677,15 +1677,15 @@ Analysebestand:
 
 # Woordenlijst: bestanden (1 van 2)
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Term** | **Wat het is** | **Sector** |
 |----------|----------------|------------|
-| RO | Registratieoverzicht: wat DUO heeft geregistreerd over alle inschrijvingen en diploma's of graden in een periode die de instelling kiest. Om SIS en DUO te vergelijken. | Beide |
-| OBO | Overzicht Basis- en diplomagegevens Onderzoek: een momentopname van de gegevens waarop de bekostiging rust. De instelling vraagt hem aan, de accountant controleert hem. | Beide |
-| Verschillenlijst | Wat er veranderd is ten opzichte van de vorige OBO. | Beide |
-| Assurance-rapport | De goedkeuring van de accountant bij de OBO. | Beide |
-| Kwaliteitscontrolebestand | Wekelijkse lijst van DUO met signalen per student over ontbrekende of onwaarschijnlijke gegevens. | MBO |
+| RO | Registratieoverzicht: wat DUO heeft geregistreerd over alle inschrijvingen en diploma's of graden in een periode die de instelling kiest. Om SIS en DUO te vergelijken. | <span class="np-badge pink">Beide</span> |
+| OBO | Overzicht Basis- en diplomagegevens Onderzoek: een momentopname van de gegevens waarop de bekostiging rust. De instelling vraagt hem aan, de accountant controleert hem. | <span class="np-badge pink">Beide</span> |
+| Verschillenlijst | Wat er veranderd is ten opzichte van de vorige OBO. | <span class="np-badge pink">Beide</span> |
+| Assurance-rapport | De goedkeuring van de accountant bij de OBO. | <span class="np-badge pink">Beide</span> |
+| Kwaliteitscontrolebestand | Wekelijkse lijst van DUO met signalen per student over ontbrekende of onwaarschijnlijke gegevens. | <span class="np-badge blue">MBO</span> |
 
 </div>
 
@@ -1702,16 +1702,16 @@ Analysebestand:
 
 # Woordenlijst: bestanden (2 van 2)
 
-<div style="font-size: 0.8rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.8rem;">
 
 | **Term** | **Wat het is** | **Sector** |
 |----------|----------------|------------|
-| TBG-i | Terugmelding BekostigingsGrondslagen-individueel: teldata, factoren en signalen per student, als XML. | MBO |
-| VLPBEK / DEFBEK | Analysebestand: voorlopige of definitieve bekostigingsuitkomst per inschrijving en graad, met statuscodes. | HO |
-| TBG geaggregeerd | Landelijk overzicht (aandeel in het budget) en totalen per opleiding en leerweg. | MBO |
-| Landelijk overzicht | Totalen voor alle instellingen, om de eigen cijfers naast te leggen. | HO |
-| HISBEK | Historisch bestand: alle deelnames en resultaten van eerdere definitieve jaren. | HO |
-| GRONDSLAG IP | Register-afslag voor IP (de afkorting wordt in de PvE niet uitgelegd) met bekostigingsinformatie, gepseudonimiseerd. | MBO |
+| TBG-i | Terugmelding BekostigingsGrondslagen-individueel: teldata, factoren en signalen per student, als XML. | <span class="np-badge blue">MBO</span> |
+| VLPBEK / DEFBEK | Analysebestand: voorlopige of definitieve bekostigingsuitkomst per inschrijving en graad, met statuscodes. | <span class="np-badge green">HO</span> |
+| TBG geaggregeerd | Landelijk overzicht (aandeel in het budget) en totalen per opleiding en leerweg. | <span class="np-badge blue">MBO</span> |
+| Landelijk overzicht | Totalen voor alle instellingen, om de eigen cijfers naast te leggen. | <span class="np-badge green">HO</span> |
+| HISBEK | Historisch bestand: alle deelnames en resultaten van eerdere definitieve jaren. | <span class="np-badge green">HO</span> |
+| GRONDSLAG IP | Register-afslag voor IP (de afkorting wordt in de PvE niet uitgelegd) met bekostigingsinformatie, gepseudonimiseerd. | <span class="np-badge blue">MBO</span> |
 
 </div>
 
@@ -1728,7 +1728,7 @@ Analysebestand:
 
 # Woordenlijst: overige begrippen
 
-<div style="font-size: 0.72rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.82rem;">
 
 | **Term** | **Betekenis** |
 |------|-----------|
@@ -1755,7 +1755,7 @@ Analysebestand:
 
 # Woordenlijst: overige begrippen (2 van 2)
 
-<div style="font-size: 0.76rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.76rem;">
 
 | **Term** | **Betekenis** |
 |---|---|
@@ -1781,7 +1781,7 @@ Analysebestand:
 
 # Woordenlijst: begrippen bij de aanbevelingen
 
-<div style="font-size: 0.72rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.84rem;">
 
 | **Term** | **Wat het is** |
 |----------|----------------|
@@ -1810,7 +1810,7 @@ Analysebestand:
 
 <p class="np-subtitle">De codes komen van DUO. De indeling in groepen is van ons.</p>
 
-<div style="font-size: 0.7rem; overflow-x: auto; margin-top: 0.3rem;">
+<div class="np-table" style="font-size: 0.84rem;">
 
 | **Groep** | **Aantal** | **Voorbeeld** |
 |-------|--------|-----------|
