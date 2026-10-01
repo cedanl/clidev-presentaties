@@ -201,6 +201,66 @@ Sprekersnotities horen in een HTML-commentaarblok onderaan elke slide.
 
 ---
 
+<!-- TIJDLIJN (Slide3.PNG) — een lopend traject met een benadrukt "nu"-punt
+     en een open eindpunt zonder vaste datum. Gebruik dit i.p.v. .np-pipeline
+     zodra je wilt laten zien WAAR je nu in het traject zit, niet alleen
+     welke stappen er zijn. Vier punten: verleden (grijs), nu (oranje,
+     groter, met .np-timeline-marker erboven), toekomst (blauw), open/nog
+     geen datum (gestippeld). Pas het aantal kolommen in beide
+     grid-template-columns aan als je meer of minder dan 4 punten nodig hebt. -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Slidetitel
+
+<p class="np-subtitle">Ondertitel die het traject in een zin samenvat.</p>
+
+<div class="np-timeline">
+  <div class="np-timeline-point">
+    <div class="np-timeline-dot"></div>
+  </div>
+  <div class="np-timeline-line"></div>
+  <div class="np-timeline-point">
+    <div class="np-timeline-marker">VANDAAG</div>
+    <div class="np-timeline-dot now"></div>
+  </div>
+  <div class="np-timeline-line"></div>
+  <div class="np-timeline-point">
+    <div class="np-timeline-dot blue"></div>
+  </div>
+  <div class="np-timeline-line dashed"></div>
+  <div class="np-timeline-point">
+    <div class="np-timeline-dot open"></div>
+  </div>
+</div>
+
+<div class="np-timeline-labels">
+  <div>
+    <strong class="mid-gray">Verleden</strong>
+    <span>Korte toelichting</span>
+  </div>
+  <div></div>
+  <div>
+    <strong class="orange">Vandaag</strong>
+    <span class="ink">Korte toelichting</span>
+  </div>
+  <div></div>
+  <div>
+    <strong class="blue">Volgende stap</strong>
+    <span>Korte toelichting</span>
+  </div>
+  <div></div>
+  <div>
+    <strong class="green">Nog geen datum</strong>
+    <span>Korte toelichting</span>
+  </div>
+</div>
+
+</div>
+
+---
+
 <!-- TWEE KOLOMMEN MET KAARTEN (Slide3.PNG) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
