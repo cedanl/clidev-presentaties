@@ -64,6 +64,7 @@ terwijl de skill ze verbergt.
 
 ## Beperkingen (belangrijk)
 
+- **Ander model dan de deelnemers.** Gemeten met `claude-sonnet-5-5`. De devcontainer van `cedanl/dair-agentic-coding` gebruikt Claude via Foundry met `claude-sonnet-4-6` als standaard Sonnet (zie het Dockerfile). De tijden kunnen dus anders uitvallen; herhaal de meting met het model van de deelnemers.
 - **Niet in de devcontainer gemeten.** Dit draaide op één laptop, headless. Een tragere machine of een verbinding met
   veel gebruikers kan het flink rekken.
 - **Twee runs per skill.** Dat laat spreiding zien (58 tot 71 s, 124 tot 136 s) maar is geen statistiek.
