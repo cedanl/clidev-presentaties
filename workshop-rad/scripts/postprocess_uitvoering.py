@@ -114,10 +114,10 @@ def titelslide(prs):
 BLOKKEN = [  # begin (min), duur, soort, naam, omschrijving, skill
     (0, 17, "geel", "Intro, data en casus", "CEDA, synthetische data en de opdracht", None),
     (17, 13, "geel", "Skills en devcontainer", "Wat is een skill, eerste prompt", None),
-    (30, 22, "blauw", "Ronde 1: data verkennen", "In tweetallen met de agent", "/workshop-verkennen"),
-    (52, 15, "oranje", "Spiegelmoment 1", "Kijk in de skill", "/workshop-verkennen"),
-    (67, 22, "blauw", "Ronde 2: dashboard bouwen", "Wissel van rol", "/workshop-dashboard"),
-    (89, 15, "oranje", "Spiegelmoment 2", "Kijk in de skill, onthulling", "/workshop-dashboard"),
+    (30, 22, "blauw", "Ronde 1: data verkennen", "Jullie prompten zelf", None),
+    (52, 15, "oranje", "Spiegelmoment 1", "Skill live: kijk wat erin zit", "/workshop-verkennen"),
+    (67, 22, "blauw", "Ronde 2: dashboard bouwen", "Jullie prompten zelf, andere rol", None),
+    (89, 15, "oranje", "Spiegelmoment 2", "Skill live, daarna de onthulling", "/workshop-dashboard"),
     (104, 16, "groen", "Evaluatie en afsluiting", "Terugblik, peiling, rondje", "/workshop-reflectie"),
 ]
 TEKST_OP = {"geel": "zwart", "oranje": "zwart", "blauw": "wit", "groen": "wit"}

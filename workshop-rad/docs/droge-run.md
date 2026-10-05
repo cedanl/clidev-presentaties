@@ -33,6 +33,6 @@ Python 3.14, duckdb 1.5, streamlit 1.65, plotly. Dit vervangt de twee droge runs
 - Visueel resultaat in een browser, kleurcontrast (4,5:1) en alt-tekst voor schermlezers.
 - `streamlit run` in echte servermodus.
 - Casus B en C, en `workshop-reflectie`.
-- Of een niet-programmeur in de navigatorrol dit in de beschikbare tijd haalt.
+- Of een niet-programmeur in de checkerrol dit in de beschikbare tijd haalt.
 
 Dit blijft werk voor de echte droge runs voor de dag.

@@ -5,7 +5,7 @@ Dit is het draaiboek bij het deck `261005_workshop_rad_uitvoering`. Het eerdere 
 
 **Casus:** A, eerstejaarsuitval (aanbeveling; zie `bevindingen-staat1cho.md`, punt 5). Wissel naar B
 alleen als de groep daar zin in heeft, de data ondersteunt het. Casus C gaan we niet doen.
-**Werkvorm:** tweetallen, één stuurt (bestuurder), één controleert (navigator), wisselen na ronde 1.
+**Werkvorm:** tweetallen, één typt de opdrachten (prompter), één leest wat de agent teruggeeft en beoordeelt of het logisch is (checker), wisselen na ronde 1. Deelnemers prompten zelf; de skills laat alleen de leider zien, bij de spiegelmomenten.
 
 ## Tijdlijn
 
@@ -66,7 +66,7 @@ gewone taal wat erin zit."* Dan de skill activeren (`/workshop-verkennen`). Maxi
 het activeren; zo niet, dan is de devcontainer-voorbereiding mislukt.
 
 ### Ronde 1: data exploratie (0:30-0:52)
-Deelnemers werken met de agent aan data en codebook. De navigator controleert de code. **Checkpoint
+Deelnemers werken met de agent aan data en codebook. De checker beoordeelt of de uitkomst logisch is; code lezen hoeft niet. **Checkpoint
 (wat een goede ronde oplevert):** 3070 studenten, cohorten 2012-2023, cohort 2023 nog niet
 waarneembaar voor uitval, veel kleine groepen bij opleiding × cohort × geslacht, een schets met twee
 of drie views. Wie het laatste cohort meetelt (het geeft een vertekend percentage, met onze definitie 100% uitval), zit in de valkuil.
@@ -110,6 +110,6 @@ Als de rondes uitlopen, kort dan de afsluiting in; schrap niet de peiling.
 | Devcontainer start niet | Reserve: laptop van de leider, deelnemers kijken mee; of werk in tweetallen op één laptop |
 | Agent geeft een afwijkend resultaat | Vergelijk met het checkpoint; verschil is zelf een spiegelmoment |
 | Ronde loopt uit | Verkort spiegelmoment, niet de evaluatie |
-| Iemand haakt af | Zet naast een tweetal; navigator-rol is ook waardevol |
+| Iemand haakt af | Zet naast een tweetal; de checker-rol is ook waardevol |
 | Peiling werkt niet | Papieren kaartjes met dezelfde vragen, kort invullen |
 | Iemand wil echte data gebruiken | Nee: privacy; verwijs naar het CEDA-pakket eencijferho voor na de workshop |
