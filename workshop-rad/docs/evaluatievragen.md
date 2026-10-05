@@ -1,4 +1,9 @@
-# Vragenset workshop-reflectie
+# Vragen voor de evaluatie
+
+Voor de peiling en het rondje in het blok *Evaluatie en afsluiting*. Er is geen skill voor: de vragen worden gesteld
+via de peiling (bijvoorbeeld met een QR-code) of in het gesprek. Zie `evaluatie-en-vervolg.md` voor opslag en verwerking.
+
+(Dit is de vragenset uit de teamskill `sessie-terugblik`, ingekort voor een groep deelnemers.)
 
 Vijf vragen, altijd in deze volgorde en één voor één. Vraag 5 alleen als vraag 4 niet "nee" is.
 Elke vraag is optioneel. "Weet ik niet" is een antwoord. Niet doorvragen.

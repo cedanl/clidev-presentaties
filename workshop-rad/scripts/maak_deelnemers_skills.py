@@ -44,11 +44,7 @@ def dashboard(t):
     return t
 
 
-def reflectie(t):
-    return vervang(t, " Voor de workshopleiding: verzamel de bestanden of de peilingantwoorden en\ngebruik `workshop-rad/docs/evaluatie-en-vervolg.md` voor de verwerking.", "")
-
-
-BEWERKINGEN = {"workshop-verkennen": verkennen, "workshop-dashboard": dashboard, "workshop-reflectie": reflectie}
+BEWERKINGEN = {"workshop-verkennen": verkennen, "workshop-dashboard": dashboard}
 
 
 def main(doel):

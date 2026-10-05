@@ -11,16 +11,17 @@ te vinden en om te zien wat nog beslist moet worden.
 | D2 | Evaluatie en afsluiting zijn **één blok van 16 minuten** na spiegelmoment 2 | Eerst gevraagd als aparte blokken (8 + 8 min); later samengevoegd op verzoek |
 | D3 | Evaluatie en afsluiting krijgen samen 16 minuten: de oorspronkelijke afsluiting (11 min) plus 5 minuten uit de uitleg-blokken (intro 6→5, synthetisch 7→6, opdracht 7→6, skills 10→8) | De rondes en spiegelmomenten (22 en 15 min) zijn de kern en blijven staan |
 | D4 | De peiling heeft vier meerkeuze-opties van "nee" tot "4 uur per week, één semester" | Zo is de vraag gesteld; de tussenopties zijn aanvullingen van ons |
-| D5 | Reflectie als skill `workshop-reflectie`, afgeleid van `sessie-terugblik` | De bestaande skill koppelt aan commits en GitHub, dat past niet bij losse deelnemers |
+| D5 | Geen reflectie-skill: de evaluatie gaat via de peiling en een rondje | Eerst gemaakt als `workshop-reflectie` (afgeleid van `sessie-terugblik`), later op verzoek weggehaald; de vragen staan in `evaluatievragen.md` |
 | D6 | Privacydrempel is 30 studenten per groep en 5 per percentage-cel (was "n<5" in de sheets) | Dat is wat staat1cho doet, met secundaire onderdrukking |
 | D7 | Casus A is de aanbevolen casus in het uitvoeringsdeck | Daar zit het ingebouwde patroon in; casus C kan niet met dit bestand |
 | D8 | Eigen datawrapper met een ingebakken patroon per sector | De generator van staat1cho heeft zelf geen patroon, zie `bevindingen-staat1cho.md` |
 | D9 | Eén echt verschil (sector) en één nep-verschil (geslacht) in de data | Leert deelnemers het verschil tussen patroon en ruis |
 | D10 | Skills staan in `workshop-rad/skills/` en niet in `.claude/skills/` | `.claude/` staat in `.gitignore`; zo staan ze onder version control |
 | D11 | Uitvoeringsdeck gebruikt de pay-off "Moving Education."; het voorstel houdt "Onderwijs bewegen." | De huisstijl schrijft de eerste voor; het voorstel is niet aangepast |
-| D13 | Spiegelmomenten gaan over de skill, niet over individuele dashboards; elke skill heeft een overzichtsdia | Zo gevraagd. Dia 14-15 (verkennen), 20-21 (dashboard) en 24 (reflectie) |
-| D14 | De drie skills worden bij naam genoemd (dia 9) | Zo gevraagd |
+| D13 | Spiegelmomenten gaan over de skill, niet over individuele dashboards; elke skill heeft een overzichtsdia | Zo gevraagd. Dia 14-15 (verkennen), 20-21 (dashboard) |
+| D14 | De twee skills worden bij naam genoemd (dia 9) | Zo gevraagd |
 | D15 | Het voorstel is inhoudelijk bijgewerkt zodat het één verhaal vormt met de uitvoering: rollen prompter en checker, drempel n<30, skills alleen door de leider getoond, juiste devcontainer-claims en uitgebreide open punten met PR #9 en issues #10 en #11 | Zo gevraagd, om het naar collega's te kunnen sturen |
+| D16 | `workshop-reflectie` is uit de skills, de decks, de docs en de PR gehaald | Zo gevraagd |
 | D12 | Het echte beeldmerk is uit `Slide16.PNG` gereconstrueerd als 70 vector-stippen (`assets/beeldmerk-ring.json`) | powerclaude en de skill vormgever-npuls-huisstijl tekenen een indicatieve gevulde ster, niet de stippenring van het echte logo. Een officieel vectorbestand ontbreekt in de repo |
 
 ## Aannames (controleren)

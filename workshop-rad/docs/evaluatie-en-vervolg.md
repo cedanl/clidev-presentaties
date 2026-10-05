@@ -7,16 +7,16 @@ of er een vervolg moet komen. Dit document legt vast hoe we vragen, opslaan en v
 
 | Min | Stap | Vorm |
 |---|---|---|
-| 4 | Terugblik: wat vond je ervan? | `/workshop-reflectie` (vraag 1-3) of de peiling |
+| 4 | Terugblik: wat vond je ervan? | Peiling (vraag 1-3) of een kort rondje |
 | 2 | Meerkeuzevraag: interesse in een training | Peiling of handopsteken |
 | 4 | Open vraag: wat wil je precies leren? | Peiling, kort antwoord |
 | 6 | Afsluiting: wat verloor en won je, wat doe je morgen anders? | Rondje in de groep of kaartje |
 
-De skill `/workshop-reflectie` wordt bij naam genoemd op dia 9 en uitgelegd op dia 24.
+Er is geen skill voor de evaluatie: de vragen gaan via de peiling of in het gesprek.
 
 ## De vragen
 
-De exacte formulering staat in `skills/workshop-reflectie/references/vragenset.md` en verandert
+De exacte formulering staat in `evaluatievragen.md` (naast dit bestand) en verandert
 niet per sessie, zodat antwoorden vergelijkbaar blijven over meerdere workshops.
 
 1. **Werkwijze**: Hoe heb je dit aangepakt, en hoe werkte je samen met de agent?
@@ -37,15 +37,13 @@ verander die als het team een andere omvang in gedachten heeft.
 ## Eerst toestemming
 
 Open het blok met één zin: *"De antwoorden zijn anoniem en gebruiken we om te bepalen of we een
-vervolg organiseren. Mag dat?"* Alleen bij ja worden antwoorden bewaard of gedeeld. De skill vraagt
-hier zelf ook om. Geen namen van collega's, geen oordelen over personen in de open velden.
+vervolg organiseren. Mag dat?"* Alleen bij ja worden antwoorden bewaard of gedeeld. Geen namen van collega's, geen oordelen over personen in de open velden.
 
 ## Opslag
 
 - **Peiling:** exporteer na afloop naar CSV in een afgeschermde map van CEDA. Verwijder
   deelnemersgegevens die de tool zelf verzamelt.
-- **Reflectie-skill:** één bestand per deelnemer (`reflectie-<pseudoniem>.md`) in de eigen werkmap van
-  de deelnemer. De leider verzamelt alleen bestanden van wie dat wil en alleen met toestemming.
+- **Rondje:** noteer alleen wat iemand zelf wil delen, zonder namen.
 - Bewaar niets in de repo `clidev-presentaties`: antwoorden horen niet bij de code.
 
 ## Verwerking
@@ -81,7 +79,5 @@ Beslissing: ...
 
 ## Wat we niet doen
 
-- Geen reflectie koppelen aan een commit-range of tokenstatistieken zoals `sessie-terugblik`: de
-  deelnemers zijn geen team met een gedeelde repo.
 - Niemand overhalen om iets in te vullen. Een leeg antwoord is een antwoord.
 - Geen antwoorden delen die iemand herleidbaar maken.

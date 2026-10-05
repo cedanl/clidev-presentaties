@@ -22,8 +22,7 @@ voorstel-deck ──(akkoord)──► uitvoerings-deck + draaiboek
                                    │
    data/ (synthetisch, met patroon) │   skills/
    scripts/genereer_data.R          ├── workshop-verkennen   (ronde 1)
-                                    ├── workshop-dashboard   (ronde 2)
-                                    └── workshop-reflectie   (evaluatie)
+                                    └── workshop-dashboard   (ronde 2)
                                           │
                               docs/evaluatie-en-vervolg.md  (peiling en verwerking)
 ```
@@ -73,7 +72,7 @@ antwoordsleutel.
 ### De skills gebruiken
 
 Kopieer de mappen uit `skills/` naar `.claude/skills/` van de devcontainer (of de projectmap van de
-deelnemers). Activeren met `/workshop-verkennen`, `/workshop-dashboard` en `/workshop-reflectie`.
+deelnemers). Activeren met `/workshop-verkennen` en `/workshop-dashboard`.
 Ze zijn bedoeld als tekstbestanden die deelnemers kunnen lezen en aanpassen.
 
 ## Docs

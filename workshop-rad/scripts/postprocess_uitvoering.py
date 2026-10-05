@@ -118,7 +118,7 @@ BLOKKEN = [  # begin (min), duur, soort, naam, omschrijving, skill
     (52, 15, "oranje", "Spiegelmoment 1", "Skill live: kijk wat erin zit", "/workshop-verkennen"),
     (67, 22, "blauw", "Ronde 2: dashboard bouwen", "Jullie prompten zelf, andere rol", None),
     (89, 15, "oranje", "Spiegelmoment 2", "Skill live, daarna de onthulling", "/workshop-dashboard"),
-    (104, 16, "groen", "Evaluatie en afsluiting", "Terugblik, peiling, rondje", "/workshop-reflectie"),
+    (104, 16, "groen", "Evaluatie en afsluiting", "Terugblik, peiling, rondje", None),
 ]
 TEKST_OP = {"geel": "zwart", "oranje": "zwart", "blauw": "wit", "groen": "wit"}
 

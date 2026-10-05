@@ -169,7 +169,7 @@ zet(sl, "Data en codebook verkennen met de agent", "Data en codebook verkennen m
 # Skills: namen en wie ze draait
 sl = slide_met("Een skill bij elk spiegelmoment")
 zet(sl, "Skills werken via vaste tussenproducten",
-    "/workshop-verkennen en /workshop-dashboard, plus /workshop-reflectie voor de evaluatie. Deelnemers prompten zelf; de leider draait de skills live (gemeten: ongeveer 1 en 2 tot 2,5 minuut). Vaste tussenproducten, kosten \u20ac0.")
+    "/workshop-verkennen en /workshop-dashboard. Deelnemers prompten zelf; de leider draait de skills live (gemeten: ongeveer 1 en 2 tot 2,5 minuut). Vaste tussenproducten, kosten \u20ac0.")
 
 # Risico's en kanttekening
 sl = slide_met("Randvoorwaarden en risico")
@@ -235,7 +235,7 @@ VERVANG = {
     "Lever één dashboard": "Wat wil je leren?",
 }
 TEKST_PER_KAART = [
-    ("Wat ging goed, wat zag je nu pas, wat neem je mee? Via de reflectie-skill of de peiling.",
+    ("Wat ging goed, wat zag je nu pas, wat neem je mee? Via de peiling of een kort rondje.",
      "Jouw eigen woorden, anoniem en vrijwillig."),
     ("Meerkeuzevraag: van nee tot een programma van 4 uur per week voor één semester.",
      "Zicht op hoeveel tijd mensen echt willen vrijmaken."),
@@ -266,8 +266,8 @@ for sh in nieuwe.shapes:
         set_text(sh, "Evaluatie en afsluiting vormen één blok van 16 minuten, na de laatste uitleg. De antwoorden bepalen of en hoe CEDA een vervolg inricht.")
 NOTITIE = (
     "Evaluatie en afsluiting (16 min, één blok). Vraag eerst toestemming: de antwoorden zijn anoniem en dienen om te bepalen "
-    "of er een vervolg komt. Terugblik (4 min) via de reflectie-skill of de peiling; meerkeuzevraag (2 min); "
-    "open vraag (4 min); daarna de afsluiting (6 min). Formulering: workshop-rad/skills/workshop-reflectie/references/vragenset.md.")
+    "of er een vervolg komt. Terugblik (4 min) via de peiling of een kort rondje; meerkeuzevraag (2 min); "
+    "open vraag (4 min); daarna de afsluiting (6 min). Formulering: workshop-rad/docs/evaluatievragen.md.")
 ns = nieuwe.notes_slide
 if ns.notes_text_frame is None:  # notitiemaster zonder tekstvak: neem de structuur van slide 5 over
     for sh in list(ns.shapes):

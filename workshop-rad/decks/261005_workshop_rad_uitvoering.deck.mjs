@@ -100,14 +100,13 @@ export default {
     {
       type: 'cards',
       variant: 'licht-groen',
-      title: 'Drie skills die wij laten zien',
+      title: 'Twee skills die wij laten zien',
       items: [
         { badge: '1', tag: 'Spiegelmoment 1', title: '/workshop-verkennen', sections: [{ label: 'Doet', text: 'Data verkennen, kleine groepen signaleren, schetsen.' }, { label: 'Levert', text: 'data-profiel.md en schets.md', strong: true }] },
         { badge: '2', tag: 'Spiegelmoment 2', title: '/workshop-dashboard', sections: [{ label: 'Doet', text: 'Dashboard bouwen, met de checks erin verweven.' }, { label: 'Levert', text: 'app.py en berekeningen.py', strong: true }] },
-        { badge: '3', tag: 'Evaluatie', title: '/workshop-reflectie', sections: [{ label: 'Doet', text: 'Terugblik en vervolgwensen in je eigen woorden.' }, { label: 'Levert', text: 'reflectie-naam.md', strong: true }] },
       ],
       footer: 'Jullie prompten zelf in de rondes. Wij laten de skills live draaien bij de spiegelmomenten.',
-      notes: 'Noem de drie skills bij naam: /workshop-verkennen, /workshop-dashboard en /workshop-reflectie. De deelnemers gebruiken ze niet zelf in de rondes: de leider laat ze draaien bij de spiegelmomenten en legt dan uit wat erin staat en wat de skill afdwingt.',
+      notes: 'Noem de twee skills bij naam: /workshop-verkennen en /workshop-dashboard. De deelnemers gebruiken ze niet zelf in de rondes: de leider laat ze draaien bij de spiegelmomenten en legt dan uit wat erin staat en wat de skill afdwingt.',
     },
     // 9 Devcontainer en voorbeeldprompt (0:25, 5 min)
     {
@@ -285,22 +284,7 @@ export default {
         { badge: '4', tag: '6 min', title: 'Afsluiting', sections: [{ text: 'Wat verloor en won je, en wat doe je morgen anders?' }] },
       ],
       footer: 'Anoniem en vrijwillig. De antwoorden bepalen of en hoe CEDA een vervolg inricht.',
-      notes: 'Evaluatie en afsluiting zijn één blok van 16 minuten. Vraag eerst toestemming: de antwoorden zijn anoniem en gebruiken we om te bepalen of er een vervolg komt. Terugblik via /workshop-reflectie of de peiling (QR-code). Houd de tijd: loopt het uit, kort dan de afsluiting in, niet de peiling.',
-    },
-    {
-      type: 'cards',
-      variant: 'licht-groen',
-      title: '/workshop-reflectie: wat de skill doet',
-      numbered: true,
-      arrows: true,
-      items: [
-        { tag: 'Toestemming', title: 'Eén zin', sections: [{ text: 'Anoniem, om te bepalen of er een vervolg komt. Zonder ja wordt niets bewaard.' }] },
-        { tag: 'Terugblik', title: 'Drie vragen', sections: [{ text: 'Werkwijze, wat ging goed en wat zie je nu pas. Eén vraag per keer.' }] },
-        { tag: 'Peiling', title: 'Meerkeuze', sections: [{ text: 'Interesse in een training, van nee tot 4 uur per week voor een semester.' }] },
-        { tag: 'Open vraag', title: 'Wat leren?', sections: [{ text: 'Alleen als het antwoord niet nee was. Kort en concreet.' }] },
-      ],
-      footer: '**Uit:** reflectie-naam.md, in jouw eigen woorden. De skill vult niets voor je in.',
-      notes: 'Dit is de opbouw van /workshop-reflectie/SKILL.md: afgeleid van de teamskill sessie-terugblik, zonder GitHub-koppeling. Principes: één vraag per keer, een dun antwoord is een antwoord, niet doorvragen. Deelnemers mogen kiezen: via de skill of via de peiling.',
+      notes: 'Evaluatie en afsluiting zijn één blok van 16 minuten. Vraag eerst toestemming: de antwoorden zijn anoniem en gebruiken we om te bepalen of er een vervolg komt. Terugblik via de peiling (QR-code) of een kort rondje. Houd de tijd: loopt het uit, kort dan de afsluiting in, niet de peiling.',
     },
     {
       type: 'list',
@@ -330,7 +314,7 @@ export default {
       question: 'Wat verloor en won je?',
       text: 'En wat doe je morgen anders?',
       points: [
-        { tag: 'Meenemen', text: 'De drie skills staan in de repo, je kunt ze zelf aanpassen.' },
+        { tag: 'Meenemen', text: 'De twee skills staan in de repo, je kunt ze zelf aanpassen.' },
         { tag: 'Nog even', text: 'Een verschil is nog geen oorzaak.' },
       ],
       pointsTitle: 'Voor onderweg',

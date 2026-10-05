@@ -14,14 +14,14 @@ alleen als de groep daar zin in heeft, de data ondersteunt het. Casus C gaan we 
 | 0:00 | 5 | Intro | Welkom, CEDA in één minuut, doel en spelregels | 1-4 |
 | 0:05 | 6 | Synthetische data | Wat het is, waarom, wat het niet is; benoem dat het patroon ingebouwd is | 5 |
 | 0:11 | 6 | Opdracht en casus | Casusvraag, tweetallen, eindproduct | 6-7 |
-| 0:17 | 8 | Skills en prompts | Wat is een skill; de drie skills bij naam | 8-9 |
+| 0:17 | 8 | Skills en prompts | Wat is een skill; de twee skills bij naam | 8-9 |
 | 0:25 | 5 | Devcontainer en voorbeeldprompt | Live: eerste prompt, skill activeren | 10 |
 | 0:30 | 22 | **Ronde 1: data exploratie** | Rondlopen, vragen alleen beantwoorden met een wedervraag | 11-12 |
 | 0:52 | 15 | **Spiegelmoment 1: kijk in de skill** | Bespreek `/workshop-verkennen`: opbouw en wat hij afvangt | 13-15 |
 | 1:07 | 22 | **Ronde 2: dashboard bouwen** | Rondlopen, let op de responsible-checks | 16-18 |
 | 1:29 | 15 | **Spiegelmoment 2: kijk in de skill** | Bespreek `/workshop-dashboard`, daarna de onthulling | 19-22 |
-| 1:44 | 16 | **Evaluatie en afsluiting** (één blok) | Terugblik, peiling, open vraag, afsluitend rondje | 23-27 |
-| 2:00 | | Einde | Contactslide blijft staan | 28 |
+| 1:44 | 16 | **Evaluatie en afsluiting** (één blok) | Terugblik, peiling, open vraag, afsluitend rondje | 23-26 |
+| 2:00 | | Einde | Contactslide blijft staan | 27 |
 
 Evaluatie en afsluiting zijn **één blok van 16 minuten** na de laatste uitleg. Loopt het uit, kort dan de
 afsluiting (6 min) in en niet de peiling.
@@ -33,7 +33,7 @@ kan in twee of drie zinnen terugkoppelen wat ze zelf deden; daarna loopt de leid
 
 - [ ] Devcontainer getest op twee laptops en één Mac. Python, DuckDB, Streamlit en Claude Code werken.
 - [ ] `workshop-rad/data/synthetisch_1cho.csv` staat in de devcontainer onder `data/`. **Niet** `waarheid.csv`.
-- [ ] De drie skills staan klaar in `.claude/skills/` (kopieer `workshop-rad/skills/*`) en activeren met één commando: `/workshop-verkennen`, `/workshop-dashboard`, `/workshop-reflectie`.
+- [ ] De twee skills staan klaar in `.claude/skills/` (kopieer `workshop-rad/skills/*`) en activeren met één commando: `/workshop-verkennen` en `/workshop-dashboard`.
 - [ ] Minstens **twee droge runs** van beide rondes, met de checkpoints hieronder. Zie `droge-run.md`.
 - [ ] Peiling-tool gekozen en getest (QR-code werkt, antwoorden zijn zichtbaar). Alternatief: papieren kaartjes.
 - [ ] Fonts geïnstalleerd op de presentatielaptop, deck als PDF als reserve.
@@ -57,7 +57,7 @@ deelnemers dat zelf ontdekken en neem het mee naar het spiegelmoment als bewijs 
 
 ### Skills en prompts (0:17)
 Prompt versus skill versus agent (dia 8). Laat een SKILL.md op het scherm zien, niet langer dan een minuut.
-Dia 9 noemt de drie skills bij naam: `/workshop-verkennen`, `/workshop-dashboard` en `/workshop-reflectie`.
+Dia 9 noemt de twee skills bij naam: `/workshop-verkennen` en `/workshop-dashboard`.
 Vuistregel: elke prompt die je drie keer typt, is een skill in wording.
 
 ### Devcontainer en voorbeeldprompt (0:25)
@@ -94,12 +94,12 @@ Dia 19-22. Ook nu bespreken we de skill, niet de dashboards van de tweetallen.
    géén verschil kent. Wie "vrouwen vallen vaker uit" had, gebruikt dit als leermoment zonder beschuldiging.
 
 ### Evaluatie en afsluiting, één blok (1:44-2:00)
-Dia 23-27. Zie `evaluatie-en-vervolg.md`.
-1. (4 min) Terugblik, via `/workshop-reflectie` of de peiling (dia 23-24).
-2. (2 min) Meerkeuzevraag: interesse in een training (dia 25).
-3. (4 min) Open vraag: wat wil je precies leren (dia 26).
+Dia 23-26. Zie `evaluatie-en-vervolg.md`.
+1. (4 min) Terugblik, via de peiling of een rondje (dia 23).
+2. (2 min) Meerkeuzevraag: interesse in een training (dia 24).
+3. (4 min) Open vraag: wat wil je precies leren (dia 25).
 4. (6 min) Afsluitend rondje: *wat verloor en won je, en wat doe je morgen anders?* Eén zin per persoon of op een
-   kaartje (dia 27). Sluit met de contactslide.
+   kaartje (dia 26). Sluit met de contactslide.
 
 Als de rondes uitlopen, kort dan de afsluiting in; schrap niet de peiling.
 
