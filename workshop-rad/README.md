@@ -6,10 +6,10 @@ tweetallen met een AI-agent (Claude Code) aan één casus en leveren één dashb
 | Wat | Waar |
 |---|---|
 | **Voorstel**-deck (voor akkoord) | het originele `../workshop-voorstel-RAD_120min.pptx`, met minimale aanpassingen: `scripts/patch_voorstel.py` → `exports/workshop-voorstel-RAD_120min.pptx` / `.pdf` |
-| **Uitvoerings**-deck (op de dag) | `decks/261005_workshop_rad_uitvoering.deck.mjs` → `exports/261005_workshop_rad_uitvoering.pptx` / `.pdf` (na het bouwen: `scripts/fix_beeldmerk.py`) |
+| **Uitvoerings**-deck (op de dag) | `decks/261005_workshop_rad_uitvoering.deck.mjs` → `exports/261005_workshop_rad_uitvoering.pptx` / `.pdf` (na het bouwen: `scripts/postprocess_uitvoering.py`) |
 | Claude-skills voor de workshop | `skills/` |
 | Synthetische data + antwoordsleutel | `data/` (script: `scripts/genereer_data.R`) |
-| Echt Npuls-beeldmerk (stippenring, transparant) | `assets/npuls-beeldmerk-zwart.png`, `assets/npuls-beeldmerk-wit.png`, `assets/beeldmerk-ring.json` |
+| Echt Npuls-logo (transparant): beeldmerk en horizontaal | `assets/npuls-beeldmerk-*.png`, `assets/npuls-logo-horizontaal-*.png`, `assets/beeldmerk-ring.json` |
 | Draaiboek, bevindingen, evaluatie, beslissingen | `docs/` |
 
 `../workshop-voorstel-RAD_120min.pptx` is het oorspronkelijke voorstel. Daar is alleen het logo vervangen
@@ -34,16 +34,19 @@ voorstel-deck ──(akkoord)──► uitvoerings-deck + draaiboek
 
 Vanuit de root van `clidev-presentaties`.
 
-**Uitvoeringsdeck** met de skill `powerclaude` (zie die skill voor fonts en afhankelijkheden). powerclaude
-tekent zelf een indicatief beeldmerk (een gevulde stippenster) dat niet het echte Npuls-logo is; daarom
-vervangt `fix_beeldmerk.py` dat achteraf door de echte stippenring:
+**Uitvoeringsdeck** met de skill `powerclaude` (zie die skill voor fonts en afhankelijkheden). Na het bouwen volgt
+een nabewerking, omdat powerclaude geen echte Npuls-titelachtergrond, tijdlijn of logo tekent:
 
 ```bash
 node ~/.claude/skills/powerclaude/scripts/build.mjs workshop-rad/decks/261005_workshop_rad_uitvoering.deck.mjs
-cp exports/261005_workshop_rad_uitvoering/261005_workshop_rad_uitvoering.pptx workshop-rad/exports/
-python workshop-rad/scripts/fix_beeldmerk.py workshop-rad/exports/261005_workshop_rad_uitvoering.pptx
+python workshop-rad/scripts/postprocess_uitvoering.py exports/261005_workshop_rad_uitvoering/261005_workshop_rad_uitvoering.pptx workshop-rad/exports/261005_workshop_rad_uitvoering.pptx
 node ~/.claude/skills/powerclaude/scripts/render.mjs workshop-rad/exports/261005_workshop_rad_uitvoering.pptx --pdf
 ```
+
+De nabewerking doet drie dingen: de titelslide krijgt de echte blauwe Npuls-achtergrond (`Slide15.PNG`, met de
+bogen) en het volledige horizontale logo; "Zo loopt de middag" wordt een tijdlijn op schaal met per blok de
+bijbehorende skill; en het beeldmerk op de overige slides wordt de echte stippenring (powerclaude tekent een
+indicatieve gevulde ster). Het logo komt uit `assets/` (gemaakt met `scripts/maak_logo.py`).
 
 **Voorstel**: `python workshop-rad/scripts/patch_voorstel.py` haalt het origineel uit git (commit `67272a3`) en
 schrijft `workshop-voorstel-RAD_120min.pptx`. Staat dat bestand open in PowerPoint, dan schrijft het script
