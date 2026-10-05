@@ -78,7 +78,7 @@ Dia 13-15. We bespreken de skill, niet de schetsen van de tweetallen.
    wanneer de agent hem pakt, daaronder de stappen. Vraag: welke stap heb je overgeslagen of anders gedaan?
 3. (4 min) Dia 15: wat de skill afvangt (laatste cohort, kolom met één waarde, kleine groepen, geen oorzaak).
    Laat deelnemers aanwijzen welke ze zelf misten.
-4. (2 min) Optioneel: draai de skill live en vergelijk. Leg het verschil neer als bevinding, niet als oordeel.
+4. (2 min) Draai de skill live (ongeveer 1 minuut, zie `tijdmeting.md`) en zet eventueel een gewone prompt ernaast. Leg het verschil neer als bevinding, niet als oordeel.
 
 ### Ronde 2: dashboard bouwen (1:07-1:29)
 Wissel van rol. Bouw een dashboard met conclusie als titel, vergelijking, filter, drempel, bron en

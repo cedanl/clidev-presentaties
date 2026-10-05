@@ -84,6 +84,7 @@ Ze zijn bedoeld als tekstbestanden die deelnemers kunnen lezen en aanpassen.
 | `docs/bevindingen-staat1cho.md` | Wat we leerden van het staat-van-onderwijsinstelling-dashboard en package |
 | `docs/evaluatie-en-vervolg.md` | Opzet van het evaluatieblok, vragen, opslag en verwerking |
 | `docs/droge-run.md` | Uitkomst van de droge run van de skills |
+| `docs/tijdmeting.md` | Hoe lang de skills duren (1 en 2 tot 2,5 minuut) en wat ze toevoegen ten opzichte van een gewone prompt |
 | `docs/beslissingen.md` | Gemaakte keuzes, aannames en open punten |
 
 ## Geschiedenis (version control)

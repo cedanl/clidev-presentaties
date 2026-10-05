@@ -154,7 +154,7 @@ export default {
       title: 'Spiegelmoment 1: kijk in de skill',
       text: 'Wat zit er in /workshop-verkennen, en wat deed jij anders?',
       illustration: 'Boek puzzelstuk',
-      notes: 'We kijken niet naar individuele schetsen, maar naar de skill. Vraag eerst twee tweetallen om één ding te noemen dat ze in ronde 1 tegenkwamen (één zin per tweetal). Loop daarna met de volgende twee dia\'s door de skill. Draai /workshop-verkennen live (zie docs/tijdmeting.md voor hoe lang dat duurt) en leg uit terwijl hij loopt. Zet daarnaast desgewenst één gewone prompt op hetzelfde scherm.',
+      notes: 'We kijken niet naar individuele schetsen, maar naar de skill. Vraag eerst twee tweetallen om één ding te noemen dat ze in ronde 1 tegenkwamen (één zin per tweetal). Loop daarna met de volgende twee dia\'s door de skill. Draai /workshop-verkennen live: dat duurt ongeveer 1 minuut (gemeten 58 tot 71 s, reken op een marge) en je legt uit terwijl hij loopt. Zet daarnaast desgewenst één gewone prompt op hetzelfde scherm.',
     },
     {
       type: 'cards',
@@ -229,7 +229,7 @@ export default {
       title: 'Spiegelmoment 2: kijk in de skill',
       text: 'Wat zit er in /workshop-dashboard, en wat miste je dashboard?',
       illustration: 'Puzzelstuk 3D',
-      notes: 'Ook nu geen individuele dashboards bekijken. Vraag twee tweetallen om één keuze te noemen die ze maakten (bijvoorbeeld de titel of de drempel). Loop daarna door de skill met de volgende dia\'s en sluit af met de onthulling van de uitkomst.',
+      notes: 'Ook nu geen individuele dashboards bekijken. Vraag twee tweetallen om één keuze te noemen die ze maakten (bijvoorbeeld de titel of de drempel). Draai /workshop-dashboard live: dat duurt ongeveer 2 tot 2,5 minuut (gemeten 124 tot 136 s). Loop daarna door de skill met de volgende dia\'s en sluit af met de onthulling van de uitkomst. Contrast: een gewone prompt telt de eerstejaars anders (2.449 in plaats van 2.809) en verbergt kleine groepen niet; zie docs/tijdmeting.md.',
     },
     {
       type: 'cards',
