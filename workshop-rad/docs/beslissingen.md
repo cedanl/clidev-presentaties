@@ -8,8 +8,8 @@ te vinden en om te zien wat nog beslist moet worden.
 | # | Beslissing | Reden |
 |---|---|---|
 | D1 | Het voorstel blijft het originele bestand; alleen logo, evaluatie en programma zijn aangepast (`patch_voorstel.py`) | Een eerste poging om het hele voorstel met powerclaude te herbouwen veranderde te veel en is teruggedraaid |
-| D2 | Het evaluatieblok staat **na spiegelmoment 2 en vóór de interactieve afsluiting** | Zo is het verzoek geformuleerd; deelnemers hebben dan alles gezien |
-| D3 | De 8 minuten voor evaluatie komen uit de uitleg-blokken (intro 6→5, synthetisch 7→6, opdracht 7→6, skills 10→8) en de afsluiting (11→8) | De rondes en spiegelmomenten (22 en 15 min) zijn de kern en blijven staan |
+| D2 | Evaluatie en afsluiting zijn **één blok van 16 minuten** na spiegelmoment 2 | Eerst gevraagd als aparte blokken (8 + 8 min); later samengevoegd op verzoek |
+| D3 | Evaluatie en afsluiting krijgen samen 16 minuten: de oorspronkelijke afsluiting (11 min) plus 5 minuten uit de uitleg-blokken (intro 6→5, synthetisch 7→6, opdracht 7→6, skills 10→8) | De rondes en spiegelmomenten (22 en 15 min) zijn de kern en blijven staan |
 | D4 | De peiling heeft vier meerkeuze-opties van "nee" tot "4 uur per week, één semester" | Zo is de vraag gesteld; de tussenopties zijn aanvullingen van ons |
 | D5 | Reflectie als skill `workshop-reflectie`, afgeleid van `sessie-terugblik` | De bestaande skill koppelt aan commits en GitHub, dat past niet bij losse deelnemers |
 | D6 | Privacydrempel is 30 studenten per groep en 5 per percentage-cel (was "n<5" in de sheets) | Dat is wat staat1cho doet, met secundaire onderdrukking |
@@ -18,6 +18,8 @@ te vinden en om te zien wat nog beslist moet worden.
 | D9 | Eén echt verschil (sector) en één nep-verschil (geslacht) in de data | Leert deelnemers het verschil tussen patroon en ruis |
 | D10 | Skills staan in `workshop-rad/skills/` en niet in `.claude/skills/` | `.claude/` staat in `.gitignore`; zo staan ze onder version control |
 | D11 | Uitvoeringsdeck gebruikt de pay-off "Moving Education."; het voorstel houdt "Onderwijs bewegen." | De huisstijl schrijft de eerste voor; het voorstel is niet aangepast |
+| D13 | Spiegelmomenten gaan over de skill, niet over individuele dashboards; elke skill heeft een overzichtsdia | Zo gevraagd. Dia 14-15 (verkennen), 20-21 (dashboard) en 24 (reflectie) |
+| D14 | De drie skills worden bij naam genoemd (dia 9) | Zo gevraagd |
 | D12 | Het echte beeldmerk is uit `Slide16.PNG` gereconstrueerd als 70 vector-stippen (`assets/beeldmerk-ring.json`) | powerclaude en de skill vormgever-npuls-huisstijl tekenen een indicatieve gevulde ster, niet de stippenring van het echte logo. Een officieel vectorbestand ontbreekt in de repo |
 
 ## Aannames (controleren)

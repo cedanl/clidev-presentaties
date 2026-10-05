@@ -1,15 +1,18 @@
 # Evaluatie en vervolg
 
-Het evaluatieblok (1:44-1:52) levert twee dingen op: een terugblik op de workshop en een peiling
+Het evaluatieblok (1:44-2:00, samen met de afsluiting) levert twee dingen op: een terugblik op de workshop en een peiling
 of er een vervolg moet komen. Dit document legt vast hoe we vragen, opslaan en verwerken.
 
-## Opzet in 8 minuten
+## Opzet in 16 minuten (evaluatie en afsluiting als één blok)
 
 | Min | Stap | Vorm |
 |---|---|---|
-| 3 | Reflectie: wat vond je ervan? | `workshop-reflectie` (vraag 1-3) of de peiling |
+| 4 | Terugblik: wat vond je ervan? | `/workshop-reflectie` (vraag 1-3) of de peiling |
 | 2 | Meerkeuzevraag: interesse in een training | Peiling of handopsteken |
-| 3 | Open vraag: wat wil je precies leren? | Peiling, kort antwoord |
+| 4 | Open vraag: wat wil je precies leren? | Peiling, kort antwoord |
+| 6 | Afsluiting: wat verloor en won je, wat doe je morgen anders? | Rondje in de groep of kaartje |
+
+De skill `/workshop-reflectie` wordt bij naam genoemd op dia 9 en uitgelegd op dia 24.
 
 ## De vragen
 

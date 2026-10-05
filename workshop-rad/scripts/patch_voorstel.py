@@ -4,7 +4,7 @@ Wijzigingen, verder niets:
 1. Het zelfgetekende stippenlogo (rechtsboven en op de blauwe slides) vervangen door het echte
    Npuls-beeldmerk (de stippenring uit npuls_logo.jpg).
 2. Een evaluatieslide toevoegen (in dezelfde stijl als "De opdracht") vóór de afsluiting.
-3. Het programma op slide 3 bijwerken: een extra blok "Evaluatie en vervolg" en nieuwe tijden.
+3. Het programma op slide 3 bijwerken: de laatste regel wordt "Evaluatie en afsluiting" (16 min) en de tijden schuiven mee.
 
 Gebruik (vanuit de root van clidev-presentaties):
     python workshop-rad/scripts/patch_voorstel.py
@@ -59,12 +59,6 @@ for part in prs.part.package.iter_parts():
         gevonden += 1
 assert gevonden == 2, "logo-afbeeldingen niet gevonden"
 
-# 2. Slide 2: elf blokken
-s2 = prs.slides[1]
-for sh in s2.shapes:
-    if sh.has_text_frame and "tien blokken" in sh.text_frame.text:
-        set_text(sh, sh.text_frame.text.replace("tien blokken", "elf blokken"))
-
 # 3. Programma (slide 3)
 s3 = prs.slides[2]
 shapes = list(s3.shapes)
@@ -77,24 +71,14 @@ BLOKKEN = [  # tijd, titel, minuten, omschrijving (None = origineel laten staan)
     ("0:17", "Skills en prompts", 8, None),
     ("0:25", "Devcontainer + voorbeeldprompt", 5, None),
     ("0:30", "Ronde 1: data exploratie", 22, None),
-    ("0:52", "Spiegelmoment 1", 15, None),
+    ("0:52", "Spiegelmoment 1", 15, "Bespreek de skill: wat zit erin, wat deed jij anders?"),
     ("1:07", "Ronde 2: dashboard bouwen", 22, None),
-    ("1:29", "Spiegelmoment 2", 15, None),
-    ("1:44", "Evaluatie en vervolg", 8, "Terugblik, interesse in een training en wat je wilt leren"),
-    ("1:52", "Afsluiting", 8, None),
+    ("1:29", "Spiegelmoment 2", 15, "Bespreek de skill: wat zit erin, wat miste je dashboard?"),
+    ("1:44", "Evaluatie en afsluiting", 16, "Terugblik, interesse in een training, wat je wilt leren en wat je meeneemt"),
 ]
 
-# Balk bovenaan: 10 paren (vorm + tekst) op index 2..21; maak er 11 van
-oorspronkelijk = shapes  # lijst van vóór de wijzigingen: indexbereiken blijven geldig
-balk_paren = [(oorspronkelijk[i], oorspronkelijk[i + 1]) for i in range(2, 22, 2)]
-laatste_tekst = balk_paren[-1][1]
-kopie_balk = [copy.deepcopy(balk_paren[-1][0]._element), copy.deepcopy(balk_paren[-1][1]._element)]
-laatste_tekst._element.addnext(kopie_balk[0])
-kopie_balk[0].addnext(kopie_balk[1])
-kopie_shapes = [sh for sh in s3.shapes if sh._element in kopie_balk]
-# Volgorde: ..., evaluatie (origineel laatste paar), afsluiting (kopie)
-balken = balk_paren + [(kopie_shapes[0], kopie_shapes[1])]
-
+# Balk bovenaan: 10 paren (vorm + tekst) op index 2..21
+balken = [(shapes[i], shapes[i + 1]) for i in range(2, 22, 2)]
 LINKS, BREEDTE_TOT, GAP = 0.6, 12.13, 0.05
 per_min = (BREEDTE_TOT - GAP * (len(BLOKKEN) - 1)) / sum(b[2] for b in BLOKKEN)
 x = LINKS
@@ -104,44 +88,18 @@ for (vorm, tekst), (_, _, minuten, _) in zip(balken, BLOKKEN):
         sh.left, sh.width = inch(x), inch(w)
     set_text(tekst, f"{minuten} min")
     x += w + GAP
-# Kleur van de evaluatiebalk: groen (zelfde als afsluiting) is al zo; geef hem de kleur van de ronde-balken
-# door de vulling van een spiegelmoment-balk te hergebruiken zou verwarren; laat groen staan.
 
-# Rijen: 10 rijen met vaste indexbereiken (op de lijst van vóór de wijzigingen)
+# Rijen: 10 rijen met vaste indexbereiken; posities blijven zoals in het origineel
 RIJ_BEREIK = [(22, 29), (29, 36), (36, 43), (43, 50), (50, 57), (57, 64), (64, 73), (73, 80), (80, 89), (89, 96)]
-rijen = [[oorspronkelijk[i] for i in range(a_, b_)] for a_, b_ in RIJ_BEREIK]
-# 11e rij: kopie van rij 10 (afsluiting). Het origineel wordt "Evaluatie en vervolg", de kopie "Afsluiting".
-kopie_els = []
-anker = rijen[-1][-1]._element
-for sh in rijen[-1]:
-    el = copy.deepcopy(sh._element)
-    anker.addnext(el)
-    anker = el
-    kopie_els.append(el)
-rijen.append([sh for sh in s3.shapes if sh._element in kopie_els])
-assert len(rijen) == 11 and len(rijen[-1]) == 7
-
-START, PITCH = 1.85, 0.44
-for r, (rij, blok) in enumerate(zip(rijen, BLOKKEN)):
-    top_oud = rij[0].top / 914400
-    dy = (START + PITCH * r) - top_oud
-    for sh in rij:
-        sh.top = int(sh.top + dy * 914400)
-    tijd, titel, minuten, omschr = blok
+rijen = [[shapes[i] for i in range(a_, b_)] for a_, b_ in RIJ_BEREIK]
+for rij, (tijd, titel, minuten, omschr) in zip(rijen, BLOKKEN):
     teksten = [sh for sh in rij if sh.has_text_frame and sh.text_frame.text.strip() != ""]
     # volgorde in een rij: nummer, tijd, titel, duur, omschrijving (+ evt. skill-pil)
-    set_text(teksten[0], str(r + 1))
     set_text(teksten[1], tijd)
     set_text(teksten[2], titel)
     set_text(teksten[3], f"{minuten} min")
     if omschr:
         set_text(teksten[4], omschr)
-
-# Kanttekening onderaan iets lager en korter
-for sh in s3.shapes:
-    if sh.has_text_frame and sh.text_frame.text.startswith("Kanttekening"):
-        sh.top = inch(START + PITCH * 11 + 0.08)
-        sh.height = inch(0.5)
 
 # 4. Evaluatieslide: kopie van "De opdracht" (slide 5)
 bron = prs.slides[4]
@@ -158,7 +116,7 @@ for sh in bron.shapes:
         nieuwe.shapes._spTree.append(copy.deepcopy(sh._element))
 
 VERVANG = {
-    "De opdracht": "Evaluatie en vervolg",
+    "De opdracht": "Evaluatie en afsluiting",
     "Vraag": "Terugblik",
     "Kies de casus": "Wat vond je ervan?",
     "Samen": "Peiling",
@@ -195,11 +153,11 @@ for kolom, (h, r) in enumerate(TEKST_PER_KAART):
         set_text(kandidaten[0], nieuw)
 for sh in nieuwe.shapes:
     if sh.has_text_frame and sh.text_frame.text.startswith("Er is geen goed of fout"):
-        set_text(sh, "8 minuten, na de laatste uitleg en vóór de interactieve afsluiting. De antwoorden bepalen of en hoe CEDA een vervolg inricht.")
+        set_text(sh, "Evaluatie en afsluiting vormen één blok van 16 minuten, na de laatste uitleg. De antwoorden bepalen of en hoe CEDA een vervolg inricht.")
 NOTITIE = (
-    "Evaluatie en vervolg (8 min). Vraag eerst toestemming: de antwoorden zijn anoniem en dienen om te bepalen "
-    "of er een vervolg komt. Terugblik (3 min) via de reflectie-skill of de peiling; meerkeuzevraag (2 min); "
-    "open vraag (3 min). Formulering: workshop-rad/skills/workshop-reflectie/references/vragenset.md.")
+    "Evaluatie en afsluiting (16 min, één blok). Vraag eerst toestemming: de antwoorden zijn anoniem en dienen om te bepalen "
+    "of er een vervolg komt. Terugblik (4 min) via de reflectie-skill of de peiling; meerkeuzevraag (2 min); "
+    "open vraag (4 min); daarna de afsluiting (6 min). Formulering: workshop-rad/skills/workshop-reflectie/references/vragenset.md.")
 ns = nieuwe.notes_slide
 if ns.notes_text_frame is None:  # notitiemaster zonder tekstvak: neem de structuur van slide 5 over
     for sh in list(ns.shapes):

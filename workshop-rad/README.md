@@ -96,9 +96,8 @@ Bewust weinig. De opmaak, kleuren, iconen en teksten van het origineel zijn beho
    het echte Npuls-beeldmerk, de stippenring uit `public/npuls/npuls_logo.jpg`. Wit op blauwe slides, zwart
    op de rest.
 2. **Evaluatieslide** toegevoegd, in dezelfde stijl als "De opdracht", vóór de afsluiting.
-3. **Programma (slide 3)** bijgewerkt: een extra blok "Evaluatie en vervolg" (8 min) en nieuwe tijden. De 8
-   minuten komen uit intro, synthetische data, opdracht, skills en de afsluiting.
-4. Slide 2: "tien blokken" wordt "elf blokken".
+3. **Programma (slide 3)** bijgewerkt: de laatste regel is nu "Evaluatie en afsluiting" (16 min, één blok) en
+   de tijden zijn aangepast. De spiegelmomenten gaan over de skill en niet over individuele dashboards.
 
 Niet aangeraakt: de iconen op de slides over synthetische data en responsible (schild, mens, weegschaal,
 boek) en de golven en ringen. Die zijn geen logo; of ze Font Awesome *Solid Sharp* zijn zoals de huisstijl
