@@ -1,0 +1,38 @@
+
+== Casus A: uitval binnen 1 jaar (cohorten t/m 2022, laatste cohort is nog niet waarneembaar) ==
+totaal: 0.167 
+# A tibble: 3 × 3
+  sector          uitval     n
+  <chr>            <dbl> <int>
+1 economie         0.131   720
+2 gezondheidszorg  0.102   708
+3 techniek         0.219  1381
+# A tibble: 2 × 3
+  geslacht uitval     n
+  <chr>     <dbl> <int>
+1 man       0.161  1403
+2 vrouw     0.173  1406
+
+== Casus B: wissel ==
+aandeel wisselaars (hele populatie): 0.081 
+# A tibble: 4 × 3
+  opleiding               n aandeel
+  <chr>               <int>   <dbl>
+1 B Bedrijfskunde        70   0.282
+2 B Elektrotechniek      28   0.113
+3 B Verpleegkunde       133   0.536
+4 B Werktuigbouwkunde    17   0.069
+
+== Casus C: rendement 5 jaar (cohorten t/m 2019) per vooropleiding ==
+# A tibble: 5 × 3
+  vooropleiding rendement5     n
+  <chr>              <dbl> <int>
+1 buitenlands        0.617    94
+2 havo               0.558   912
+3 mbo                0.556   721
+4 onbekend           0.56    116
+5 vwo                0.526   192
+
+== Kleine groepen ==
+opleiding x cohort x geslacht: groepen 96  <30: 28  min: 20 
+opleiding x cohort x internationaal: groepen 96  <30: 48  <5: 20 

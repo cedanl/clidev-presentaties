@@ -1,0 +1,21 @@
+# Antwoordsleutel: wat een correcte analyse op de synthetische data moet vinden.
+# Gebruik: Rscript workshop-rad/scripts/verwachte_uitkomsten.R
+suppressMessages({library(dplyr); library(readr)})
+d <- read_delim("workshop-rad/data/synthetisch_1cho.csv", delim = ";", col_types = cols(.default = "c"), progress = FALSE)
+w <- read_delim("workshop-rad/data/waarheid.csv", delim = ";", col_types = cols(persoonsgebonden_nummer = "c", .default = "?"), progress = FALSE)
+eerste <- d |> arrange(persoonsgebonden_nummer, inschrijvingsjaar) |> group_by(persoonsgebonden_nummer) |> slice(1) |> ungroup() |>
+  select(persoonsgebonden_nummer, sector = croho_onderdeel_actuele_opleiding, opleiding = opleidingscode_naam_opleiding, geslacht, internationaal = indicatie_internationale_student)
+m <- w |> left_join(eerste, by = "persoonsgebonden_nummer") |> mutate(uitval1 = !is.na(uitval_na) & uitval_na == 1)
+cat("\n== Casus A: uitval binnen 1 jaar (cohorten t/m 2022, laatste cohort is nog niet waarneembaar) ==\n")
+f <- filter(m, instroomjaar <= 2022)
+cat("totaal:", round(mean(f$uitval1), 3), "\n")
+print(f |> group_by(sector) |> summarise(uitval = round(mean(uitval1), 3), n = n()))
+print(f |> group_by(geslacht) |> summarise(uitval = round(mean(uitval1), 3), n = n()))
+cat("\n== Casus B: wissel ==\n"); cat("aandeel wisselaars (hele populatie):", round(mean(m$gewisseld), 3), "\n")
+print(m |> filter(gewisseld) |> count(opleiding) |> mutate(aandeel = round(n / sum(n), 3)))
+cat("\n== Casus C: rendement 5 jaar (cohorten t/m 2019) per vooropleiding ==\n")
+r <- m |> filter(instroomjaar <= 2019) |> mutate(d5 = !is.na(diploma_na) & diploma_na <= 5)
+print(r |> group_by(vooropleiding) |> summarise(rendement5 = round(mean(d5), 3), n = n()))
+cat("\n== Kleine groepen ==\n")
+g <- m |> count(opleiding, instroomjaar, geslacht); cat("opleiding x cohort x geslacht: groepen", nrow(g), " <30:", sum(g$n < 30), " min:", min(g$n), "\n")
+g2 <- m |> count(opleiding, instroomjaar, internationaal); cat("opleiding x cohort x internationaal: groepen", nrow(g2), " <30:", sum(g2$n < 30), " <5:", sum(g2$n < 5), "\n")
