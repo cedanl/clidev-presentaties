@@ -115,7 +115,7 @@ export default {
       variant: 'licht-groen',
       title: 'Zo start je met de agent',
       items: [
-        { title: 'Open de devcontainer', text: 'Alles staat klaar: Python, DuckDB, Streamlit, de data en de skills', status: 'Stap 1', color: 'groen' },
+        { title: 'Open de devcontainer', text: 'Alles staat klaar: Claude Code, Python en de data', status: 'Stap 1', color: 'groen' },
         { title: 'Start Claude Code', text: 'Typ claude in de terminal', status: 'Stap 2', color: 'groen' },
         { title: 'Probeer een eerste instructie', text: 'Lees data/synthetisch_1cho.csv en vertel in gewone taal wat erin zit', status: 'Stap 3', color: 'blauw' },
         { title: 'Stuur de agent aan', text: 'Jij prompt, de agent rekent en bouwt. De skills laten wij straks zien', status: 'Straks', color: 'oranje' },
@@ -143,7 +143,7 @@ export default {
         { tag: 'Controleer', title: 'Wat mag je laten zien?', sections: [{ text: 'Kleine groepen en cohorten die nog niet afgelopen zijn. Wat telt wel en niet mee?' }] },
         { tag: 'Schets', title: 'Twee of drie views', sections: [{ text: 'Een schets op papier of in tekst van wat je gaat bouwen, met een conclusie als titel.' }] },
       ],
-      footer: '**Oplevering:** begrip van de data, een schets en een eerste privacy-check.',
+      footer: '**Probeer:** "Vertel in gewone taal wat er in data/synthetisch_1cho.csv zit." **Oplevering:** begrip van de data, een schets en een eerste privacy-check.',
       notes: 'Dit is de bestuurder-navigator-ronde. Aan het eind van ronde 1 moeten ze kunnen zeggen hoeveel studenten en cohorten er zijn, welke cohorten niet waarneembaar zijn en waar kleine groepen zitten.',
     },
     // Spiegelmoment 1 (0:52, 15 min): de skill bespreken, geen individuele dashboards
@@ -205,7 +205,7 @@ export default {
         { tag: 'Filter', title: 'Sector of cohort', sections: [{ text: 'Ook na het filteren worden kleine groepen niet getoond.' }] },
         { tag: 'Uitleg', title: 'Zo lees je dit', sections: [{ text: 'Definities, bron en wat het dashboard niet kan zeggen.' }] },
       ],
-      footer: 'Het dashboard is het middel, de casusvraag het doel.',
+      footer: '**Probeer:** "Bouw een Streamlit-dashboard dat laat zien welke eerstejaars binnen een jaar stoppen, per sector." Het dashboard is het middel, de casusvraag het doel.',
       notes: 'Dit zijn de vier minimumeisen. Meer hoeft niet; liever een werkend en uitlegbaar dashboard dan een volle tabbladenwand.',
     },
     {

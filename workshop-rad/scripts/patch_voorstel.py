@@ -101,6 +101,116 @@ for rij, (tijd, titel, minuten, omschr) in zip(rijen, BLOKKEN):
     if omschr:
         set_text(teksten[4], omschr)
 
+# 3b. Inhoudelijke bijwerkingen, zodat het voorstel klopt met de besluiten van de afgelopen dagen
+def slide_met(tekst):
+    """Zoekt eerst op exacte titel, daarna op begin van een tekstvak."""
+    for exact in (True, False):
+        for sl in prs.slides:
+            for sh in sl.shapes:
+                if sh.has_text_frame:
+                    t = sh.text_frame.text.strip()
+                    if (t == tekst) if exact else t.startswith(tekst):
+                        return sl
+    raise AssertionError(f"slide met '{tekst}' niet gevonden")
+
+
+def zet(slide, begin, nieuw):
+    """Zet de tekst van het eerste tekstvak dat met `begin` begint."""
+    for sh in slide.shapes:
+        if sh.has_text_frame and sh.text_frame.text.strip().startswith(begin):
+            set_text(sh, nieuw)
+            return
+    raise AssertionError(f"tekstvak met '{begin}' niet gevonden")
+
+
+def zet_alle(slide, begin, nieuw):
+    n = 0
+    for sh in slide.shapes:
+        if sh.has_text_frame and sh.text_frame.text.strip().startswith(begin):
+            set_text(sh, nieuw)
+            n += 1
+    assert n, begin
+
+
+# Opdracht: rollen
+sl = slide_met("De opdracht")
+zet(sl, "Eén stuurt de agent aan", "Eén typt de opdrachten, de ander checkt of het antwoord klopt. Wissel per ronde.")
+
+# Casussen: geen jargon, en eerlijk over casus C
+sl = slide_met("Drie casussen")
+zet_alle(sl, "AI-TAAK", "MET DE AGENT")
+zet(sl, "Alle drie draaien op het 1CHO-bestand",
+    "Voorstel: casus A. Casus C vraagt het VO-eindcijfer, dat niet in het synthetische inschrijvingenbestand zit (dat komt uit VAKHAVW). Definities volgen het package staat1cho.")
+
+# Skill: agent, prompt en skill duidelijker
+sl = slide_met("Wat is een skill?")
+zet(sl, "losse vraag", "losse opdracht")
+zet(sl, "Je typt wat je wilt", "Wat jij zelf typt. Het resultaat is elke keer anders en hangt af van hoe je het vraagt.")
+zet(sl, "vastgelegd recept", "vast stappenplan")
+zet(sl, "Een map met een SKILL.md", "Een tekstbestand (SKILL.md) met stappen en checks dat de agent volgt. Elke keer dezelfde werkwijze.")
+zet(sl, "voert uit", "de uitvoerder")
+zet(sl, "Claude Code leest de skill", "De AI die het werk doet: leest je opdracht of de skill, schrijft en draait de code. Wij gebruiken Claude Code.")
+
+# Privacydrempel conform staat1cho
+sl = slide_met("Waarom skills?")
+zet(sl, "n<5", "n<30")
+sl = slide_met("Responsible zit in beide rondes")
+zet(sl, "Drempel voor kleine aantallen", "Groepen onder 30 studenten en percentages onder 5 niet tonen, en herleidbare combinaties van uitsplitsingen.")
+
+# Devcontainer: skills worden door de leider getoond
+sl = slide_met("Wat komt er in de devcontainer?")
+zet(sl, "Skills en checkpoints", "Skills")
+zet(sl, "staan klaar, activeren met", "de leider laat ze live zien bij de spiegelmomenten")
+
+# Ronde 1: uitkomsten controleren in plaats van code
+sl = slide_met("Eén dashboard, twee stappen")
+zet(sl, "Data en codebook verkennen met de agent", "Data en codebook verkennen met de agent, de uitkomsten controleren en kleine groepen en definities vastleggen.")
+
+# Skills: namen en wie ze draait
+sl = slide_met("Een skill bij elk spiegelmoment")
+zet(sl, "Skills werken via vaste tussenproducten",
+    "/workshop-verkennen en /workshop-dashboard, plus /workshop-reflectie voor de evaluatie. Deelnemers prompten zelf; de leider draait de skills live (gemeten: ongeveer 1 en 2 tot 2,5 minuut). Vaste tussenproducten, kosten \u20ac0.")
+
+# Risico's en kanttekening
+sl = slide_met("Randvoorwaarden en risico")
+zet(sl, "Kanttekening devcontainer",
+    "Kanttekening devcontainer: deelnemers werken alleen via de AI-agent, in de Codespaces-omgeving dair-agentic-coding (Claude via Foundry). Python en uv staan erin; DuckDB, Streamlit en Plotly nog niet (voorstel: issue #10). Welk model deelnemers krijgen is nog open (issue #11).")
+zet(sl, "Skills uitdelen kost tijd", "De skill duurt langer dan gepland")
+zet(sl, "Skills staan klaar in de devcontainer",
+    "Gemeten: ongeveer 1 en 2 tot 2,5 minuut, met een ander model dan in de devcontainer. Opnieuw meten in de echte omgeving en ruim marge nemen.")
+zet(sl, "Vooraf controleren en zo nodig een patroon",
+    "Patroon (sector) en kleine groepen zijn ingebouwd en vooraf gecontroleerd met een antwoordsleutel.")
+
+# Open punten: meer dan alleen de casus
+sl = slide_met("Afsluiting en open punten")
+zet(sl, "Nog open: kies A, B of C", "Voorstel: casus A. Casus C vraagt het VO-eindcijfer, dat niet in het synthetische bestand zit.")
+kaart = [sh for sh in sl.shapes if sh.top / 914400 > 2.2 and sh.left / 914400 > 6.3]  # de bestaande kaart: vlak, pil, piltekst, tekst
+assert len(kaart) == 4, len(kaart)
+EXTRA = [
+    ("Omgeving", "Pakketten in het image (issue #10) en welk Claude-model deelnemers krijgen (issue #11), bij Tomer."),
+    ("Skills", "De skills staan in een pull request (#9) en moeten nog gereviewd worden. De data volgt apart."),
+    ("Planning", "Peiling-tool, datum en spreker invullen en de skills opnieuw meten in de echte omgeving."),
+]
+groepen = [kaart]
+anker = kaart[-1]._element
+for tag, tekst in EXTRA:
+    elementen = []
+    for sh in kaart:
+        el = copy.deepcopy(sh._element)
+        anker.addnext(el)
+        anker = el
+        elementen.append(el)
+    nieuwe = [x for x in sl.shapes if x._element in elementen]
+    nieuwe.sort(key=lambda x: elementen.index(x._element))
+    set_text(nieuwe[2], tag)
+    set_text(nieuwe[3], tekst)
+    groepen.append(nieuwe)
+for k, (vlak, pil, pil_tekst, tekst) in enumerate(groepen):
+    top = 2.2 + 1.2 * k
+    vlak.top, vlak.height = inch(top), inch(1.1)
+    pil.top = pil_tekst.top = inch(top + 0.14)
+    tekst.top, tekst.height = inch(top + 0.52), inch(0.5)
+
 # 4. Evaluatieslide: kopie van "De opdracht" (slide 5)
 bron = prs.slides[4]
 nieuwe = prs.slides.add_slide(bron.slide_layout)
