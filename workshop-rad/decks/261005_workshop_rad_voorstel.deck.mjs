@@ -110,11 +110,11 @@ export default {
       items: [
         { value: '1×', label: 'uitschrijven', text: 'daarna eindeloos hergebruiken, door iedereen' },
         { value: '0', label: 'black boxes', text: 'je leest precies wat de agent gaat doen' },
-        { value: 'n<5', label: 'ingebouwd', text: 'privacy-drempel en checks vergeet je nooit meer' },
+        { value: 'n<30', label: 'ingebouwd', text: 'privacy-drempel en checks vergeet je nooit meer' },
         { value: '€0', label: 'kosten', text: 'tekstbestanden in de repo, deelbaar via Git' },
       ],
       callout: '**Vuistregel:** elke prompt die je drie keer typt, is een skill in wording.',
-      notes: 'Herkenbaar: je schrijft een goede prompt, het werkt, en een week later typ je hem opnieuw (en net iets anders). De drempel in dit voorbeeld (n<5) is een keuze; staat1cho hanteert 30 studenten per groep en 5 per percentage.',
+      notes: 'Herkenbaar: je schrijft een goede prompt, het werkt, en een week later typ je hem opnieuw (en net iets anders). De drempel is een keuze van het project (staat1cho: minder dan 30 studenten per groep, minder dan 5 per percentage-cel), nog niet getoetst door een privacy officer.',
     },
     {
       type: 'list',
