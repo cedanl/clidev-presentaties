@@ -121,7 +121,7 @@ export default {
       title: 'Ronde 1: ken je data',
       text: '22 minuten. Verken data en codebook voor je iets bouwt.',
       illustration: 'data',
-      notes: 'Start de timer van 22 minuten. Loop rond; beantwoord vragen met een wedervraag. Let op: wie het laatste cohort als 0% uitval toont, zit in de valkuil. Dat bespreken we bij het spiegelmoment.',
+      notes: 'Start de timer van 22 minuten. Loop rond; beantwoord vragen met een wedervraag. Let op: wie het laatste cohort meetelt (vertekend percentage), zit in de valkuil. Dat bespreken we bij het spiegelmoment.',
     },
     {
       type: 'cards',

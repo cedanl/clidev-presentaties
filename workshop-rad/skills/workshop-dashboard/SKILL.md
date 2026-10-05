@@ -22,8 +22,10 @@ verantwoorden zit er **in verweven**: er is geen aparte stap achteraf.
 ## Stack
 
 Python, DuckDB voor de berekening en Streamlit voor het dashboard (de dashboard-tool kan voor de
-workshop nog wijzigen; volg dan de keuze van de workshopleiding). Eén bestand `app.py`, start met
-`streamlit run app.py`. Zet berekeningen in functies zodat ze los te testen zijn.
+workshop nog wijzigen; volg dan de keuze van de workshopleiding). Installeer met
+`pip install -r workshop-rad/requirements.txt` (duckdb, streamlit, plotly). Zet de berekeningen in
+`berekeningen.py` naast `app.py`, zodat ze los te testen zijn; `app.py` bevat alleen de weergave.
+Start met `streamlit run app.py`. Gebruik `width="stretch"` in plaats van `use_container_width`.
 
 ## Wat het dashboard minimaal heeft
 
@@ -43,13 +45,16 @@ workshop nog wijzigen; volg dan de keuze van de workshopleiding). Eén bestand `
 | Waarneembaarheid | Sluit cohorten uit waarvan de observatietermijn niet volledig is en zeg dat op het dashboard. |
 | Eerlijke framing | Geen woorden als "slechter" of "risicogroep" over groepen mensen; benoem opleidingen, geen kenmerken van personen als oorzaak. Een verband is geen oorzaak. |
 | Toegankelijkheid | Kleurenblind-veilig palet (niet alleen rood/groen), contrast minimaal 4,5:1, elke grafiek met een tekstuele samenvatting als alt-tekst, labels direct op de staven waar het past. |
-| Bron en uitleg | Bronvermelding (synthetische 1CHO-data, de definities), peildatum en n per groep zichtbaar. |
+| Bron en uitleg | Bronvermelding (synthetische 1CHO-data, de definities), peildatum en n per groep zichtbaar. De data heeft geen peildatum: gebruik het laatste `inschrijvingsjaar` in de data, tenzij anders opgegeven. |
 
 ## Werkwijze
 
 1. Lees `schets.md`, kies met de deelnemer welke view het eerst komt, bouw die.
-2. Draai de app kort (`streamlit run app.py --server.headless true`) en controleer dat hij start.
-   Meld eerlijk wat je niet kon controleren, bijvoorbeeld hoe het er in de browser uitziet.
+2. Test headless met `streamlit.testing.v1.AppTest`: geen exception, de cohortkeuze stopt bij het
+   laatste waarneembare cohort, en een filter naar een kleine groep geeft "te weinig studenten".
+   Dat zegt meer dan alleen kijken of de server start. Meld eerlijk wat je niet kon controleren,
+   bijvoorbeeld hoe het er in de browser uitziet of de alt-tekst bij een schermlezer aankomt
+   (Plotly in Streamlit heeft geen echte alt-tekst: zet de samenvatting in een `st.caption`).
 3. Controleer de uitkomst tegen het checkpoint hieronder.
 4. Vat samen: welke keuzes zijn gemaakt, welke checks zijn toegepast, wat blijft open.
 
@@ -62,6 +67,8 @@ Zie `workshop-rad/data/verwachte_uitkomsten.txt`.
 
 ## Let op
 
+- Onderdrukte groepen laat je weg uit de grafiek en noem je in de tekstuele samenvatting. Controleer
+  het kleurcontrast echt (4,5:1) en neem niet aan dat een palet voldoet.
 - Geen interactie of extra tab "voor de zekerheid": houd het bij wat de casus nodig heeft.
 - Vermeld op het dashboard dat de data synthetisch is.
 - Volg de huisstijl van het eigen team of Npuls als de deelnemer die opgeeft; zo niet, kies een rustig
