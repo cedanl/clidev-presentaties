@@ -1,4 +1,0 @@
-# Python-afhankelijkheden voor de workshop-skills (bouwen)
-duckdb
-streamlit
-plotly
