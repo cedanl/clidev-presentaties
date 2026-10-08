@@ -71,9 +71,6 @@ Zie `workshop-rad/data/antwoordsleutel/verwachte_uitkomsten.txt`.
   het kleurcontrast echt (4,5:1) en neem niet aan dat een palet voldoet.
 - Geen interactie of extra tab "voor de zekerheid": houd het bij wat de casus nodig heeft.
 - Vermeld op het dashboard dat de data synthetisch is.
-- Houd grafiektitels kort (liefst onder 60 tekens) of zet ze als kop boven de grafiek in plaats van in de
-  Plotly-titel: een lange titel wordt op een smal scherm afgekapt. Kijk bij een venster van ongeveer 400 px
-  breed of er niets wordt afgekapt, en zeg het als je dat niet kon controleren.
 - Gebruik in elke tekst, ook de samenvatting onder een grafiek, dezelfde leesbare labels als in de grafiek
   zelf (dus niet de ruwe waarde "B Bedrijfskunde" als de grafiek "Bedrijfskunde" toont).
 - Volg de huisstijl van het eigen team of Npuls als de deelnemer die opgeeft; zo niet, kies een rustig
