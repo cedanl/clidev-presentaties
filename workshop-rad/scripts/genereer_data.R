@@ -8,7 +8,7 @@
 # Gebruik (vanuit de root van clidev-presentaties):
 #   Rscript workshop-rad/scripts/genereer_data.R [pad/naar/staat-van-onderwijsinstelling]
 # Schrijft workshop-rad/data/synthetisch_1cho.csv (voor deelnemers) en
-# workshop-rad/data/waarheid.csv (antwoordsleutel, NIET delen met deelnemers).
+# workshop-rad/data/antwoordsleutel/waarheid.csv (antwoordsleutel, NIET delen met deelnemers).
 suppressMessages({library(dplyr); library(readr)})
 args <- commandArgs(trailingOnly = TRUE)
 pad <- if (length(args)) args[1] else "../staat-van-onderwijsinstelling"
@@ -43,5 +43,5 @@ data <- bind_rows(lapply(lijst, `[[`, "data"))
 waarheid <- bind_rows(lapply(lijst, `[[`, "waarheid"))
 
 write_delim(data, "workshop-rad/data/synthetisch_1cho.csv", delim = ";", na = "")
-write_delim(waarheid, "workshop-rad/data/waarheid.csv", delim = ";", na = "")
+write_delim(waarheid, "workshop-rad/data/antwoordsleutel/waarheid.csv", delim = ";", na = "")
 cat("rijen:", nrow(data), " studenten:", nrow(waarheid), "\n")

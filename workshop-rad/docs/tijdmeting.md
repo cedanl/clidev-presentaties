@@ -9,7 +9,7 @@ verschil is met een gewone prompt.
 - Model: `claude-sonnet-5-5` (standaard van de omgeving, niet gekozen).
 - Elke run in een schone map met alleen `data/synthetisch_1cho.csv` en (behalve run C) de twee skills in
   `.claude/skills/`. Python met duckdb, streamlit en plotly stond klaar.
-- Run A en B: `workshop-verkennen`, daarna `workshop-dashboard` op de uitkomst. Twee keer gedraaid om spreiding te zien.
+- Run A en B: `verkennen`, daarna `bouwen` op de uitkomst. Twee keer gedraaid om spreiding te zien.
 - Run C: **één gewone prompt** zonder skills: "Verken het bestand en bouw een Streamlit-dashboard dat deze vraag
   beantwoordt".
 - Alle runs kregen de opdracht geen vragen te stellen. Muurtijd is gemeten met `date`; de API-tijd komt uit de
@@ -19,15 +19,15 @@ verschil is met een gewone prompt.
 
 | Run | Stap | Muurtijd | Beurten | Kosten |
 |---|---|---|---|---|
-| A | `workshop-verkennen` | 71 s | 8 | $0,25 |
-| A | `workshop-dashboard` | 124 s | 14 | $0,38 |
-| B | `workshop-verkennen` | 58 s | 7 | $0,22 |
-| B | `workshop-dashboard` | 136 s | 18 | $0,45 |
+| A | `verkennen` | 71 s | 8 | $0,25 |
+| A | `bouwen` | 124 s | 14 | $0,38 |
+| B | `verkennen` | 58 s | 7 | $0,22 |
+| B | `bouwen` | 136 s | 18 | $0,45 |
 | C | gewone prompt (verkennen en dashboard) | 104 s | 13 | $0,35 |
 
 **Samengevat:**
-- `workshop-verkennen`: **ongeveer 1 minuut** (58 tot 71 s).
-- `workshop-dashboard`: **ongeveer 2 tot 2,5 minuut** (124 tot 136 s).
+- `verkennen`: **ongeveer 1 minuut** (58 tot 71 s).
+- `bouwen`: **ongeveer 2 tot 2,5 minuut** (124 tot 136 s).
 - Beide skills achter elkaar: **ongeveer 3 minuten**.
 - Een gewone prompt voor hetzelfde doel: **ongeveer 1,7 minuut**.
 
@@ -64,7 +64,7 @@ terwijl de skill ze verbergt.
 
 ## Beperkingen (belangrijk)
 
-- **Ander model dan de deelnemers.** Gemeten met `claude-sonnet-5-5`. De devcontainer van `cedanl/dair-agentic-coding` gebruikt Claude via Foundry met `claude-sonnet-4-6` als standaard Sonnet (zie het Dockerfile). De tijden kunnen dus anders uitvallen; herhaal de meting met het model van de deelnemers.
+- **Zelfde model als de deelnemers.** Gemeten met `claude-sonnet-5-5`; het Dockerfile van `cedanl/dair-agentic-coding` zet dat model ook als standaard Sonnet (via Foundry). Een tweede meting op 2026-10-08 (zie hieronder) gaf wel langere tijden.
 - **Niet in de devcontainer gemeten.** Dit draaide op één laptop, headless. Een tragere machine of een verbinding met
   veel gebruikers kan het flink rekken.
 - **Twee runs per skill.** Dat laat spreiding zien (58 tot 71 s, 124 tot 136 s) maar is geen statistiek.
@@ -79,9 +79,20 @@ terwijl de skill ze verbergt.
 Het script staat in de scratchpad van deze sessie; de aanpak is simpel te herhalen:
 
 ```bash
-claude -p "Gebruik de skill workshop-verkennen op data/synthetisch_1cho.csv. <casus>" \
+claude -p "Gebruik de skill verkennen op data/synthetisch_1cho.csv. <casus>" \
   --output-format json --allowedTools "Bash Read Write Edit Glob Grep Skill" --permission-mode acceptEdits
 ```
 
 Meet de muurtijd met `date +%s` ervoor en erna, en lees `duration_ms`, `num_turns` en `total_cost_usd` uit de
 JSON-uitvoer. Doe dit voor de workshop in de echte devcontainer en met de modelkeuze die deelnemers krijgen.
+
+## Tweede meting (2026-10-08, vanuit de repo dair-agentic-coding)
+
+Zelfde opzet, `claude-sonnet-5-5`, de skills en `data/synthetisch_1cho.csv` uit `dair-agentic-coding`, één run per skill, headless op een Windows-laptop.
+
+| Stap | Muurtijd | Beurten | Kosten |
+|---|---|---|---|
+| `verkennen` | 125 s | zie uitvoer | niet uitgelezen |
+| `bouwen` | 167 s | 16 | $0,40 |
+
+De uitkomst klopte (techniek 21,9%, economie 13,1%, gezondheidszorg 10,2%, cohort 2023 weggelaten, 3 tests geslaagd), maar de tijden liggen ruim boven de eerste meting (1 en 2 tot 2,5 minuut). Plan dus 2 en 3 minuten per skill, plus marge. Schermafbeeldingen en uitvoer staan buiten de repo, in `Documents/dair-skill-test`.

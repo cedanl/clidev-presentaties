@@ -18,7 +18,7 @@ te vinden en om te zien wat nog beslist moet worden.
 | D9 | Eén echt verschil (sector) en één nep-verschil (geslacht) in de data | Leert deelnemers het verschil tussen patroon en ruis |
 | D10 | Skills staan in `workshop-rad/skills/` en niet in `.claude/skills/` | `.claude/` staat in `.gitignore`; zo staan ze onder version control |
 | D11 | Uitvoeringsdeck gebruikt de pay-off "Moving Education."; het voorstel houdt "Onderwijs bewegen." | De huisstijl schrijft de eerste voor; het voorstel is niet aangepast |
-| D13 | Spiegelmomenten gaan over de skill, niet over individuele dashboards; elke skill heeft een overzichtsdia | Zo gevraagd. Dia 14-15 (verkennen), 20-21 (dashboard) |
+| D13 | Spiegelmomenten gaan over de skill, niet over individuele dashboards; elke skill heeft een overzichtsdia | Zo gevraagd. Dia 17-18 (verkennen), 20-21 (dashboard) |
 | D14 | De twee skills worden bij naam genoemd (dia 9) | Zo gevraagd |
 | D15 | Het voorstel is inhoudelijk bijgewerkt zodat het één verhaal vormt met de uitvoering: rollen prompter en checker, drempel n<30, skills alleen door de leider getoond, juiste devcontainer-claims en uitgebreide open punten met PR #9 en issues #10 en #11 | Zo gevraagd, om het naar collega's te kunnen sturen |
 | D16 | `workshop-reflectie` is uit de skills, de decks, de docs en de PR gehaald | Zo gevraagd |
@@ -41,7 +41,7 @@ te vinden en om te zien wat nog beslist moet worden.
 | # | Punt | Wie | Voor wanneer |
 |---|---|---|---|
 | O1 | Casus kiezen (A aanbevolen) en casus C wel/niet herformuleren | Workshopleiding | Voor de eerste droge run |
-| O2 | Peiling-tool kiezen (Mentimeter of vergelijkbaar) en QR-code in dia 21 zetten | Workshopleiding | Week voor de workshop |
+| O2 | Peiling-tool kiezen (Mentimeter of vergelijkbaar) en QR-code in dia 24 zetten | Workshopleiding | Week voor de workshop |
 | O3 | Devcontainer bouwen en testen met de skills en data erin | Technisch team | Twee droge runs voor de dag |
 | O4 | Streamlit bevestigen of kiezen voor een alternatief | Workshopleiding | Met O3 |
 | O5 | Datum, tijdstip en spreker invullen | CEDA | Voor verzending |

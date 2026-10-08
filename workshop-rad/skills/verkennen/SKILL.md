@@ -1,6 +1,6 @@
 ---
-name: workshop-verkennen
-description: Gebruik bij ronde 1 van de CEDA-workshop "Agentic data science in het onderwijs", of wanneer iemand een 1CHO-inschrijvingenbestand (CSV met puntkomma) wil verkennen voor er een dashboard komt — profileren van data en codebook, kleine groepen signaleren, definities vastleggen en twee of drie views schetsen. LET OP — het dashboard zelf bouwen hoort bij `workshop-dashboard`.
+name: verkennen
+description: Gebruik wanneer iemand een 1CHO-inschrijvingenbestand (CSV met puntkomma) wil verkennen voor er een dashboard komt, zoals in ronde 1 van de CEDA-workshop "Agentic data science in het onderwijs" — profileren van data en codebook, kleine groepen signaleren, definities vastleggen en twee of drie views schetsen. LET OP — het dashboard zelf bouwen hoort bij `bouwen`.
 allowed-tools: Read Grep Glob Write Bash
 metadata:
   workshop: ceda-rad-dair
@@ -8,7 +8,7 @@ metadata:
   versie: "0.1.0"
 ---
 
-# Workshop: data verkennen (ronde 1)
+# Data verkennen
 
 Maakt van een ruw 1CHO-bestand **begrip**: wat zit erin, wat mag je ermee zeggen en wat mag je
 niet laten zien. De uitkomst is twee bestanden die ronde 2 als invoer gebruikt, zodat elke stap na
@@ -100,7 +100,7 @@ Op de standaard workshopdata (`workshop-rad/data/synthetisch_1cho.csv`, seed 11/
 correcte verkenning te vinden: 3070 studenten, cohorten 2012-2023 waarvan 2023 niet waarneembaar is
 voor uitval, en 28 van de 96 groepen onder 30 bij opleiding × cohort × geslacht (alle cohorten; 26
 van 88 zonder 2023). Telt men ook de regel "teller of rest < 5" mee, dan zijn het er meer. De antwoordsleutel staat in
-`workshop-rad/data/verwachte_uitkomsten.txt`.
+`workshop-rad/data/antwoordsleutel/verwachte_uitkomsten.txt`.
 
 ## Let op
 

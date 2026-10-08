@@ -17,9 +17,9 @@ alleen als de groep daar zin in heeft, de data ondersteunt het. Casus C gaan we 
 | 0:17 | 8 | Skills en prompts | Wat is een skill; de twee skills bij naam | 8-9 |
 | 0:25 | 5 | Devcontainer en voorbeeldprompt | Live: eerste prompt, skill activeren | 10 |
 | 0:30 | 22 | **Ronde 1: data exploratie** | Rondlopen, vragen alleen beantwoorden met een wedervraag | 11-12 |
-| 0:52 | 15 | **Spiegelmoment 1: kijk in de skill** | Bespreek `/workshop-verkennen`: opbouw en wat hij afvangt | 13-15 |
+| 0:52 | 15 | **Spiegelmoment 1: kijk in de skill** | Bespreek `/verkennen`: opbouw en wat hij afvangt | 13-15 |
 | 1:07 | 22 | **Ronde 2: dashboard bouwen** | Rondlopen, let op de responsible-checks | 16-18 |
-| 1:29 | 15 | **Spiegelmoment 2: kijk in de skill** | Bespreek `/workshop-dashboard`, daarna de onthulling | 19-22 |
+| 1:29 | 15 | **Spiegelmoment 2: kijk in de skill** | Bespreek `/bouwen`, daarna de onthulling | 19-22 |
 | 1:44 | 16 | **Evaluatie en afsluiting** (één blok) | Terugblik, peiling, open vraag, afsluitend rondje | 23-26 |
 | 2:00 | | Einde | Contactslide blijft staan | 27 |
 
@@ -31,9 +31,11 @@ kan in twee of drie zinnen terugkoppelen wat ze zelf deden; daarna loopt de leid
 
 ## Voor de dag
 
+- [ ] Deelnemers vooraf gevraagd een **GitHub-account** aan te maken (gratis) en te controleren dat ze inloggen. Zonder account kunnen ze geen Codespace starten.
+- [ ] **Workshop-key** klaar om uit te delen (mondeling of op papier, niet op een slide). Herstel voor deelnemers: `dair-onboard`.
 - [ ] Devcontainer getest op twee laptops en één Mac. Python, DuckDB, Streamlit en Claude Code werken.
-- [ ] `workshop-rad/data/synthetisch_1cho.csv` staat in de devcontainer onder `data/`. **Niet** `waarheid.csv`.
-- [ ] De twee skills staan klaar in `.claude/skills/` (kopieer `workshop-rad/skills/*`) en activeren met één commando: `/workshop-verkennen` en `/workshop-dashboard`.
+- [x] `data/synthetisch_1cho.csv` staat in de repo `cedanl/dair-agentic-coding` (dus in elke Codespace). **Niet** `data/antwoordsleutel/`: die staat alleen in clidev-presentaties.
+- [ ] De twee skills staan klaar in `.claude/skills/` (kopieer `workshop-rad/skills/*`) en activeren met één commando: `/verkennen` en `/bouwen`.
 - [ ] Minstens **twee droge runs** van beide rondes, met de checkpoints hieronder. Zie `droge-run.md`.
 - [ ] Peiling-tool gekozen en getest (QR-code werkt, antwoorden zijn zichtbaar). Alternatief: papieren kaartjes.
 - [ ] Fonts geïnstalleerd op de presentatielaptop, deck als PDF als reserve.
@@ -57,12 +59,15 @@ deelnemers dat zelf ontdekken en neem het mee naar het spiegelmoment als bewijs 
 
 ### Skills en prompts (0:17)
 Prompt versus skill versus agent (dia 8). Laat een SKILL.md op het scherm zien, niet langer dan een minuut.
-Dia 9 noemt de twee skills bij naam: `/workshop-verkennen` en `/workshop-dashboard`.
+Dia 9 noemt de twee skills bij naam: `/verkennen` en `/bouwen`.
 Vuistregel: elke prompt die je drie keer typt, is een skill in wording.
 
 ### Devcontainer en voorbeeldprompt (0:25)
+Dia 10-13 lopen de vier stappen door, in lijn met de README van `cedanl/dair-agentic-coding`: inloggen op GitHub,
+Codespace maken (Code → Codespaces → Create codespace on main, ongeveer een minuut), terminal openen en de
+workshop-key plakken, daarna het Claude-paneel openen (oranje icoon, niets typen in de terminal). De Codespace is de devcontainer.
 Laat live de eerste instructie zien, bijvoorbeeld: *"Lees data/synthetisch_1cho.csv en vertel in
-gewone taal wat erin zit."* Dan de skill activeren (`/workshop-verkennen`). Maximaal 1 minuut voor
+gewone taal wat erin zit."* Dan de skill activeren (`/verkennen`). Maximaal 1 minuut voor
 het activeren; zo niet, dan is de devcontainer-voorbereiding mislukt.
 
 ### Ronde 1: data exploratie (0:30-0:52)
@@ -72,13 +77,13 @@ waarneembaar voor uitval, veel kleine groepen bij opleiding × cohort × geslach
 of drie views. Wie het laatste cohort meetelt (het geeft een vertekend percentage, met onze definitie 100% uitval), zit in de valkuil.
 
 ### Spiegelmoment 1: kijk in de skill (0:52-1:07)
-Dia 13-15. We bespreken de skill, niet de schetsen van de tweetallen.
+Dia 16-18. We bespreken de skill, niet de schetsen van de tweetallen.
 1. (3 min) Twee tweetallen noemen elk één ding dat ze in ronde 1 tegenkwamen.
-2. (6 min) Dia 14: de vier stappen van `/workshop-verkennen`. Open SKILL.md op het scherm: bovenaan staat
+2. (6 min) Dia 17: de vier stappen van `/verkennen`. Open SKILL.md op het scherm: bovenaan staat
    wanneer de agent hem pakt, daaronder de stappen. Vraag: welke stap heb je overgeslagen of anders gedaan?
-3. (4 min) Dia 15: wat de skill afvangt (laatste cohort, kolom met één waarde, kleine groepen, geen oorzaak).
+3. (4 min) Dia 18: wat de skill afvangt (laatste cohort, kolom met één waarde, kleine groepen, geen oorzaak).
    Laat deelnemers aanwijzen welke ze zelf misten.
-4. (2 min) Draai de skill live (ongeveer 1 minuut, zie `tijdmeting.md`) en zet eventueel een gewone prompt ernaast. Leg het verschil neer als bevinding, niet als oordeel.
+4. (2 min) Draai de skill live (1 tot 2 minuut, zie `tijdmeting.md`) en zet eventueel een gewone prompt ernaast. Leg het verschil neer als bevinding, niet als oordeel.
 
 ### Ronde 2: dashboard bouwen (1:07-1:29)
 Wissel van rol. Bouw een dashboard met conclusie als titel, vergelijking, filter, drempel, bron en
@@ -86,20 +91,20 @@ toegankelijkheid. **Checkpoint:** uitval 22% techniek, 13% economie, 10% gezondh
 16,7%; geslacht is ruis (16% versus 17%); drempel toegepast op opleiding × cohort × geslacht.
 
 ### Spiegelmoment 2: kijk in de skill (1:29-1:44)
-Dia 19-22. Ook nu bespreken we de skill, niet de dashboards van de tweetallen.
+Dia 22-25. Ook nu bespreken we de skill, niet de dashboards van de tweetallen.
 1. (3 min) Twee tweetallen noemen elk één keuze die ze maakten (titel, drempel, filter).
-2. (4 min) Dia 20: wat `/workshop-dashboard` doet: inlezen, bouwen, checks verweven, testen.
-3. (4 min) Dia 21: tabel met de vijf checks. Vraag per rij: deed jij dit zelf? De skill doet het elke keer.
-4. (4 min) Dia 22: **de onthulling**. De werkelijke uitval per sector, en de mededeling dat geslacht bewust
+2. (4 min) Dia 23: wat `/bouwen` doet: inlezen, bouwen, checks verweven, testen.
+3. (4 min) Dia 24: tabel met de vijf checks. Vraag per rij: deed jij dit zelf? De skill doet het elke keer.
+4. (4 min) Dia 25: **de onthulling**. De werkelijke uitval per sector, en de mededeling dat geslacht bewust
    géén verschil kent. Wie "vrouwen vallen vaker uit" had, gebruikt dit als leermoment zonder beschuldiging.
 
 ### Evaluatie en afsluiting, één blok (1:44-2:00)
-Dia 23-26. Zie `evaluatie-en-vervolg.md`.
-1. (4 min) Terugblik, via de peiling of een rondje (dia 23).
-2. (2 min) Meerkeuzevraag: interesse in een training (dia 24).
-3. (4 min) Open vraag: wat wil je precies leren (dia 25).
+Dia 26-29. Zie `evaluatie-en-vervolg.md`.
+1. (4 min) Terugblik, via de peiling of een rondje (dia 26).
+2. (2 min) Meerkeuzevraag: interesse in een training (dia 27).
+3. (4 min) Open vraag: wat wil je precies leren (dia 28).
 4. (6 min) Afsluitend rondje: *wat verloor en won je, en wat doe je morgen anders?* Eén zin per persoon of op een
-   kaartje (dia 26). Sluit met de contactslide.
+   kaartje (dia 29). Sluit met de contactslide.
 
 Als de rondes uitlopen, kort dan de afsluiting in; schrap niet de peiling.
 
@@ -107,6 +112,8 @@ Als de rondes uitlopen, kort dan de afsluiting in; schrap niet de peiling.
 
 | Probleem | Oplossing |
 |---|---|
+| Deelnemer heeft geen GitHub-account | Account ter plekke aanmaken (gratis) of meekijken bij een buur |
+| Workshop-key kwijt of fout geplakt | `dair-onboard` in de terminal en opnieuw plakken |
 | Devcontainer start niet | Reserve: laptop van de leider, deelnemers kijken mee; of werk in tweetallen op één laptop |
 | Agent geeft een afwijkend resultaat | Vergelijk met het checkpoint; verschil is zelf een spiegelmoment |
 | Ronde loopt uit | Verkort spiegelmoment, niet de evaluatie |

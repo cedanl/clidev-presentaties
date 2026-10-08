@@ -1,6 +1,6 @@
 ---
-name: workshop-dashboard
-description: Gebruik bij ronde 2 van de CEDA-workshop "Agentic data science in het onderwijs", of wanneer iemand uit een eerder profiel en schets (data-profiel.md en schets.md) een dashboard wil bouwen over studiesucces in 1CHO-data — met grafiek, vergelijking en filter, privacy-drempel, eerlijke framing, bron en toegankelijkheid. LET OP — de data eerst verkennen hoort bij `workshop-verkennen`.
+name: bouwen
+description: Gebruik wanneer iemand uit een eerder profiel en schets (data-profiel.md en schets.md) een dashboard wil bouwen over studiesucces in 1CHO-data, zoals in ronde 2 van de CEDA-workshop "Agentic data science in het onderwijs" — met grafiek, vergelijking en filter, privacy-drempel, eerlijke framing, bron en toegankelijkheid. LET OP — de data eerst verkennen hoort bij `verkennen`.
 allowed-tools: Read Grep Glob Write Edit Bash
 metadata:
   workshop: ceda-rad-dair
@@ -8,14 +8,14 @@ metadata:
   versie: "0.1.0"
 ---
 
-# Workshop: dashboard bouwen (ronde 2)
+# Dashboard bouwen
 
 Bouwt uit `schets.md` een werkend én verantwoord dashboard dat de casusvraag beantwoordt. Het
 verantwoorden zit er **in verweven**: er is geen aparte stap achteraf.
 
 ## Invoer
 
-- `data-profiel.md` en `schets.md` uit `workshop-verkennen`. Ontbreken ze, draai dan eerst die skill.
+- `data-profiel.md` en `schets.md` uit `verkennen`. Ontbreken ze, draai dan eerst die skill.
 - `data/synthetisch_1cho.csv`.
 - De casusvraag (staat bovenaan het profiel).
 
@@ -63,7 +63,7 @@ Start met `streamlit run app.py`. Gebruik `width="stretch"` in plaats van `use_c
 Op de standaard workshopdata hoort de uitval binnen 1 jaar (cohorten 2012-2022) uit te komen op
 ongeveer **22% in techniek, 13% in economie en 10% in gezondheidszorg** (totaal 16,7%). Geslacht
 laat vrijwel geen verschil zien (16% man, 17% vrouw): wie dat als bevinding presenteert, ziet ruis.
-Zie `workshop-rad/data/verwachte_uitkomsten.txt`.
+Zie `workshop-rad/data/antwoordsleutel/verwachte_uitkomsten.txt`.
 
 ## Let op
 
@@ -71,5 +71,10 @@ Zie `workshop-rad/data/verwachte_uitkomsten.txt`.
   het kleurcontrast echt (4,5:1) en neem niet aan dat een palet voldoet.
 - Geen interactie of extra tab "voor de zekerheid": houd het bij wat de casus nodig heeft.
 - Vermeld op het dashboard dat de data synthetisch is.
+- Houd grafiektitels kort (liefst onder 60 tekens) of zet ze als kop boven de grafiek in plaats van in de
+  Plotly-titel: een lange titel wordt op een smal scherm afgekapt. Kijk bij een venster van ongeveer 400 px
+  breed of er niets wordt afgekapt, en zeg het als je dat niet kon controleren.
+- Gebruik in elke tekst, ook de samenvatting onder een grafiek, dezelfde leesbare labels als in de grafiek
+  zelf (dus niet de ruwe waarde "B Bedrijfskunde" als de grafiek "Bedrijfskunde" toont).
 - Volg de huisstijl van het eigen team of Npuls als de deelnemer die opgeeft; zo niet, kies een rustig
   standaardthema met voldoende contrast.

@@ -5,15 +5,17 @@ tweetallen met een AI-agent (Claude Code) aan één casus en leveren één dashb
 
 | Wat | Waar |
 |---|---|
-| **Voorstel**-deck (voor akkoord) | het originele `../workshop-voorstel-RAD_120min.pptx`, met minimale aanpassingen: `scripts/patch_voorstel.py` → `exports/workshop-voorstel-RAD_120min.pptx` / `.pdf` |
+| **Voorstel**-deck (voor akkoord) | het originele voorstel (uit git) met minimale aanpassingen: `scripts/patch_voorstel.py` → `exports/workshop-voorstel-RAD_120min.pptx` / `.pdf` |
 | **Uitvoerings**-deck (op de dag) | `decks/261005_workshop_rad_uitvoering.deck.mjs` → `exports/261005_workshop_rad_uitvoering.pptx` / `.pdf` (na het bouwen: `scripts/postprocess_uitvoering.py`) |
-| Claude-skills voor de workshop | `skills/` |
-| Synthetische data + antwoordsleutel | `data/` (script: `scripts/genereer_data.R`) |
+| Claude-skills `verkennen` en `bouwen` (leidersversie, met checkpoints) | `skills/` |
+| Synthetische data | `data/synthetisch_1cho.csv` (script: `scripts/genereer_data.R`) |
+| Antwoordsleutel, **niet delen met deelnemers** | `data/antwoordsleutel/` |
 | Echt Npuls-logo (transparant): beeldmerk en horizontaal | `assets/npuls-beeldmerk-*.png`, `assets/npuls-logo-horizontaal-*.png`, `assets/beeldmerk-ring.json` |
 | Draaiboek, bevindingen, evaluatie, beslissingen | `docs/` |
 
-`../workshop-voorstel-RAD_120min.pptx` is het oorspronkelijke voorstel. Daar is alleen het logo vervangen
-en de evaluatie aan toegevoegd, zie *Wat er veranderd is aan het voorstel* hieronder.
+Het oorspronkelijke voorstel staat in git (commit `67272a3`). Daar is alleen het logo vervangen en de evaluatie
+aan toegevoegd, zie *Wat er veranderd is aan het voorstel* hieronder. In de root van de repo staat het niet meer:
+alles van de workshop zit in deze map.
 
 ## Hoe de stukken in elkaar passen
 
@@ -21,8 +23,8 @@ en de evaluatie aan toegevoegd, zie *Wat er veranderd is aan het voorstel* hiero
 voorstel-deck ──(akkoord)──► uitvoerings-deck + draaiboek
                                    │
    data/ (synthetisch, met patroon) │   skills/
-   scripts/genereer_data.R          ├── workshop-verkennen   (ronde 1)
-                                    └── workshop-dashboard   (ronde 2)
+   scripts/genereer_data.R          ├── verkennen   (ronde 1)
+                                    └── bouwen   (ronde 2)
                                           │
                               docs/evaluatie-en-vervolg.md  (peiling en verwerking)
 ```
@@ -48,8 +50,8 @@ bijbehorende skill; en het beeldmerk op de overige slides wordt de echte stippen
 indicatieve gevulde ster). Het logo komt uit `assets/` (gemaakt met `scripts/maak_logo.py`).
 
 **Voorstel**: `python workshop-rad/scripts/patch_voorstel.py` haalt het origineel uit git (commit `67272a3`) en
-schrijft `workshop-voorstel-RAD_120min.pptx`. Staat dat bestand open in PowerPoint, dan schrijft het script
-naar `workshop-rad/exports/`; sluit PowerPoint en draai opnieuw om het in de root te krijgen.
+schrijft `workshop-rad/exports/workshop-voorstel-RAD_120min.pptx`. Staat dat bestand open in PowerPoint, sluit het
+dan eerst.
 
 Ontvangers zonder Npuls-fonts zien Calibri: stuur de PDF, of installeer de fonts uit
 `public/npuls/Npuls_lettertype/` (`node ~/.claude/skills/powerclaude/scripts/install-fonts.mjs`).
@@ -60,19 +62,23 @@ PowerPoint.
 
 ```bash
 Rscript workshop-rad/scripts/genereer_data.R ../staat-van-onderwijsinstelling
-Rscript workshop-rad/scripts/verwachte_uitkomsten.R > workshop-rad/data/verwachte_uitkomsten.txt
+Rscript workshop-rad/scripts/verwachte_uitkomsten.R > workshop-rad/data/antwoordsleutel/verwachte_uitkomsten.txt
 ```
 
 Dit heeft R en de packages `dplyr`, `readr`, `tibble`, `pkgload` (en wat staat1cho nodig heeft)
 nodig. De seeds (11, 12, 13) maken de uitkomst reproduceerbaar.
 
-**Deel `data/waarheid.csv` en `data/verwachte_uitkomsten.txt` niet met deelnemers**: dat is de
+**Deel `data/antwoordsleutel/` niet met deelnemers**: dat is de
 antwoordsleutel.
 
 ### De skills gebruiken
 
+De leidersversie staat in `skills/`. De deelnemersversie (zonder checkpoints) komt in
+`cedanl/dair-agentic-coding` met `python workshop-rad/scripts/maak_deelnemers_skills.py <repo>/.claude/skills`.
+Zo blijft er één bron.
+
 Kopieer de mappen uit `skills/` naar `.claude/skills/` van de devcontainer (of de projectmap van de
-deelnemers). Activeren met `/workshop-verkennen` en `/workshop-dashboard`.
+deelnemers). Activeren met `/verkennen` en `/bouwen`.
 Ze zijn bedoeld als tekstbestanden die deelnemers kunnen lezen en aanpassen.
 
 ## Docs
@@ -83,7 +89,7 @@ Ze zijn bedoeld als tekstbestanden die deelnemers kunnen lezen en aanpassen.
 | `docs/bevindingen-staat1cho.md` | Wat we leerden van het staat-van-onderwijsinstelling-dashboard en package |
 | `docs/evaluatie-en-vervolg.md` | Opzet van het evaluatieblok, vragen, opslag en verwerking |
 | `docs/droge-run.md` | Uitkomst van de droge run van de skills |
-| `docs/tijdmeting.md` | Hoe lang de skills duren (1 en 2 tot 2,5 minuut) en wat ze toevoegen ten opzichte van een gewone prompt |
+| `docs/tijdmeting.md` | Hoe lang de skills duren (1 tot 2 en 2 tot 3 minuut) en wat ze toevoegen ten opzichte van een gewone prompt |
 | `docs/beslissingen.md` | Gemaakte keuzes, aannames en open punten |
 
 ## Geschiedenis (version control)

@@ -2,7 +2,7 @@
 # Gebruik: Rscript workshop-rad/scripts/verwachte_uitkomsten.R
 suppressMessages({library(dplyr); library(readr)})
 d <- read_delim("workshop-rad/data/synthetisch_1cho.csv", delim = ";", col_types = cols(.default = "c"), progress = FALSE)
-w <- read_delim("workshop-rad/data/waarheid.csv", delim = ";", col_types = cols(persoonsgebonden_nummer = "c", .default = "?"), progress = FALSE)
+w <- read_delim("workshop-rad/data/antwoordsleutel/waarheid.csv", delim = ";", col_types = cols(persoonsgebonden_nummer = "c", .default = "?"), progress = FALSE)
 eerste <- d |> arrange(persoonsgebonden_nummer, inschrijvingsjaar) |> group_by(persoonsgebonden_nummer) |> slice(1) |> ungroup() |>
   select(persoonsgebonden_nummer, sector = croho_onderdeel_actuele_opleiding, opleiding = opleidingscode_naam_opleiding, geslacht, internationaal = indicatie_internationale_student)
 m <- w |> left_join(eerste, by = "persoonsgebonden_nummer") |> mutate(uitval1 = !is.na(uitval_na) & uitval_na == 1)

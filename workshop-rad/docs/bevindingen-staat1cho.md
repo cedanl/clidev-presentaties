@@ -14,7 +14,7 @@ makkelijker maakt? Hieronder wat we gevonden hebben, wat we ermee gedaan hebben 
 | 1 | staat1cho bevat een generator voor synthetische 1CHO-data (`maak_synthetische_1cho`) met een antwoordsleutel (`waarheid`) | Geen eigen generator bouwen; we gebruiken deze | Gebruikt |
 | 2 | De generator heeft **geen patroon** per sector: iedereen heeft dezelfde kans op uitval | Het voorstel beloofde "een ingebakken patroon", dat klopte niet | Opgelost: eigen wrapper, zie hieronder |
 | 3 | Privacydrempel is 30 studenten per groep en 5 per percentage-cel, met secundaire onderdrukking | De sheets zeiden "n<5"; we gebruiken nu de staat1cho-waarden | Doorgevoerd in decks en skills |
-| 4 | Definities (uitval, rendement, studiewissel, "nog niet waarneembaar") staan uitgeschreven in `R/definities.R` | Letterlijk overgenomen in `workshop-verkennen` | Doorgevoerd |
+| 4 | Definities (uitval, rendement, studiewissel, "nog niet waarneembaar") staan uitgeschreven in `R/definities.R` | Letterlijk overgenomen in `verkennen` | Doorgevoerd |
 | 5 | Het synthetische bestand bevat geen VO-eindcijfers (die komen uit VAKHAVW) | Casus C ("VO-cijfers en studiesucces") is met dit bestand niet te beantwoorden | Open: casus herformuleren of A/B kiezen |
 | 6 | Het dashboard is R/Shiny, de workshop gebruikt Python/Streamlit | Geen directe hergebruik van code; wel van de tabindeling en definities | Bewust verschil |
 | 7 | Studiewissel in de generator is een vaste ring (34401 → 34402 → 35501 → 39110 → 34401) | Stromen tussen sectoren zijn voorspelbaar; geschikt voor casus B | Gedocumenteerd |
@@ -52,10 +52,10 @@ houdt alleen de studenten die in die sector beginnen:
 | economie | 15% | 12% | 13 |
 
 Resultaat: `workshop-rad/data/synthetisch_1cho.csv` (3070 studenten, 10.278 rijen, 2012-2023) en de
-antwoordsleutel `workshop-rad/data/waarheid.csv`. Uitkomst voor cohorten 2012-2022 (2023 is nog
+antwoordsleutel `workshop-rad/data/antwoordsleutel/waarheid.csv`. Uitkomst voor cohorten 2012-2022 (2023 is nog
 niet waarneembaar): **techniek 21,9%, economie 13,1%, gezondheidszorg 10,2%, totaal 16,7%**;
 geslacht 16,1% (man) versus 17,3% (vrouw), dus bewust géén patroon. Volledige uitkomsten:
-`workshop-rad/data/verwachte_uitkomsten.txt`, reproduceerbaar met
+`workshop-rad/data/antwoordsleutel/verwachte_uitkomsten.txt`, reproduceerbaar met
 `Rscript workshop-rad/scripts/verwachte_uitkomsten.R`.
 
 De opzet is dus: **één echt verschil (sector) en één nep-verschil (geslacht)**. Een goede
@@ -83,7 +83,7 @@ mooie "val" voor de privacy-check.
 
 ## 4. Definities
 
-Overgenomen uit `R/definities.R` en vastgelegd in `workshop-verkennen`. De belangrijkste valkuil
+Overgenomen uit `R/definities.R` en vastgelegd in `verkennen`. De belangrijkste valkuil
 voor beginners is **"nog niet waarneembaar"**: het laatste cohort heeft nog geen volledig eerste
 jaar achter de rug en geeft dus een vertekend percentage (met onze definitie 100% uitval). De skills dwingen af dat dit wordt gecontroleerd.
 
@@ -107,11 +107,11 @@ Tabbladen in het staat1cho-dashboard: Overzicht, Instroom, Rendement, Uitval, St
 Vooropleiding, Data. Het exporteert een benchmarkrapport in Excel met een tabblad Metadata dat de
 onderdrukkingsregels uitlegt. Het is een goede referentie voor de vraag "wat hoort er in een
 verantwoord studiesucces-dashboard"; we gebruiken de structuur (eerst instroom, dan uitkomsten,
-dan uitleg) als inspiratie voor `workshop-dashboard`, maar kopiëren geen code.
+dan uitleg) als inspiratie voor `bouwen`, maar kopiëren geen code.
 
 ## 7. Wat we niet hebben gedaan
 
 - Geen wijzigingen in de repo staat-van-onderwijsinstelling. Al het werk staat in `clidev-presentaties`.
 - De Shiny-app is niet gedraaid; de bevindingen komen uit de broncode en uit het draaien van de generator.
-- De skills `workshop-verkennen` en `workshop-dashboard` zijn getest met een droge run, zie
+- De skills `verkennen` en `bouwen` zijn getest met een droge run, zie
   `docs/droge-run.md` voor de uitkomst en de beperkingen.

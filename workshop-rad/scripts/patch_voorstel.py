@@ -8,7 +8,7 @@ Wijzigingen, verder niets:
 
 Gebruik (vanuit de root van clidev-presentaties):
     python workshop-rad/scripts/patch_voorstel.py
-Schrijft workshop-voorstel-RAD_120min.pptx.
+Schrijft workshop-rad/exports/workshop-voorstel-RAD_120min.pptx.
 """
 import copy
 import subprocess
@@ -21,7 +21,7 @@ from pptx.util import Emu, Inches
 
 ROOT = Path(__file__).resolve().parents[2]
 ORIGINEEL_COMMIT = "67272a3"
-UIT = ROOT / "workshop-voorstel-RAD_120min.pptx"
+UIT = ROOT / "workshop-rad/exports/workshop-voorstel-RAD_120min.pptx"
 ZWART = (ROOT / "workshop-rad/assets/npuls-beeldmerk-zwart.png").read_bytes()
 WIT = (ROOT / "workshop-rad/assets/npuls-beeldmerk-wit.png").read_bytes()
 
@@ -169,15 +169,15 @@ zet(sl, "Data en codebook verkennen met de agent", "Data en codebook verkennen m
 # Skills: namen en wie ze draait
 sl = slide_met("Een skill bij elk spiegelmoment")
 zet(sl, "Skills werken via vaste tussenproducten",
-    "/workshop-verkennen en /workshop-dashboard. Deelnemers prompten zelf; de leider draait de skills live (gemeten: ongeveer 1 en 2 tot 2,5 minuut). Vaste tussenproducten, kosten \u20ac0.")
+    "/verkennen en /bouwen. Deelnemers prompten zelf; de leider draait de skills live (gemeten: ongeveer 1 tot 2 en 2 tot 3 minuut). Vaste tussenproducten, kosten \u20ac0.")
 
 # Risico's en kanttekening
 sl = slide_met("Randvoorwaarden en risico")
 zet(sl, "Kanttekening devcontainer",
-    "Kanttekening devcontainer: deelnemers werken alleen via de AI-agent, in de Codespaces-omgeving dair-agentic-coding (Claude via Foundry). Python en uv staan erin; DuckDB, Streamlit en Plotly nog niet (voorstel: issue #10). Welk model deelnemers krijgen is nog open (issue #11).")
+    "Kanttekening devcontainer: deelnemers werken alleen via de AI-agent, in de Codespaces-omgeving dair-agentic-coding (Claude via Foundry). Python en uv staan erin; DuckDB, Streamlit en Plotly installeert de skill zelf met uv (voorstel: ze vooraf in het image zetten, issue #10). Deelnemers krijgen Claude Sonnet 5.5.")
 zet(sl, "Skills uitdelen kost tijd", "De skill duurt langer dan gepland")
 zet(sl, "Skills staan klaar in de devcontainer",
-    "Gemeten: ongeveer 1 en 2 tot 2,5 minuut, met een ander model dan in de devcontainer. Opnieuw meten in de echte omgeving en ruim marge nemen.")
+    "Gemeten met hetzelfde model als de deelnemers: 1 tot 2 minuut en 2 tot 3 minuut. Opnieuw meten in de echte omgeving en ruim marge nemen.")
 zet(sl, "Vooraf controleren en zo nodig een patroon",
     "Patroon (sector) en kleine groepen zijn ingebouwd en vooraf gecontroleerd met een antwoordsleutel.")
 
@@ -187,8 +187,8 @@ zet(sl, "Nog open: kies A, B of C", "Voorstel: casus A. Casus C vraagt het VO-ei
 kaart = [sh for sh in sl.shapes if sh.top / 914400 > 2.2 and sh.left / 914400 > 6.3]  # de bestaande kaart: vlak, pil, piltekst, tekst
 assert len(kaart) == 4, len(kaart)
 EXTRA = [
-    ("Omgeving", "Pakketten in het image (issue #10) en welk Claude-model deelnemers krijgen (issue #11), bij Tomer."),
-    ("Skills", "De skills staan in een pull request (#9) en moeten nog gereviewd worden. De data volgt apart."),
+    ("Omgeving", "Pakketten vooraf in het image (issue #10), bij Tomer. Het model is Sonnet 5.5."),
+    ("Skills", "De skills en de synthetische data staan in dair-agentic-coding, nog te mergen naar main."),
     ("Planning", "Peiling-tool, datum en spreker invullen en de skills opnieuw meten in de echte omgeving."),
 ]
 groepen = [kaart]
@@ -283,11 +283,5 @@ nieuw_id = ids[-1]
 lijst.remove(nieuw_id)
 lijst.insert(len(ids) - 2, nieuw_id)
 
-try:
-    prs.save(UIT)
-    doel = UIT
-except PermissionError:  # bestand staat open in PowerPoint
-    doel = ROOT / "workshop-rad/exports/workshop-voorstel-RAD_120min.pptx"
-    prs.save(doel)
-    print("LET OP: het bestand in de root is vergrendeld (open in PowerPoint). Gesloten? Draai opnieuw.")
-print("geschreven:", doel, "slides:", len(prs.slides))
+prs.save(UIT)  # lukt niet als het bestand open staat in PowerPoint: sluit het en draai opnieuw
+print("geschreven:", UIT, "slides:", len(prs.slides))

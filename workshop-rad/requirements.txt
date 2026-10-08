@@ -1,4 +1,4 @@
-# Python-afhankelijkheden voor de workshop-skills (workshop-dashboard)
+# Python-afhankelijkheden voor de workshop-skills (bouwen)
 duckdb
 streamlit
 plotly

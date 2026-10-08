@@ -18,7 +18,7 @@ Python 3.14, duckdb 1.5, streamlit 1.65, plotly. Dit vervangt de twee droge runs
 
 | # | Bevinding | Aanpassing |
 |---|---|---|
-| 1 | `opleidingsvorm` is altijd voltijd; casusvraag A is daarmee half onbeantwoordbaar | Stap 1 in `workshop-verkennen`: per uitsplitsing controleren; draaiboek noemt het |
+| 1 | `opleidingsvorm` is altijd voltijd; casusvraag A is daarmee half onbeantwoordbaar | Stap 1 in `verkennen`: per uitsplitsing controleren; draaiboek noemt het |
 | 2 | Sector en opleiding niet aan kolomnamen gekoppeld | Kolommen benoemd onder *Invoer* |
 | 3 | "Niet meer ingeschreven na jaar 1" niet operationeel | Definitie: geen rij op `inschrijvingsjaar = j+1` en geen `diplomajaar` |
 | 4 | Drempel 5 per cel dubbelzinnig en veel invloed (26 → 47 van 88 groepen) | Aantallen apart rapporteren |

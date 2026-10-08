@@ -1,4 +1,4 @@
-"""Maakt de deelnemersversie van de workshopskills voor de repo cedanl/dair-agentic-coding.
+"""Maakt de deelnemersversie van de skills verkennen en bouwen voor de repo cedanl/dair-agentic-coding.
 
 De leidersversie (workshop-rad/skills/) bevat checkpoints met de verwachte uitkomsten en verwijzingen naar
 bestanden die alleen in deze repo staan. Die horen niet in een omgeving die deelnemers openen. Dit script
@@ -44,7 +44,7 @@ def dashboard(t):
     return t
 
 
-BEWERKINGEN = {"workshop-verkennen": verkennen, "workshop-dashboard": dashboard}
+BEWERKINGEN = {"verkennen": verkennen, "bouwen": dashboard}
 
 
 def main(doel):
