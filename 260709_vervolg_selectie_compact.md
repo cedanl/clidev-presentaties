@@ -29,7 +29,7 @@ mdc: true
 
 <!--
 Compacte variant: één slide per deel. Er is ook een uitgebreide versie
-(260709_vervolg_selectie_uitgebreid.md) waarin elk onderdeel meerdere slides krijgt.
+(260709_vervolg_selectie.md) waarin elk onderdeel meerdere slides krijgt.
 -->
 
 ---
@@ -100,13 +100,13 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">Deel 2</span>
-    <h3 style="margin-top: 0.5rem;">Interne evaluatie selectie</h3>
+    <h3 style="margin-top: 0.5rem;">Kandidatenpool &amp; fairness</h3>
     <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Niet alleen studiesucces, maar de selectie zélf.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Deel 3 · scope aanpasbaar</span>
-    <h3 style="margin-top: 0.5rem;">Voorstel: Weging</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Weging doorgeven en andere wegingen simuleren.</p>
+    <h3 style="margin-top: 0.5rem;">Doorontwikkeling op maat</h3>
+    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Deel 1 en 2 uitbreiden op basis van de behoefte; weging als kandidaat-onderwerp.</p>
   </div>
 </div>
 
@@ -160,16 +160,16 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 
 <p class="eyebrow">Deel 2</p>
 
-# Interne evaluatie van de selectie
+# Kandidatenpool &amp; fairness
 
-<p class="np-subtitle">Van "voorspelt de selectie studiesucces?" naar "hoe verloopt de selectie voor álle kandidaten?"</p>
+<p class="np-subtitle">Van "voorspelt de selectie studiesucces?" naar "wie doen er mee, en hoe verloopt de selectie voor hen?"</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
 <div style="font-size: 0.9rem; line-height: 1.7;">
 
-- **Uitsplitsingsvariabelen** voor álle selectie-studenten — extra data via koppel-ID of in het selectiedatabestand; template uitbreiden
+- **Uitsplitsingsvariabelen** voor álle kandidaten — extra data via koppel-ID of in het selectiedatabestand; template uitbreiden
 - **Meer variabeletypen** in de configuratie (tenminste categorisch)
-- Een **"interne" selectie-evaluatie** als tweede deel van de evaluatietool
+- Analyse van de **kandidatenpool**: samenstelling, doorstroom door de selectiestappen en **diversiteit en fairness**
 
 </div>
 <div>
@@ -194,24 +194,24 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 
 <p class="eyebrow">Deel 3 · scope aanpasbaar</p>
 
-# Voorstel: Weging simuleren
+# Doorontwikkeling op maat
 
 <p class="np-subtitle">Een flexibel derde deel — het draait pas in het najaar van 2027.</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
 <div style="font-size: 0.9rem; line-height: 1.7;">
 
-- **Weging doorgeven** per item, instrument en criterium
-- De **gevolgen van andere wegingen simuleren**
+- **Uitbreiding van deel 1 en 2** op basis van feedback en behoefte van instellingen en opleidingen
+- **Weging** als kandidaat-onderwerp: weging doorgeven per item, instrument en criterium en andere wegingen simuleren
 - Onderbouwd door onderzoek: **Pareto-optimalisatie** vs. fixed-weight selectiesystemen
 
 </div>
 <div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Scope aanpasbaar</span>
-    <h3 style="margin-top: 0.5rem;">Vorm volgt de feedback</h3>
+    <h3 style="margin-top: 0.5rem;">Vorm volgt de behoefte</h3>
     <p style="font-size: 0.86rem; color: var(--np-dark-gray); line-height: 1.5; margin: 0.4rem 0 0;">
-      Op basis van feedback van instellingen en opleidingen tijdens de ontwikkeling van deel 1 en 2 kan deel 3 anders worden vormgegeven. In afstemming met het NKO.
+      Weging is het meest concrete voorstel, maar geen vast onderdeel: blijkt verdieping op deel 1 of 2 waardevoller, dan gaat het budget daarheen. In afstemming met het NKO.
     </p>
   </div>
 </div>
@@ -253,13 +253,13 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">WP2 · mrt – jun '27</span>
-    <h3 style="margin-top: 0.5rem;">Fairness binnen selectie</h3>
+    <h3 style="margin-top: 0.5rem;">Kandidatenpool &amp; fairness</h3>
     <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Data van álle deelnemers aan de selectie, met als doel inzicht in <strong>diversiteit en fairness</strong>.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">WP3 · sep – dec '27</span>
-    <h3 style="margin-top: 0.5rem;">Weging binnen selectie</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Weging evalueren en via simulatie een advies. <strong>Scope aanpasbaar</strong> i.o.m. het NKO.</p>
+    <h3 style="margin-top: 0.5rem;">Doorontwikkeling op maat</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Uitbreiding van WP1 en WP2 naar behoefte, met weging als kandidaat-onderwerp. <strong>Scope aanpasbaar</strong> i.o.m. het NKO.</p>
   </div>
 </div>
 
@@ -288,8 +288,8 @@ Compacte variant: één slide per deel. Er is ook een uitgebreide versie
 | Onderdeel | Periode | Bedrag |
 |-----------|---------|-------:|
 | **WP1** — Resultaten + kick-off | nov '26 – feb '27 | € 50.000 |
-| **WP2** — Fairness binnen selectie | mrt – jun '27 | € 50.000 |
-| **WP3** — Weging binnen selectie | sep – dec '27 | € 50.000 |
+| **WP2** — Kandidatenpool & fairness | mrt – jun '27 | € 50.000 |
+| **WP3** — Doorontwikkeling op maat | sep – dec '27 | € 50.000 |
 | **Werkpakketten samen** | 2026 – 2027 | **€ 150.000** |
 
 </div>

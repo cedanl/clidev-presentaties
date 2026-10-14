@@ -31,7 +31,8 @@ mdc: true
 Uitgebreide versie: elk onderdeel meerdere slides. Er is ook een compacte variant
 (260709_vervolg_selectie_compact.md) met één slide per deel.
 Verhaallijn: vertrekpunt = het Handboek Selectie (samenhang selectie ↔ opleiding);
-MVP-afronding + Deel 1 leveren dat idee op; Deel 2 en (mogelijk) Deel 3 bouwen daarop voort.
+MVP-afronding + Deel 1 leveren dat idee op; Deel 2 (kandidatenpool & fairness) en
+Deel 3 (doorontwikkeling op maat) bouwen daarop voort.
 Financiering: twee activiteiten — software (drie werkpakketten van €50k) + adoptie (plafond €30k/jaar).
 -->
 
@@ -78,7 +79,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 0 · Vertrekpunt</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Vertrekpunt</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Waar staan we</h1>
     <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Van het Handboek Selectie naar een werkend MVP</p>
   </div>
@@ -112,7 +113,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
       De <strong>afronding van het MVP en het voorgestelde Werkpakket 1</strong> verwezenlijken dit idee in een gebruiksvriendelijke tool.
     </p>
     <p style="font-size: 0.9rem; color: var(--np-dark-gray); line-height: 1.55; margin: 0.5rem 0 0;">
-      Op basis van het Handboek Selectie zijn er <strong>meer mogelijkheden voor tooling</strong> om te ondersteunen bij de evaluatie. Werkpakketen 2 en 3 richten zich op de evaluatie binnen het selectieproces (2) en de weging van de verschillende onderdelen (3).
+      Op basis van het Handboek Selectie zijn er <strong>meer mogelijkheden voor tooling</strong> om te ondersteunen bij de evaluatie. Werkpakket 2 richt zich op de kandidatenpool en de fairness van de selectie; werkpakket 3 op doorontwikkeling op maat — verdieping van 1 en 2, met weging als mogelijk onderwerp.
     </p>
   </div>
 </div>
@@ -202,7 +203,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 1 · Doorontwikkeling</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Doorontwikkeling</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">De evaluatietool in drie delen</h1>
     <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Een natuurlijke opbouw om het vervolg aan op te hangen</p>
   </div>
@@ -219,7 +220,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 # De evaluatietool groeit in drie delen
 
-<p class="np-subtitle">Eerst de evaluatietool afmaken, dan de selectie zelf onder de loep, dan verkennen.</p>
+<p class="np-subtitle">Eerst de evaluatietool afmaken, dan de kandidatenpool onder de loep, dan verdiepen waar de behoefte zit.</p>
 
 <div class="np-grid-3" style="margin-top: 0.5rem; align-items: start;">
   <div class="np-card accent-blue">
@@ -229,13 +230,13 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">Deel 2</span>
-    <h3 style="margin-top: 0.5rem;">Interne evaluatie selectie</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Niet alleen "werkt de selectie voor studiesucces", maar ook: hoe verloopt de selectie zélf? Uitsplitsingen over alle kandidaten.</p>
+    <h3 style="margin-top: 0.5rem;">Kandidatenpool &amp; fairness</h3>
+    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Niet alleen "werkt de selectie voor studiesucces", maar ook: wie doen er mee en hoe verloopt de selectie voor hen? Uitsplitsingen over álle kandidaten.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Deel 3 · scope aanpasbaar</span>
-    <h3 style="margin-top: 0.5rem;">Voorstel: Weging</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Weging per item, instrument en criterium doorgeven en de gevolgen van andere wegingen simuleren.</p>
+    <h3 style="margin-top: 0.5rem;">Doorontwikkeling op maat</h3>
+    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Deel 1 en 2 uitbreiden op basis van feedback en behoefte. Weging is daarbij een van de kandidaat-onderwerpen.</p>
   </div>
 </div>
 
@@ -343,7 +344,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
   </div>
   <div class="np-card accent-yellow">
     <h3>Template selectiedata</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Alvast experimenteren met een rijkere template — de brug naar deel 2 (interne evaluatie).</p>
+    <p class="muted" style="font-size: 0.84rem; margin: 0.3rem 0 0;">Alvast experimenteren met een rijkere template — de brug naar deel 2 (kandidatenpool &amp; fairness).</p>
   </div>
 </div>
 
@@ -351,23 +352,23 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 ---
 
-<!-- Deel 2 — interne evaluatie -->
+<!-- Deel 2 — kandidatenpool & fairness -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<p class="eyebrow">Deel 2 · interne evaluatie selectie</p>
+<p class="eyebrow">Deel 2 · kandidatenpool &amp; fairness</p>
 
-# De selectie zélf onder de loep
+# De kandidatenpool onder de loep
 
-<p class="np-subtitle">Van "voorspelt de selectie studiesucces?" naar "hoe verloopt de selectie voor álle kandidaten?"</p>
+<p class="np-subtitle">Van "voorspelt de selectie studiesucces?" naar "wie doen er mee, en hoe verloopt de selectie voor hen?"</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
 <div style="font-size: 0.9rem; line-height: 1.7;">
 
-- **Uitsplitsingsvariabelen** voor álle selectie-studenten: extra data toevoegen via koppel-ID of in het selectiedatabestand — de template uitbreiden en verbeteren
+- **Uitsplitsingsvariabelen** voor álle kandidaten in de selectie: extra data toevoegen via koppel-ID of in het selectiedatabestand — de template uitbreiden en verbeteren
 - **Meer variabeletypen** in de configuratie van selectiedata (tenminste categorisch)
-- Een **"interne" selectie-evaluatie** als tweede deel van de evaluatietool
+- Analyse van de **kandidatenpool**: samenstelling, doorstroom door de selectiestappen en **diversiteit en fairness** van de procedure
 
 </div>
 <div>
@@ -385,31 +386,31 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 ---
 
-<!-- Deel 3 — weging -->
+<!-- Deel 3 — doorontwikkeling op maat -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
 <p class="eyebrow">Deel 3 · scope aanpasbaar</p>
 
-# Voorstel: Weging simuleren
+# Doorontwikkeling op maat
 
-<p class="np-subtitle">Een verkennend derde deel — de scope bepalen we samen met het NKO.</p>
+<p class="np-subtitle">Deel 1 en 2 uitbreiden op wat instellingen dan echt nodig blijken te hebben — de scope bepalen we samen met het NKO.</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
 <div style="font-size: 0.9rem; line-height: 1.7;">
 
-- Mogelijkheid om **weging door te geven** per **item, instrument en criterium**
-- De **gevolgen van andere wegingen simuleren** — wat gebeurt er met de selectie als je anders weegt?
-- Onderbouwd door onderzoek: **Pareto-optimalisatie** versus fixed-weight selectiesystemen
+- **Uitbreiding van deel 1 en 2** op basis van de feedback en behoefte die tijdens de ontwikkeling bij instellingen en opleidingen naar boven komt
+- **Weging** als een van de kandidaat-onderwerpen: weging doorgeven per **item, instrument en criterium** en de **gevolgen van andere wegingen simuleren** — onderbouwd door onderzoek naar **Pareto-optimalisatie** versus fixed-weight selectiesystemen
+- Richting en prioriteit bepalen we aan het eind van werkpakket 2, met de actieve groep en het NKO
 
 </div>
 <div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Scope aanpasbaar</span>
-    <h3 style="margin-top: 0.5rem;">Vorm volgt de feedback</h3>
+    <h3 style="margin-top: 0.5rem;">Vorm volgt de behoefte</h3>
     <p style="font-size: 0.88rem; color: var(--np-dark-gray); line-height: 1.5; margin: 0.4rem 0 0;">
-      Op basis van feedback van instellingen en opleidingen tijdens de ontwikkeling van deel 1 en 2 kan deel 3 anders worden vormgegeven. Uiteraard in afstemming met het NKO.
+      Weging is het meest concrete voorstel, maar geen vast onderdeel: blijkt verdieping op deel 1 of 2 waardevoller, dan gaat het budget daarheen. Uiteraard in afstemming met het NKO.
     </p>
   </div>
 </div>
@@ -424,7 +425,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 2 · Planning</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Planning</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Fasering &amp; werkpakketten</h1>
     <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Drie werkpakketten en een meerjarige adoptie- en borgingslijn</p>
   </div>
@@ -451,13 +452,13 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">WP2 · mrt – jun '27</span>
-    <h3 style="margin-top: 0.5rem;">Fairness binnen selectie</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Focus op data die bekend is van alle deelnemers aan de selectie met als doel inzicht in de <strong>diversiteit en fairness</strong> van de selectiepprocedure.</p>
+    <h3 style="margin-top: 0.5rem;">Kandidatenpool &amp; fairness</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Focus op data die bekend is van alle deelnemers aan de selectie met als doel inzicht in de <strong>diversiteit en fairness</strong> van de selectieprocedure.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">WP3 · sep – dec '27</span>
-    <h3 style="margin-top: 0.5rem;">Weging binnen selectie</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Weging van diverse onderdelen evalueren en d.m.v. simulatie een advies over de weging. <strong>Scope aanpasbaar</strong> in afstemming met het NKO</p>
+    <h3 style="margin-top: 0.5rem;">Doorontwikkeling op maat</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0.3rem 0 0; line-height: 1.5;">Uitbreiding van WP1 en WP2 op basis van de behoefte, met <strong>weging</strong> als kandidaat-onderwerp. <strong>Scope aanpasbaar</strong> in afstemming met het NKO.</p>
   </div>
 </div>
 
@@ -553,7 +554,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 3 · Financiering</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Financiering</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Wat we vragen</h1>
     <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Software in werkpakketten en een meerjarig adoptie-plafond</p>
   </div>
@@ -578,8 +579,8 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 | Onderdeel | Periode | Bedrag |
 |-----------|---------|-------:|
 | **WP1** — Resultaten + kick-off | nov '26 – feb '27 | € 50.000 |
-| **WP2** — Fairness binnen selectie | mrt – jun '27 | € 50.000 |
-| **WP3** — Weging binnen selectie | sep – dec '27 | € 50.000 |
+| **WP2** — Kandidatenpool & fairness | mrt – jun '27 | € 50.000 |
+| **WP3** — Doorontwikkeling op maat | sep – dec '27 | € 50.000 |
 | **Werkpakketten samen** | 2026 – 2027 | **€ 150.000** |
 
 </div>
@@ -609,7 +610,7 @@ Financiering: twee activiteiten — software (drie werkpakketten van €50k) + a
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 4 · Randvoorwaarden</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Randvoorwaarden</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Hoe we blijven werken</h1>
     <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Open source, co-creatie en een heldere licentie</p>
   </div>
