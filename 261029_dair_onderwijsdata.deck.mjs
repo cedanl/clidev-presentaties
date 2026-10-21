@@ -211,10 +211,10 @@ export default {
       type: 'section',
       variant: 'oranje',
       number: 4,
-      title: 'Spiegelmoment 2: is het te vertrouwen?',
-      text: 'Wat klopte, wat niet, en waaraan zag je dat? Eerst aan tafel.',
+      title: 'Spiegelmoment 2: is het rapport compleet?',
+      text: 'Wat mis je, wat kan beter? Zou je het doorsturen aan collega?',
       illustration: 'Puzzelstuk 3D',
-      notes: 'Zelfde vorm als spiegelmoment 1: tafelgesprek, wij lopen rond, dan handen omhoog ("wie vertrouwt de cijfers?", "wie vond een fout?") en één tafel die al ja zei. Vraag vooral naar fouten die mensen vonden. Die zijn voor ons het waardevolst.',
+      notes: 'Zelfde vorm als spiegelmoment 1: tafelgesprek, wij lopen rond, dan handen omhoog ("wie zou het rapport doorsturen?", "wie mist er iets?") en één tafel die al ja zei. Vraag vooral naar wat mensen misten. Dat is voor ons het waardevolst.',
     },
     {
       type: 'split',
@@ -233,7 +233,7 @@ export default {
     {
       type: 'cards',
       variant: 'licht-blauw',
-      title: 'Twee soorten antwoorden, elk met een eigen rol',
+      title: 'Twee types informatievoorziening, elk met een eigen rol',
       items: [
         {
           title: 'Eén bron van waarheid',
@@ -252,7 +252,7 @@ export default {
           illustration: 'Document',
         },
       ],
-      footer: 'Afgestemde definities blijven belangrijk.\n**Niet elke vraag wordt een tab in een dashboard.**',
+      footer: 'Afgestemde definities blijven belangrijk, **maar niet elke vraag wordt een tab in een dashboard.**',
       notes: 'Een dashboard kan nooit alle vragen beantwoorden; dan ga je het eindeloos uitbreiden. Specifieke vragen kunnen mensen zelf beantwoorden, met een rapportje dat ze kunnen delen. Houd het onderscheid helder: het ene is afgestemd en gefaciliteerd, het andere is een ad-hoc antwoord op een eigen vraag.',
     },
     {
