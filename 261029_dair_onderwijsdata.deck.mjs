@@ -22,7 +22,7 @@ export default {
       title: 'Wie zijn wij',
       image: 'public/shots/team/groep.png',
       alt: 'Groepsfoto van het CEDA-team',
-      text: '**Instroomprognose**\n\n**Staat van de Onderwijsinstelling**\n\n**En meer**',
+      text: 'Diverse projecten, waaronder\n\n**Instroomprognose**\n\n**Staat van de Onderwijsinstelling**',
       notes: 'Dit is het CEDA-team. Twee grote projecten om te noemen: de instroomprognose en de Staat van de Onderwijsinstelling op basis van 1CijferHO. Praat met je data is een van de nieuwere lijnen.',
     },
     {
@@ -224,7 +224,7 @@ export default {
       bullets: [
         'Dezelfde techniek, op de data van **je eigen instelling**',
         'Werkt het best met **gestandaardiseerde bestanden**, zoals 1CijferHO en Studielink',
-        'Afgestemde **definities**, zodat de tool telt zoals jullie\n',
+        'Afgestemde **definities**\n',
         'Technische integratie met **AI Hub van SURF**',
       ],
       illustration: 'kunstmatigeintelligentie',
@@ -252,7 +252,7 @@ export default {
           illustration: 'Document',
         },
       ],
-      footer: '**Niet elke vraag wordt een dashboard.** Maak het verschil wel zichtbaar.',
+      footer: 'Afgestemde definities blijven belangrijk.\n**Niet elke vraag wordt een tab in een dashboard.**',
       notes: 'Een dashboard kan nooit alle vragen beantwoorden; dan ga je het eindeloos uitbreiden. Specifieke vragen kunnen mensen zelf beantwoorden, met een rapportje dat ze kunnen delen. Houd het onderscheid helder: het ene is afgestemd en gefaciliteerd, het andere is een ad-hoc antwoord op een eigen vraag.',
     },
     {
