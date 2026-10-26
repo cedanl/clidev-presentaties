@@ -167,8 +167,11 @@ mdc: true
 <p class="np-subtitle" style="opacity: 1;">Skills van een beroep naast skills van de opleiding gelegd.</p>
 
 <div class="np-grid-2" style="margin-top: 0.4rem; align-items: center; grid-template-columns: 55% 45%;">
-  <div style="display: flex; justify-content: center;">
-    <img src="/presentations/261026_competentnl/eerste-poging.png" style="max-height: 400px; width: auto; border: 1px solid var(--np-light-gray); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <a href="https://ceda-skillsradar.fly.dev" target="_blank" rel="noopener" title="Open de live SkillsRadar" style="display: block; border-bottom: none;">
+      <img src="/presentations/261026_competentnl/eerste-poging.png" style="max-height: 400px; width: auto; border: 1px solid var(--np-light-gray); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); cursor: pointer;" />
+    </a>
+    <p style="font-size: 0.78rem; color: var(--np-dark-gray); margin: 0.4rem 0 0;">Klik op het plaatje: ceda-skillsradar.fly.dev</p>
   </div>
   <div style="font-size: 0.92rem; line-height: 1.7;">
     <p class="muted" style="color: var(--np-dark-gray); margin: 0 0 0.3rem;">Wat we zagen</p>
@@ -188,7 +191,7 @@ mdc: true
 
 **Zeg:** In juni zochten we de skills van een beroep, bijvoorbeeld Doktersassistent, en de skills van de bijbehorende opleiding, en legden die naast elkaar. Afspraak: CompetentNL is de enige bron.
 
-**Laat zien:** Links de eerste versie, die live staat. Wat kwam eruit: (1) een groot verschil tussen beroep en opleiding, (2) twijfel of dat klopt, (3) een te eenvoudige vergelijking, (4) onduidelijk hoe CompetentNL zelf werkt.
+**Laat zien:** Links de eerste versie, die live staat. Klik op het plaatje om de live radar te openen: https://ceda-skillsradar.fly.dev (de eerste keer kan de demo even wakker worden). Wat kwam eruit: (1) een groot verschil tussen beroep en opleiding, (2) twijfel of dat klopt, (3) een te eenvoudige vergelijking, (4) onduidelijk hoe CompetentNL zelf werkt.
 
 **Let op:** het scherm toont de actuele radar: 110 skills, 14% zeker, en een gele melding dat crebo 25695 wordt opgevolgd door 27142. In CompetentNL zelf heeft het beroep 111 skills (het verschil van 1 is niet uitgezocht). Zeg dat zo als iemand ernaar vraagt.
 
