@@ -28,7 +28,9 @@ mdc: true
 
 <!--
 [0:30]
+
 **Zeg:** Welkom. Vandaag drie dingen: wat we deden en zagen, hoe CompetentNL in elkaar zit, en wat we nu doen en van jullie nodig hebben.
+
 **Overgang:** Eerst: waarom doen we dit?
 -->
 
@@ -68,8 +70,11 @@ mdc: true
 
 <!--
 [1:30]
+
 **Zeg:** Opleidingsteams zien de arbeidsmarkt sneller veranderen dan hun opleiding kan volgen. Informatie over wat er gevraagd wordt staat verspreid over vacatures, sectorrapporten en trendanalyses. Onderwijs en werk gebruiken niet dezelfde woorden. Teams moeten wel verantwoorden, maar hebben geen concreet instrument.
+
 **Zeg (winst):** Eén gedeelde skillstaal, CompetentNL, en een automatische vergelijking van wat de markt vraagt met wat de opleiding aanbiedt. Per opleiding, per instelling en per regio.
+
 **Overgang:** Voor wie, en met wie?
 -->
 
@@ -111,9 +116,13 @@ mdc: true
 
 <!--
 [1:00]
+
 **Zeg:** Voor de mensen die onderwijs ontwikkelen. In de referentiearchitectuur MORA is dat de keten onderwijsontwikkeling: onderzoeken wat de regionale arbeidsmarkt vraagt, het onderwijs ontwikkelen en voorbereiden, en eventueel informeren en werven.
+
 **Zeg (met wie):** Een kleine kopgroep: ROC Nijmegen, Curio en Deltion. Talland en ROC van Twente worden gevraagd. Drie opleidingen die passen bij de Talentstrategie van het Rijk: Software developer, Technicus en Mbo-Verpleegkundige.
+
 **Zeg:** We beginnen klein en pragmatisch. Het is voor iedereen een leertraject.
+
 **Overgang:** Zo bouwen we het stap voor stap op.
 -->
 
@@ -138,8 +147,11 @@ mdc: true
 
 <!--
 [1:00]
+
 **Zeg:** Fase 1 was de koppeling van de kwalificatiedossiers aan CompetentNL: de mapping tool. Fase 2 heeft twee delen. 2A is de onderwijskant: doorvertalen naar wat een instelling echt aanbiedt, in de onderwijs- en examenregeling. 2B is de arbeidskant: verrijken met vacaturedata. Aan het eind staat een dynamisch skills platform voor het mbo.
+
 **Doel:** een werkende versie in januari 2027, voor drie opleidingen.
+
 **Overgang:** Waar staan we nu? Met fase 1 begonnen we in juni.
 -->
 
@@ -173,9 +185,13 @@ mdc: true
 
 <!--
 [2:00]
+
 **Zeg:** In juni zochten we de skills van een beroep, bijvoorbeeld Doktersassistent, en de skills van de bijbehorende opleiding, en legden die naast elkaar. Afspraak: CompetentNL is de enige bron.
+
 **Laat zien:** Links de eerste versie, die live staat. Wat kwam eruit: (1) een groot verschil tussen beroep en opleiding, (2) twijfel of dat klopt, (3) een te eenvoudige vergelijking, (4) onduidelijk hoe CompetentNL zelf werkt.
+
 **Let op:** het scherm toont de actuele radar: 110 skills, 14% zeker, en een gele melding dat crebo 25695 wordt opgevolgd door 27142. In CompetentNL zelf heeft het beroep 111 skills (het verschil van 1 is niet uitgezocht). Zeg dat zo als iemand ernaar vraagt.
+
 **Overgang:** Daarom hebben we eerst uitgezocht hoe CompetentNL in elkaar zit.
 -->
 
@@ -200,9 +216,13 @@ mdc: true
 
 <!--
 [2:00]
+
 **Zeg:** CompetentNL is de landelijke skillstaal, beheerd door UWV, SBB, TNO en CBS. Geen app en geen vacaturesite, maar een gedeelde taal en een open dataset waar anderen op bouwen.
+
 **Laat zien (van links naar rechts):** Links in blauw de arbeidsmarkt: 3.295 beroepen. Rechts in rood het onderwijs: 1.843 opleidingsnormen. In het midden in groen de skills. Een beroep vraagt beheersing van skills, een opleidingsnorm schrijft beheersing van skills voor. Beroep en opleiding zijn dus niet rechtstreeks gekoppeld, maar via de skills.
+
 **Let op:** het plaatje is van CompetentNL en toont afgeronde getallen (±3.300, ±2.000, #72 talen). Wij tellen in de data: 3.295 beroepen, 1.843 opleidingsnormen, 46 talen. Bovenaan staan de internationale lijsten: ESCO, ISCO, ISCED-F, O*NET.
+
 **Overgang (optioneel):** Wie wil, kan de kaart zelf aanklikken, dat laat ik zo zien. Anders direct door naar de volgende slide.
 -->
 
@@ -215,10 +235,13 @@ mdc: true
 
 <!--
 [optioneel, 2:00. Sla over bij tijdnood]
+
 **Live:** deze slide bevat de interactieve pagina "CompetentNL in beeld". Klik op een blokje in het plaatje, bijvoorbeeld Skills (het midden) en Opleidingsnormen: 1.843 in drie soorten (438 kwalificaties, 1.266 keuzedelen, 139 certificaten).
+
 **Als het scherm niet laadt:** open de pagina in de browser: https://claude.ai/artifact/VmWAxYVWvinLZWtGR8xJR8
 Lokaal (zonder internet): /presentations/261026_competentnl/competentnl-in-beeld.html
 Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidingen, #metadateren, #rode-draad, #beweging.
+
 **Overgang:** Terug naar de slides: de drie soorten skills.
 -->
 
@@ -262,9 +285,13 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [1:30]
+
 **Zeg:** Skills zijn er in drie soorten. Kunnen: 128 vaardigheden, in drie lagen (6 hoofdgroepen, 24 groepen, 128 vaardigheden). Weten: 311 kennisgebieden, in vier lagen. Spreken: 46 talen in onze data, elk met een activiteit en een niveau (de taxonomie beschrijft er ruim 70).
+
 **Belangrijk:** elke soort heeft een eigen indeling, dus een skill is niet zomaar met een andere te vergelijken. Veel skills zijn algemeen: 74,5% van de skills bij beroepen hoort bij bijna elk beroep. Dat vertekent het beeld als je niet oppast.
+
 **Live (optioneel):** https://claude.ai/artifact/VmWAxYVWvinLZWtGR8xJR8#skills, met de markering "wat de Doktersassistent nodig heeft".
+
 **Overgang:** Wat betekent dat voor één beroep? Het voorbeeld Doktersassistent.
 -->
 
@@ -302,10 +329,15 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [2:00]
+
 **Zeg:** Skills zijn de schakel tussen beroep en opleiding. Voorbeeld, rechtstreeks uit CompetentNL, zonder slimme matching: het beroep Doktersassistent vraagt 111 skills, de opleiding noemt er 49 (de actuele norm met code 27142, opvolger van 25695). Daarvan zijn er 35 gelijk. Dus 76 skills van het beroep staan niet in de opleiding, en 14 van de opleiding niet in het beroep (samen 125 verschillende skills).
+
 **Let op:** alleen precies dezelfde skill telt. Een bijna gelijke skill telt als verschil. Dat is de reden dat we twijfelden aan de eerste uitkomst.
+
 **Per soort (uit de pagina):** vaardigheden: beroep 96, opleiding 30, in beide 29. Kennis: 14, 18, 6. Taal: 1, 1, 0.
+
 **Live (optioneel):** https://claude.ai/artifact/VmWAxYVWvinLZWtGR8xJR8#rode-draad. Alle 125 skills in de verkenner: https://claude.ai/artifact/TA7Gaasqb13YFQj7ewxyDt
+
 **Overgang:** Maar is dat verschil dan betrouwbaar?
 -->
 
@@ -346,12 +378,17 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [2:00]
+
 **Zeg:** Drie waarschuwingen.
+
 1. Doktersassistent: het beroep beschrijft 111 skills, de opleiding 49, ruim twee keer zoveel, en 74,5% van de skills bij beroepen is algemeen. Dat een skill ontbreekt is dus nog geen tekort.
 2. Onze regels voor "bijna dezelfde skill" bleken bij vaardigheden niet beter dan toeval. Een willekeurig ander beroep scoort ongeveer even hoog.
 3. De koppeling van opleiding aan beroep is minder eenduidig dan gehoopt: van de 57 opleidingsdossiers waarvan we het zeker weten, horen er 18 (32%) bij meerdere beroepen.
+
 **Conclusie:** alleen regels op gelijkenis is niet de weg. Wat wel klopt: exact dezelfde skill. Dat noemen we zeker.
+
 **Bij vragen:** "Waarom 57?" Alleen van die dossiers hebben we de koppeling met een mens gecontroleerd; de andere 111 zijn onbekend.
+
 **Overgang:** Dus wat doen we nu?
 -->
 
@@ -394,10 +431,15 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [2:00]
+
 **Zeg:** Drie sporen. (1) Begrijpen hoe CompetentNL in elkaar zit: de beroepenboom en de opleidingenboom, en op welk niveau skills echt hetzelfde betekenen. (2) Een ander model: op het niveau van een opleidingsfamilie delen opleidingen mediaan 55% van hun skills, op het niveau van een heel domein 1%. Dat vraagt om een model dat laat zien wat een groep gemeen heeft en wat bijzonder is. (3) Een andere manier van vergelijken: de naam geeft de kandidaten, de skills rangschikken ze, en een mens beslist.
+
 **Risico:** CompetentNL verandert snel. Versie 7 in juni, versie 13 in oktober. 33 opleidingscodes uit ons onderzoek bestaan niet meer. Concepten worden nooit verwijderd, wel gedeactiveerd, dus het is netjes geregeld. Maar bouwen op een bewegend doel vraagt een vaste controle bij elke nieuwe versie.
+
 **Voorbeelden:** Mbo-Verpleegkundige heeft nu code 27145 (oud: 25655), Doktersassistent 27142 (oud: 25695). Laatste instroom op de oude code was 1 augustus 2026.
+
 **Live (optioneel):** https://claude.ai/artifact/VmWAxYVWvinLZWtGR8xJR8#beweging: wat er met de skills veranderde tussen de vorige en de huidige versie (vaardigheden van 112 naar 128).
+
 **Overgang:** Hoe gaat het verder, en wat heb ik van jullie nodig?
 -->
 
@@ -474,9 +516,13 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [1:30]
+
 **Zeg:** Vandaag de opbouw van CompetentNL. Uiterlijk vrijdag 13 november ontvangen we de gegevens van de drie opleidingen. Per opleiding vragen we drie dingen: werving (teksten van website, folders, open dagen en KiesMBO), examinering (de algemene OER en het deel van de instelling) en uitvoering (het onderwijsprogramma of de studiegids en de keuzedelen). Alleen openbare en door jullie aangeleverde bronnen, zonder persoonsgegevens.
+
 **Vraag (hier het doel van de presentatie):** help ons testers te vinden binnen jullie instelling. Begin december de testfase: een half uur demo en een uur zelf testen door curriculumontwikkelaars en opleidingsmanagers.
+
 **Daarna:** januari 2027 een werkende versie voor de stuurgroep. We overleggen om de week op maandagmiddag.
+
 **Overgang:** Kort wie wij zijn.
 -->
 
@@ -501,6 +547,7 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [0:20]
+
 **Zeg:** Kort over wie wij zijn, voor wie CEDA nog niet kent. Daarna meteen door naar vragen.
 -->
 
@@ -530,7 +577,10 @@ Direct naar een onderdeel met een anker: #kaart, #skills, #beroepen, #opleidinge
 
 <!--
 [open]
+
 **Zeg:** Vragen en discussie.
+
 **Als er tijd over is:** open de interactieve pagina (https://claude.ai/artifact/VmWAxYVWvinLZWtGR8xJR8) en laat de ladder van de Doktersassistent zien (#beroepen), of de verkenner met alle 125 skills (https://claude.ai/artifact/TA7Gaasqb13YFQj7ewxyDt).
+
 **Vragen die kunnen komen:** waarom 46 talen (de data) en geen 70 (de taxonomie)? Waarom 110 in de radar en 111 in CompetentNL (niet uitgezocht)? Wanneer krijgen we de radar zelf te zien (testfase begin december)?
 -->
