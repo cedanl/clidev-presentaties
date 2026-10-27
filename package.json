@@ -28,6 +28,7 @@
     "@slidev/theme-default": "^0.25.0",
     "@unocss/reset": "^66.6.6",
     "playwright-chromium": "^1.61.0",
+    "pptx-embed-fonts": "^0.0.6",
     "pptxgenjs": "^4.0.1"
   }
 }
