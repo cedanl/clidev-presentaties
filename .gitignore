@@ -7,3 +7,8 @@ dist/
 components.d.ts
 .claude/
 .slidev/
+
+# Office-lockbestanden en powerclaude-bijproducten
+~$*
+exports/*/qa/
+exports/*/img/
