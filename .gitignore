@@ -12,3 +12,6 @@ components.d.ts
 ~$*
 exports/*/qa/
 exports/*/img/
+
+# Externe brondocumenten (seminarplanning, mails met sprekers)
+sources/
