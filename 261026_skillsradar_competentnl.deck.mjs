@@ -16,6 +16,7 @@ export default {
       notes: 'Welkom. Vandaag: wat we in SkillsRadar deden, wat we zagen bij de eerste versie en hoe CompetentNL in elkaar zit.',
     },
     { type: 'ceda' },
+    { type: 'team' },
     {
       type: 'cards',
       title: 'Waar doen we het voor?',
