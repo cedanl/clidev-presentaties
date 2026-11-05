@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Waar maakt staat1cho echt verschil?</title>
+<title>Waar maakt staat1cho echt verschil? </title>
 <!--
-  clanna-frame v1 — gebaseerd op het deck "Welk open-source model kan mijn LLM-wiki
+  clanna-frame v2 (delen-navigatie, datacomponenten, GSAP-animaties) — gebaseerd op het deck "Welk open-source model kan mijn LLM-wiki
   het beste onderhouden?" van Janna Berkhout (KIS). Huisstijl: vormgever-npuls-huisstijl.
   Dit bestand hoort in de root van clidev-presentaties: de fonts, het logo en de
   illustraties komen uit public/npuls/ (relatieve paden).
@@ -411,6 +411,7 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
   .lay-blokken .tegels,.lay-eind .tegels{display:none}
 }
 
+
 /* vaste CEDA-slides (gelijk aan powerclaude/clidev): Wie is CEDA, Wie zijn wij, Blijf in contact */
 .ceda-punten{list-style:none;display:flex;flex-direction:column;gap:.7em;margin-top:clamp(16px,2.6vh,32px)}
 .ceda-punten li{display:flex;align-items:center;gap:.8em}
@@ -423,6 +424,81 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
 .pill.groen{background:var(--npuls-groen);color:var(--npuls-zwart)}
 .pill.oranje{background:var(--npuls-oranje);color:var(--npuls-zwart)}
 .contact-body{align-items:center;text-align:center}
+
+/* ============================================================
+   DATACOMPONENTEN v2 (inspiratie: domeinteamdeck studentprognose)
+   ============================================================ */
+
+/* voortgang per partij: data-fasen="v,v,n,x,-" (v afgerond, n nu, x volgende, - leeg) */
+.tracker{--fasen:5;display:flex;flex-direction:column}
+.tr-kop,.tr-rij{display:grid;grid-template-columns:minmax(12ch,1.5fr) repeat(var(--fasen),minmax(0,1fr)) minmax(10ch,1.3fr);
+  column-gap:clamp(4px,.45vw,8px);align-items:center}
+.tr-kop{padding-bottom:.45em;border-bottom:2px solid var(--npuls-blauw)}
+.tr-kop span{font-size:clamp(9.5px,.78vw,12px);font-weight:600;text-transform:uppercase;letter-spacing:.06em;text-align:center;opacity:.75}
+.tr-kop span:first-child,.tr-kop span:last-child{text-align:left}
+.tr-rij{padding:clamp(5px,.75vh,10px) 0;border-bottom:1px solid rgba(0,0,0,.08)}
+.tr-rij>b{font-weight:600;font-size:clamp(12.5px,1.05vw,16px);line-height:1.2}
+.tr-rij>b small{display:block;font-weight:400;font-size:.78em;opacity:.65}
+.tr-stand{font-size:clamp(11.5px,.95vw,14.5px);padding-left:clamp(8px,1vw,16px);opacity:.85}
+.tr-groep{font-size:clamp(10px,.8vw,12.5px);font-weight:600;text-transform:uppercase;letter-spacing:.07em;opacity:.6;margin-top:clamp(8px,1.2vh,14px)}
+.seg{position:relative;height:clamp(14px,1.3vw,22px);border-radius:6px;background:rgba(0,0,0,.06);overflow:hidden}
+.seg i{position:absolute;inset:0;border-radius:6px;transform-origin:left}
+.seg.af i{background:var(--npuls-blauw)}
+.seg.nu i{background:var(--npuls-oranje)}
+.seg.volgend,.swatch.volgend{background:repeating-linear-gradient(135deg,var(--licht-oranje) 0 6px,var(--npuls-oranje) 6px 8px)}
+
+/* tijdlijn met NU-lijn: --n kolommen op de as, balken met --van/--tot (in kolommen) */
+.tijdlijn{--n:12;--naam:clamp(130px,15vw,260px);--gat:clamp(10px,1.2vw,20px);position:relative}
+.tl-as,.tl-rij{display:grid;grid-template-columns:var(--naam) 1fr;column-gap:var(--gat);align-items:center}
+.tl-as>div{display:grid;grid-template-columns:repeat(var(--n),1fr);border-bottom:2px solid var(--npuls-blauw)}
+.tl-as span{font-size:clamp(9.5px,.78vw,12.5px);font-weight:600;opacity:.65;padding-bottom:.35em;white-space:nowrap}
+.tl-rij{height:clamp(42px,6vh,64px);border-bottom:1px solid rgba(0,0,0,.08)}
+.tl-rij>b{font-weight:600;font-size:clamp(12.5px,1.05vw,16px);line-height:1.2}
+.tl-rij>b small{display:block;font-weight:400;font-size:.78em;opacity:.65}
+.tl-baan{position:relative;height:100%}
+.tl-balk{position:absolute;top:22%;bottom:22%;left:calc(var(--van) / var(--n) * 100%);width:calc((var(--tot) - var(--van)) / var(--n) * 100%);
+  border-radius:10px;background:var(--npuls-blauw);color:var(--npuls-wit);font-style:normal;font-weight:600;
+  font-size:clamp(10.5px,.85vw,13px);display:flex;align-items:center;justify-content:flex-end;padding:0 .8em;white-space:nowrap;transform-origin:left}
+.tl-balk.verwacht{background:repeating-linear-gradient(135deg,var(--npuls-oranje) 0 12px,var(--licht-oranje) 12px 24px);color:var(--npuls-zwart)}
+.tl-balk.licht{background:var(--licht-groen);color:var(--npuls-zwart);border:2px dashed var(--npuls-groen)}
+.tl-nu{position:absolute;top:0;bottom:0;border-left:2px dashed var(--npuls-oranje);pointer-events:none;
+  left:calc(var(--naam) + var(--gat) + (100% - var(--naam) - var(--gat)) * var(--op) / var(--n))}
+.tl-nu span{position:absolute;bottom:-1.6em;left:0;transform:translateX(-50%);font-size:clamp(10px,.8vw,12.5px);font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--npuls-oranje);white-space:nowrap}
+
+/* voor/na: twee panelen met een stroom van nodes en de gevolgen */
+.voorna{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(12px,1.6vw,28px);align-items:stretch}
+.vn-paneel{background:var(--npuls-wit);border-radius:20px;padding:clamp(14px,1.4vw,24px);display:flex;flex-direction:column;gap:clamp(8px,1.1vh,14px)}
+.vn-paneel.na{box-shadow:inset 0 0 0 3px var(--npuls-groen)}
+.vn-kop{display:flex;align-items:center;gap:.7em;font-weight:600;font-size:clamp(14px,1.18vw,18px)}
+.vn-flow{display:flex;flex-direction:column;align-items:stretch;gap:clamp(3px,.5vh,6px)}
+.vn-flow .node{background:var(--licht-blauw);flex:none}
+.vn-paneel.voor .vn-flow .node{background:var(--licht-oranje)}
+.vn-flow>i{align-self:center;font-size:clamp(11px,.9vw,14px);opacity:.55}
+.vn-gevolg{list-style:none;display:flex;flex-direction:column;gap:.35em;margin-top:auto;padding-top:.5em;border-top:1px solid rgba(0,0,0,.08)}
+.vn-gevolg li{display:flex;gap:.6em;align-items:flex-start}
+.vn-gevolg li i{margin-top:.3em;font-size:.85em}
+.voor .vn-gevolg li i{color:var(--npuls-oranje)}
+.na .vn-gevolg li i{color:var(--npuls-groen)}
+.vn-pijl{display:grid;place-items:center;font-size:clamp(20px,2vw,32px);color:var(--accent)}
+
+/* risicotabel: table.risico, stip in de eerste kolom geeft het niveau */
+.niv{display:inline-block;width:.75em;height:.75em;border-radius:99px;margin-right:.55em;vertical-align:.02em}
+.niv.hoog{background:var(--npuls-oranje)}
+.niv.midden{background:var(--npuls-geel)}
+.niv.laag{background:var(--npuls-groen)}
+table.risico td:last-child{color:var(--npuls-blauw);font-weight:600}
+
+/* probleem → les */
+.lessen{display:flex;flex-direction:column;gap:clamp(6px,1vh,12px)}
+.les-kop,.les{display:grid;grid-template-columns:1fr clamp(30px,3.4vw,56px) 1.1fr;align-items:stretch}
+.les-kop span{font-size:clamp(10px,.8vw,12.5px);font-weight:600;text-transform:uppercase;letter-spacing:.08em;opacity:.65}
+.les-kop span:last-child{color:var(--accent);opacity:1}
+.les-l,.les-r{border-radius:16px;padding:clamp(9px,1vw,15px) clamp(12px,1.3vw,20px);display:flex;align-items:center;gap:.7em}
+.les-l{background:var(--npuls-wit);font-weight:600}
+.les-r{background:var(--npuls-blauw);color:var(--npuls-wit)}
+.les-r i{color:var(--npuls-geel)}
+.les>i{align-self:center;justify-self:center;color:var(--accent-2);font-size:clamp(14px,1.2vw,20px)}
 
 /* ============================================================
    NAVIGATIE — linksonder (rechtsonder is voor de bogen)
@@ -448,6 +524,14 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
   display:grid;place-items:center;font-size:12px;opacity:.6;transition:opacity .2s;
 }
 .navbtn:hover{opacity:1}
+/* delen: verschijnen zodra een slide data-deel heeft, en vervangen dan de stippen */
+.delen{display:flex;flex-wrap:wrap;gap:clamp(10px,1.3vw,22px);pointer-events:auto}
+.delen button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.5em;
+  font-size:clamp(10.5px,.85vw,13px);font-weight:600;letter-spacing:.03em;opacity:.5;transition:opacity .2s}
+.delen button::before{content:'';width:8px;height:8px;border-radius:99px;background:currentColor;opacity:.35}
+.delen button:hover,.delen button.on{opacity:1}
+.delen button.on::before{background:var(--deel-acc,currentColor);opacity:1}
+.nav.met-delen .dots{display:none}
 .brand{
   position:fixed;top:clamp(18px,2.4vh,30px);right:clamp(28px,5.5vw,110px);z-index:20;
   font-size:clamp(11px,.88vw,13px);font-weight:600;letter-spacing:.09em;text-transform:uppercase;opacity:.55;
@@ -506,7 +590,7 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
   </div>
 </section>
 
-<!-- 0:00 · 2 min. Doel noemen: we willen niet weten of het werkt, maar waar het verschil maakt. Vraag iedereen om tijdens de sessie concrete voorbeelden te noemen. -->
+<!-- 0:00 · 2 min. Doel noemen: we willen niet weten of het werkt, maar waar het verschil maakt. De vijf vragen zijn ook de delen onderin de navigatie. -->
 <section class="slide s-wit lay-stappen">
   <img class="npuls-logo" src="public/npuls/vormen/npuls-logo.svg" alt="Npuls">
   <img class="golf" src="public/npuls/vormen/golf-oranje.svg" alt="">
@@ -521,31 +605,39 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
 </section>
 
 <!-- 0:05 · 3 min. Windesheim: mails van eerder dit jaar. Avans: nog geen terugkoppeling, vraag of het nog lukt. -->
-<section class="slide s-wit">
+<section class="slide s-deel" data-deel="Stand">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Praktijktest</span><h2>Bij Windesheim lukte het, maar pas na <span class="hl">handwerk</span></h2><p class="sub">Van Avans hebben we nog niets gehoord. Lukt het vóór half november?</p></div>
-  <div class="body"><div class="chain">
-    <div class="node lblauw"><b>1cijferho</b><span>Duurt soms lang, melding "bestand bestaat al" was onduidelijk. Doorgestuurd naar het 1cijferho-team.</span></div>
-    <div class="hop"><i class="fa-solid fa-arrow-right"></i></div>
-    <div class="node lgeel"><b>staat1cho</b><span>Stopte op 4 à 5 dubbele eerstejaars uit DUO. Met de hand weggehaald.</span></div>
-    <div class="hop"><i class="fa-solid fa-arrow-right"></i></div>
-    <div class="node lgroen"><b>Dashboard</b><span>Daarna werkte het. Geen grafiek die onbegrijpelijk was.</span></div>
-  </div></div>
+  <div class="slide-head"><span class="kicker">Praktijktest</span><h2>Bij Windesheim lukte het, maar pas na <span class="hl">handwerk</span></h2><p class="sub">1cijferho duurt soms lang en de melding "bestand bestaat al" was onduidelijk (doorgestuurd naar het 1cijferho-team). 4 à 5 dubbele eerstejaars uit DUO met de hand weggehaald.</p></div>
+  <div class="body">
+    <div class="tracker" style="--fasen:4">
+      <div class="tr-kop"><span>Instelling</span><span>1cijferho</span><span>staat1cho</span><span>Dashboard</span><span>Validatie</span><span>Stand</span></div>
+      <div class="tr-rij" data-fasen="v,v,v,n"><b>Windesheim</b><span class="tr-stand">Gelukt na handwerk; geen grafiek onbegrijpelijk</span></div>
+      <div class="tr-rij" data-fasen="x,-,-,-"><b>Avans</b><span class="tr-stand">Nog geen terugkoppeling. Lukt het vóór half november?</span></div>
+    </div>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--npuls-blauw)"></i> Gelukt</span>
+      <span><i class="swatch" style="background:var(--npuls-oranje)"></i> Nu bezig</span>
+      <span><i class="swatch volgend"></i> Volgende stap</span>
+    </div>
+  </div>
 </section>
 
 <!-- 0:08 · 2 min. Eerlijk over wat we in juni en september zeiden. Bij bekostiging en vakcijfers: vraag of er nog behoefte aan is, voordat we er tijd in steken. -->
-<section class="slide s-lroze">
+<section class="slide s-deel" data-deel="Stand">
   <div class="slide-head"><span class="kicker">Wat we zeiden</span><h2>September beloofde veel; dit is de <span class="hl">stand</span></h2></div>
-  <div class="body"><div class="grid g2">
-    <div class="card"><div class="ico groen"><i class="fa-solid fa-flag-checkered"></i></div><h3>Validatie vóór half november</h3><p>Windesheim heeft getest, Avans nog niet. Werkend vanaf januari 2027.</p></div>
-    <div class="card"><div class="ico oranje"><i class="fa-solid fa-circle-question"></i></div><h3>Onze vragen waren te vaag</h3><p>"Welke tabel?" was een terechte reactie. Het tabblad Validatie zegt waar je op let.</p></div>
-    <div class="card"><div class="ico blauw"><i class="fa-solid fa-coins"></i></div><h3>Bekostiging werkt nog niet</h3><p>De VLPBEK-koppeling lukt niet. Hebben jullie dit nog nodig?</p></div>
-    <div class="card"><div class="ico geel"><i class="fa-solid fa-book-open"></i></div><h3>Vakcijfer per vak blijft leeg</h3><p>Fout in het dashboard. Is er behoefte aan, of kan het weg?</p></div>
-  </div></div>
+  <div class="body">
+    <div class="lessen">
+      <div class="les-kop"><span>Wat we in september zeiden</span><span></span><span>Waar het nu staat</span></div>
+      <div class="les"><div class="les-l">Validatie vóór half november</div><i class="fa-solid fa-arrow-right"></i><div class="les-r"><i class="fa-solid fa-flag-checkered"></i>Windesheim getest, Avans nog niet. Werkend vanaf januari 2027.</div></div>
+      <div class="les"><div class="les-l">Validatievragen aan jullie</div><i class="fa-solid fa-arrow-right"></i><div class="les-r"><i class="fa-solid fa-circle-question"></i>Te vaag ("welke tabel?"). Het tabblad Validatie zegt nu waar je op let.</div></div>
+      <div class="les"><div class="les-l">Bekostiging als vierde bron</div><i class="fa-solid fa-arrow-right"></i><div class="les-r"><i class="fa-solid fa-coins"></i>VLPBEK-koppeling lukt niet. Hebben jullie dit nog nodig?</div></div>
+      <div class="les"><div class="les-l">Vakcijfer per vak</div><i class="fa-solid fa-arrow-right"></i><div class="les-r"><i class="fa-solid fa-book-open"></i>Blijft leeg door een fout. Behoefte, of kan het weg?</div></div>
+    </div>
+  </div>
 </section>
 
 <!-- 0:10 · 8 min. Laat iedereen om de beurt één vraag noemen. Schrijf mee in de chat: vraag, vrager, doorlooptijd. Doorvragen: hoe vaak komt die vraag terug? -->
-<section class="slide s-geel">
+<section class="slide s-geel" data-deel="Vragen">
   <div class="deco bogen"></div>
   <div class="body">
     <span class="kicker">Rondje</span>
@@ -555,7 +647,7 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
 </section>
 
 <!-- 0:18 · 7 min. Dit is de kern: impact = een beslissing die verandert. Doorvragen op één voorbeeld per instelling. -->
-<section class="slide s-lgroen">
+<section class="slide s-lgroen" data-deel="Vragen">
   <div class="deco bogen"></div>
   <div class="body">
     <span class="kicker">Doorvragen</span>
@@ -565,26 +657,26 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
 </section>
 
 <!-- 0:25 · 8 min. Laat ze per instelling kiezen welke van de vier het zwaarst telt, en voor wie. Koppel terug aan de vragen uit deel 2. -->
-<section class="slide s-wit">
+<section class="slide s-wit" data-deel="Impact">
   <div class="deco bogen"></div>
   <div class="slide-head"><span class="kicker"><i class="fa-solid fa-hand-point-up"></i> &nbsp;Stem in Mentimeter</span><h2>Welke impact telt bij jullie het <span class="hl">zwaarst</span>?</h2></div>
   <div class="body"><div class="grid g4">
-    <div class="card lblauw"><div class="ico blauw"><i class="fa-solid fa-stopwatch"></i></div><h3>Tijd</h3><p>Een vraag in uren beantwoorden in plaats van weken.</p></div>
-    <div class="card lgroen"><div class="ico groen"><i class="fa-solid fa-scale-balanced"></i></div><h3>Vergelijken</h3><p>Je eigen cijfers naast die van andere instellingen.</p></div>
-    <div class="card lgeel"><div class="ico geel"><i class="fa-solid fa-equals"></i></div><h3>Eén definitie</h3><p>Hetzelfde getal in de hele organisatie.</p></div>
-    <div class="card loranje"><div class="ico oranje"><i class="fa-solid fa-user-gear"></i></div><h3>Zelf doen</h3><p>Opleidingen kijken zelf, IR doet de diepere vragen.</p></div>
+    <div class="card lblauw"><div class="ico blauw" data-pop><i class="fa-solid fa-stopwatch"></i></div><h3>Tijd</h3><p>Een vraag in uren beantwoorden in plaats van weken.</p></div>
+    <div class="card lgroen"><div class="ico groen" data-pop><i class="fa-solid fa-scale-balanced"></i></div><h3>Vergelijken</h3><p>Je eigen cijfers naast die van andere instellingen.</p></div>
+    <div class="card lgeel"><div class="ico geel" data-pop><i class="fa-solid fa-equals"></i></div><h3>Eén definitie</h3><p>Hetzelfde getal in de hele organisatie.</p></div>
+    <div class="card loranje"><div class="ico oranje" data-pop><i class="fa-solid fa-user-gear"></i></div><h3>Zelf doen</h3><p>Opleidingen kijken zelf, IR doet de diepere vragen.</p></div>
   </div></div>
 </section>
 
 <!-- 0:33 · 7 min. De toets voor echte impact. Stilte laten vallen. Als het antwoord "niets" is, is dat ook informatie. -->
-<section class="slide s-roze lay-quote">
+<section class="slide s-roze lay-quote" data-deel="Impact">
   <img class="npuls-logo" src="public/npuls/vormen/npuls-logo.svg" alt="Npuls">
   <div class="deco bogen"></div>
-  <div class="body"><p class="quote">Als staat1cho morgen weg was, wat zou je dan missen?</p></div>
+  <div class="body"><p class="quote" data-a>Als staat1cho morgen weg was, wat zou je dan missen?</p></div>
 </section>
 
 <!-- 0:36 · 3 min. Vraag aan Avans: de tool komt uit hun eigen Staat van Avans. Windesheim: zou het jullie eigen rapportage vervangen? -->
-<section class="slide s-geel">
+<section class="slide s-geel" data-deel="Impact">
   <div class="deco bogen"></div>
   <div class="body">
     <span class="kicker">Vraag aan Avans</span>
@@ -594,74 +686,99 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
 </section>
 
 <!-- 0:38 · 3 min. De vraag uit juni (PDF, dashboard of rapport op maat) is nog open. Voorstel: factsheet per opleiding. Toets eerst of de Excel-uitvoer al bruikbaar is. -->
-<section class="slide s-wit">
+<section class="slide s-deel" data-deel="Impact">
   <div class="deco bogen"></div>
   <div class="slide-head"><span class="kicker">Ontsluiten</span><h2>Van tabel naar <span class="hl">factsheet</span>?</h2><p class="sub">In juni vroegen we: PDF, dashboard of rapport op maat? Dat is nog open.</p></div>
-  <div class="body"><div class="grid g2">
-    <div class="card lgeel"><div class="ico geel"><i class="fa-solid fa-file-excel"></i></div><h3>Nu: Excel</h3><p>Analysebestand en benchmarkrapport. Zijn die bruikbaar voor jullie?</p></div>
-    <div class="card blauw"><div class="ico wit"><i class="fa-solid fa-file-lines"></i></div><h3>Voorstel: factsheet per opleiding</h3><p>Eén pagina met de kerncijfers, voor opleidingsmanagers en accreditatie.</p></div>
-  </div></div>
+  <div class="body">
+    <div class="voorna">
+      <div class="vn-paneel voor">
+        <p class="vn-kop"><span class="pill oranje">Nu</span> Excel</p>
+        <div class="vn-flow">
+          <div class="node"><b>Analysebestand</b><span>Eén rij per student, om zelf te koppelen</span></div>
+          <div class="node"><b>Benchmarkrapport</b><span>Tabellen per indicator</span></div>
+        </div>
+        <ul class="vn-gevolg">
+          <li><i class="fa-solid fa-xmark"></i><span>Vraagt een analist om te lezen</span></li>
+        </ul>
+      </div>
+      <div class="vn-pijl"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="vn-paneel na">
+        <p class="vn-kop"><span class="pill groen">Voorstel</span> Factsheet per opleiding</p>
+        <div class="vn-flow">
+          <div class="node"><b>Eén pagina</b><span>De kerncijfers van één opleiding</span></div>
+          <div class="node"><b>Voor opleidingsmanagers</b><span>En voor accreditatie</span></div>
+        </div>
+        <ul class="vn-gevolg">
+          <li><i class="fa-solid fa-check"></i><span>Zijn de Excel-bestanden al bruikbaar genoeg?</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 0:40 · 5 min. Vraag: welke van deze houdt jullie het meest tegen? Mis ik er een? -->
-<section class="slide s-wit lay-blokken">
-  <div class="tegels" aria-hidden="true">
-    <img class="tegel" src="public/npuls/vormen/tegel-ster-oranje.svg" alt=""><img class="tegel" src="public/npuls/vormen/tegel-cirkel-geel.svg" alt="">
-    <img class="tegel" src="public/npuls/vormen/tegel-golf-zwart.svg" alt=""><img class="tegel" src="public/npuls/vormen/tegel-bogen-roze.svg" alt="">
-    <img class="tegel" src="public/npuls/vormen/tegel-doel-groen.svg" alt=""><img class="tegel" src="public/npuls/vormen/tegel-schakelaar-blauw.svg" alt="">
+<!-- 0:40 · 5 min. Vraag: welke van deze houdt jullie het meest tegen? Mis ik er een? Rechterkolom = wat we er nu aan doen of al besloten. -->
+<section class="slide s-deel" data-deel="Drempels">
+  <div class="slide-head"><span class="kicker"><i class="fa-solid fa-hand-point-up"></i> &nbsp;Stem in Mentimeter</span><h2>Wat houdt jullie het meest <span class="hl">tegen</span>?</h2></div>
+  <div class="body">
+    <table class="risico">
+      <thead><tr><th style="width:24%">Drempel</th><th>Wat we zien</th><th style="width:36%">Wat we nu doen</th></tr></thead>
+      <tbody>
+        <tr><td>Voorbereiding</td><td>1cijferho duurt lang, meldingen onduidelijk</td><td>Doorgestuurd naar het 1cijferho-team</td></tr>
+        <tr><td>Datafouten</td><td>Dubbele eerstejaars van DUO stoppen de tool</td><td>Open keuze: stoppen of doorgaan (volgende slide)</td></tr>
+        <tr><td>Domeinen</td><td>Eigen indeling zit er niet in</td><td>Open keuze: dashboard of zelf koppelen</td></tr>
+        <tr><td>Definities</td><td>Wijken af van de eigen</td><td>Rekenregels samen nalopen</td></tr>
+        <tr><td>Delen</td><td>Vraagt toestemming van het CvB</td><td>Rapport eerst langs privacy officer of FG</td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="slide-head" style="max-width:none"><span class="kicker"><i class="fa-solid fa-hand-point-up"></i> &nbsp;Stem in Mentimeter</span><h2>Wat houdt jullie het meest <span class="hl">tegen</span>?</h2></div>
-  <div class="body"><ul class="ticks">
-    <li><i class="fa-solid fa-check"></i><span><strong>Voorbereiding:</strong> 1cijferho duurt lang</span></li>
-    <li><i class="fa-solid fa-check"></i><span><strong>Datafouten</strong> van DUO stoppen de tool</span></li>
-    <li><i class="fa-solid fa-check"></i><span><strong>Domeinen</strong> zitten er niet in</span></li>
-    <li><i class="fa-solid fa-check"></i><span><strong>Definities</strong> wijken af van de eigen</span></li>
-    <li><i class="fa-solid fa-check"></i><span><strong>Delen</strong> vraagt toestemming van het CvB</span></li>
-  </ul></div>
 </section>
 
 <!-- 0:45 · 7 min. Drie keuzes die nog open liggen. Geen voorkeur geven; eerst horen wat zij nodig hebben. -->
-<section class="slide s-lroze">
+<section class="slide s-wit" data-deel="Drempels">
+  <div class="deco bogen"></div>
   <div class="slide-head"><span class="kicker"><i class="fa-solid fa-hand-point-up"></i> &nbsp;Stem in Mentimeter</span><h2>Drie keuzes die we <span class="hl">samen</span> maken</h2></div>
   <div class="body"><div class="grid g3">
-    <div class="card"><div class="ico oranje"><i class="fa-solid fa-code-branch"></i></div><h3>Bij een datafout van DUO</h3><p>Stoppen, zodat je het zeker weet? Of doorgaan met een waarschuwing en een lijst van wat eruit ging?</p></div>
-    <div class="card"><div class="ico blauw"><i class="fa-solid fa-layer-group"></i></div><h3>Domeinen</h3><p>Ingebouwd in het dashboard? Of zelf koppelen via het analysebestand, op opleidingscode?</p></div>
-    <div class="card"><div class="ico groen"><i class="fa-solid fa-scale-balanced"></i></div><h3>Benchmark</h3><p>Eerst dezelfde definities, dan vergelijken. Delen kan bij Windesheim met toestemming van het CvB.</p></div>
+    <div class="card lroze"><div class="ico oranje"><i class="fa-solid fa-code-branch"></i></div><h3>Bij een datafout van DUO</h3><p>Stoppen, zodat je het zeker weet? Of doorgaan met een waarschuwing en een lijst van wat eruit ging?</p></div>
+    <div class="card lblauw"><div class="ico blauw"><i class="fa-solid fa-layer-group"></i></div><h3>Domeinen</h3><p>Ingebouwd in het dashboard? Of zelf koppelen via het analysebestand, op opleidingscode?</p></div>
+    <div class="card lgroen"><div class="ico groen"><i class="fa-solid fa-scale-balanced"></i></div><h3>Benchmark</h3><p>Eerst dezelfde definities, dan vergelijken. Delen kan bij Windesheim met toestemming van het CvB.</p></div>
   </div></div>
 </section>
 
 <!-- 0:48 · 3 min. Strategie: van twee instellingen naar elke hogeschool. Laat ze eerst zelf antwoorden. -->
-<section class="slide s-wit">
+<section class="slide s-deel" data-deel="Afspraken">
   <div class="deco bogen"></div>
   <div class="slide-head"><span class="kicker">Hoe verder</span><h2>Hoe wordt dit interessant voor <span class="hl">elke</span> hogeschool?</h2></div>
   <div class="body"><div class="grid g3">
-    <div class="card lblauw"><div class="ico blauw"><i class="fa-solid fa-user-tie"></i></div><h3>Wie gebruikt het?</h3><p>Het IR-team, of de opleidingsmanager zelf?</p></div>
-    <div class="card lgeel"><div class="ico geel"><i class="fa-solid fa-building-columns"></i></div><h3>Zonder IR-team</h3><p>Wat moet het doen voor een kleine hogeschool zonder analisten?</p></div>
-    <div class="card lgroen"><div class="ico groen"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>Welk niveau?</h3><p>De instelling als geheel, of elke opleiding apart?</p></div>
+    <div class="card"><div class="ico blauw"><i class="fa-solid fa-user-tie"></i></div><h3>Wie gebruikt het?</h3><p>Het IR-team, of de opleidingsmanager zelf?</p></div>
+    <div class="card"><div class="ico geel"><i class="fa-solid fa-building-columns"></i></div><h3>Zonder IR-team</h3><p>Wat moet het doen voor een kleine hogeschool zonder analisten?</p></div>
+    <div class="card"><div class="ico groen"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>Welk niveau?</h3><p>De instelling als geheel, of elke opleiding apart?</p></div>
   </div></div>
 </section>
 
-<!-- 0:51 · 2 min. BIG REVEAL, als voorstel: de naam gaat alleen door met hun toestemming (Avans is de bron van Staat van Avans). Even stil laten, dan vragen. Verhaal: de vragen die we vandaag hoorden gaan over opleidingen, niet over de instelling. Daarom: Staat van Opleiding. Elke hogeschool heeft opleidingen; elke opleiding heeft accreditatie en kwaliteitszorg. -->
-<section class="slide s-blauw lay-sectie">
+<!-- 0:51 · 2 min. BIG REVEAL, als voorstel: de naam gaat alleen door met hun toestemming (Avans is de bron van Staat van Avans). Even stil laten, dan vragen. Verhaal: de vragen die we vandaag hoorden gaan over opleidingen, niet over de instelling. Daarom: Staat van Opleiding. -->
+<section class="slide s-blauw lay-sectie" data-deel="Afspraken">
   <div class="deco bogen"></div>
   <div class="body">
     <p class="nr">Voorstel nieuwe naam</p>
-    <h1 style="max-width:12ch">Staat van <span class="hl" style="color:var(--accent)">Opleiding</span></h1>
-    <p class="lede" style="margin-top:clamp(14px,2vh,24px)">Eén tool, per opleiding, voor elke hogeschool. Gaan jullie akkoord?</p>
+    <h1 style="max-width:12ch" data-a>Staat van <span class="hl" style="color:var(--accent)">Opleiding</span></h1>
+    <p class="lede" style="margin-top:clamp(14px,2vh,24px)" data-a>Eén tool, per opleiding, voor elke hogeschool. Gaan jullie akkoord?</p>
   </div>
 </section>
 
-<!-- 0:52 · 8 min. Per instelling één concrete vraag, één eigenaar, één datum. Plus: wie wil meekijken naar de rekenregels? -->
-<section class="slide s-groen">
-  <div class="deco bogen"></div>
+<!-- 0:52 · 8 min. Per instelling één concrete vraag, één eigenaar, één datum. NU-lijn = vandaag. -->
+<section class="slide s-deel" data-deel="Afspraken">
   <div class="slide-head"><span class="kicker">Afspraken</span><h2>Wie doet <span class="hl">wat</span> voor december?</h2></div>
-  <div class="body"><ul class="ticks groot">
-    <li><i class="fa-solid fa-check"></i><span>Per instelling één echte vraag over een opleiding, beantwoord met de tool</span></li>
-    <li><i class="fa-solid fa-check"></i><span>Avans: eigen 1CHO-levering door de tool halen</span></li>
-    <li><i class="fa-solid fa-check"></i><span>Wie kijkt mee naar rendement en studiewissel?</span></li>
-    <li><i class="fa-solid fa-check"></i><span>Akkoord op de naam Staat van Opleiding?</span></li>
-    <li><i class="fa-solid fa-check"></i><span>Datum voor de terugkoppeling</span></li>
-  </ul></div>
+  <div class="body">
+    <div class="tijdlijn" style="--n:3">
+      <div class="tl-as"><span></span><div><span>november</span><span>december</span><span>januari 2027</span></div></div>
+      <div class="tl-rij"><b>Avans<small>eigen 1CHO-levering door de tool</small></b><div class="tl-baan"><i class="tl-balk verwacht" style="--van:0.15;--tot:0.5">half nov</i></div></div>
+      <div class="tl-rij"><b>Per instelling<small>één echte vraag over een opleiding</small></b><div class="tl-baan"><i class="tl-balk" style="--van:0.15;--tot:2">december</i></div></div>
+      <div class="tl-rij"><b>Wie kijkt mee?<small>rendement en studiewissel</small></b><div class="tl-baan"><i class="tl-balk licht" style="--van:0.15;--tot:2">rekenregels</i></div></div>
+      <div class="tl-rij"><b>Werkend<small>na terugkoppeling</small></b><div class="tl-baan"><i class="tl-balk" style="--van:2;--tot:3">januari</i></div></div>
+      <div class="tl-nu" style="--op:0.15"><span>nu</span></div>
+    </div>
+    <p class="sub" style="margin-top:clamp(18px,3vh,32px)"><strong>Ook vandaag:</strong> akkoord op de naam Staat van Opleiding, en een datum voor de terugkoppeling.</p>
+  </div>
 </section>
 
 <!-- ========== N-1. BLIJF IN CONTACT (vast, tekst niet aanpassen) ========== -->
@@ -704,6 +821,7 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
 
 <div class="nav">
   <div class="dots" id="dots"></div>
+  <div class="delen" id="delen"></div>
   <div class="nav-right">
     <span class="counter" id="counter"></span>
     <button class="navbtn" id="prev" aria-label="Vorige slide"><i class="fa-solid fa-chevron-left"></i></button>
@@ -711,6 +829,8 @@ ul.ticks.groot li{font-size:clamp(18px,1.9vw,30px);line-height:1.3}
   </div>
 </div>
 
+<!-- GSAP voor de animaties. Zonder internet laadt hij niet: dan staat alles direct stil in beeld. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
 /* ============================================================
    MENTIMETER — Share -> Participants -> Embed slides -> Copy code.
@@ -742,6 +862,66 @@ const MENTI = { url: '' };
   const dots=[...dotsWrap.children];
   const pad=n=>String(n).padStart(2,'0');
 
+  /* DELEN — data-deel="Naam" op een slide. Volgorde = eerste keer genoemd.
+     s-deel als variant = de lichte kleur van dat deel. */
+  const DEELKLEUR=['s-lroze','s-lblauw','s-lgeel','s-lgroen','s-loranje'];
+  const delen=[...new Set(slides.map(s=>s.dataset.deel).filter(Boolean))];
+  const delenWrap=document.getElementById('delen');
+  slides.forEach(s=>{
+    if(!s.classList.contains('s-deel')) return;
+    const k=delen.indexOf(s.dataset.deel);
+    s.classList.replace('s-deel',DEELKLEUR[(k<0?0:k)%DEELKLEUR.length]);
+  });
+  delen.forEach(d=>{
+    const b=document.createElement('button');
+    b.textContent=d;
+    b.addEventListener('click',()=>go(slides.findIndex(s=>s.dataset.deel===d)));
+    delenWrap.appendChild(b);
+  });
+  nav.classList.toggle('met-delen',delen.length>0);
+
+  /* voortgang: segmenten uit data-fasen="v,v,n,x,-" */
+  document.querySelectorAll('.tr-rij[data-fasen]').forEach(r=>{
+    const naam=r.firstElementChild;
+    r.dataset.fasen.split(',').reverse().forEach(c=>{
+      const seg=document.createElement('div');
+      seg.className='seg '+({v:'af',n:'nu',x:'volgend'}[c.trim()]||'');
+      if(/^[vn]$/.test(c.trim())) seg.innerHTML='<i></i>';
+      naam.after(seg);
+    });
+  });
+
+  /* ANIMATIES (GSAP). Automatisch voor de vaste componenten; extra met
+     data-a (inschuiven), data-grow (balk groeit), data-pop (ploppen),
+     data-count (cijfer telt op; zet het eindgetal ook als tekst), data-draw (SVG-lijn tekent).
+     Uit bij print, PDF, QA (webdriver) en reduced motion. */
+  const STIL=!window.gsap||navigator.webdriver||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const IN='[data-a],.slide-head,.grid>*,.steps>.step,.chain>*,.tr-groep,.tr-rij,.tl-rij,.vn-paneel,.vn-pijl,.les,tbody tr';
+  let anim=null;
+  function animeer(slide){
+    if(STIL) return;
+    if(anim) anim.revert();
+    anim=gsap.context(()=>{
+      const items=[...slide.querySelectorAll(IN)].filter(el=>!el.parentElement.closest('[data-a],.grid>*,.vn-paneel'));
+      if(items.length) gsap.from(items,{opacity:0,y:22,duration:.6,ease:'power3.out',stagger:.06,delay:.08,clearProps:'transform'});
+      const grow=slide.querySelectorAll('[data-grow],.seg i,.tl-balk');
+      if(grow.length) gsap.from(grow,{scaleX:0,duration:.6,ease:'power2.out',stagger:.03,delay:.35});
+      const pop=slide.querySelectorAll('[data-pop]');
+      if(pop.length) gsap.from(pop,{scale:0,duration:.5,ease:'back.out(2.2)',stagger:.09,delay:.7});
+      const nu=slide.querySelector('.tl-nu');
+      if(nu) gsap.from(nu,{opacity:0,duration:.5,delay:1});
+      slide.querySelectorAll('[data-count]').forEach(el=>{
+        const doel=el.dataset.count, dec=(doel.split('.')[1]||'').length, o={v:0};
+        const fmt=v=>v.toLocaleString('nl-NL',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+        gsap.to(o,{v:+doel,duration:1.5,ease:'power2.out',delay:.3,onUpdate:()=>{el.textContent=fmt(o.v)},onComplete:()=>{el.textContent=fmt(+doel)}});
+      });
+      slide.querySelectorAll('[data-draw]').forEach((p,k)=>{
+        const L=p.getTotalLength();
+        gsap.fromTo(p,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:1.4,ease:'power2.inOut',delay:.3+k*.2});
+      });
+    },slide);
+  }
+
   // Mentimeter pas laden als de slide in beeld komt
   function loadMenti(slide){
     const key=slide.dataset.menti; if(!key) return;
@@ -763,6 +943,9 @@ const MENTI = { url: '' };
     slides[i].classList.add('active'); dots[i].classList.add('on');
     counter.textContent=pad(i+1)+' / '+pad(slides.length);
     loadMenti(slides[i]);
+    [...delenWrap.children].forEach(b=>b.classList.toggle('on',b.textContent===slides[i].dataset.deel));
+    nav.style.setProperty('--deel-acc',getComputedStyle(slides[i]).getPropertyValue('--accent'));
+    animeer(slides[i]);
     // navigatie neemt de tekstkleur van de slide-variant over
     const ink=getComputedStyle(slides[i]).color;
     nav.style.color=ink; brand.style.color=ink;
