@@ -404,3 +404,17 @@ code {
 /* badges in tabellen: donkere tekst op groen en oranje voor voldoende contrast */
 .np-table .np-badge { white-space: nowrap; }
 .np-table .np-badge.green, .np-table .np-badge.orange { color: var(--np-ink); }
+
+/* ---- Sprekersnotities (presenter- en notitieweergave) ----
+   Op de donkere presenter-achtergrond bijna wit, met iets grotere letter en ruimere regels. */
+html.dark .prose {
+  --tw-prose-invert-body: #F9FAFB;
+  --tw-prose-invert-bold: #FFFFFF;
+  --tw-prose-invert-headings: #FFFFFF;
+  --tw-prose-invert-bullets: #E5E7EB;
+  --tw-prose-invert-counters: #E5E7EB;
+  color: #F9FAFB;
+}
+html.dark .prose strong { color: #FFFFFF; }
+.prose p, .prose li { font-size: 1.05rem; line-height: 1.65; }
+.prose p + p { margin-top: 0.8em; }
