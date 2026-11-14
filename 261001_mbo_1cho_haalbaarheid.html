@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Een 1CHO voor het mbo?</title>
+<title>Staat van de Onderwijsinstelling mbo</title>
 <!--
   clanna-frame v1 — gebaseerd op het deck "Welk open-source model kan mijn LLM-wiki
   het beste onderhouden?" van Janna Berkhout (KIS). Huisstijl: vormgever-npuls-huisstijl.
@@ -532,10 +532,10 @@ ul.ticks{gap:.4em}
   <img class="npuls-logo" src="public/npuls/vormen/npuls-logo.svg" alt="Npuls">
   <div class="deco bogen"></div>
   <div class="body">
-    <span class="kicker">Haalbaarheidsonderzoek</span>
-    <h1>Een 1CHO voor het mbo?</h1>
-    <p class="lede">Kunnen de mbo-bekostigingsbestanden samen een mbo-versie van 1CHO vormen?</p>
-    <p class="meta">CEDA &middot; 1 oktober 2026 &middot; mbo-bekostiging-bestanden #389</p>
+    <span class="kicker">Staat van de Onderwijsinstelling</span>
+    <h1>Het mbo naast hbo en wo</h1>
+    <p class="lede">Wat de mbo-versie anders doet dan de versie voor hbo en wo, en waarom.</p>
+    <p class="meta">CEDA &middot; november 2026</p>
   </div>
 </section>
 
@@ -566,129 +566,92 @@ ul.ticks{gap:.4em}
   </div>
 </section>
 
-<!-- 2. HET ANTWOORD -->
+<!-- 4. IN HET KORT. Bronnen: README staat-van-onderwijsinstelling, README staat-van-onderwijsinstelling-mbo -->
 <section class="slide s-wit">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Het antwoord</span><h2>Ja, per instelling, <span class="hl">met duidelijke gaten</span></h2><p class="sub">Getoetst door Staat van de Onderwijsinstelling op de demodata te draaien.</p></div>
+  <div class="slide-head"><span class="kicker">In het kort</span><h2>Eén doel, <span class="hl">twee versies</span></h2><p class="sub">Beide laten zien hoe het je studenten vergaat, uit DUO-bestanden die je al hebt. De bestanden blijven op je eigen computer.</p></div>
   <div class="body"><div class="grid g2">
-    <div class="card lgroen"><span class="label">Werkt</span><h3>47 van de 115 kolommen</h3>
-      <ul class="ticks"><li><i class="fa-solid fa-check"></i><span>Student, jaar, opleiding, niveau, BOL/BBL</span></li><li><i class="fa-solid fa-check"></i><span>Hoofdinschrijving, verblijfsjaar, eerstejaars</span></li><li><i class="fa-solid fa-check"></i><span>Diploma's, geslacht, leeftijd</span></li><li><i class="fa-solid fa-check"></i><span>Instroom, rendement, uitval en wissel komen eruit</span></li></ul></div>
-    <div class="card loranje"><span class="label">Ontbreekt</span><h3>68 kolommen, vier oorzaken</h3>
-      <ul class="ticks"><li><i class="fa-solid fa-xmark"></i><span>Postcode en herkomst: alleen in GRONDSLAG</span></li><li><i class="fa-solid fa-xmark"></i><span>Vooropleiding: in geen enkel mbo-bestand</span></li><li><i class="fa-solid fa-xmark"></i><span>Loopbaan bij andere scholen: niet zichtbaar</span></li><li><i class="fa-solid fa-xmark"></i><span>Hbo-specifiek: niet van toepassing</span></li></ul></div>
-  </div>
-  <p class="bottom">Goed voor <strong>rendement en uitval per opleiding</strong>. Zwak voor <strong>kansengelijkheid</strong>: vooropleiding, herkomst en regio ontbreken.</p>
-  </div>
+    <div class="card lblauw"><span class="label">Hbo en wo</span><h3>staat1cho</h3><p>R-pakket op CRAN. Leest de 1cijferHO-levering en maakt een analysebestand, een dashboard en een benchmarkrapport.</p></div>
+    <div class="card lgroen"><span class="label">Mbo</span><h3>smbo</h3><p>Python-programma. Leest RO- en TBG-i-bestanden en toont een dashboard met de indicatoren van de Inspectie.</p></div>
+  </div></div>
 </section>
 
-<!-- 3. DEKKING -->
+<!-- 5. VERGELIJKING -->
 <section class="slide s-lblauw">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Dekking</span><h2>47 van de 115 kolommen <span class="hl">zijn te vullen</span></h2><p class="sub">Beoordeeld per kolom tegen de bestandsbeschrijving 1CHO 2023. Wij bouwden en testten 16 kolommen.</p></div>
-  <div class="body"><table>
-    <tr><th>Categorie</th><th>Kolommen</th><th>Wat het is</th><th>Te vullen</th></tr>
-    <tr><td>Direct</td><td>20</td><td>Uit RO of TBG-i: jaar, opleiding, niveau, diploma, geslacht, leeftijd</td><td>Ja</td></tr>
-    <tr><td>Afgeleid</td><td>17</td><td>Uit meerdere jaren: eerste jaar, verblijfsjaar, hoofdinschrijving</td><td>Ja</td></tr>
-    <tr><td>Referentietabel</td><td>10</td><td>Met een extra lijst: opvolger opleiding, sector, fusies, ISCED</td><td>Ja</td></tr>
-    <tr><td>Mbo-breed</td><td>29</td><td>Vraagt data van alle mbo-scholen: eerste jaar in het mbo, diploma elders</td><td>Samen</td></tr>
-    <tr><td>Alleen GRONDSLAG</td><td>14</td><td>Postcode, nationaliteit, herkomst</td><td>Nee</td></tr>
-    <tr><td>Geen mbo-bestand</td><td>14</td><td>Vooropleiding, eindcijfer vo</td><td>Nee</td></tr>
-    <tr><td>Niet van toepassing</td><td>11</td><td>Bachelor, master, BSN</td><td>N.v.t.</td></tr>
+  <div class="slide-head"><span class="kicker">Verschillen</span><h2>Hbo en wo <span class="hl">naast</span> mbo</h2></div>
+  <div class="body"><table class="klein">
+    <tr><th>Onderwerp</th><th>Hbo en wo</th><th>Mbo</th></tr>
+    <tr><td>Bron</td><td>1cijferHO: alle instellingen in één levering</td><td>RO en TBG-i: alleen de eigen instelling</td></tr>
+    <tr><td>Historie</td><td>De hele reeks in één levering</td><td>Eén RO dekt maximaal 2 jaar; vijf RO's voor tien jaar</td></tr>
+    <tr><td>Indicatoren</td><td>Instroom, rendement, uitval, studiewissel</td><td>Jaar-, diploma- en startersresultaat, instroom, rendement, uitval, loopbanen</td></tr>
+    <tr><td>Termijnen</td><td>Vast: rendement na 3, 5, 8 jaar; uitval na 1, 3 jaar</td><td>Relatief aan de opleidingsduur (1 tot 4 jaar), plus één jaar</td></tr>
+    <tr><td>Vooropleiding</td><td>Ja, met eindcijfers uit VAKHAVW</td><td>Nee, staat in geen mbo-bestand</td></tr>
+    <tr><td>Benchmark</td><td>Excel-rapport om te delen</td><td>Nog niet</td></tr>
+    <tr><td>Techniek</td><td>R en Shiny</td><td>Python en Streamlit</td></tr>
   </table></div>
 </section>
 
-<!-- 4. HOE GEVULD -->
+<!-- 6. WAAROM EEN EIGEN MBO-VERSIE -->
 <section class="slide s-wit">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Vertaling</span><h2>Zo vullen we <span class="hl">de kolommen</span></h2><p class="sub">De kolommen die Staat van de Onderwijsinstelling gebruikt.</p></div>
-  <div class="body"><table class="klein">
-    <tr><th>1CHO-kolom</th><th>Bron (record: veld)</th><th>Regel</th></tr>
-    <tr><td>Persoonsnummer</td><td>PER: BSN of onderwijsnummer</td><td>Vervangen door een code (pseudoniem)</td></tr>
-    <tr><td>Inschrijvingsjaar</td><td>ISP: DatumBegin, DatumEind</td><td>Schooljaar waarin de inschrijving 1 oktober dekt</td></tr>
-    <tr><td>Soort inschrijving</td><td>ISP, alle inschrijvingen</td><td>Hoofdinschrijving: hoogste niveau, dan laagste crebo, dan recentste start</td></tr>
-    <tr><td>Verblijfsjaar</td><td>ISG: DatumInschrijving</td><td>Telt vanaf de eerste 1 oktober na de start</td></tr>
-    <tr><td>Opleiding, niveau</td><td>ISP: Opleidingcode, Niveau</td><td>Leeg niveau aangevuld uit de crebolijst</td></tr>
-    <tr><td>Opleidingsvorm</td><td>ISP: Leertraject</td><td>BOL of BBL, ongewijzigd</td></tr>
-    <tr><td>Diplomajaar</td><td>DIP: DatumResultaat</td><td>Oktober t/m september, aan de rij van dat schooljaar</td></tr>
-    <tr><td>Geslacht, leeftijd</td><td>PER: Geslacht, Geboortedatum</td><td>Leeftijd op 1 oktober</td></tr>
-  </table></div>
+  <div class="slide-head"><span class="kicker">Waarom</span><h2>Het mbo vraagt om <span class="hl">eigen rekenregels</span></h2></div>
+  <div class="body"><div class="grid g2">
+    <div class="card lgeel"><h3>Andere opleidingsduur</h3><p>Mbo-opleidingen duren 1 tot 4 jaar. Een vaste termijn van 3 jaar is te lang voor entree en te kort voor niveau 4.</p></div>
+    <div class="card lgeel"><h3>Stapelen hoort erbij</h3><p>Na niveau 2 naar niveau 3 is geen uitval of wissel. Het mbo-dashboard toont het apart.</p></div>
+    <div class="card lgeel"><h3>Eigen wettelijke maatstaven</h3><p>De Inspectie beoordeelt het mbo op drie indicatoren uit de Regeling studiesucces mbo.</p></div>
+    <div class="card lgeel"><h3>Andere bestanden</h3><p>Het mbo heeft geen 1cijferHO. De RO's samen geven per student een reeks van tien jaar.</p></div>
+  </div></div>
 </section>
 
-<!-- 5. DE TOETS -->
+<!-- 7. DRIE INDICATOREN. Bron: Regeling studiesucces mbo (BWBR0046913), wiki studiesucces-mbo -->
 <section class="slide s-lgroen">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">De toets</span><h2>Het werkt, <span class="hl">na één aanpassing</span></h2><p class="sub">We draaiden Staat van de Onderwijsinstelling op het mbo-bestand.</p></div>
+  <div class="slide-head"><span class="kicker">Alleen in het mbo</span><h2>De drie indicatoren van de <span class="hl">Inspectie</span></h2><p class="sub">Per jaartijdvak (1 oktober tot 1 oktober) en als driejaarscijfer. Entree telt niet mee.</p></div>
   <div class="body"><div class="grid g3">
-    <div class="card"><span class="label">Werkt</span><h3>Geen foutmeldingen</h3><p>Voor alle drie de demo-instellingen komen instroom, rendement, uitval, studiewissel en het benchmarkrapport eruit.</p></div>
-    <div class="card"><span class="label">Aanpassen</span><h3>Diploma's</h3><p>Het dashboard kent alleen hbo- en wo-diploma's: eerst 0 herkend. Met een mbo-label erbij: alle 5 die aan een inschrijving hangen.</p></div>
-    <div class="card"><span class="label">Open</span><h3>Kloppen de cijfers?</h3><p>De demo heeft 14 verzonnen studenten. Of de uitkomsten kloppen, toetsen we pas met echte data.</p></div>
-  </div></div>
-</section>
-
-<!-- 6. WAT ONTBREEKT -->
-<section class="slide s-wit">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Gaten</span><h2>Wat <span class="hl">ontbreekt</span></h2><p class="sub">68 kolommen. 11 zijn hbo-specifiek en zijn niet nodig. De rest valt in drie groepen.</p></div>
-  <div class="body"><div class="grid g3">
-    <div class="card loranje"><span class="label">Alleen in GRONDSLAG &middot; 14</span><h3>Persoonskenmerken</h3><p>Postcode, nationaliteit, geboorteland van student en ouders. Daaruit volgen CBS-herkomst en EER.</p></div>
-    <div class="card lroze"><span class="label">In geen mbo-bestand &middot; 14</span><h3>Vooropleiding</h3><p>Vmbo of havo, met jaar, school en eindcijfer. Een kernvariabele voor kansengelijkheid.</p></div>
-    <div class="card lgeel"><span class="label">Mbo-breed &middot; 29</span><h3>De mbo-loopbaan</h3><p>Eerste jaar in het mbo, diploma elders, ononderbroken ingeschreven. Eén school ziet alleen de eigen studenten.</p></div>
-  </div></div>
-</section>
-
-<!-- 7. WAT KAN NIET -->
-<section class="slide s-lroze">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Grenzen</span><h2>Welke analyses <span class="hl">niet of beperkt</span> kunnen</h2></div>
-  <div class="body"><table class="klein">
-    <tr><th>Analyse</th><th>Kan het?</th><th>Waarom niet</th></tr>
-    <tr><td>Naar vooropleiding</td><td>Nee</td><td>Staat in geen enkel mbo-bestand</td></tr>
-    <tr><td>Naar herkomst of regio</td><td>Nee</td><td>Alleen in GRONDSLAG, niet aan RO te koppelen</td></tr>
-    <tr><td>Eerder in het mbo</td><td>Nee</td><td>Eén school ziet de eerdere mbo-loopbaan niet</td></tr>
-    <tr><td>Doorstroom naar het hbo</td><td>Nee</td><td>De bestanden volgen de student niet na het mbo</td></tr>
-    <tr><td>Korte inschrijvingen</td><td>Nee</td><td>Alleen 1 oktober telt. Demo: 3 van de 19 vallen weg</td></tr>
-    <tr><td>Uitval zuiver meten</td><td>Beperkt</td><td>Overstap naar een andere school telt als uitval</td></tr>
-    <tr><td>Rendement na 5 en 8 jaar</td><td>Beperkt</td><td>Vraagt 5 tot 8 jaar aan RO's; één RO dekt maximaal 2 jaar</td></tr>
-  </table></div>
-</section>
-
-<!-- 8. GRONDSLAG -->
-<section class="slide s-wit">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">GRONDSLAG</span><h2>GRONDSLAG is <span class="hl">niet te koppelen</span> aan RO</h2><p class="sub">Dezelfde student staat in beide bestanden, onder een ander nummer.</p></div>
-  <div class="body">
-    <div class="chain">
-      <div class="node lblauw"><b>In RO</b><span>BSN, start 30-1-2023, Mbo-Verpleegkundige</span></div>
-      <div class="hop"><i class="fa-solid fa-plus"></i></div>
-      <div class="node loranje"><b>In GRONDSLAG</b><span>Ander nummer, zelfde start en opleiding</span></div>
-      <div class="hop"><i class="fa-solid fa-equals"></i></div>
-      <div class="node lgroen"><b>In het bestand</b><span>Twee studenten in plaats van één</span></div>
-    </div>
-    <p class="bottom">DUO kiest dit bewust: het persoonsnummer en de geboortedatum mogen in GRONDSLAG niet mee (PvE mbo 4.8.2 &sect;17.1). Daarom gebruiken we <strong>alleen RO en TBG-i</strong>. Demo-school 27DV: 18 instromers met GRONDSLAG, 8 zonder.</p>
+    <div class="card"><span class="label">Jaarresultaat</span><p>Van wie een diploma haalde of zonder diploma vertrok: het deel met een diploma.</p><p><strong>Norm niveau 3–4: 68%</strong></p></div>
+    <div class="card"><span class="label">Diplomaresultaat</span><p>Van wie de instelling verlaat: het deel met een diploma op niveau 2–4 uit de laatste zes jaar.</p><p><strong>Norm niveau 3–4: 70%</strong></p></div>
+    <div class="card"><span class="label">Startersresultaat</span><p>Van de nieuwe studenten: wie een jaar later een diploma heeft of nog op niveau 2–4 studeert.</p><p><strong>Norm niveau 3–4: 82%</strong></p></div>
+  </div>
+  <p class="bottom">Indicatief, geen oordeel: de Inspectie rekent op het register van DUO.</p>
   </div>
 </section>
 
-<!-- 9. KEUZES -->
-<section class="slide s-lgeel">
+<!-- 8. WAT HETZELFDE BLIJFT -->
+<section class="slide s-wit">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Keuzes</span><h2>Vier keuzes <span class="hl">in de vertaling</span></h2></div>
-  <div class="body"><div class="grid g2">
-    <div class="card"><h3>Peildatum 1 oktober</h3><p>Net als de bekostiging. Wie nooit op 1 oktober ingeschreven stond, valt weg.</p></div>
-    <div class="card"><h3>Verblijfsjaar</h3><p>Telt vanaf de eerste 1 oktober na de start. Een januaristarter is dan eerstejaars.</p></div>
-    <div class="card"><h3>Diplomajaar</h3><p>Loopt van oktober t/m september. 5 van de 6 diploma's hangen aan een inschrijving.</p></div>
-    <div class="card"><h3>Per bestuur, niet per BRIN</h3><p>Anders telt een overstap tussen BRIN's van één bestuur als uitval. Demo: 21CY en 25LX horen allebei bij Curio.</p></div>
+  <div class="slide-head"><span class="kicker">Overeenkomsten</span><h2>Wat <span class="hl">hetzelfde</span> blijft</h2></div>
+  <div class="body"><div class="grid g3">
+    <div class="card lblauw"><h3>Eigen bestanden</h3><p>Beide werken op DUO-bestanden die de instelling al krijgt. Geen nieuwe levering nodig.</p></div>
+    <div class="card lblauw"><h3>Lokaal en privé</h3><p>Alles draait op je eigen computer. De uitvoer blijft persoonsgegevens.</p></div>
+    <div class="card lblauw"><h3>Dezelfde vragen</h3><p>Instroom, rendement en uitval, per opleiding en opleidingsvorm (voltijd/deeltijd of BOL/BBL).</p></div>
   </div></div>
 </section>
 
-<!-- 10. WAT ER NODIG IS -->
+<!-- 9. WAT HET MBO NIET ZIET. Bron: #389, PvE mbo 4.8.2 §7.2 en §17.1 -->
+<section class="slide s-lroze">
+  <div class="deco bogen"></div>
+  <div class="slide-head"><span class="kicker">Grenzen</span><h2>Wat de mbo-versie <span class="hl">niet</span> ziet</h2><p class="sub">Door de mbo-bestanden, niet door het dashboard.</p></div>
+  <div class="body"><table class="klein">
+    <tr><th>Wat</th><th>Waarom niet</th></tr>
+    <tr><td>Vooropleiding</td><td>Staat in geen enkel mbo-bestand.</td></tr>
+    <tr><td>Postcode en herkomst</td><td>Alleen in GRONDSLAG. Dat bestand is bewust niet aan RO te koppelen (PvE mbo §17.1).</td></tr>
+    <tr><td>Andere instellingen</td><td>Je ziet alleen je eigen studenten. Een overstap telt als uitval.</td></tr>
+    <tr><td>Doorstroom naar het hbo</td><td>De bestanden stoppen bij het mbo.</td></tr>
+    <tr><td>Korte inschrijvingen</td><td>Alleen wie op 1 oktober staat ingeschreven, telt mee.</td></tr>
+  </table></div>
+</section>
+
+<!-- 10. STAND EN VOLGENDE STAPPEN. Bron: wiki staat-van-onderwijsinstelling-mbo, issues #11, mbo-bekostiging-bestanden#444 -->
 <section class="slide s-wit lay-stappen">
   <img class="golf" src="public/npuls/vormen/golf-oranje.svg" alt="">
   <div class="deco bogen"></div>
-  <div class="slide-head" style="max-width:none"><span class="kicker">Volgende stappen</span><h2>Wat <span class="hl">nodig</span> is</h2></div>
+  <div class="slide-head" style="max-width:none"><span class="kicker">Stand november 2026</span><h2>Wat <span class="hl">nu</span> volgt</h2></div>
   <div class="body"><div class="steps">
-    <div class="step"><span class="num ico blauw">1</span><div><div class="step-t">Diplomasoorten instelbaar</div><p>In Staat van de Onderwijsinstelling, zodat mbo-diploma's meetellen.</p></div></div>
-    <div class="step"><span class="num ico groen">2</span><div><div class="step-t">Export naar 1CHO-vorm</div><p>Op RO en TBG-i, met referentietabellen (RIO, ISCED).</p></div></div>
-    <div class="step"><span class="num ico oranje">3</span><div><div class="step-t">Toets op echte data</div><p>Eén instelling met minstens vier jaar aan RO's.</p></div></div>
-    <div class="step"><span class="num ico geel">4</span><div><div class="step-t">Besluit over postcode en herkomst</div><p>Uit de eigen administratie halen, of DUO vragen. Ook DUO vragen naar een mbo-breed bestand.</p></div></div>
+    <div class="step"><span class="num ico blauw">1</span><div><div class="step-t">Toets op echte data</div><p>Het mbo-dashboard draait tot nu toe alleen op demodata.</p></div></div>
+    <div class="step"><span class="num ico groen">2</span><div><div class="step-t">Vergelijken met DUO</div><p>Kloppen jaar- en diplomaresultaat met de cijfers die DUO per instelling publiceert?</p></div></div>
+    <div class="step"><span class="num ico oranje">3</span><div><div class="step-t">Eén cijfer per indicator</div><p>Afstemmen met de mbo-bekostigingsbestanden, die nu een benadering tonen.</p></div></div>
+    <div class="step"><span class="num ico geel">4</span><div><div class="step-t">Beide dashboards naast elkaar</div><p>Screenshots en verschillen vastleggen in de repo.</p></div></div>
   </div></div>
 </section>
 
@@ -720,7 +683,7 @@ ul.ticks{gap:.4em}
   </div>
   <div class="body">
     <img class="npuls-logo groot" src="public/npuls/vormen/npuls-logo.svg" alt="Npuls">
-    <h2 style="margin-top:clamp(22px,3.4vh,44px);max-width:20ch">Een 1CHO voor het mbo?</h2>
+    <h2 style="margin-top:clamp(22px,3.4vh,44px);max-width:20ch">Staat van de Onderwijsinstelling</h2>
     <p class="payoff" style="margin-top:clamp(20px,3vh,38px)">Onderwijs bewegen.</p>
   </div>
   <img class="cc" src="public/npuls/vormen/cc-by-sa.svg" alt="Creative Commons BY-SA">
