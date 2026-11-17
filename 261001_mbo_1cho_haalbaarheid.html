@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Staat van de Onderwijsinstelling mbo</title>
+<title>Bekostigingsbestanden mbo en hbo/wo</title>
 <!--
   clanna-frame v1 — gebaseerd op het deck "Welk open-source model kan mijn LLM-wiki
   het beste onderhouden?" van Janna Berkhout (KIS). Huisstijl: vormgever-npuls-huisstijl.
@@ -532,8 +532,8 @@ ul.ticks{gap:.4em}
   <img class="npuls-logo" src="public/npuls/vormen/npuls-logo.svg" alt="Npuls">
   <div class="deco bogen"></div>
   <div class="body">
-    <span class="kicker">Staat van de Onderwijsinstelling</span>
-    <h1>Het mbo naast hbo en wo</h1>
+    <span class="kicker">Bekostigingsbestanden</span>
+    <h1>Mbo en hbo/wo dichter bij elkaar</h1>
     <p class="lede">Wat de bekostigingsbestanden van mbo en hbo/wo verschillen, en wat we DUO vragen.</p>
     <p class="meta">CEDA &middot; november 2026</p>
   </div>
@@ -572,11 +572,11 @@ ul.ticks{gap:.4em}
   <div class="slide-head"><span class="kicker">De bekostigingsbestanden</span><h2>Wat DUO <span class="hl">levert</span></h2><p class="sub">Per instelling, voor de bekostiging. Bijna elk bestand heeft een tegenhanger in de andere sector.</p></div>
   <div class="body"><table class="klein">
     <tr><th>Waarvoor</th><th>Mbo</th><th>Hbo en wo</th></tr>
-    <tr><td>Wat staat er geregistreerd?</td><td><strong>RO</strong> (registratieoverzicht), maximaal 2 jaar per aanvraag</td><td><strong>Registratieoverzicht</strong></td></tr>
-    <tr><td>Wat wordt bekostigd, en waarom niet?</td><td><strong>TBG-i</strong>, achteraf</td><td><strong>Analysebestand</strong> (VLPBEK voorlopig, DEFBEK definitief)</td></tr>
-    <tr><td>Wat werd eerder bekostigd?</td><td>Geen tegenhanger</td><td><strong>HISBEK</strong>: alle eerdere definitieve bekostigingsjaren</td></tr>
+    <tr><td>Wat staat er geregistreerd?</td><td><strong>RO</strong> (registratieoverzicht), maximaal 2 jaar per aanvraag</td><td><strong>Registratieoverzicht</strong>, maximaal 2 studiejaren per aanvraag</td></tr>
+    <tr><td>Wat wordt bekostigd, en waarom niet?</td><td><strong>TBG-i</strong> (bekostigingsgrondslagen per inschrijving), achteraf</td><td><strong>Analysebestand</strong> (VLPBEK voorlopig, DEFBEK definitief)</td></tr>
+    <tr><td>Wat werd eerder bekostigd?</td><td>Geen tegenhanger</td><td><strong>HISBEK</strong> (historisch bestand): alle eerdere definitieve bekostigingsjaren</td></tr>
     <tr><td>Studenten bij andere instellingen</td><td>Niet in de bestanden</td><td>Wel: deelnames en graden elders staan erin</td></tr>
-    <tr><td>Alleen in het mbo</td><td><strong>GRONDSLAG</strong>: vooraf, met postcode, ander persoonsnummer, bewust niet aan de RO te koppelen. <strong>Kwaliteitscontrolebestand</strong>: wekelijks</td><td>&ndash;</td></tr>
+    <tr><td>Alleen in het mbo</td><td><strong>GRONDSLAG</strong> (bekostigingsgrondslag): vooraf, met postcode, ander persoonsnummer, bewust niet aan de RO te koppelen. <strong>Kwaliteitscontrolebestand</strong>: wekelijks</td><td>&ndash;</td></tr>
   </table></div>
 </section>
 
@@ -588,7 +588,7 @@ ul.ticks{gap:.4em}
     <tr><th>Categorie</th><th>Kolommen</th><th>Wat het is</th><th>Te vullen</th></tr>
     <tr><td>Direct</td><td>20</td><td>Staat in RO of TBG-i: jaar, opleiding, niveau, diploma, geslacht, leeftijd</td><td>Ja</td></tr>
     <tr><td>Afgeleid</td><td>17</td><td>Uit meerdere jaren samen: eerste jaar, verblijfsjaar, hoofdinschrijving</td><td>Ja</td></tr>
-    <tr><td>Met een extra lijst</td><td>10</td><td>Opvolger van een opleiding, sector, fusies, ISCED</td><td>Ja</td></tr>
+    <tr><td>Met een extra lijst</td><td>10</td><td>Opvolger van een opleiding, sector, fusies, internationale indeling (ISCED)</td><td>Ja</td></tr>
     <tr><td>Mbo-breed</td><td>29</td><td>Eerste jaar in het mbo, diploma elders: vraagt gegevens van alle mbo-scholen</td><td>Nee</td></tr>
     <tr><td>Alleen in GRONDSLAG</td><td>14</td><td>Postcode, nationaliteit, herkomst; niet aan de RO te koppelen</td><td>Nee</td></tr>
     <tr><td>In geen mbo-bestand</td><td>14</td><td>Vooropleiding, eindcijfer vo</td><td>Nee</td></tr>
@@ -601,7 +601,7 @@ ul.ticks{gap:.4em}
   <div class="deco bogen"></div>
   <div class="slide-head"><span class="kicker">Naast 1cijferHO</span><h2>Wat de mbo-bestanden <span class="hl">missen</span></h2><p class="sub">68 kolommen ontbreken. 11 zijn alleen voor hbo/wo; de rest valt in drie groepen.</p></div>
   <div class="body"><div class="grid g3">
-    <div class="card loranje"><span class="label">Alleen in GRONDSLAG &middot; 14</span><h3>Persoonskenmerken</h3><p>Postcode, nationaliteit, geboorteland van student en ouders, en daaruit herkomst (CBS) en EER. GRONDSLAG is niet aan de RO te koppelen.</p></div>
+    <div class="card loranje"><span class="label">Alleen in GRONDSLAG &middot; 14</span><h3>Persoonskenmerken</h3><p>Postcode, nationaliteit, geboorteland van student en ouders, en daaruit herkomst (CBS) en wel of niet uit de EER (Europese Economische Ruimte). GRONDSLAG is niet aan de RO te koppelen.</p></div>
     <div class="card lroze"><span class="label">In geen mbo-bestand &middot; 14</span><h3>Vooropleiding</h3><p>Vmbo of havo, met jaar, school en eindcijfer. Nodig voor analyses van kansengelijkheid.</p></div>
     <div class="card lgeel"><span class="label">Mbo-breed &middot; 29</span><h3>De mbo-loopbaan</h3><p>Eerste jaar in het mbo, eerder diploma elders, ononderbroken ingeschreven. Eén school ziet alleen haar eigen studenten.</p></div>
   </div></div>
@@ -623,9 +623,9 @@ ul.ticks{gap:.4em}
   <div class="slide-head"><span class="kicker">Grenzen</span><h2>Wat het mbo mist, en wat we <span class="hl">DUO vragen</span></h2><p class="sub">Het ligt aan de mbo-bestanden, niet aan het dashboard.</p></div>
   <div class="body"><table class="klein">
     <tr><th>Wat ontbreekt</th><th>Nu</th><th>Vraag aan DUO</th></tr>
-    <tr><td>Historie</td><td>Eén RO dekt maximaal 2 jaar. Hbo/wo heeft HISBEK met alle eerdere jaren.</td><td>Kan het mbo een bestand zoals HISBEK krijgen? Hoe ver terug?</td></tr>
-    <tr><td>Andere instellingen</td><td>Alleen de eigen studenten; een overstap telt als uitval. Het hbo/wo-analysebestand toont ook deelnames elders.</td><td>Kan het mbo dat ook krijgen?</td></tr>
-    <tr><td>Postcode</td><td>Alleen in GRONDSLAG, bewust niet te koppelen (PvE mbo §17.1).</td><td>Kan het in de RO, of als groepscijfer?</td></tr>
+    <tr><td>Historie</td><td>Eén RO dekt maximaal 2 jaar; er is geen HISBEK.</td><td>Kan het mbo een bestand zoals HISBEK krijgen? Hoe ver terug?</td></tr>
+    <tr><td>Andere instellingen</td><td>Alleen de eigen studenten; een overstap lijkt op uitval.</td><td>Kan het mbo dat ook krijgen?</td></tr>
+    <tr><td>Koppeling GRONDSLAG en RO</td><td>Postcode en herkomst staan alleen in GRONDSLAG. Dat heeft een ander persoonsnummer en geen geboortedatum, dus koppelen kan niet (PvE mbo §17.1).</td><td>Waarom mag dat niet, en kan het onder voorwaarden wel?</td></tr>
     <tr><td>Vooropleiding</td><td>Niet in de mbo-bestanden. Hbo/wo heeft hem wel, in 1cijferHO. Mbo-scholen kunnen hem per student al bij DUO opvragen (PvE mbo §4.3).</td><td>Kan de vooropleiding in de mbo-bestanden, zoals in 1cijferHO?</td></tr>
     <tr><td>Doorstroom naar hbo</td><td>De mbo-bestanden stoppen bij het diploma. 1cijferHO ziet dezelfde stap wel, vanaf de hbo-kant.</td><td>Kan DUO per mbo-opleiding leveren hoeveel gediplomeerden een jaar later in het hbo studeren, en in welke opleiding?</td></tr>
   </table></div>
@@ -671,7 +671,7 @@ ul.ticks{gap:.4em}
   </div>
   <div class="body">
     <img class="npuls-logo groot" src="public/npuls/vormen/npuls-logo.svg" alt="Npuls">
-    <h2 style="margin-top:clamp(22px,3.4vh,44px);max-width:20ch">Staat van de Onderwijsinstelling</h2>
+    <h2 style="margin-top:clamp(22px,3.4vh,44px);max-width:20ch">Bekostigingsbestanden mbo en hbo/wo</h2>
     <p class="payoff" style="margin-top:clamp(20px,3vh,38px)">Onderwijs bewegen.</p>
   </div>
   <img class="cc" src="public/npuls/vormen/cc-by-sa.svg" alt="Creative Commons BY-SA">
