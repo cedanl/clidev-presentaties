@@ -534,7 +534,7 @@ ul.ticks{gap:.4em}
   <div class="body">
     <span class="kicker">Staat van de Onderwijsinstelling</span>
     <h1>Het mbo naast hbo en wo</h1>
-    <p class="lede">Wat de mbo-versie anders doet, en wat DUO kan doen om de bestanden van mbo en hbo/wo dichter bij elkaar te brengen.</p>
+    <p class="lede">Wat de bekostigingsbestanden van mbo en hbo/wo verschillen, en wat we DUO vragen.</p>
     <p class="meta">CEDA &middot; november 2026</p>
   </div>
 </section>
@@ -566,16 +566,6 @@ ul.ticks{gap:.4em}
   </div>
 </section>
 
-<!-- 4. IN HET KORT. Bronnen: README staat-van-onderwijsinstelling, README staat-van-onderwijsinstelling-mbo -->
-<section class="slide s-wit">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">In het kort</span><h2>Eén doel, <span class="hl">twee versies</span></h2><p class="sub">Beide laten zien hoe het je studenten vergaat, uit DUO-bestanden die je al hebt. De bestanden blijven op je eigen computer.</p></div>
-  <div class="body"><div class="grid g2">
-    <div class="card lblauw"><span class="label">Hbo en wo</span><h3>staat1cho</h3><p>R-pakket op CRAN. Leest de 1cijferHO-levering en maakt een analysebestand, een dashboard en een benchmarkrapport.</p></div>
-    <div class="card lgroen"><span class="label">Mbo</span><h3>smbo</h3><p>Python-programma. Leest RO- en TBG-i-bestanden en toont een dashboard met de indicatoren van de Inspectie.</p></div>
-  </div></div>
-</section>
-
 <!-- 4b. DE BEKOSTIGINGSBESTANDEN. Bronnen: rapport-bekostiging-mbo-ho v0.7 §2.2 en §2.5, ho-bekostiging-bestanden docs/databestanden (analysebestand, hisbek), mbo-bekostiging-bestanden docs/databestanden, PvE mbo §17.1 -->
 <section class="slide s-wit">
   <div class="deco bogen"></div>
@@ -590,55 +580,13 @@ ul.ticks{gap:.4em}
   </table></div>
 </section>
 
-<!-- 5. VERGELIJKING -->
-<section class="slide s-lblauw">
+<!-- 4c. VOORBEELD STAAT MBO. Bron: wiki staat-van-onderwijsinstelling-mbo, mbo-bekostiging-bestanden#118 -->
+<section class="slide s-lroze">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Verschillen</span><h2>Hbo en wo <span class="hl">naast</span> mbo</h2></div>
-  <div class="body"><table class="klein">
-    <tr><th>Onderwerp</th><th>Hbo en wo</th><th>Mbo</th></tr>
-    <tr><td>Bron</td><td>1cijferHO: alle instellingen in één levering</td><td>RO en TBG-i: alleen de eigen instelling</td></tr>
-    <tr><td>Historie</td><td>De hele reeks in één levering</td><td>Eén RO dekt maximaal 2 jaar; vijf RO's voor tien jaar</td></tr>
-    <tr><td>Indicatoren</td><td>Instroom, rendement, uitval, studiewissel</td><td>Jaar-, diploma- en startersresultaat, instroom, rendement, uitval, loopbanen</td></tr>
-    <tr><td>Termijnen</td><td>Vast: rendement na 3, 5, 8 jaar; uitval na 1, 3 jaar</td><td>Relatief aan de opleidingsduur (1 tot 4 jaar), plus één jaar</td></tr>
-    <tr><td>Vooropleiding</td><td>Ja, met eindcijfers uit VAKHAVW</td><td>Nee, staat in geen mbo-bestand</td></tr>
-    <tr><td>Benchmark</td><td>Excel-rapport om te delen</td><td>Nog niet</td></tr>
-    <tr><td>Techniek</td><td>R en Shiny</td><td>Python en Streamlit</td></tr>
-  </table></div>
-</section>
-
-<!-- 6. WAAROM EEN EIGEN MBO-VERSIE -->
-<section class="slide s-wit">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Waarom</span><h2>Het mbo vraagt om <span class="hl">eigen rekenregels</span></h2></div>
+  <div class="slide-head"><span class="kicker">Voorbeeld</span><h2>Wat dit betekent voor een <span class="hl">mbo-dashboard</span></h2><p class="sub">Staat van de Onderwijsinstelling mbo rekent jaar-, diploma- en startersresultaat uit de RO's.</p></div>
   <div class="body"><div class="grid g2">
-    <div class="card lgeel"><h3>Andere opleidingsduur</h3><p>Mbo-opleidingen duren 1 tot 4 jaar. Een vaste termijn van 3 jaar is te lang voor entree en te kort voor niveau 4.</p></div>
-    <div class="card lgeel"><h3>Doorleren telt niet als uitval</h3><p>Veel studenten halen een diploma op niveau 2 en gaan door op niveau 3. De rekenregels voor hbo/wo tellen dat als wissel. Het mbo-dashboard telt het apart.</p></div>
-    <div class="card lgeel"><h3>Eigen wettelijke maatstaven</h3><p>De Inspectie beoordeelt het mbo op drie indicatoren uit de Regeling studiesucces mbo.</p></div>
-    <div class="card lgeel"><h3>Andere bestanden</h3><p>Het mbo heeft geen 1cijferHO. De RO's samen geven per student een reeks van tien jaar.</p></div>
-  </div></div>
-</section>
-
-<!-- 7. DRIE INDICATOREN. Bron: Regeling studiesucces mbo (BWBR0046913), wiki studiesucces-mbo -->
-<section class="slide s-lgroen">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Alleen in het mbo</span><h2>De drie indicatoren van de <span class="hl">Inspectie</span></h2><p class="sub">Per jaartijdvak (1 oktober tot 1 oktober) en als driejaarscijfer. Entree telt niet mee.</p></div>
-  <div class="body"><div class="grid g3">
-    <div class="card"><span class="label">Jaarresultaat</span><p>Van wie een diploma haalde of zonder diploma vertrok: het deel met een diploma.</p><p><strong>Norm niveau 3–4: 68%</strong></p></div>
-    <div class="card"><span class="label">Diplomaresultaat</span><p>Van wie de instelling verlaat: het deel met een diploma op niveau 2–4 uit de laatste zes jaar.</p><p><strong>Norm niveau 3–4: 70%</strong></p></div>
-    <div class="card"><span class="label">Startersresultaat</span><p>Van de nieuwe studenten: wie een jaar later een diploma heeft of nog op niveau 2–4 studeert.</p><p><strong>Norm niveau 3–4: 82%</strong></p></div>
-  </div>
-  <p class="bottom">Indicatief, geen oordeel: de Inspectie rekent op het register van DUO.</p>
-  </div>
-</section>
-
-<!-- 8. WAT HETZELFDE BLIJFT -->
-<section class="slide s-wit">
-  <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Overeenkomsten</span><h2>Wat <span class="hl">hetzelfde</span> blijft</h2></div>
-  <div class="body"><div class="grid g3">
-    <div class="card lblauw"><h3>Eigen bestanden</h3><p>Beide werken op DUO-bestanden die de instelling al krijgt. Geen nieuwe levering nodig.</p></div>
-    <div class="card lblauw"><h3>Lokaal en privé</h3><p>Alles draait op je eigen computer. De uitvoer blijft persoonsgegevens.</p></div>
-    <div class="card lblauw"><h3>Dezelfde vragen</h3><p>Instroom, rendement en uitval, per opleiding en opleidingsvorm (voltijd/deeltijd of BOL/BBL).</p></div>
+    <div class="card"><h3>Vijf aanvragen voor tien jaar</h3><p>Eén RO dekt maximaal 2 jaar. Voor tien jaar moet een instelling vijf RO's aanvragen en die aan elkaar plakken. In hbo/wo bevat één HISBEK alle eerdere definitieve jaren.</p></div>
+    <div class="card"><h3>Overstap telt als uitval</h3><p>Wie naar een andere mbo-instelling gaat, verdwijnt uit de bestanden. Daardoor zijn de resultaten indicatief. De Inspectie rekent op het volledige register van DUO.</p></div>
   </div></div>
 </section>
 
