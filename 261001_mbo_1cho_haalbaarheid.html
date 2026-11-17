@@ -534,7 +534,7 @@ ul.ticks{gap:.4em}
   <div class="body">
     <span class="kicker">Staat van de Onderwijsinstelling</span>
     <h1>Het mbo naast hbo en wo</h1>
-    <p class="lede">Wat de mbo-versie anders doet dan de versie voor hbo en wo, en waarom.</p>
+    <p class="lede">Wat de mbo-versie anders doet, en wat DUO kan doen om de bestanden van mbo en hbo/wo dichter bij elkaar te brengen.</p>
     <p class="meta">CEDA &middot; november 2026</p>
   </div>
 </section>
@@ -573,6 +573,18 @@ ul.ticks{gap:.4em}
   <div class="body"><div class="grid g2">
     <div class="card lblauw"><span class="label">Hbo en wo</span><h3>staat1cho</h3><p>R-pakket op CRAN. Leest de 1cijferHO-levering en maakt een analysebestand, een dashboard en een benchmarkrapport.</p></div>
     <div class="card lgroen"><span class="label">Mbo</span><h3>smbo</h3><p>Python-programma. Leest RO- en TBG-i-bestanden en toont een dashboard met de indicatoren van de Inspectie.</p></div>
+  </div></div>
+</section>
+
+<!-- 4b. DE BESTANDEN. Bronnen: rapport-bekostiging-mbo-ho v0.7 §2.2 en §3.3, mbo-bekostiging-bestanden docs/databestanden, PvE mbo §17.1 -->
+<section class="slide s-wit">
+  <div class="deco bogen"></div>
+  <div class="slide-head"><span class="kicker">De bestanden</span><h2>Wat DUO <span class="hl">levert</span></h2><p class="sub">Bijna elk mbo-bestand heeft een tegenhanger in hbo/wo. 1cijferHO niet.</p></div>
+  <div class="body"><div class="grid g2">
+    <div class="card lblauw"><span class="label">Hbo en wo</span><h3>1cijferHO</h3><p>Door DUO bewerkt register van alle inschrijvingen en diploma's, met vooropleiding, herkomst en postcode. Het mbo heeft geen tegenhanger.</p></div>
+    <div class="card lgroen"><span class="label">Mbo</span><h3>RO (registratieoverzicht)</h3><p>Wat de instelling bij DUO heeft geregistreerd. Zelf aan te vragen, maximaal 2 jaar per aanvraag. Tegenhanger in hbo/wo: het registratieoverzicht.</p></div>
+    <div class="card lgroen"><span class="label">Mbo</span><h3>TBG-i</h3><p>Achteraf: wat DUO meetelt voor de bekostiging en waarom. Tegenhanger in hbo/wo: het analysebestand (VLPBEK).</p></div>
+    <div class="card lgroen"><span class="label">Mbo</span><h3>GRONDSLAG</h3><p>Vooraf: wat bekostigd gaat worden, met postcode. Gebruikt een ander persoonsnummer dan de RO en is bewust niet te koppelen.</p></div>
   </div></div>
 </section>
 
@@ -628,18 +640,30 @@ ul.ticks{gap:.4em}
   </div></div>
 </section>
 
-<!-- 9. WAT HET MBO NIET ZIET. Bron: #389, PvE mbo 4.8.2 §7.2 en §17.1 -->
+<!-- 9. GRENZEN ALS VRAGEN AAN DUO. Bron: #389, PvE mbo 4.8.2 §7.2 en §17.1, rapport-bekostiging-mbo-ho v0.7 §2.5 en §4.3 -->
 <section class="slide s-lroze">
   <div class="deco bogen"></div>
-  <div class="slide-head"><span class="kicker">Grenzen</span><h2>Wat de mbo-versie <span class="hl">niet</span> ziet</h2><p class="sub">Door de mbo-bestanden, niet door het dashboard.</p></div>
+  <div class="slide-head"><span class="kicker">Grenzen</span><h2>Wat het mbo mist, en wat we <span class="hl">DUO vragen</span></h2><p class="sub">Het ligt aan de mbo-bestanden, niet aan het dashboard.</p></div>
   <div class="body"><table class="klein">
-    <tr><th>Wat</th><th>Waarom niet</th></tr>
-    <tr><td>Vooropleiding</td><td>Staat in geen enkel mbo-bestand.</td></tr>
-    <tr><td>Postcode en herkomst</td><td>Alleen in GRONDSLAG. Dat bestand is bewust niet aan RO te koppelen (PvE mbo §17.1).</td></tr>
-    <tr><td>Andere instellingen</td><td>Je ziet alleen je eigen studenten. Een overstap telt als uitval.</td></tr>
-    <tr><td>Doorstroom naar het hbo</td><td>De bestanden stoppen bij het mbo.</td></tr>
-    <tr><td>Korte inschrijvingen</td><td>Alleen wie op 1 oktober staat ingeschreven, telt mee.</td></tr>
+    <tr><th>Wat ontbreekt</th><th>Nu</th><th>Vraag aan DUO</th></tr>
+    <tr><td>Historie</td><td>Eén RO dekt maximaal 2 jaar.</td><td>Kan één levering tien jaar dekken? Hoe ver terug kan DUO leveren?</td></tr>
+    <tr><td>Andere instellingen</td><td>Alleen de eigen studenten; een overstap telt als uitval. Het hbo/wo-analysebestand toont ook inschrijvingen elders.</td><td>Kan het mbo dat ook krijgen?</td></tr>
+    <tr><td>Vooropleiding</td><td>Staat in geen mbo-bestand. Hbo-instellingen krijgen mbo-diploma's wel als vooropleiding.</td><td>Kan de vooropleiding in de RO?</td></tr>
+    <tr><td>Postcode en herkomst</td><td>Alleen in GRONDSLAG, bewust niet te koppelen (PvE mbo §17.1).</td><td>Kan het in de RO, of als groepscijfer?</td></tr>
+    <tr><td>Doorstroom naar hbo</td><td>De mbo-bestanden stoppen bij het diploma.</td><td>Kan DUO het vervolg per opleiding leveren, zonder namen?</td></tr>
   </table></div>
+</section>
+
+<!-- 9b. DICHTER BIJ ELKAAR. Bron: rapport-bekostiging-mbo-ho v0.7 §6, aanbevelingen 1, 2, 4, 6 en 8 -->
+<section class="slide s-wit">
+  <div class="deco bogen"></div>
+  <div class="slide-head"><span class="kicker">Mbo en hbo/wo</span><h2>Bestanden <span class="hl">dichter bij elkaar</span></h2><p class="sub">Zolang de bestanden verschillen, bouwen we elke analyse twee keer. Het gaat om vorm, sleutels en begrippen, niet om de bekostigingsregels.</p></div>
+  <div class="body"><div class="grid g2">
+    <div class="card lgeel"><span class="label">Nu doen &middot; klein</span><h3>Schema en codelijsten als tabel</h3><p>Per bestandssoort één rij per veld, en codes met omschrijving en geldigheid. Dan lezen we elk bestand automatisch in.</p></div>
+    <div class="card lgeel"><span class="label">Nu doen &middot; klein</span><h3>Dezelfde woorden</h3><p>Eén begrippenlijst voor beide sectoren, bijvoorbeeld diploma en graad, en dezelfde indeling van redenen waarom iets niet bekostigd is.</p></div>
+    <div class="card lgeel"><span class="label">Verkennen &middot; middel</span><h3>Stabiele codes via RIO</h3><p>Eén sleutel voor opleiding en instelling. Dan blijft een opleiding te volgen als haar code verandert.</p></div>
+    <div class="card lgeel"><span class="label">Lange termijn &middot; groot</span><h3>Een mbo-tegenhanger van 1cijferHO</h3><p>Eén bestand met de hele loopbaan, ook bij andere instellingen en daarna in het hbo.</p></div>
+  </div></div>
 </section>
 
 <!-- 10. STAND EN VOLGENDE STAPPEN. Bron: wiki staat-van-onderwijsinstelling-mbo, issues #11, mbo-bekostiging-bestanden#444 -->
@@ -651,7 +675,7 @@ ul.ticks{gap:.4em}
     <div class="step"><span class="num ico blauw">1</span><div><div class="step-t">Toets op echte data</div><p>Het mbo-dashboard draait tot nu toe alleen op demodata.</p></div></div>
     <div class="step"><span class="num ico groen">2</span><div><div class="step-t">Vergelijken met DUO</div><p>Kloppen jaar- en diplomaresultaat met de cijfers die DUO per instelling publiceert?</p></div></div>
     <div class="step"><span class="num ico oranje">3</span><div><div class="step-t">Eén cijfer per indicator</div><p>Afstemmen met de mbo-bekostigingsbestanden, die nu een benadering tonen.</p></div></div>
-    <div class="step"><span class="num ico geel">4</span><div><div class="step-t">Beide dashboards naast elkaar</div><p>Screenshots en verschillen vastleggen in de repo.</p></div></div>
+    <div class="step"><span class="num ico geel">4</span><div><div class="step-t">Gesprek met DUO</div><p>Welke vragen zijn haalbaar, en wat kan er eerst?</p></div></div>
   </div></div>
 </section>
 
