@@ -7,3 +7,6 @@ dist/
 components.d.ts
 .claude/
 .slidev/
+
+# QA-screenshots van decks niet tracken
+exports/**/qa*/
