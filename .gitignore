@@ -8,6 +8,8 @@ components.d.ts
 .claude/
 .slidev/
 
+# QA-screenshots van decks niet tracken
+exports/**/qa*/
 # Lettertypen niet in git (licentie: Cooper Lt BT commercieel, General Sans ITF). Lokaal neerzetten mag.
 **/Npuls_lettertype/
 *.ttf
