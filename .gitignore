@@ -7,3 +7,10 @@ dist/
 components.d.ts
 .claude/
 .slidev/
+
+# Lettertypen niet in git (licentie: Cooper Lt BT commercieel, General Sans ITF). Lokaal neerzetten mag.
+**/Npuls_lettertype/
+*.ttf
+*.otf
+*.woff
+*.woff2
