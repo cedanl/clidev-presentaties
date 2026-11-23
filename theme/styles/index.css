@@ -5,23 +5,25 @@
    ============================================================ */
 
 /* Lettertypen */
+/* Fontbestanden staan niet in git (licentie). General Sans via Fontshare; lokaal geinstalleerde fonts gaan voor. */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,600&display=swap');
 @font-face {
   font-family: 'General Sans';
-  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+  src: local('General Sans'), url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'General Sans';
-  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+  src: local('General Sans Semibold'), local('General Sans'), url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Cooper Light BT';
-  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
+  src: local('Cooper Lt BT'), local('Cooper Light BT'), url('/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
