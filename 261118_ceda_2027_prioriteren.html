@@ -338,7 +338,7 @@ ul.ticks li i{margin-top:.28em;font-size:.82em;color:var(--accent)}
   .kicker{margin-bottom:clamp(8px,1.3vh,16px)}
 }
 @media (max-width:820px){
-  .g4,.g3{grid-template-columns:repeat(2,1fr)}
+  .g5,.g4,.g3{grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:1fr;align-items:start}
 }
 @media print{
@@ -457,6 +457,8 @@ ul.items li em{font-style:normal;opacity:.6}
 .tag{display:inline-block;font-style:normal;font-weight:600;font-size:clamp(8.5px,.68vw,10.5px);text-transform:uppercase;letter-spacing:.06em;padding:.2em .5em;border-radius:99px;margin-left:.35em;vertical-align:.1em;background:var(--npuls-zwart);color:var(--npuls-geel)}
 .tag.nieuw{background:var(--npuls-blauw);color:var(--npuls-wit)}
 .tag.open{background:var(--npuls-oranje);color:var(--npuls-zwart)}
+.tag.verk{background:var(--npuls-groen);color:var(--npuls-zwart)}
+.g5{grid-template-columns:repeat(5,1fr)}
 
 /* statuslijst jaarplan 2026 */
 .jplist{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(6px,.9vh,11px) clamp(10px,1.2vw,20px)}
@@ -549,6 +551,7 @@ ul.items li.grey{opacity:.45}
 .lg-vline{display:block;width:42px;height:22px;flex-shrink:0;background:linear-gradient(var(--npuls-blauw),var(--npuls-blauw)) center/6px 100% no-repeat}
 .lg-gate{display:flex;align-items:center;justify-content:center;width:42px;flex-shrink:0;gap:0}
 .lg-gate i{display:block;width:16px;height:16px;border-radius:99px;background:var(--npuls-wit);border:3px solid var(--npuls-zwart);margin:0 -2px}
+.lg-area{display:block;width:42px;height:24px;border-radius:6px;flex-shrink:0;background:#E8E8E8;border:1px solid rgba(0,0,0,.08)}
 .lg-dots{display:block;width:42px;height:4px;flex-shrink:0;background:radial-gradient(circle,var(--metro-paars) 2px,transparent 2.5px) 0 0/10px 4px repeat-x}
 
 .label.subhead{margin-top:.5em;padding-top:.6em;border-top:1px solid rgba(0,0,0,.12);color:var(--npuls-blauw)}
@@ -597,14 +600,14 @@ table.team td.nm{line-height:1.25}
 
 <!-- ========== 2. DOEL EN AGENDA ==========
   Notities: we gaan niet alles oplossen. Wat we vandaag willen hebben: een gedeeld beeld van alles wat we doen,
-  een beeld van de capaciteit in 2027, en een eerste ordening in nu / later / niet. Alles wat we typen blijft
+  een beeld van de capaciteit in 2027, de drie opties op volgorde en een eerste keus voor wie we aannemen. Alles wat we typen blijft
   bewaard in deze browser; op de laatste slide download je het verslag (of toets D).
 -->
 <section class="slide s-lgeel" data-sec="Welkom">
   <div class="slide-head">
     <span class="kicker">Doel en agenda · 60 min</span>
     <h2>Vandaag: <span class="hl">helderheid voor 2027</span></h2>
-    <p class="sub">Uitkomst: een geordend overzicht, de capaciteit op een rij, en per onderdeel nu, later of niet. De roadmap volgt daarna.</p>
+    <p class="sub">Uitkomst: een geordend overzicht, de capaciteit op een rij, de drie opties op volgorde en een eerste keus voor wie we aannemen. De roadmap volgt daarna.</p>
   </div>
   <div class="body">
     <table class="agenda">
@@ -612,8 +615,7 @@ table.team td.nm{line-height:1.25}
       <tbody>
         <tr><td><i class="swatch" style="background:var(--npuls-groen)"></i>&nbsp; 1</td><td><strong>Overzicht van het geheel</strong>: wat beloven we, wat doen we, hoe hangt het samen?</td><td>plenair</td><td>20 min</td></tr>
         <tr><td><i class="swatch" style="background:var(--npuls-oranje)"></i>&nbsp; 2</td><td><strong>Mensen</strong>: het team in 2026 en in 2027</td><td>plenair</td><td>8 min</td></tr>
-        <tr><td><i class="swatch" style="background:var(--npuls-blauw)"></i>&nbsp; 3</td><td><strong>Prioriteren</strong>: gemaakte keuzes, open keuzes, dan nu / later / niet</td><td>gesprek · samen schuiven</td><td>25 min</td></tr>
-        <tr><td><i class="swatch" style="background:var(--npuls-geel)"></i>&nbsp; 4</td><td><strong>Vervolg</strong>: wie trekt wat, wat gaat naar de roadmap?</td><td>plenair</td><td>5 min</td></tr>
+        <tr><td><i class="swatch" style="background:var(--npuls-blauw)"></i>&nbsp; 3</td><td><strong>Prioriteren</strong>: wat we sowieso oppakken, drie opties op volgorde, wie we aannemen, wat nog open is</td><td>groepjes · brainwriting · gesprek</td><td>30 min</td></tr>
       </tbody>
     </table>
   </div>
@@ -637,9 +639,11 @@ table.team td.nm{line-height:1.25}
   Notities: de indeling die we vandaag gebruiken, met per onderdeel wat we voor 2027 beloofd hebben (cursief, "2027").
   Projecten rijden over de metrolijn. Standaarden en adoptie, de sectorvoorziening en de samenwerkingen eromheen.
   "Potentieel" = nog niet besloten, "nieuw" = besloten (zie gemaakte keuzes). Projecten draaien nu in mbo óf hbo/wo;
-  in de andere sector kunnen we een MVP starten. Innovatie, alle vier potentieel: open-onderwijsdata-chat, MCP / verbinding met EduGenAI,
-  instellingsdata-chat en synthetische data (UvA, ROC Mondriaan?, Haagse Hogeschool?). NKO (beta, potentieel) onderaan de projecten. Data-geletterdheid voor de secundaire doelgroep (wie na de data-analisten komt) valt onder datavolwassenheid.
-  Borging na Npuls: belangrijk, dat doen we samen met de sectoraanvoerders. Samenwerkingen in licht: potentieel. Begroot 2027: € 1,7M.
+  in de andere sector kunnen we een MVP starten. Innovatie: instellingsdata-chat is nieuw; open-onderwijsdata-chat, synthetische data
+  (UvA, ROC Mondriaan?, Haagse Hogeschool?) en MCP en LibreChat zijn potentieel. NKO (beta, potentieel) onderaan de projecten. Data-geletterdheid voor de secundaire doelgroep (wie na de data-analisten komt) valt onder datavolwassenheid.
+  Borging na Npuls: belangrijk, dat doen we samen met de sectoraanvoerders. Samenwerkingen: datacoalitie mbo loopt;
+  datacoalitie hbo, UvA/ROC Mondriaan/Haagse Hogeschool, Leren zonder drempels en SURF Federatief Datastelsel zijn
+  verkenning; de rest is potentieel. Begroot 2027: € 1,7M.
   Namen doen er nu niet toe; de indeling wel. Klopt ze?
 -->
 <section class="slide s-wit" data-sec="1 · Overzicht">
@@ -660,12 +664,12 @@ table.team td.nm{line-height:1.25}
           <li>SkillsRadar<span class="y27">2027 · discovery gevalideerd, MVP opgestart</span></li>
           <li>NKO <em>· beta</em><span class="tag">potentieel</span></li>
         </ul>
-        <span class="label subhead"><i class="fa-solid fa-lightbulb"></i> Innovatie · alle vier potentieel</span>
+        <span class="label subhead"><i class="fa-solid fa-lightbulb"></i> Innovatie</span>
         <ul class="items" style="--c:var(--npuls-blauw)">
-          <li>Open-onderwijsdata-chat</li>
-          <li>MCP en EduGenAI <em>· verbinding met EduGenAI</em></li>
-          <li>Instellingsdata-chat</li>
-          <li>Synthetische data <em>· UvA, ROC Mondriaan?, Haagse Hogeschool?</em></li>
+          <li>Instellingsdata-chat<span class="tag nieuw">nieuw</span></li>
+          <li>Open-onderwijsdata-chat<span class="tag">potentieel</span></li>
+          <li>Synthetische data<span class="tag">potentieel</span> <em>· UvA, ROC Mondriaan?, Haagse Hogeschool?</em></li>
+          <li>MCP en LibreChat<span class="tag">potentieel</span></li>
         </ul>
         <p class="footnote">* Projecten draaien nu in het mbo óf in hbo/wo. In de andere sector kunnen we een MVP starten.</p>
       </div>
@@ -681,7 +685,7 @@ table.team td.nm{line-height:1.25}
       </div>
       <div class="card loranje">
         <div class="ico oranje"><i class="fa-solid fa-building-columns"></i></div>
-        <h3>CEDA als sectorvoorziening</h3>
+        <h3>Centrum als sectorvoorziening</h3>
         <ul class="items" style="--c:var(--npuls-oranje)">
           <li>Regulatory sandbox<span class="tag">potentieel</span></li>
           <li>Verkenning data en digitale autonomie?</li>
@@ -695,18 +699,15 @@ table.team td.nm{line-height:1.25}
         <h3>Samenwerkingen</h3>
         <ul class="items" style="--c:#C9A800">
           <li>Datacoalitie mbo</li>
-          <li>Datacoalitie hbo<span class="tag nieuw">nieuw</span><span class="y27">2027 · praktische verkenning met enkele instellingen</span></li>
-          <li>UvA, ROC Mondriaan?, Haagse Hogeschool? <em>· via synthetische data</em></li>
-          <li>Npuls · Leren zonder drempels <em>· basis voor toekomstige uniforme data</em></li>
-          <li>SURF Federatief Datastelsel <em>· veilige data-uitwisseling</em></li>
-        </ul>
-        <span class="label subhead mute">Potentieel</span>
-        <ul class="items" style="--c:#C9A800;opacity:.55">
-          <li>Npuls · GenAI</li>
-          <li>SURF Regie op data</li>
-          <li>SURF Architectuur</li>
-          <li>Npuls · Adoptieteam</li>
-          <li>Npuls · Kennisinfrastructuur</li>
+          <li>Datacoalitie hbo<span class="tag verk">verkenning</span><span class="y27">2027 · praktische verkenning met enkele instellingen</span></li>
+          <li>UvA, ROC Mondriaan?, Haagse Hogeschool?<span class="tag verk">verkenning</span> <em>· via synthetische data</em></li>
+          <li>Npuls · Leren zonder drempels<span class="tag verk">verkenning</span> <em>· basis voor toekomstige uniforme data</em></li>
+          <li>SURF Federatief Datastelsel<span class="tag verk">verkenning</span> <em>· veilige data-uitwisseling</em></li>
+          <li>Npuls / SURF GenAI<span class="tag">potentieel</span></li>
+          <li>SURF Regie op data<span class="tag">potentieel</span></li>
+          <li>SURF Architectuur<span class="tag">potentieel</span></li>
+          <li>Npuls · Adoptieteam<span class="tag">potentieel</span></li>
+          <li>Npuls · Kennisinfrastructuur<span class="tag">potentieel</span></li>
         </ul>
       </div>
     </div>
@@ -716,9 +717,12 @@ table.team td.nm{line-height:1.25}
 <!-- ========== 6. DE CEDA-METROLIJN ==========
   Notities: drie lijnen uit sectordoel 13 op één kaart. Instrumentarium is de lijn zelf: van de vraag van een
   instelling tot de instelling het gebruikt en beheert. Elk station is een poort (de schouw). Standaarden haken
-  vanaf MVP per station aan als kruislink. De sectorvoorziening is een tweede spoor aan de CEDA-kant: die borgt
-  en beheert, ook na Npuls. Na overdracht komt de volgende vraag: terug naar het begin.
-  Discovery tot en met Live zijn werktitels uit de landkaart van Ash; Signaal en Overdracht zijn een voorstel.
+  vanaf MVP per station aan als kruislink. Het verhaal: use cases komen uit co-creatie met instellingen en uit
+  regiobijeenkomsten. Die ontwikkelen we samen met instellingen over de metrolijn tot tools. Onderweg passen we
+  standaarden toe, en ontwikkelen we ze waar ze ontbreken. Zo bouwen we expertise en netwerk op: geen losse
+  producten of projecten, maar een duurzaam expertisecentrum dat transformatie rondom AI & Data faciliteert. Het centrum is het vliegwiel: elke use case maakt
+  de volgende sneller. Na beheer komt de volgende vraag: terug naar het begin.
+  Discovery tot en met Live zijn werktitels uit de landkaart van Ash; Signaal en Beheer zijn een voorstel.
 -->
 <section class="slide s-wit" data-sec="1 · Overzicht">
   <div class="slide-head" style="margin-bottom:clamp(6px,1vh,14px)">
@@ -728,21 +732,26 @@ table.team td.nm{line-height:1.25}
   <div class="body" style="justify-content:flex-start">
     <div class="split" style="grid-template-columns:1fr minmax(240px,.36fr);align-items:start;gap:clamp(14px,1.6vw,28px)">
       <div class="mapwrap">
-        <img class="mapimg" src="public/pictures/ceda_metrolijn.png" alt="CEDA-metrolijn: instrumentarium van Signaal tot Overdracht, standaarden als kruislinks, sectorvoorziening als tweede spoor">
-        <p class="mapnote">Discovery tot en met Live: werktitels uit de landkaart van Ash. Signaal en Overdracht: voorstel.</p>
+        <img class="mapimg" src="public/pictures/ceda_metrolijn.png" alt="CEDA-metrolijn: instrumentarium van Signaal tot Beheer, standaarden als kruislinks, het centrum als vliegwiel voor de transformatie">
+        <p class="mapnote">Discovery tot en met Live: werktitels uit de landkaart van Ash. Signaal en Beheer: voorstel.</p>
       </div>
       <div class="grid" style="gap:clamp(8px,1vw,14px)">
         <div class="card lblauw legend-card">
-          <span class="label">Drie lijnen uit sectordoel 13</span>
+          <span class="label">Legenda</span>
+          <div class="lg"><i class="lg-area"></i><div><b>CEDA</b><small>het centrum: vliegwiel voor de transformatie</small></div></div>
           <div class="lg"><i class="lg-line" style="background:var(--metro-paars)"></i><div><b>Instrumentarium</b><small>de lijn: van vraag tot beheer</small></div></div>
           <div class="lg"><i class="lg-vline"></i><div><b>Standaarden</b><small>kruislink per station, vanaf MVP</small></div></div>
-          <div class="lg"><i class="lg-line" style="background:var(--npuls-groen)"></i><div><b>Sectorvoorziening</b><small>tweede spoor aan de CEDA-kant</small></div></div>
           <div class="lg"><i class="lg-gate"><i></i></i><div><b>Station is een poort</b><small>de schouw</small></div></div>
           <div class="lg"><i class="lg-dots"></i><div><b>Volgende vraag</b><small>terug naar het begin</small></div></div>
         </div>
         <div class="card blauw">
-          <div class="ico geel"><i class="fa-solid fa-circle-question"></i></div>
-          <p><strong>Klopt dit beeld?</strong> Standaarden haken per station aan, de sectorvoorziening rijdt mee als tweede spoor. Wat vraagt elke poort, en wat betekent dit voor hoe we standaarden en sectorvoorziening plannen?</p>
+          <span class="label">Van use case tot centrum</span>
+          <ul class="items" style="--c:var(--npuls-geel)">
+            <li><strong>Use cases</strong> komen uit co-creatie met instellingen en uit regiobijeenkomsten.</li>
+            <li><strong>Tools</strong> ontwikkelen we uit die use cases, samen met instellingen, over de metrolijn.</li>
+            <li><strong>Standaarden</strong> passen we per station toe, en ontwikkelen we waar ze ontbreken.</li>
+            <li><strong>Expertise en netwerk</strong> groeien mee: geen losse producten of projecten, maar een duurzaam expertisecentrum dat transformatie rondom AI &amp; Data faciliteert.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -768,7 +777,7 @@ table.team td.nm{line-height:1.25}
   doen; Edwin blijft 24. Corneel gaat van 40 naar 36. Annie, Melanie, Caspar en Maarten werkten in 2026 deels voor
   CEDA: hun uren tellen daar voor de helft (½). Annie telt in 2027 volledig. Muhammet: eerst via een broker, inmiddels
   lang genoeg bij ons om die toeslag te verlagen. Hibo loopt tot maart en wordt niet verlengd.
-  Nieuw: Sjieuwke (projectcoördinatie, 20). John (publieke waarden, 8) en Stephan (datavolwassenheid, 16) nog onder voorbehoud.
+  Nieuw: Sjieuwke (verbinder: projectcoördinatie, 20). John (publieke waarden, 8) en Stephan (datavolwassenheid, 16) nog onder voorbehoud.
 -->
 <section class="slide s-loranje" data-sec="2 · Mensen">
   <div class="slide-head" style="margin-bottom:clamp(10px,1.6vh,22px)">
@@ -799,7 +808,7 @@ table.team td.nm{line-height:1.25}
       <div class="grid" style="gap:clamp(8px,1vw,14px)">
         <div class="card">
           <span class="label" style="color:var(--npuls-blauw)">Nieuw en ruimte in 2027</span>
-          <div class="minirow"><span class="who"><b>Sjieuwke</b><small>projectcoördinatie, support en beheer</small></span><b>20</b></div>
+          <div class="minirow"><span class="who"><b>Sjieuwke</b><small>verbinder: projectcoördinatie, support en beheer</small></span><b>20</b></div>
           <div class="minirow"><span class="who"><b>Stephan<i class="inst" title="heeft bij een instelling gewerkt"></i></b><small>datavolwassenheid</small></span><b>16?</b></div>
           <div class="minirow"><span class="who"><b>John</b><small>publieke waarden</small></span><b>8?</b></div>
           <div class="minirow"><span class="who">Open ruimte</span><b>~16</b></div>
@@ -865,7 +874,7 @@ table.team td.nm{line-height:1.25}
       <div>
         <span class="kicker">Deel 3</span>
         <h1 style="max-width:12ch">Prioriteren</h1>
-        <p class="lede" style="margin-top:clamp(14px,2vh,24px)">Gemaakte keuzes, open keuzes, dan nu, later of niet.</p>
+        <p class="lede" style="margin-top:clamp(14px,2vh,24px)">Wat we sowieso oppakken, drie opties, wie we aannemen en wat nog open is.</p>
       </div>
       <img class="illu" src="public/npuls/powerpoint_illustrations/verrekijker.svg" alt="">
     </div>
@@ -873,110 +882,147 @@ table.team td.nm{line-height:1.25}
 </section>
 
 <!-- ========== GEMAAKTE KEUZES ==========
-  Notities: wat al besloten is, gaan we gewoon oppakken. Datastandaarden en HORA/MORA en de datacoalitie hbo staan
-  daarom op slide 5 als "nieuw". Datavolwassenheid gebeurt vanuit publieke waarden. Annie verkent de datacoalitie hbo
+  Notities: wat al besloten is, pakken we sowieso op. Datastandaarden en HORA/MORA en de datacoalitie hbo staan
+  daarom op slide 4 als "nieuw". Datavolwassenheid gebeurt vanuit publieke waarden. Annie verkent de datacoalitie hbo
   en geeft structurele samenwerking vorm voor trajecten buiten de datacoalitie mbo. Op de metrolijn heet Alpha voortaan MVP.
-  Bij de huidige projecten de vraag: starten we een MVP in de andere sector? Sectorale informatievoorziening: MVP in mbo,
-  Staat van Opleiding naar beta, koppelen met de chat?
 -->
 <section class="slide s-lgroen" data-sec="3 · Prioriteren">
   <div class="slide-head" style="margin-bottom:clamp(10px,1.6vh,22px)">
     <span class="kicker">Gemaakte keuzes</span>
-    <h2>Dit gaan we <span class="hl">gewoon oppakken</span></h2>
+    <h2>Dit pakken we <span class="hl">sowieso op</span></h2>
+  </div>
+  <div class="body" style="justify-content:flex-start">
+    <div class="grid g5" style="align-items:stretch">
+      <div class="card"><div class="ico groen"><i class="fa-solid fa-ruler-combined"></i></div><h3>Datastandaarden en HORA/MORA</h3><p class="ctx" style="opacity:.75">Plaatsing van onze tools op HORA/MORA verkend in 2027</p></div>
+      <div class="card"><div class="ico geel"><i class="fa-solid fa-handshake"></i></div><h3>Datacoalitie hbo</h3><p class="ctx" style="opacity:.75">Verkennen en opzetten, met enkele instellingen</p><span class="y27" style="font-style:normal;margin-top:auto">Annie</span></div>
+      <div class="card"><div class="ico blauw"><i class="fa-solid fa-building-columns"></i></div><h3>Structurele samenwerking</h3><p class="ctx" style="opacity:.75">Met instellingen vormgeven, voor trajecten buiten de datacoalitie mbo</p><span class="y27" style="font-style:normal;margin-top:auto">Annie</span></div>
+      <div class="card"><div class="ico oranje"><i class="fa-solid fa-scale-balanced"></i></div><h3>Datavolwassenheid en ethiek</h3><p class="ctx" style="opacity:.75">Vanuit publieke waarden</p><span class="y27" style="font-style:normal;margin-top:auto">Stephan, John?</span></div>
+      <div class="card"><div class="ico zwart"><i class="fa-solid fa-user-gear"></i></div><h3>Verbinder per project</h3><p class="ctx" style="opacity:.75">Ieder project heeft een verbinder die niet programmeert</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DRIE OPTIES ==========
+  Notities: de open keuze voor 2027 in drie opties. A: huidige projecten breder, met een MVP in het andere onderwijstype.
+  B: huidige projecten dieper, verder de instelling in waar we al zitten: doorontwikkelen en verservicen (Edwin,
+  sessie-prep 23-11). Van analysetools naar echte services, met een servicebelofte en een begeleidingspad, bijvoorbeeld
+  de Uitnodigingsregel voor SLB'ers. Diensten bovenop bestaande dataproducten en analysetools. Spanning: we hebben
+  geen eigen dataplatform, de instelling ontsluit zelf (UvA in Power BI). Is succes dat het geïmplementeerd is, of dat
+  het ook daadwerkelijk in gebruik is?
+  C: vernieuwender. Chat op instellingsdata echt prio maken en daar capaciteit voor vrijmaken. Klein beginnen met één
+  dataset en één use case, met hooguit twee instellingen intensief (Shirley, 9-11). Interesse van ROC Mondriaan
+  (BI-chatpilot), Graafschap College, ROC Nijmegen, VU, UU en ArtEZ. Implementeren bij de instelling: synthetische data
+  voor het datamodel? Op eigen server of Azure van de instelling. Hebben we daarvoor de juiste expertise?
+  Volgende slide: in groepjes op volgorde. De volgorde is de keuze: wat achteraan staat, doen we waarschijnlijk niet.
+-->
+<section class="slide s-lgroen" data-sec="3 · Prioriteren">
+  <div class="slide-head" style="margin-bottom:clamp(10px,1.6vh,22px)">
+    <span class="kicker">Open keuze · drie opties</span>
+    <h2>Waar zetten we <span class="hl">onze capaciteit op?</span></h2>
   </div>
   <div class="body" style="justify-content:flex-start">
     <div class="grid g3" style="align-items:stretch">
       <div class="card">
-        <div class="ico groen"><i class="fa-solid fa-circle-check"></i></div>
-        <h3>Nieuw</h3>
-        <ul class="items" style="--c:var(--npuls-groen)">
-          <li>Datastandaarden en HORA/MORA</li>
-          <li>Datacoalitie hbo opzetten<span class="y27" style="font-style:normal">verkennen · Annie</span></li>
-          <li>Structurele samenwerking met instellingen vormgeven, voor trajecten buiten de datacoalitie mbo <em>· Annie</em></li>
-          <li>Datavolwassenheid en ethiek, vanuit publieke waarden <em>· Stephan, John?</em></li>
-          <li>Ieder project heeft een coördinator die niet programmeert</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="ico blauw"><i class="fa-solid fa-train-subway"></i></div>
-        <h3>Huidige projecten: MVP in ander onderwijstype?</h3>
+        <div class="ico blauw"><i class="fa-solid fa-arrows-left-right"></i></div>
+        <h3>A · Breder</h3>
+        <p class="ctx" style="opacity:.75">Huidige projecten: MVP in het andere onderwijstype</p>
         <ul class="items" style="--c:var(--npuls-blauw)">
-          <li>Instroomprognose<span class="y27" style="font-style:normal">MVP in het mbo?</span></li>
-          <li>Samenwijzer / Uitnodigingsregel<span class="y27" style="font-style:normal">MVP in hbo/wo?</span></li>
-          <li>Sectorale informatievoorziening<span class="y27" style="font-style:normal">MVP in mbo? Staat van Opleiding naar beta? Koppelen met chat?</span></li>
+          <li>Instroomprognose<span class="y27" style="font-style:normal">MVP in het mbo</span></li>
+          <li>Samenwijzer / Uitnodigingsregel<span class="y27" style="font-style:normal">MVP in hbo/wo</span></li>
+          <li>Sectorale informatievoorziening<span class="y27" style="font-style:normal">MVP in het mbo, Staat van Opleiding naar beta</span></li>
         </ul>
       </div>
       <div class="card">
-        <div class="ico oranje"><i class="fa-solid fa-circle-question"></i></div>
-        <h3>Nog open</h3>
+        <div class="ico groen"><i class="fa-solid fa-arrow-down"></i></div>
+        <h3>B · Dieper</h3>
+        <p class="ctx" style="opacity:.75">Huidige projecten doorontwikkelen en verservicen, waar we al zitten</p>
+        <ul class="items" style="--c:var(--npuls-groen)">
+          <li>Van analysetools naar echte services<span class="y27" style="font-style:normal">servicebelofte en begeleidingspad, bijv. Uitnodigingsregel voor SLB'ers</span></li>
+          <li>Diensten bovenop bestaande dataproducten en analysetools</li>
+          <li>Geen eigen dataplatform: de instelling ontsluit zelf<span class="y27" style="font-style:normal">is succes geïmplementeerd, of ook daadwerkelijk in gebruik?</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico oranje"><i class="fa-solid fa-comments"></i></div>
+        <h3>C · Vernieuwender</h3>
+        <p class="ctx" style="opacity:.75">Chat op instellingsdata echt prio maken en capaciteit vrijmaken</p>
         <ul class="items" style="--c:var(--npuls-oranje)">
-          <li>Innovatie<span class="y27" style="font-style:normal">kunnen we discovery heel klein en publiek vormgeven? Of willen we dit binnen andere projecten doen?</span></li>
-          <li>Datastandaarden<span class="y27" style="font-style:normal">hoe gaan we dit doen? Wie trekt dit? I.c.m. SURF?</span></li>
-          <li>Way of working<span class="y27" style="font-style:normal">projectmatig werken verbinden met MKM: is iedereen aan boord, of moet er eerst nog iets gebeuren?</span></li>
-          <li>Chat bij instelling<span class="y27" style="font-style:normal">hebben we hiervoor de juiste expertise? En capaciteit?</span></li>
-          <li>Wie of wat gaan we aannemen?</li>
+          <li>Klein beginnen<span class="y27" style="font-style:normal">één dataset, één use case, hooguit twee instellingen intensief</span></li>
+          <li>Interesse<span class="y27" style="font-style:normal">ROC Mondriaan (BI-chatpilot), Graafschap College, ROC Nijmegen, VU, UU, ArtEZ</span></li>
+          <li>Implementeren bij de instelling<span class="y27" style="font-style:normal">synthetische data voor het datamodel? Op eigen server of Azure van de instelling</span></li>
+          <li>Hebben we de juiste expertise?</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== 14. BESLUITEN ==========
-  Notities: per open punt van de slide gemaakte keuzes één zin: wat besluiten we, of wat moet er nog uitgezocht worden en door wie.
-  Regulatory sandbox: potentieel; hier noteren of we het verkennen.
+<!-- ========== OPTIES OP VOLGORDE ==========
+  Notities: twee of drie groepjes. Zet A, B en C op volgorde en noteer in één zin waarom. De volgorde is de keuze.
+  Daarna vergelijken we de groepjes plenair: waar zijn we het over eens, waar niet?
 -->
 <section class="slide s-lgeel" data-sec="3 · Prioriteren">
   <div class="headrow">
-    <div class="slide-head">
-      <span class="kicker">Vastleggen · 5 min</span>
-      <h2>Wat besluiten we, <span class="hl">per keuze?</span></h2>
+    <div class="slide-head" style="margin-bottom:clamp(8px,1.4vh,18px)">
+      <span class="kicker">In groepjes · 14 min</span>
+      <h2>Zet de drie opties <span class="hl">op volgorde</span></h2>
+      <p class="sub"><b>A</b> · breder: MVP in het andere onderwijstype<br><b>B</b> · dieper: verder de instelling in<br><b>C</b> · vernieuwender: instellingsdata als prio</p>
     </div>
-    <div class="timer" data-min="5"><span class="t-display">5:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+    <div class="timer" data-min="14"><span class="t-display">14:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+  </div>
+  <div class="body">
+    <div class="fills">
+      <div class="fill-row"><span class="lbl"><span class="ico blauw"><i class="fa-solid fa-users"></i></span>Groep 1</span><div class="field" contenteditable="true" data-key="o-g1" data-name="Groep 1" data-ph="1. … 2. … 3. … · waarom deze volgorde?"></div></div>
+      <div class="fill-row"><span class="lbl"><span class="ico groen"><i class="fa-solid fa-users"></i></span>Groep 2</span><div class="field" contenteditable="true" data-key="o-g2" data-name="Groep 2" data-ph="1. … 2. … 3. … · waarom deze volgorde?"></div></div>
+      <div class="fill-row"><span class="lbl"><span class="ico oranje"><i class="fa-solid fa-users"></i></span>Groep 3</span><div class="field" contenteditable="true" data-key="o-g3" data-name="Groep 3" data-ph="1. … 2. … 3. … · waarom deze volgorde?"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AANNEMEN · BRAINWRITING ==========
+  Notities: brainwriting, in stilte. Iedereen kiest voor zichzelf één van de vier rollen (slide 7) en schrijft
+  één zin argumentatie op. Daarna lezen we rond en noteren we de uitkomst.
+-->
+<section class="slide s-loranje" data-sec="3 · Prioriteren">
+  <div class="headrow">
+    <div class="slide-head" style="margin-bottom:clamp(8px,1.4vh,18px)">
+      <span class="kicker">Brainwriting · in stilte · 4 min</span>
+      <h2>Wie of wat <span class="hl">gaan we aannemen?</span></h2>
+      <p class="sub">Kies er één en schrijf voor jezelf één zin waarom. Daarna lezen we rond.</p>
+    </div>
+    <div class="timer" data-min="4"><span class="t-display">4:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+  </div>
+  <div class="body" style="justify-content:flex-start;gap:clamp(12px,2vh,24px)">
+    <div class="grid g4" style="align-items:stretch">
+      <div class="card"><div class="ico blauw"><i class="fa-solid fa-language"></i></div><h3>1 · Analytics translator</h3><p class="ctx" style="opacity:.75">IR, coördinator of verbinder: thematische verbinding en interpretatie van data</p></div>
+      <div class="card"><div class="ico groen"><i class="fa-solid fa-sitemap"></i></div><h3>2 · Solution architect</h3><p class="ctx" style="opacity:.75">Hands-on: structureren van de innovatieve tech</p></div>
+      <div class="card"><div class="ico oranje"><i class="fa-solid fa-list-check"></i></div><h3>3 · Senior PMO</h3><p class="ctx" style="opacity:.75">Assertief projectmanagement en deadlines voor opschaling</p></div>
+      <div class="card"><div class="ico geel"><i class="fa-solid fa-scale-balanced"></i></div><h3>4 · Jurist</h3><p class="ctx" style="opacity:.75">DPIA's en creatief meedenken over afspraken</p></div>
+    </div>
+    <div class="fills">
+      <div class="fill-row"><span class="lbl"><span class="ico wit"><i class="fa-solid fa-user-plus"></i></span>Uitkomst</span><div class="field" contenteditable="true" data-key="a-uitkomst" data-name="Wie of wat gaan we aannemen" data-ph="Welke rol, hoe vaak gekozen, en de sterkste argumenten"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NOG OPEN ==========
+  Notities: huiswerkopdracht. Nog drie open punten: per punt wie het uitzoekt en voor wanneer.
+  Download het verslag (knop of toets D) en zet het in de project-repo.
+-->
+<section class="slide s-lgroen" data-sec="3 · Prioriteren">
+  <div class="headrow">
+    <div class="slide-head">
+      <span class="kicker">Huiswerkopdracht · 3 min</span>
+      <h2>Nog wat <span class="hl">open punten</span></h2>
+      <p class="sub">Per punt: wie zoekt het uit, en voor wanneer?</p>
+    </div>
+    <div class="timer" data-min="3"><span class="t-display">3:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
   </div>
   <div class="body">
     <div class="fills">
       <div class="fill-row"><span class="lbl"><span class="ico blauw"><i class="fa-solid fa-lightbulb"></i></span>Innovatie</span><div class="field" contenteditable="true" data-key="k-inst" data-name="Innovatie" data-ph="Discovery heel klein en publiek? Of binnen andere projecten?"></div></div>
       <div class="fill-row"><span class="lbl"><span class="ico groen"><i class="fa-solid fa-ruler-combined"></i></span>Datastandaarden</span><div class="field" contenteditable="true" data-key="k-std" data-name="Datastandaarden" data-ph="Hoe? Wie trekt? I.c.m. SURF?"></div></div>
-      <div class="fill-row"><span class="lbl"><span class="ico oranje"><i class="fa-solid fa-route"></i></span>Way of working</span><div class="field" contenteditable="true" data-key="k-wow" data-name="Way of working" data-ph="Verbinden met MKM: iedereen aan boord?"></div></div>
-      <div class="fill-row"><span class="lbl"><span class="ico blauw"><i class="fa-solid fa-comments"></i></span>Chat bij instelling</span><div class="field" contenteditable="true" data-key="k-chat" data-name="Chat bij instelling" data-ph="Juiste expertise? Capaciteit?"></div></div>
-      <div class="fill-row"><span class="lbl"><span class="ico geel"><i class="fa-solid fa-user-plus"></i></span>Aannemen</span><div class="field" contenteditable="true" data-key="k-aannemen" data-name="Wie of wat gaan we aannemen" data-ph="Welke rol eerst?"></div></div>
-      <div class="fill-row"><span class="lbl"><span class="ico wit"><i class="fa-solid fa-flask"></i></span>Overig</span><div class="field" contenteditable="true" data-key="k-overig" data-name="Overig" data-ph="Regulatory sandbox, MVP's in de andere sector, …"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 15. NU / LATER / NIET ==========
-  Notities: sleep elk onderdeel naar een kolom (of klik een chip en dan een kolom). Weeg mee: draagt het bij aan
-  wat we voor 2027 beloofd hebben, is er vraag vanuit instellingen, is er een trekker met uren, en hangt het af
-  van een ander subdomein? "Niet" kan ook betekenen: niet door ons.
--->
-<section class="slide s-lgroen" data-sec="3 · Prioriteren">
-  <div class="headrow">
-    <div class="slide-head" style="margin-bottom:clamp(8px,1.4vh,18px)">
-      <span class="kicker">Samen schuiven · 12 min</span>
-      <h2>Nu, later <span class="hl">of niet?</span></h2>
-      <p class="sub">Weeg mee: belofte 2027 · vraag van instellingen · trekker met uren · afhankelijk van een ander subdomein.</p>
-    </div>
-    <div class="timer" data-min="12"><span class="t-display">12:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
-  </div>
-  <div class="board" data-board="prio" data-lanes="nu|Nu|H1 2027, met trekker;later|Later|H2, of als voorwaarde rond is;niet|Niet|of niet door ons"></div>
-</section>
-
-<!-- ========== 16. VERVOLG ==========
-  Notities: sluit af met wie wat trekt en wat er naar de roadmap gaat. De roadmap zelf (mensen × werk × tijd)
-  maken we later. Download het verslag (knop of toets D) en zet het in de project-repo.
--->
-<section class="slide s-geel" data-sec="4 · Vervolg">
-  <div class="slide-head">
-    <span class="kicker">Vervolg</span>
-    <h2>Van keuzes <span class="hl">naar een roadmap</span></h2>
-    <p class="sub">De roadmap volgt later: deze mensen, dit werk, in deze volgorde.</p>
-  </div>
-  <div class="body">
-    <div class="fills">
-      <div class="fill-row"><span class="lbl"><span class="ico oranje"><i class="fa-solid fa-ranking-star"></i></span>Top 3 voor H1 2027</span><div class="field" contenteditable="true" data-key="v-top3" data-name="Top 3 voor H1 2027" data-ph="1. … 2. … 3. …"></div></div>
-      <div class="fill-row"><span class="lbl"><span class="ico blauw"><i class="fa-solid fa-person-hiking"></i></span>Wie trekt wat</span><div class="field" contenteditable="true" data-key="v-trekkers" data-name="Wie trekt wat" data-ph="Onderdeel → trekker"></div></div>
-      <div class="fill-row"><span class="lbl"><span class="ico groen"><i class="fa-solid fa-map"></i></span>Naar de roadmap</span><div class="field" contenteditable="true" data-key="v-roadmap" data-name="Naar de roadmap" data-ph="Wat moet er nog uitgezocht of gepland worden?"></div></div>
+      <div class="fill-row"><span class="lbl"><span class="ico oranje"><i class="fa-solid fa-route"></i></span>Way of working</span><div class="field" contenteditable="true" data-key="k-wow" data-name="Way of working" data-ph="Hoe integreren we MKM echt projectmatig?"></div></div>
     </div>
     <div class="savebar">
       <button class="savebtn" data-act="download"><i class="fa-solid fa-download"></i> Download verslag (.md)</button>
@@ -1245,22 +1291,12 @@ const MENTI = { url: '' };
 
   // verslag
   const val=k=>(typeof data[k]==='string'?data[k]:'').trim();
-  function boardMd(name){
-    const L=[];
-    boards[name].forEach(l=>{
-      const ids=Object.keys(data[name]).filter(id=>data[name][id]===l.id);
-      L.push('- **'+l.t+'**: '+(ids.length?ids.map(label).join(', '):'_(leeg)_'));
-    });
-    const open=ITEMS.map(x=>x[0]).filter(id=>!data[name][id]);
-    if(open.length) L.push('- _Niet geplaatst_: '+open.map(label).join(', '));
-    return L;
-  }
   function verslag(){
-    const L=['# CEDA in 2027 · verslag brainstorm','','CEDA · woensdag 18 november 2026','',
-      '## Besluiten per keuze',''];
-    document.querySelectorAll('.field[data-key^="k-"]').forEach(f=>L.push('- **'+f.dataset.name+'**: '+(val(f.dataset.key)||'_(leeg)_')));
-    L.push('','## Nu, later of niet','',...boardMd('prio'),'','## Vervolg','');
-    document.querySelectorAll('.field[data-key^="v-"]').forEach(f=>L.push('### '+f.dataset.name,'',val(f.dataset.key)||'_(leeg)_',''));
+    const L=['# CEDA in 2027 · verslag brainstorm','','CEDA · woensdag 18 november 2026',''];
+    const sec=(t,pre)=>{L.push('## '+t,'');document.querySelectorAll('.field[data-key^="'+pre+'"]').forEach(f=>L.push('- **'+f.dataset.name+'**: '+(val(f.dataset.key)||'_(leeg)_')));L.push('')};
+    sec('Drie opties op volgorde','o-');
+    sec('Wie of wat gaan we aannemen','a-');
+    sec('Huiswerkopdracht: open punten','k-');
     L.push('_Gedownload op '+new Date().toLocaleString('nl-NL')+'_','');
     return L.join('\n');
   }
