@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winter is coming</title>
+<!--
+  clanna-frame v1 — gebaseerd op het deck "Welk open-source model kan mijn LLM-wiki
+  het beste onderhouden?" van Janna Berkhout (KIS). Huisstijl: vormgever-npuls-huisstijl.
+  Dit bestand hoort in de root van clidev-presentaties: de fonts, het logo en de
+  illustraties komen uit public/npuls/ (relatieve paden).
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   NPULS FONTS — echte assets uit public/npuls/
+   ============================================================ */
+@font-face{font-family:'General Sans';src:url('public/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'General Sans';src:url('public/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Cooper Light BT';src:url('public/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
+
+/* ============================================================
+   NPULS DESIGN TOKENS (waarden: vormgever-npuls-huisstijl)
+   ============================================================ */
+:root{
+  --npuls-oranje:#DD784B;
+  --npuls-zwart:#000000;
+  --npuls-roze:#F4D9DC;
+  --npuls-blauw:#3D68EC;
+  --npuls-geel:#F4D74B;
+  --npuls-groen:#00AF81;
+  --npuls-wit:#FFFFFF;
+
+  --licht-groen:#CCEEE6;
+  --licht-blauw:#D6E2FD;
+  --licht-roze:#FAEAEA;
+  --licht-oranje:#FFE4D8;
+  --licht-geel:#FCF5D4;
+
+  --font-primair:'General Sans',system-ui,-apple-system,sans-serif;
+  --font-secundair:'Cooper Light BT',Georgia,serif;
+
+  --ink:var(--npuls-zwart);
+  --paper:var(--npuls-wit);
+  --accent:var(--npuls-blauw);
+  --accent-2:var(--npuls-geel);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--font-primair);
+  font-weight:400;
+  color:var(--ink);
+  background:var(--npuls-zwart);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============================================================
+   SLIDE FRAME
+   ============================================================ */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  padding:clamp(28px,4.2vw,80px) clamp(28px,5.5vw,110px) clamp(72px,7vh,104px);
+  background:var(--paper);
+  color:var(--ink);
+  overflow:hidden;
+  opacity:0;visibility:hidden;
+  transform:translateY(14px);
+  transition:opacity .38s ease,transform .38s ease,visibility .38s;
+}
+.slide.active{opacity:1;visibility:visible;transform:translateY(0);z-index:2}
+.slide>*{position:relative;z-index:3}
+
+/* slide-varianten: alleen toegestane kleurcombinaties */
+.s-blauw  {--paper:var(--npuls-blauw); --ink:var(--npuls-wit);  --accent:var(--npuls-geel);   --accent-2:var(--npuls-roze)}
+.s-roze   {--paper:var(--npuls-roze);  --ink:var(--npuls-zwart);--accent:var(--npuls-blauw);  --accent-2:var(--npuls-oranje)}
+.s-geel   {--paper:var(--npuls-geel);  --ink:var(--npuls-zwart);--accent:var(--npuls-blauw);  --accent-2:var(--npuls-oranje)}
+.s-groen  {--paper:var(--npuls-groen); --ink:var(--npuls-zwart);--accent:var(--npuls-roze);   --accent-2:var(--npuls-wit)}
+.s-oranje {--paper:var(--npuls-oranje);--ink:var(--npuls-zwart);--accent:var(--npuls-roze);   --accent-2:var(--npuls-wit)}
+.s-lblauw {--paper:var(--licht-blauw); --ink:var(--npuls-zwart);--accent:var(--npuls-blauw);  --accent-2:var(--npuls-oranje)}
+.s-lgroen {--paper:var(--licht-groen); --ink:var(--npuls-zwart);--accent:var(--npuls-groen);  --accent-2:var(--npuls-oranje)}
+.s-lgeel  {--paper:var(--licht-geel);  --ink:var(--npuls-zwart);--accent:var(--npuls-oranje); --accent-2:var(--npuls-blauw)}
+.s-lroze  {--paper:var(--licht-roze);  --ink:var(--npuls-zwart);--accent:var(--npuls-oranje); --accent-2:var(--npuls-blauw)}
+.s-loranje{--paper:var(--licht-oranje);--ink:var(--npuls-zwart);--accent:var(--npuls-oranje); --accent-2:var(--npuls-blauw)}
+.s-wit    {--paper:var(--npuls-wit);   --ink:var(--npuls-zwart);--accent:var(--npuls-blauw);  --accent-2:var(--npuls-groen)}
+
+/* ============================================================
+   TYPOGRAFIE
+   ============================================================ */
+h1{font-size:clamp(34px,4.6vw,58px);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.1vw,38px);font-weight:600;line-height:1.1;letter-spacing:-.015em}
+h3{font-size:clamp(17px,1.6vw,23px);font-weight:600;line-height:1.2}
+p,li{font-size:clamp(14px,1.12vw,17px);line-height:1.55}
+.lede{
+  font-family:var(--font-secundair);font-weight:300;
+  font-size:clamp(17px,1.8vw,26px);line-height:1.38;
+  max-width:34ch;
+}
+.label{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-size:clamp(10px,.82vw,13px);font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.kicker{
+  display:inline-block;
+  background:var(--accent);color:var(--paper);
+  padding:.42em .95em;border-radius:99px;
+  font-size:clamp(10px,.82vw,13px);font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:clamp(14px,1.8vh,24px);
+}
+.s-blauw .kicker,.s-groen .kicker,.s-oranje .kicker{color:var(--npuls-zwart)}
+.slide-head{margin-bottom:clamp(18px,2.6vh,34px);flex-shrink:0;max-width:78%}
+.slide-head h2 .hl{color:var(--accent)}
+.sub{margin-top:.7em;opacity:.78;max-width:62ch;font-size:clamp(13px,1.05vw,16px)}
+.body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start}
+/* inhoud op 1/3 van de vrije ruimte, niet midden: geen gat onder de kop */
+.body::before{content:'';flex:1 1 0;max-height:4vh}
+.body::after{content:'';flex:2 1 0}
+strong{font-weight:600}
+.mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.92em}
+.payoff{font-weight:600;letter-spacing:-.01em}
+
+/* ============================================================
+   COMPONENTEN
+   ============================================================ */
+.grid{display:grid;gap:clamp(12px,1.35vw,22px)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+.card{
+  background:var(--npuls-wit);
+  border-radius:20px;
+  padding:clamp(16px,1.5vw,26px);
+  display:flex;flex-direction:column;gap:.55em;
+}
+.card.row{flex-direction:row;align-items:center;gap:1.2em}
+.card.blauw{background:var(--npuls-blauw);color:var(--npuls-wit)}
+.card.geel{background:var(--npuls-geel)}
+.card.roze{background:var(--npuls-roze)}
+.card.groen{background:var(--npuls-groen)}
+.card.oranje{background:var(--npuls-oranje)}
+.card.lblauw{background:var(--licht-blauw)}
+.card.lgroen{background:var(--licht-groen)}
+.card.lgeel{background:var(--licht-geel)}
+.card.lroze{background:var(--licht-roze)}
+.card.loranje{background:var(--licht-oranje)}
+.card p{opacity:.85}
+.card h3{letter-spacing:-.01em}
+
+.ico{
+  width:clamp(34px,3vw,46px);height:clamp(34px,3vw,46px);
+  border-radius:13px;flex-shrink:0;
+  display:grid;place-items:center;
+  font-size:clamp(15px,1.25vw,19px);
+}
+.ico.blauw{background:var(--npuls-blauw);color:var(--npuls-geel)}
+.ico.geel{background:var(--npuls-geel);color:var(--npuls-blauw)}
+.ico.roze{background:var(--npuls-roze);color:var(--npuls-zwart)}
+.ico.groen{background:var(--npuls-groen);color:var(--npuls-roze)}
+.ico.oranje{background:var(--npuls-oranje);color:var(--npuls-zwart)}
+.ico.zwart{background:var(--npuls-zwart);color:var(--npuls-geel)}
+.ico.wit{background:var(--npuls-wit);color:var(--npuls-blauw)}
+
+.steps{display:flex;flex-direction:column;gap:clamp(6px,.8vh,11px)}
+.step{display:flex;gap:clamp(11px,1.1vw,18px);align-items:flex-start;
+  background:var(--npuls-wit);border-radius:18px;padding:clamp(10px,.95vw,15px) clamp(13px,1.2vw,20px)}
+.step .num{
+  flex-shrink:0;width:clamp(28px,2.4vw,38px);height:clamp(28px,2.4vw,38px);
+  border-radius:99px;display:grid;place-items:center;font-weight:600;
+  font-size:clamp(12px,1vw,15px);
+}
+.step-t{font-weight:600;font-size:clamp(14px,1.18vw,18px);margin-bottom:.2em}
+.step p{opacity:.8}
+
+.minirow{display:flex;justify-content:space-between;align-items:baseline;gap:1em;
+  padding:.4em 0;border-bottom:1px solid rgba(0,0,0,.08);font-size:clamp(12px,1.02vw,15.5px)}
+.minirow b{font-weight:600;font-variant-numeric:tabular-nums}
+
+.badge{
+  display:inline-block;font-style:normal;font-weight:600;
+  font-size:clamp(9px,.72vw,11px);text-transform:uppercase;letter-spacing:.07em;
+  padding:.28em .6em;border-radius:99px;margin-left:.45em;vertical-align:.08em;
+  background:var(--npuls-zwart);color:var(--npuls-geel);
+}
+
+/* scorebalken: --w op .bar-fill zet de lengte, animeert bij binnenkomst */
+.bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  column-gap:clamp(10px,1.1vw,18px);row-gap:clamp(8px,1.25vh,17px);align-items:center}
+.bar-row{display:contents}
+.bar-name{font-weight:600;font-size:clamp(12px,1.02vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-name .tag{font-weight:400;opacity:.55;font-size:.82em}
+.bar-track{position:relative;height:clamp(20px,2.1vw,34px);background:rgba(0,0,0,.075);border-radius:99px;overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;width:0;transition:width .85s cubic-bezier(.2,.75,.3,1)}
+.slide.active .bar-fill{width:var(--w)}
+.bar-val{font-weight:600;font-variant-numeric:tabular-nums;font-size:clamp(12px,1.05vw,16px);min-width:3.4em;text-align:right}
+.bar-row.win .bar-name{color:var(--npuls-blauw)}
+.bar-row.ref .bar-name,.bar-row.ref .bar-val{opacity:.55}
+.bar-row.ref .bar-name{font-style:italic}
+
+.legend{display:flex;flex-wrap:wrap;gap:clamp(10px,1.2vw,22px);margin-top:clamp(12px,1.6vh,20px);font-size:clamp(11px,.9vw,14px);opacity:.8}
+.legend span{display:inline-flex;align-items:center;gap:.5em}
+.swatch{width:13px;height:13px;border-radius:4px;display:inline-block}
+
+/* titelslide — gecentreerd */
+.title-body{align-items:center;justify-content:center;text-align:center}
+.title-body::before,.title-body::after{flex:1 1 0;max-height:none}
+.title-body h1{max-width:18ch}
+.title-body .lede{max-width:46ch}
+
+/* Mentimeter */
+.menti-wrap{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(7px,1vh,12px)}
+.menti-frame{position:relative;height:100%;width:auto;aspect-ratio:16/9;max-width:100%;
+  border-radius:20px;overflow:hidden;background:var(--npuls-wit);box-shadow:0 2px 18px rgba(0,0,0,.07)}
+.menti-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.menti-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:.7em;text-align:center;padding:clamp(18px,2.5vw,40px);
+  background:var(--npuls-wit);border:2px dashed rgba(0,0,0,.18);border-radius:20px}
+.menti-placeholder p{max-width:52ch;opacity:.75}
+.menti-placeholder code{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.92em;
+  background:rgba(0,0,0,.06);padding:.15em .45em;border-radius:6px}
+.menti-hint{flex-shrink:0;font-size:clamp(10px,.85vw,13px);opacity:.6;text-align:center}
+
+/* procesketen: node → hop → node */
+.chain{display:flex;align-items:stretch;gap:clamp(6px,.75vw,12px)}
+.node{flex:1;display:flex;flex-direction:column;justify-content:center;background:var(--npuls-wit);border-radius:14px;padding:clamp(9px,.85vw,14px) clamp(10px,.95vw,16px);min-width:0}
+.node b{display:block;font-size:clamp(13px,1.1vw,17px);font-weight:600}
+.node span{display:block;font-size:clamp(11px,.9vw,14px);opacity:.7;margin-top:.15em;line-height:1.35}
+.node.lblauw{background:var(--licht-blauw)}
+.node.lgeel{background:var(--licht-geel)}
+.node.lgroen{background:var(--licht-groen)}
+.hop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25em;flex-shrink:0;padding:0 .1em;color:var(--accent-2)}
+.hop b{font-size:clamp(9.5px,.78vw,12px);font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.hop i{font-size:clamp(12px,1vw,15px)}
+
+/* grafiek (inline SVG) */
+.chart-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.chart{width:100%;height:auto;max-height:100%;display:block}
+.chart .ax{font-family:var(--font-primair);font-size:15px;font-weight:500;fill:var(--npuls-zwart);opacity:.5}
+.chart .ann{font-family:var(--font-primair);font-size:15px;font-weight:600;opacity:.85}
+.chart-foot{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(10px,1.6vw,28px);margin-top:clamp(8px,1.2vh,16px)}
+.chip{display:inline-flex;align-items:baseline;gap:.5em;background:var(--npuls-wit);border-radius:14px;padding:.55em .95em}
+.chip b{font-size:clamp(16px,1.5vw,23px);font-weight:600;letter-spacing:-.02em}
+.chip span{font-size:clamp(11px,.88vw,13.5px);font-weight:600;text-transform:uppercase;letter-spacing:.07em;opacity:.65}
+.src{font-size:clamp(10.5px,.85vw,13px);opacity:.55;margin-left:auto}
+
+/* tabel: rijen als witte pillen */
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:clamp(11.5px,1vw,15px)}
+th{
+  text-align:left;font-weight:600;font-size:clamp(10px,.8vw,12.5px);
+  text-transform:uppercase;letter-spacing:.07em;opacity:.6;
+  padding:0 .8em .2em;
+}
+td{padding:.62em .8em;background:var(--npuls-wit);vertical-align:top}
+tr td:first-child{border-radius:12px 0 0 12px;font-weight:600}
+tr td:last-child{border-radius:0 12px 12px 0}
+
+/* uitgelicht */
+.pull{
+  font-family:var(--font-secundair);font-weight:300;
+  font-size:clamp(20px,2.5vw,36px);line-height:1.25;
+  max-width:24ch;
+}
+.big-num{font-size:clamp(40px,5vw,76px);font-weight:600;line-height:.95;letter-spacing:-.03em}
+.stat{display:flex;flex-direction:column;gap:.25em}
+.stat .cap{font-size:clamp(11px,.9vw,14px);font-weight:600;text-transform:uppercase;letter-spacing:.08em;opacity:.7}
+
+ul.ticks{list-style:none;display:flex;flex-direction:column;gap:.55em}
+ul.ticks li{display:flex;gap:.7em;align-items:flex-start}
+ul.ticks li i{margin-top:.28em;font-size:.82em;color:var(--accent)}
+
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(22px,3vw,58px);align-items:center;flex:1;min-height:0}
+
+/* Npuls-illustraties (public/npuls/powerpoint_illustrations) */
+.illu{display:block;width:100%;height:auto;max-height:min(52vh,520px);object-fit:contain}
+.illu-sm{display:block;width:clamp(64px,7vw,120px);height:auto}
+
+/* logo (public/npuls/npuls_logo.jpg, roze achtergrond: alleen op s-roze) */
+.logo{width:clamp(120px,13vw,220px);height:auto;display:block}
+
+/* ============================================================
+   VORMENTAAL — decoratieve SVG's in de hoeken
+   ============================================================ */
+.deco{position:absolute;z-index:1;pointer-events:none}
+.deco.tr{top:-4%;right:-3%}
+.deco.br{bottom:-8%;right:-4%}
+.deco.bl{bottom:-6%;left:-5%}
+.deco.tl{top:-6%;left:-4%}
+
+/* ============================================================
+   NAVIGATIE
+   ============================================================ */
+.nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(12px,1.4vh,20px) clamp(28px,5.5vw,110px);
+  pointer-events:none;
+}
+.dots{display:flex;gap:7px;pointer-events:auto}
+.dot{
+  width:8px;height:8px;border-radius:99px;border:none;cursor:pointer;padding:0;color:inherit;
+  background:currentColor;opacity:.25;transition:opacity .2s,width .2s;
+}
+.dot.on{opacity:1;width:24px}
+.nav-right{display:flex;align-items:center;gap:14px;pointer-events:auto}
+.counter{font-size:clamp(11px,.9vw,13px);font-weight:600;letter-spacing:.06em;font-variant-numeric:tabular-nums;opacity:.65}
+.navbtn{
+  width:34px;height:34px;border-radius:99px;border:1.5px solid currentColor;
+  background:transparent;color:inherit;cursor:pointer;
+  display:grid;place-items:center;font-size:12px;opacity:.6;transition:opacity .2s;
+}
+.navbtn:hover{opacity:1}
+.brand{
+  position:fixed;top:clamp(18px,2.4vh,30px);right:clamp(28px,5.5vw,110px);z-index:20;
+  font-size:clamp(11px,.88vw,13px);font-weight:600;letter-spacing:.09em;text-transform:uppercase;opacity:.55;
+}
+
+/* lage schermen (beamers, 768px-laptops): alles een slag compacter */
+@media (max-height:840px){
+  .slide{padding-top:clamp(20px,3vw,52px);padding-bottom:62px}
+  .slide-head{margin-bottom:clamp(10px,1.7vh,20px)}
+  h1{font-size:clamp(30px,4vw,48px)}
+  h2{font-size:clamp(23px,2.7vw,32px)}
+  h3{font-size:clamp(15px,1.4vw,19px)}
+  p,li{font-size:clamp(12.5px,1vw,15px)}
+  .sub{font-size:clamp(12px,.98vw,14.5px)}
+  .card{padding:clamp(11px,1.15vw,17px);gap:.4em}
+  .grid{gap:clamp(8px,1vw,15px)}
+  .ico{width:clamp(28px,2.5vw,38px);height:clamp(28px,2.5vw,38px);border-radius:11px;font-size:clamp(13px,1.1vw,16px)}
+  .step{padding:clamp(8px,.82vw,13px) clamp(11px,1vw,17px)}
+  .steps{gap:clamp(5px,.7vh,9px)}
+  .big-num{font-size:clamp(32px,4vw,58px)}
+  .kicker{margin-bottom:clamp(8px,1.3vh,16px)}
+}
+@media (max-width:820px){
+  .g4,.g3{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr;align-items:start}
+}
+@media print{
+  body{overflow:visible;background:var(--npuls-wit)}
+  .deck{height:auto}
+  .slide{position:relative;opacity:1;visibility:visible;transform:none;height:100vh;page-break-after:always;inset:auto}
+  .nav,.brand{display:none}
+  .bar-fill{width:var(--w)!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .slide,.bar-fill{transition:none}
+}
+
+/* ============================================================
+   EXTRA — winter is coming: tijdbalk, timer, peiling, invulvelden
+   ============================================================ */
+.headrow{display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(16px,2vw,32px);flex-shrink:0}
+.headrow .slide-head{max-width:none;flex:1}
+.timer{margin-top:clamp(22px,3.4vh,40px);display:flex;align-items:center;gap:.6em;background:var(--npuls-wit);border-radius:20px;padding:.5em .6em .5em 1.1em;flex-shrink:0}
+.timer .t-display{font-size:clamp(28px,3.2vw,52px);font-weight:600;font-variant-numeric:tabular-nums;min-width:3.4ch;line-height:1;letter-spacing:-.02em}
+.timer button{border:0;cursor:pointer;font:inherit;font-weight:600;font-size:clamp(12px,1vw,15px);padding:.65em 1.1em;border-radius:99px;background:var(--npuls-blauw);color:var(--npuls-geel)}
+.timer button.sec{background:var(--npuls-roze);color:var(--npuls-blauw)}
+.timer.done{background:var(--npuls-oranje)}
+.timer.done .t-display{animation:wic-blink 1s steps(2) infinite}
+@keyframes wic-blink{50%{opacity:.3}}
+mark{padding:0 .2em;border-radius:4px;color:var(--npuls-zwart)}
+mark.fout{background:var(--npuls-oranje)}
+mark.goed{background:var(--npuls-groen)}
+.metro{width:100%;height:auto;display:block}
+.metro text{font-family:var(--font-primair);fill:var(--npuls-zwart)}
+.metro .st{font-size:17px;font-weight:600}
+.metro .sm{font-size:15px;opacity:.6}
+.vote{border:0;font:inherit;text-align:left;cursor:pointer;color:var(--npuls-zwart);transition:transform .1s}
+.vote:active{transform:scale(.98)}
+.field{background:var(--npuls-wit);border:2px dashed rgba(0,0,0,.2);border-radius:12px;padding:.6em .9em;font-size:clamp(14px,1.2vw,19px);line-height:1.45;outline:none;min-height:2.7em}
+.card .field{border-color:rgba(0,0,0,.14)}
+.field:focus{border:2px solid var(--npuls-blauw)}
+.field:empty::before{content:attr(data-ph);opacity:.45}
+.field.tall{min-height:clamp(130px,26vh,320px)}
+.fills{display:flex;flex-direction:column;gap:clamp(8px,1.3vh,16px)}
+.fill-row{display:grid;grid-template-columns:minmax(200px,24%) 1fr;gap:1.2em;align-items:center}
+.fill-row .lbl{display:flex;align-items:center;gap:.8em;font-weight:600;font-size:clamp(15px,1.3vw,20px)}
+.tbar{position:fixed;bottom:clamp(12px,1.4vh,20px);left:50%;transform:translateX(-50%);z-index:21;display:flex;gap:6px;pointer-events:none}
+.tpill{background:var(--npuls-wit);color:var(--npuls-zwart);border-radius:99px;padding:.45em .95em;font-size:clamp(11px,.85vw,13px);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tpill i{color:var(--npuls-blauw);margin-right:.4em}
+.tpill.ok i{color:var(--npuls-groen)}
+.tpill.late{background:var(--npuls-oranje)}
+.tpill.late i{color:var(--npuls-zwart)}
+@media (max-width:820px){.tbar{display:none}}
+@media print{.tbar,.timer button{display:none}}
+table.agenda{font-size:clamp(14px,1.35vw,21px);border-spacing:0 clamp(6px,1.1vh,12px)}
+table.agenda td{padding:clamp(12px,1.6vh,22px) 1em}
+.vote{min-height:clamp(170px,32vh,380px)}
+.vote .count{margin-top:auto;font-size:clamp(56px,7vw,120px)}
+.field.tall{min-height:clamp(170px,36vh,420px)}
+pre.fm{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:clamp(11px,.92vw,14.5px);line-height:1.55;white-space:pre;overflow:hidden;background:var(--npuls-wit);border-radius:12px;padding:.8em 1em}
+pre.fm .dim{opacity:.45}
+.reis{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,.7vw,12px);background:var(--licht-geel);border-radius:0 0 14px 14px;padding:0 clamp(10px,1vw,18px) clamp(4px,.6vw,10px);margin-top:-2px}
+.rchip{display:inline-flex;align-items:center;gap:.5em;background:var(--npuls-wit);border-radius:99px;padding:.45em .9em;font-weight:600;font-size:clamp(12px,1vw,15.5px)}
+.rchip i{color:var(--npuls-oranje)}
+table.keuzes{font-size:clamp(13px,1.2vw,19px)}
+table.keuzes td{padding:clamp(10px,1.4vh,18px) 1em;vertical-align:middle}
+table.keuzes td:first-child{display:flex;align-items:center;gap:.7em}
+table.keuzes tr.nu td{background:var(--npuls-geel)}
+.ico.sm{width:clamp(26px,2.1vw,34px);height:clamp(26px,2.1vw,34px);border-radius:9px;font-size:clamp(12px,.95vw,15px)}
+table.duo{font-size:clamp(13px,1.1vw,17px)}
+table.duo td{padding:.35em .45em;vertical-align:middle}
+table.duo td:first-child{text-align:center;font-size:1.2em}
+table.duo .cell{min-height:clamp(40px,6.5vh,64px);padding:.45em .6em;border-radius:8px;border:2px dashed rgba(0,0,0,.14);outline:none;line-height:1.35}
+table.duo .cell:focus{border:2px solid var(--npuls-blauw)}
+.savebar{display:flex;align-items:center;gap:1em;margin-top:clamp(14px,2.2vh,28px)}
+.savebtn{border:0;cursor:pointer;font:inherit;font-weight:600;font-size:clamp(13px,1.05vw,16px);padding:.75em 1.3em;border-radius:99px;background:var(--npuls-blauw);color:var(--npuls-geel)}
+.savebtn.sec{background:var(--npuls-wit);color:var(--npuls-blauw)}
+.savestate{font-size:clamp(11px,.9vw,14px);opacity:.7}
+@media print{.savebar{display:none}}
+.fmcard{gap:.5em}
+.fmlink{display:inline-flex;align-items:center;gap:.45em;flex-wrap:wrap;font-size:clamp(10.5px,.85vw,13px);color:var(--npuls-blauw);text-decoration:none;font-weight:500}
+.fmlink:hover{text-decoration:underline}
+pre.fm{font-size:clamp(9.5px,.8vw,13px);line-height:1.45;white-space:pre-wrap;word-break:break-all;color:var(--npuls-zwart)}
+pre.fm .y-k{color:var(--npuls-blauw);font-weight:600}
+pre.fm .y-d{opacity:.4}
+.loops{width:100%;height:auto;max-height:min(52vh,500px);display:block;margin-top:clamp(10px,2vh,24px)}
+.loops .ln{font-family:var(--font-primair);font-weight:600;font-size:24px;fill:var(--npuls-zwart)}
+.srclink{display:inline-flex;align-items:center;gap:.4em;margin-top:.3em;font-size:clamp(11px,.85vw,13px);font-weight:600;color:var(--npuls-blauw);text-decoration:none}
+.srclink:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="brand" id="brand">Npuls · CEDA</div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDES:START -->
+
+<!-- ========== 1. TITEL ==========
+  Notities: dit uur gaat niet over code of tooling op zich, maar over hoe wij als team werken: kennis in een
+  project vasthouden. Twee keer in groepen. Om 14:00 weten we wie voortrekker is en met welk project we beginnen.
+-->
+<section class="slide s-blauw active" data-sec="Welkom" data-start="13:00" data-end="13:00">
+  <svg class="deco tr" width="560" height="560" viewBox="0 0 560 560" fill="none">
+    <circle cx="380" cy="180" r="230" style="stroke:var(--npuls-geel)" stroke-width="14"/>
+    <circle cx="380" cy="180" r="160" style="stroke:var(--npuls-roze)" stroke-width="14"/>
+    <circle cx="380" cy="180" r="92" style="fill:var(--npuls-geel)"/>
+  </svg>
+  <svg class="deco bl" width="460" height="300" viewBox="0 0 460 300" fill="none">
+    <path d="M-20 200 C 80 90, 160 300, 260 190 S 420 60, 500 160" style="stroke:var(--npuls-roze)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M-20 255 C 80 145, 160 355, 260 245 S 420 115, 500 215" style="stroke:var(--npuls-groen)" stroke-width="16" stroke-linecap="round"/>
+  </svg>
+  <div class="body title-body">
+    <span class="kicker">CEDA teamsessie · interactief</span>
+    <h1>Winter is coming</h1>
+    <p class="lede" style="margin-top:clamp(18px,2.4vh,30px);opacity:.92">Hoe houden we vast wat we in onze projecten leren, bespreken en besluiten?</p>
+    <p style="margin-top:clamp(20px,2.8vh,36px);opacity:.75">Corneel den Hartogh &middot; CEDA &middot; donderdag 5 november 2026 · 13:00–14:00</p>
+  </div>
+</section>
+
+<!-- ========== 2. AGENDA ==========
+  Notities: twee keer een groepsopdracht, steeds gevolgd door een korte terugkoppeling.
+  Onderaan staat per slide het geplande tijdvak en de klok; lopen we uit, dan kleurt de chip oranje.
+  Alles wat we in de vakken typen, blijft bewaard in deze browser en kan aan het eind als verslag gedownload worden.
+-->
+<section class="slide s-lgeel" data-sec="Welkom" data-start="13:00" data-end="13:02">
+  <div class="slide-head">
+    <span class="kicker">Agenda · 13:00–14:00</span>
+    <h2>Een uur, <span class="hl">twee keer</span> zelf aan de slag</h2>
+  </div>
+  <div class="body">
+    <table class="agenda">
+      <thead><tr><th style="width:18%">Tijd</th><th>Onderdeel</th><th style="width:22%">Werkvorm</th><th style="width:10%">Duur</th></tr></thead>
+      <tbody>
+        <tr><td><i class="swatch" style="background:var(--npuls-blauw)"></i>&nbsp; 13:00–13:10</td><td><strong>Intro</strong>: proces opslaan, naast code</td><td>plenair</td><td>10 min</td></tr>
+        <tr><td><i class="swatch" style="background:var(--npuls-oranje)"></i>&nbsp; 13:10–13:30</td><td><strong>Hoe ga je hiermee om?</strong> Gesprekken, mails en meer</td><td>twee groepen</td><td>20 min</td></tr>
+        <tr><td><i class="swatch" style="background:var(--npuls-groen)"></i>&nbsp; 13:30–13:52</td><td><strong>Informatiestroom en -architectuur</strong>: vier keuzes</td><td>in duo's</td><td>22 min</td></tr>
+        <tr><td><i class="swatch" style="background:var(--npuls-geel)"></i>&nbsp; 13:52–14:00</td><td><strong>Met welk project beginnen we?</strong></td><td>plenair</td><td>8 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 3. INTRO: DRIE LOOPS ==========
+  Notities: drie loops die elkaar omsluiten. Construct: van heldere specificatie naar werkende code (re-cinq: build loop).
+  Co-create: van gebruikersbehoefte tot een instelling het echt gebruikt, gevalideerd (re-cinq: delivery loop, voor ons
+  co-creatie). Commit: een organisatie of onze eigen directeur komt met een vraag, we bouwen een business case, verzamelen
+  handtekeningen en komen alle verplichtingen na, zodat ze het volgende project weer met ons willen doen. Die derde staat
+  niet bij re-cinq; de naam is voorlopig. Re-cinq: bouwen is het best ondersteunde deel; de rem zit erbuiten.
+  Vandaag gaat over de co-create-loop: wat er gebeurt tussen vraag en gebruik.
+-->
+<section class="slide s-wit" data-sec="Intro" data-start="13:02" data-end="13:04">
+  <div class="slide-head">
+    <span class="kicker">Intro · drie loops</span>
+    <h2>Bouwen gaat steeds sneller met AI, <span class="hl">de loops eromheen nog niet</span></h2>
+    <p class="sub">Vandaag gaat over de middelste: wat er gebeurt tussen vraag en echt gebruik.</p>
+  </div>
+  <div class="body">
+    <div class="split" style="grid-template-columns:.9fr 1.1fr">
+      <svg class="loops" viewBox="0 0 440 400" aria-label="Drie geneste loops: Construct binnen Co-create binnen Commit">
+        <circle cx="220" cy="210" r="186" style="fill:var(--licht-oranje);stroke:var(--npuls-oranje)" stroke-width="6"/>
+        <circle cx="220" cy="232" r="128" style="fill:var(--licht-groen);stroke:var(--npuls-groen)" stroke-width="6"/>
+        <circle cx="220" cy="262" r="66" style="fill:var(--licht-blauw);stroke:var(--npuls-blauw)" stroke-width="6"/>
+        <g text-anchor="middle">
+          <text x="220" y="62" class="ln">Commit</text>
+          <text x="220" y="140" class="ln">Co-create</text>
+          <text x="220" y="269" class="ln">Construct</text>
+        </g>
+      </svg>
+      <div class="grid">
+        <div class="card row lblauw"><div class="ico blauw"><i class="fa-solid fa-hammer"></i></div><div><h3>Construct</h3><p>Van heldere specificatie naar werkende, geteste code.</p><a class="srclink" href="https://re-cinq.com/topics/build-loop" target="_blank" rel="noopener">re-cinq.com · build loop <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+        <div class="card row lgroen"><div class="ico groen"><i class="fa-solid fa-people-arrows"></i></div><div><h3>Co-create</h3><p>Van gebruikersbehoefte tot echt, gevalideerd gebruik bij instellingen.</p><a class="srclink" href="https://re-cinq.com/topics/delivery-loop" target="_blank" rel="noopener">re-cinq.com · delivery loop <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+        <div class="card row loranje"><div class="ico oranje"><i class="fa-solid fa-handshake"></i></div><div><h3>Commit</h3><p>Van business case en handtekeningen tot nagekomen afspraken en een volgend project.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. INTRO: PROCES OPSLAAN ==========
+  Notities: Git doet het voor code: elke wijziging, wie, wanneer, waarom. Voor de rest van ons werk hebben we
+  dat niet. Bij de instroomprognose hebben we repo's voor elk onderdeel (etl-ho, etl-wo, ml, viz, config),
+  maar niets voor het project als geheel, en dat hoort ook niet in een van die code-repo's thuis.
+-->
+<section class="slide s-lroze" data-sec="Intro" data-start="13:04" data-end="13:06">
+  <div class="slide-head">
+    <span class="kicker">Intro · proces opslaan, naast code</span>
+    <h2>Onze code bewaren we goed, <span class="hl">onze kennis niet</span></h2>
+  </div>
+  <div class="body">
+    <div class="grid g2">
+      <div class="card">
+        <div class="ico groen"><i class="fa-solid fa-box-archive"></i></div>
+        <h3>Wat we al goed bewaren</h3>
+        <ul class="ticks">
+          <li><i class="fa-solid fa-circle"></i><span>Code en scripts, in Git</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Data en output</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Technische documentatie</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico oranje"><i class="fa-solid fa-wind"></i></div>
+        <h3>Wat nu verdampt</h3>
+        <ul class="ticks">
+          <li><i class="fa-solid fa-circle"></i><span>Gesprekken met instellingen</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Praktische besluiten, en het waarom</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Voortgang en updates per project</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Wat instellingen mailen en sturen</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(12px,1.7vh,22px)">
+      <div class="card geel">
+        <span class="label">Proces opslaan, naast code</span>
+        <div class="minirow"><span><i class="fa-solid fa-code"></i>&nbsp; Code = het product</span><b>code-repository</b></div>
+        <div class="minirow" style="border:0"><span><i class="fa-solid fa-route"></i>&nbsp; Proces = het project</span><b>project-repository</b></div>
+      </div>
+      <div class="card blauw">
+        <span class="label" style="color:var(--npuls-geel)">Voorbeeld · instroomprognose</span>
+        <p class="mono" style="opacity:1">instroom-etl-ho · instroom-etl-wo · instroom-ml · instroom-viz · instroom-config · studentprognose</p>
+        <p>Een repo per onderdeel, <strong>geen voor het project als geheel.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. INTRO: EEN GESPREK WORDT EEN BESTAND ==========
+  Notities: zo werkt het al. Link naar het verslag staat boven de frontmatter (klikbaar). Een gesprek wordt opgenomen, lokaal getranscribeerd, samengevat met een woordenlijst
+  (anders wordt Npuls "M Puls") en als verslag in cedanl/meetings-as-data gezet. Kijk vooral naar de frontmatter:
+  wie, wanneer, welk type overleg, welk model en welke prompt. Daarmee is elk verslag herleidbaar en doorzoekbaar.
+  Ook de agenda van vandaag kwam zo tot stand, uit het gesprek met Edwin op 3 november.
+-->
+<section class="slide s-wit" data-sec="Intro" data-start="13:06" data-end="13:08">
+  <div class="slide-head">
+    <span class="kicker">Intro · voorbeeld</span>
+    <h2>Een gesprek wordt <span class="hl">een bestand in Git</span></h2>
+  </div>
+  <div class="body">
+    <div class="split" style="grid-template-columns:1.25fr 1fr;align-items:start">
+      <div class="card lblauw fmcard">
+        <a class="fmlink" href="https://github.com/cedanl/meetings-as-data/blob/main/verslagen/2026/2026-11-02-data-coalitie-ceda.md" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> cedanl/meetings-as-data / verslagen/2026/<b>2026-11-02-data-coalitie-ceda.md</b> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <pre class="fm"><span class="y-d">---</span>
+<span class="y-k">date</span>:<span class="y-v"> 2026-11-02</span>
+<span class="y-k">title</span>:<span class="y-v"> &quot;Data coalitie &amp; CEDA&quot;</span>
+<span class="y-k">type</span>:<span class="y-v"> meeting-summary</span>
+<span class="y-k">meeting_type</span>:<span class="y-v"> ceda_teammeeting</span>
+<span class="y-k">meeting_type_source</span>:<span class="y-v"> agenda</span>
+<span class="y-k">source</span>:<span class="y-v"> raw/2026/2026-11-02-data-coalitie-ceda.md</span>
+<span class="y-k">processed</span>:<span class="y-v"> 2026-11-02 13:04</span>
+<span class="y-k">duration</span>:<span class="y-v"> onbekend</span>
+<span class="y-k">transcription</span>:<span class="y-v"> remote/whisper.cpp → onbekend</span>
+<span class="y-k">summarization</span>:<span class="y-v"> heavy → azure_ai/claude-opus-5-5</span>
+<span class="y-k">prompt</span>:<span class="y-v"> ceda_teammeeting</span>
+<span class="y-k">prompt_hash</span>:<span class="y-v"> sha256:1743e3de920dfe6275c1bdec2072af14c6b284a69c68323794bc90fb25bd21a8</span>
+<span class="y-k">participants</span>:<span class="y-v"></span>
+  - <span class="y-v">&quot;Corneel den Hartogh&quot;</span>
+  - <span class="y-v">&quot;Tom Olsthoorn&quot;</span>
+  - <span class="y-v">&quot;Annie Slotboom&quot;</span>
+  - <span class="y-v">&quot;Ed de Feber&quot;</span>
+  - <span class="y-v">&quot;Aslam Tanjung&quot;</span>
+  - <span class="y-v">&quot;Willem-Jan Swiebel&quot;</span>
+<span class="y-k">calendar_event_title</span>:<span class="y-v"> &quot;Data coalitie &amp; CEDA - Update meeting&quot;</span>
+<span class="y-k">calendar_event_start</span>:<span class="y-v"> 2026-11-02 10:00</span>
+<span class="y-k">calendar_event_end</span>:<span class="y-v"> 2026-11-02 11:00</span>
+<span class="y-d">---</span></pre>
+      </div>
+      <div class="grid">
+        <div class="steps">
+          <div class="step"><span class="num" style="background:var(--npuls-blauw);color:var(--npuls-wit)">1</span><div><div class="step-t">Opname</div><p>Teams of fysiek</p></div></div>
+          <div class="step"><span class="num" style="background:var(--npuls-geel)">2</span><div><div class="step-t">Transcriptie</div><p>whisper.cpp, ruw</p></div></div>
+          <div class="step"><span class="num" style="background:var(--npuls-oranje)">3</span><div><div class="step-t">Samenvatting</div><p>Claude, met woordenlijst en controles</p></div></div>
+          <div class="step"><span class="num" style="background:var(--npuls-groen)">4</span><div><div class="step-t">Verslag in Git</div><p>Frontmatter: wie, wanneer, welk model, welke prompt</p></div></div>
+        </div>
+        <div class="card loranje">
+          <span class="label">Transcriptie → verslag</span>
+          <p class="mono">"<mark class="fout">Masher</mark> plus OpenAI, GitLab plus <mark class="fout">Calort</mark>"<br>→ "<mark class="goed">Azure</mark> + OpenAI, GitLab + <mark class="goed">Claude</mark>"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. INTRO: DE REIS ==========
+  Notities: de CEDA-metrolijn (innovatiefunnel, fase 2) beschrijft de bestemming: perrons en poorten.
+  Wat er tijdens de rit gebeurt, weten we nu niet: hoe druk is het, hoe warm, wie stapt in of uit.
+  Dat willen we achterhalen. Deze metafoor willen we verder uitdiepen.
+-->
+<section class="slide s-lblauw" data-sec="Intro" data-start="13:08" data-end="13:10">
+  <div class="slide-head">
+    <span class="kicker">Intro · wat levert het op</span>
+    <h2>De perrons kennen we, <span class="hl">de reis nog niet</span></h2>
+  </div>
+  <div class="body">
+    <div class="card" style="gap:0;padding-bottom:clamp(12px,1.2vw,20px)">
+      <span class="label">CEDA-metrolijn · de bestemming</span>
+      <svg class="metro" viewBox="0 0 1060 150" aria-label="CEDA-metrolijn met een wagon onderweg">
+        <line x1="40" y1="34" x2="1020" y2="34" style="stroke:var(--npuls-blauw)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M374 58 L458 58 L1040 150 L20 150 Z" style="fill:var(--licht-geel)"/>
+        <circle cx="60" cy="34" r="14" style="fill:var(--npuls-wit);stroke:var(--npuls-blauw)" stroke-width="6"/>
+        <circle cx="297" cy="34" r="14" style="fill:var(--npuls-wit);stroke:var(--npuls-blauw)" stroke-width="6"/>
+        <circle cx="535" cy="34" r="14" style="fill:var(--npuls-wit);stroke:var(--npuls-blauw)" stroke-width="6"/>
+        <circle cx="772" cy="34" r="14" style="fill:var(--npuls-wit);stroke:var(--npuls-blauw)" stroke-width="6"/>
+        <circle cx="1010" cy="34" r="14" style="fill:var(--npuls-wit);stroke:var(--npuls-blauw)" stroke-width="6"/>
+        <g aria-label="gele metro">
+          <rect x="362" y="14" width="108" height="40" rx="12" style="fill:var(--npuls-geel);stroke:var(--npuls-zwart)" stroke-width="4"/>
+          <rect x="374" y="22" width="22" height="14" rx="3" style="fill:var(--npuls-wit);stroke:var(--npuls-zwart)" stroke-width="2.5"/>
+          <rect x="405" y="22" width="22" height="14" rx="3" style="fill:var(--npuls-wit);stroke:var(--npuls-zwart)" stroke-width="2.5"/>
+          <rect x="436" y="22" width="22" height="14" rx="3" style="fill:var(--npuls-wit);stroke:var(--npuls-zwart)" stroke-width="2.5"/>
+          <line x1="370" y1="44" x2="462" y2="44" style="stroke:var(--npuls-zwart)" stroke-width="2.5"/>
+        </g>
+        <g text-anchor="middle">
+          <text x="60" y="80" class="st">Signaal</text>
+          <text x="297" y="80" class="st">Discovery</text>
+          <text x="535" y="80" class="st">MVP</text>
+          <text x="772" y="80" class="st">Beta</text>
+          <text x="1010" y="80" class="st">Live</text>
+          <text x="530" y="118" class="sm">de reis · wat gebeurt er onderweg?</text>
+        </g>
+      </svg>
+      <div class="reis">
+        <span class="rchip"><i class="fa-solid fa-comments"></i>Gesprekken met instellingen</span>
+        <span class="rchip"><i class="fa-solid fa-envelope"></i>Mails en stukken</span>
+        <span class="rchip"><i class="fa-solid fa-users"></i>Hoe druk is het?</span>
+        <span class="rchip"><i class="fa-solid fa-temperature-half"></i>Hoe warm is het?</span>
+        <span class="rchip"><i class="fa-solid fa-door-open"></i>Wie stapt in of uit?</span>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(12px,1.7vh,22px)">
+      <div class="card row blauw"><div class="ico geel"><i class="fa-solid fa-train-subway"></i></div><p><strong>De metro is aangekomen.</strong> Maar wat is er onderweg gebeurd?</p></div>
+      <div class="card row oranje"><div class="ico roze"><i class="fa-solid fa-quote-left"></i></div><p><strong>"Krankzinnig dat we dat nu nog niet hebben."</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. DIVIDER: HOE GA JE HIERMEE OM ========== -->
+<section class="slide s-oranje" data-sec="Hoe ga je hiermee om?" data-start="13:10" data-end="13:10">
+  <div class="body">
+    <div class="split">
+      <div>
+        <span class="kicker">Deel 2 · 13:10–13:30 · 20 min</span>
+        <h1 style="max-width:12ch">Hoe ga je hiermee om?</h1>
+        <p class="lede" style="margin-top:clamp(14px,2vh,24px)">Gesprekken, mails en meer.</p>
+      </div>
+      <img class="illu" src="public/npuls/powerpoint_illustrations/gesprek.svg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. DRIE ROUTES ==========
+  Notities: kort plenair rondje (3 min) om ideeën op te halen bij de data-experts. Hoe zien jullie dit,
+  wat zijn slimme oplossingen? Daarna splitsen we in twee groepen.
+-->
+<section class="slide s-loranje" data-sec="Hoe ga je hiermee om?" data-start="13:10" data-end="13:13">
+  <div class="slide-head">
+    <span class="kicker">Hoe ga je hiermee om?</span>
+    <h2>Informatie komt via <span class="hl">drie routes</span> binnen</h2>
+  </div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card">
+        <div class="ico blauw"><i class="fa-solid fa-comments"></i></div>
+        <h3>Gesprekken</h3>
+        <p>Teams of fysiek. Opnemen wordt de norm, maar niet alles hoeft.</p>
+      </div>
+      <div class="card">
+        <div class="ico geel"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Mails</h3>
+        <p>Afspraken, vragen en aanleveringen. Nu verspreid over losse inboxen.</p>
+      </div>
+      <div class="card">
+        <div class="ico groen"><i class="fa-solid fa-folder-open"></i></div>
+        <h3>Meer</h3>
+        <p>Stukken die instellingen sturen, projectupdates, eigen aantekeningen.</p>
+      </div>
+    </div>
+    <div class="card row blauw" style="margin-top:clamp(12px,1.7vh,22px)">
+      <div class="ico geel"><i class="fa-solid fa-hand"></i></div>
+      <p><strong>Rondje:</strong> hoe ga jij hier nu mee om? Wat gaat goed, wat raak je kwijt?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. GROEPSOPDRACHT 1 ==========
+  Notities: twee groepen van ongeveer vier. Groep A neemt gesprekken, groep B mails en toegestuurde
+  stukken. Vraag 5 gaat over CEDA als geheel: naast de losse projecten is er interactie en synergie.
+  Start de timer met T of de knop (R = reset).
+-->
+<section class="slide s-lroze" data-sec="Hoe ga je hiermee om?" data-start="13:13" data-end="13:25">
+  <div class="headrow">
+    <div class="slide-head">
+      <span class="kicker">Groepsopdracht 1 · 12 min</span>
+      <h2>Twee groepen, <span class="hl">twee onderwerpen</span></h2>
+    </div>
+    <div class="timer" data-min="12"><span class="t-display">12:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+  </div>
+  <div class="body">
+    <div class="split" style="grid-template-columns:1fr 1.3fr;align-items:start">
+      <div class="grid">
+        <div class="card row blauw"><div class="ico geel"><i class="fa-solid fa-comments"></i></div><div><span class="label">Groep A</span><h3>Gesprekken</h3></div></div>
+        <div class="card row groen"><div class="ico roze"><i class="fa-solid fa-envelope"></i></div><div><span class="label">Groep B</span><h3>Mails en meer</h3></div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num" style="background:var(--npuls-blauw);color:var(--npuls-wit)">1</span><div><div class="step-t">Wat komt er binnen, en waar blijft het?</div></div></div>
+        <div class="step"><span class="num" style="background:var(--npuls-geel)">2</span><div><div class="step-t">Wat leggen we vast, en wat bewust níet?</div></div></div>
+        <div class="step"><span class="num" style="background:var(--npuls-oranje)">3</span><div><div class="step-t">Wat is nodig om het bruikbaar te maken?</div><p>Toestemming, woordenlijst, controle, wie.</p></div></div>
+        <div class="step"><span class="num" style="background:var(--npuls-groen)">4</span><div><div class="step-t">Wat levert het jouw project op?</div></div></div>
+        <div class="step"><span class="num" style="background:var(--npuls-roze)">5</span><div><div class="step-t">Wat levert het CEDA als geheel op?</div><p>Interactie en synergie tussen projecten.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 9. TERUGKOPPELING 1 ==========
+  Notities: ongeveer 2 minuten per groep. Klik in de vakken om live mee te typen.
+  Wordt automatisch bewaard in deze browser; download het verslag op de laatste slide (of toets D).
+-->
+<section class="slide s-lgeel" data-sec="Hoe ga je hiermee om?" data-start="13:25" data-end="13:30">
+  <div class="headrow">
+    <div class="slide-head">
+      <span class="kicker">Terugkoppeling 1 · 5 min</span>
+      <h2>Wat leggen we vast, <span class="hl">en wat niet?</span></h2>
+      <p class="sub">Per groep: één ding dat we vanaf nu vastleggen, één ding bewust niet, en de grootste vraag of zorg.</p>
+    </div>
+    <div class="timer" data-min="5"><span class="t-display">5:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+  </div>
+  <div class="body">
+    <div class="grid g2">
+      <div class="card"><span class="label"><i class="fa-solid fa-comments" style="color:var(--npuls-blauw)"></i> Groep A · gesprekken</span><div class="field tall" contenteditable="true" data-key="groep-a" data-name="Groep A · gesprekken" data-ph="Typ mee…"></div></div>
+      <div class="card"><span class="label"><i class="fa-solid fa-envelope" style="color:var(--npuls-groen)"></i> Groep B · mails en meer</span><div class="field tall" contenteditable="true" data-key="groep-b" data-name="Groep B · mails en meer" data-ph="Typ mee…"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 10. DIVIDER: INFORMATIESTROOM ========== -->
+<section class="slide s-groen" data-sec="Informatiestroom" data-start="13:30" data-end="13:30">
+  <div class="body">
+    <div class="split">
+      <div>
+        <span class="kicker">Deel 3 · 13:30–13:52 · 22 min</span>
+        <h1 style="max-width:14ch">Informatiestroom en -architectuur</h1>
+        <p class="lede" style="margin-top:clamp(14px,2vh,24px)">Waar laten we het?</p>
+      </div>
+      <img class="illu" src="public/npuls/powerpoint_illustrations/data.svg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ========== 11. VAN BRON NAAR KENNIS ==========
+  Notities: de verwerking werkt al (zie het voorbeeld uit de intro). De open vraag is opslag:
+  waar ligt het, wie kan erbij, welk model draait erop? Dat raakt aan digitale autonomie.
+-->
+<section class="slide s-lgroen" data-sec="Informatiestroom" data-start="13:30" data-end="13:33">
+  <div class="slide-head">
+    <span class="kicker">Informatiestroom</span>
+    <h2>De verwerking werkt al, <span class="hl">de opslag is de vraag</span></h2>
+  </div>
+  <div class="body">
+    <div class="chain">
+      <div class="node"><b>Bronnen</b><span>Gesprekken, mails, stukken</span></div>
+      <div class="hop"><b>ophalen</b><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="node"><b>Verwerken</b><span>Transcriptie, samenvatting, woordenlijst, controle</span></div>
+      <div class="hop"><b>bewaren</b><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="node lgeel"><b>Opslaan · waar?</b><span>Daar gaat dit deel over</span></div>
+      <div class="hop"><b>delen</b><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="node"><b>Gebruiken</b><span>Weekoverzicht, de reis per project, projectkennis</span></div>
+    </div>
+    <div class="card row blauw" style="margin-top:clamp(14px,2.2vh,28px)">
+      <div class="ico geel"><i class="fa-solid fa-scale-balanced"></i></div>
+      <p style="font-size:clamp(17px,1.6vw,24px)"><strong>Waar staat onze eigen data eigenlijk?</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 12. VIER KEUZES ==========
+  Notities: geen drie pakketten maar vier losse keuzes: waar de registratie (pre-processing) draait, welk model transcribeert,
+  welk model samenvat en waar het verslag komt te staan. De huidige pipeline is al een mix (bron: frontmatter
+  van de verslagen in meetings-as-data). Bewust meerdere modellen, geen vendor lock-in.
+-->
+<section class="slide s-lblauw" data-sec="Informatiestroom" data-start="13:33" data-end="13:38">
+  <div class="slide-head">
+    <span class="kicker">Informatiearchitectuur</span>
+    <h2>Vier keuzes, <span class="hl">vrij te combineren</span></h2>
+    <p class="sub">Per kolom kies je apart. Onze huidige pipeline is al een mix.</p>
+  </div>
+  <div class="body">
+    <table class="keuzes">
+      <thead><tr><th style="width:19%"></th><th><i class="fa-solid fa-inbox"></i>&nbsp; Registratie</th><th><i class="fa-solid fa-microphone"></i>&nbsp; Transcriptie</th><th><i class="fa-solid fa-file-lines"></i>&nbsp; Samenvatting</th><th><i class="fa-solid fa-database"></i>&nbsp; Opslag</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ico blauw sm"><i class="fa-solid fa-cloud"></i></span> Microsoft</td><td>Azure</td><td>OpenAI</td><td>OpenAI</td><td>GitHub</td></tr>
+        <tr><td><span class="ico oranje sm"><i class="fa-solid fa-code-branch"></i></span> SURF</td><td>GitLab SURF</td><td>SURF AI Hub</td><td>SURF AI Hub</td><td>GitLab SURF</td></tr>
+        <tr><td><span class="ico groen sm"><i class="fa-solid fa-server"></i></span> Corneel</td><td>Beelink</td><td>Lokaal model</td><td>Lokaal model</td><td>Forgejo</td></tr>
+        <tr class="nu"><td><span class="ico geel sm"><i class="fa-solid fa-location-dot"></i></span> Nu, Corneel</td><td>Beelink</td><td>whisper.cpp, lokaal</td><td>Claude via Azure AI</td><td>GitHub</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 13. DUO-OPDRACHT ==========
+  Notities: in duo's. Elk duo kiest per kolom een eigen optie, mag mixen, en noemt een dealbreaker.
+  De keuzes typen we op de volgende slide in.
+-->
+<section class="slide s-lroze" data-sec="Informatiestroom" data-start="13:38" data-end="13:48">
+  <div class="headrow">
+    <div class="slide-head">
+      <span class="kicker">Opdracht 2 · 10 min · in duo's</span>
+      <h2>Stel je <span class="hl">eigen combinatie</span> samen</h2>
+    </div>
+    <div class="timer" data-min="10"><span class="t-display">10:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+  </div>
+  <div class="body">
+    <div class="split" style="grid-template-columns:1.3fr 1fr;align-items:start">
+      <div class="steps">
+        <div class="step"><span class="num" style="background:var(--npuls-blauw);color:var(--npuls-wit)">1</span><div><div class="step-t">Kies per kolom</div><p>Registratie, transcriptie, samenvatting, opslag. Mixen mag.</p></div></div>
+        <div class="step"><span class="num" style="background:var(--npuls-oranje)">2</span><div><div class="step-t">Waarom deze combinatie?</div></div></div>
+        <div class="step"><span class="num" style="background:var(--npuls-groen)">3</span><div><div class="step-t">Wat is je dealbreaker?</div></div></div>
+      </div>
+      <div class="card geel">
+        <span class="label">Weeg mee</span>
+        <div class="minirow"><span><i class="fa-solid fa-flag"></i>&nbsp; Digitale autonomie</span></div>
+        <div class="minirow"><span><i class="fa-solid fa-user-shield"></i>&nbsp; Privacy en toestemming</span></div>
+        <div class="minirow"><span><i class="fa-solid fa-people-group"></i>&nbsp; Samenwerken en overdragen</span></div>
+        <div class="minirow"><span><i class="fa-solid fa-screwdriver-wrench"></i>&nbsp; Beheerlast</span></div>
+        <div class="minirow"><span><i class="fa-solid fa-brain"></i>&nbsp; Kwaliteit van het model</span></div>
+        <div class="minirow" style="border:0"><span><i class="fa-solid fa-bolt"></i>&nbsp; Kan het morgen al?</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 14. TERUGKOPPELING 2: VERSLAG ==========
+  Notities: elk duo noemt zijn combinatie en dealbreaker; typ mee in de tabel. Wordt bewaard in deze browser.
+-->
+<section class="slide s-lgeel" data-sec="Informatiestroom" data-start="13:48" data-end="13:52">
+  <div class="headrow">
+    <div class="slide-head">
+      <span class="kicker">Terugkoppeling 2 · 4 min</span>
+      <h2>Welke combinaties <span class="hl">kozen de duo's?</span></h2>
+    </div>
+    <div class="timer" data-min="4"><span class="t-display">4:00</span><button data-act="toggle">Start</button><button class="sec" data-act="reset" aria-label="Reset"><i class="fa-solid fa-rotate-left"></i></button></div>
+  </div>
+  <div class="body">
+    <table class="duo" data-table="duo">
+      <thead><tr><th style="width:7%">Duo</th><th style="width:16%">Registratie</th><th style="width:16%">Transcriptie</th><th style="width:16%">Samenvatting</th><th style="width:16%">Opslag</th><th>Dealbreaker</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><div class="cell" contenteditable="true" data-key="d1-verw"></div></td><td><div class="cell" contenteditable="true" data-key="d1-tran"></div></td><td><div class="cell" contenteditable="true" data-key="d1-samv"></div></td><td><div class="cell" contenteditable="true" data-key="d1-opsl"></div></td><td><div class="cell" contenteditable="true" data-key="d1-deal"></div></td></tr>
+        <tr><td>2</td><td><div class="cell" contenteditable="true" data-key="d2-verw"></div></td><td><div class="cell" contenteditable="true" data-key="d2-tran"></div></td><td><div class="cell" contenteditable="true" data-key="d2-samv"></div></td><td><div class="cell" contenteditable="true" data-key="d2-opsl"></div></td><td><div class="cell" contenteditable="true" data-key="d2-deal"></div></td></tr>
+        <tr><td>3</td><td><div class="cell" contenteditable="true" data-key="d3-verw"></div></td><td><div class="cell" contenteditable="true" data-key="d3-tran"></div></td><td><div class="cell" contenteditable="true" data-key="d3-samv"></div></td><td><div class="cell" contenteditable="true" data-key="d3-opsl"></div></td><td><div class="cell" contenteditable="true" data-key="d3-deal"></div></td></tr>
+        <tr><td>4</td><td><div class="cell" contenteditable="true" data-key="d4-verw"></div></td><td><div class="cell" contenteditable="true" data-key="d4-tran"></div></td><td><div class="cell" contenteditable="true" data-key="d4-samv"></div></td><td><div class="cell" contenteditable="true" data-key="d4-opsl"></div></td><td><div class="cell" contenteditable="true" data-key="d4-deal"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 15. MET WELK PROJECT BEGINNEN WE ==========
+  Notities: vraag open wie voortrekker wil zijn en met welk project we klein beginnen.
+  Typ de antwoorden in de vakken en download daarna het verslag (knop of toets D).
+-->
+<section class="slide s-geel" data-sec="Met welk project?" data-start="13:52" data-end="14:00">
+  <div class="slide-head">
+    <span class="kicker">Afsluiter · 8 min</span>
+    <h2>Met welk project <span class="hl">beginnen we?</span></h2>
+    <p class="sub">Klein beginnen, meteen toepasbaar: in één project laten zien wat het in samenhang oplevert.</p>
+  </div>
+  <div class="body">
+    <div class="fills">
+      <div class="fill-row"><span class="lbl"><span class="ico oranje"><i class="fa-solid fa-diagram-project"></i></span>Project</span><div class="field" contenteditable="true" data-key="project" data-name="Project" data-ph="Met welk project beginnen we?"></div></div>
+      <div class="fill-row"><span class="lbl"><span class="ico blauw"><i class="fa-solid fa-person-hiking"></i></span>Voortrekker</span><div class="field" contenteditable="true" data-key="voortrekker" data-name="Voortrekker" data-ph="Wie wil dit trekken?"></div></div>
+      <div class="fill-row"><span class="lbl"><span class="ico groen"><i class="fa-solid fa-shoe-prints"></i></span>Eerste stap</span><div class="field" contenteditable="true" data-key="eerste-stap" data-name="Eerste stap" data-ph="Wat doen we als eerste, en wanneer?"></div></div>
+    </div>
+    <div class="savebar">
+      <button class="savebtn" data-act="download"><i class="fa-solid fa-download"></i> Download verslag (.md)</button>
+      <span class="savestate"><i class="fa-solid fa-floppy-disk"></i> Wordt automatisch bewaard in deze browser</span>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDES:END -->
+
+</div><!-- /deck -->
+
+<div class="nav">
+  <div class="dots" id="dots"></div>
+  <div class="nav-right">
+    <span class="counter" id="counter"></span>
+    <button class="navbtn" id="prev" aria-label="Vorige slide"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="navbtn" id="next" aria-label="Volgende slide"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   MENTIMETER — Share -> Participants -> Embed slides -> Copy code.
+   Alleen het stuk na src=" is nodig. Leeg laten = placeholder blijft staan.
+   Aparte Menti per slide: zet poll1, poll2, ... erbij.
+   ============================================================ */
+const MENTI = { url: '' };
+
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotsWrap=document.getElementById('dots');
+  const counter=document.getElementById('counter');
+  const nav=document.querySelector('.nav');
+  const brand=document.getElementById('brand');
+  let i=0;
+
+  slides.forEach((s,n)=>{
+    s.classList.remove('active');
+    const b=document.createElement('button');
+    b.className='dot';
+    b.setAttribute('aria-label','Slide '+(n+1));
+    b.addEventListener('click',()=>go(n));
+    dotsWrap.appendChild(b);
+  });
+  const dots=[...dotsWrap.children];
+  const pad=n=>String(n).padStart(2,'0');
+
+  // Mentimeter pas laden als de slide in beeld komt
+  function loadMenti(slide){
+    const key=slide.dataset.menti; if(!key) return;
+    const url=(MENTI[key]||MENTI.url||'').trim(); if(!url) return;
+    const slot=slide.querySelector('[data-menti-slot]');
+    if(!slot || slot.dataset.loaded) return;
+    const f=document.createElement('iframe');
+    f.src=url;
+    f.setAttribute('sandbox','allow-scripts allow-same-origin allow-presentation allow-popups allow-forms');
+    f.setAttribute('allow','fullscreen');
+    f.setAttribute('title','Mentimeter');
+    slot.innerHTML=''; slot.appendChild(f); slot.dataset.loaded='1';
+  }
+
+  function go(n){
+    if(n<0||n>=slides.length) return;
+    slides[i].classList.remove('active'); dots[i].classList.remove('on');
+    i=n;
+    slides[i].classList.add('active'); dots[i].classList.add('on');
+    counter.textContent=pad(i+1)+' / '+pad(slides.length);
+    loadMenti(slides[i]);
+    // navigatie neemt de tekstkleur van de slide-variant over
+    const ink=getComputedStyle(slides[i]).color;
+    nav.style.color=ink; brand.style.color=ink;
+    brand.style.visibility=i===0?'hidden':''; // titelslide noemt het team al, en daar zitten de ringen
+    try{history.replaceState(null,'','#s'+(i+1))}catch(e){}
+  }
+
+  document.getElementById('next').addEventListener('click',()=>go(i+1));
+  document.getElementById('prev').addEventListener('click',()=>go(i-1));
+
+  document.addEventListener('keydown',e=>{
+    if(e.target && e.target.closest && e.target.closest('.menti-frame')) return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}
+    else if(e.key==='Home'){e.preventDefault();go(0)}
+    else if(e.key==='End'){e.preventDefault();go(slides.length-1)}
+    else if(e.key==='f'){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}
+  });
+
+  // klik buiten een Menti-kader: toetsenbord terug naar het deck
+  document.addEventListener('mousedown',e=>{
+    if(!(e.target.closest && e.target.closest('.menti-frame')) && document.activeElement && document.activeElement.tagName==='IFRAME'){
+      document.activeElement.blur(); window.focus();
+    }
+  });
+
+  let x0=null;
+  document.addEventListener('touchstart',e=>{x0=e.changedTouches[0].clientX},{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(x0===null)return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>55) go(dx<0?i+1:i-1);
+    x0=null;
+  },{passive:true});
+
+  window.addEventListener('hashchange',()=>{
+    const h=parseInt((location.hash||'').replace('#s',''),10);
+    if(Number.isFinite(h)&&h-1!==i) go(h-1);
+  });
+
+  const h=parseInt((location.hash||'').replace('#s',''),10);
+  go(Number.isFinite(h)&&h>0&&h<=slides.length?h-1:0);
+})();
+</script>
+<script>
+/* ============================================================
+   EXTRA — tijdbalk (gepland tijdvak, klok, uitloop), groepstimers (T/R),
+   live invulvelden (bewaard in localStorage) en verslag-download (D).
+   ============================================================ */
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const toMin=s=>{const [h,m]=s.split(':').map(Number);return h*60+m};
+  const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+  const active=()=>slides.find(s=>s.classList.contains('active'))||slides[0];
+
+  const bar=document.createElement('div');
+  bar.className='tbar';
+  bar.innerHTML='<span class="tpill" id="t-sec"><i class="fa-solid fa-layer-group"></i><span></span></span>'+
+    '<span class="tpill" id="t-slot"><i class="fa-regular fa-calendar"></i><span></span></span>'+
+    '<span class="tpill" id="t-clock"><i class="fa-regular fa-clock"></i><span></span></span>'+
+    '<span class="tpill" id="t-delta" style="display:none"><i class="fa-solid fa-gauge-high"></i><span></span></span>';
+  document.body.appendChild(bar);
+  const q=id=>bar.querySelector('#'+id+' span');
+
+  function update(){
+    const s=active();
+    q('t-sec').textContent=s.dataset.sec||'';
+    const a=toMin(s.dataset.start),b=toMin(s.dataset.end);
+    q('t-slot').textContent=b>a?`${s.dataset.start}–${s.dataset.end} · ${b-a} min`:`vanaf ${s.dataset.start}`;
+    const now=new Date(),nm=now.getHours()*60+now.getMinutes();
+    q('t-clock').textContent=hhmm(nm);
+    const d=bar.querySelector('#t-delta');
+    if(nm>=toMin('12:50')&&nm<=toMin('14:20')){
+      const late=nm-b;
+      d.style.display='';d.className='tpill '+(late>0?'late':'ok');
+      q('t-delta').textContent=late>0?`+${late} min uitloop`:'op schema';
+    }else d.style.display='none';
+  }
+  update(); setInterval(update,500);
+
+  // groepstimers
+  const st=new Map();
+  const state=el=>{if(!st.has(el))st.set(el,{left:+el.dataset.min*60,run:null});return st.get(el)};
+  function render(el){
+    const s=state(el),full=+el.dataset.min*60;
+    el.querySelector('.t-display').textContent=Math.floor(s.left/60)+':'+String(s.left%60).padStart(2,'0');
+    el.querySelector('[data-act="toggle"]').textContent=s.run?'Pauze':(s.left===full?'Start':(s.left?'Verder':'Klaar'));
+    el.classList.toggle('done',s.left===0);
+  }
+  function beep(){try{const c=new(window.AudioContext||window.webkitAudioContext)();[0,.35,.7].forEach(t=>{const o=c.createOscillator(),g=c.createGain();o.frequency.value=880;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(.15,c.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+t+.3);o.start(c.currentTime+t);o.stop(c.currentTime+t+.3)})}catch(e){}}
+  function toggle(el){
+    const s=state(el);
+    if(s.run){clearInterval(s.run);s.run=null}
+    else if(s.left>0){s.run=setInterval(()=>{s.left=Math.max(0,s.left-1);if(!s.left){clearInterval(s.run);s.run=null;beep()}render(el)},1000)}
+    render(el);
+  }
+  function reset(el){const s=state(el);clearInterval(s.run);s.run=null;s.left=+el.dataset.min*60;render(el)}
+  document.querySelectorAll('.timer').forEach(el=>{
+    render(el);
+    el.querySelector('[data-act="toggle"]').addEventListener('click',()=>toggle(el));
+    el.querySelector('[data-act="reset"]').addEventListener('click',()=>reset(el));
+  });
+
+  // invoer bewaren in deze browser + verslag downloaden
+  const KEY='winter-is-coming-2026-11-05';
+  const cells=[...document.querySelectorAll('[data-key]')];
+  let data={};
+  try{data=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  cells.forEach(c=>{
+    if(data[c.dataset.key]) c.innerText=data[c.dataset.key];
+    c.addEventListener('input',()=>{
+      data[c.dataset.key]=c.innerText.trim();
+      try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}
+    });
+  });
+  const val=k=>(data[k]||'').trim();
+  const one=s=>s.replace(/\s*\n\s*/g,'; ').replace(/\|/g,'/');
+  function verslag(){
+    const L=['# Winter is coming · verslag teamsessie','','CEDA · donderdag 5 november 2026 · 13:00–14:00','',
+      '## Terugkoppeling 1: wat leggen we vast, en wat niet?',''];
+    document.querySelectorAll('.field[data-key^="groep"]').forEach(f=>{L.push('### '+f.dataset.name,'',val(f.dataset.key)||'_(leeg)_','')});
+    L.push('## Opdracht 2: combinaties per duo','','| Duo | Registratie | Transcriptie | Samenvatting | Opslag | Dealbreaker |','|---|---|---|---|---|---|');
+    for(let d=1;d<=4;d++){
+      const r=['verw','tran','samv','opsl','deal'].map(c=>one(val('d'+d+'-'+c)));
+      if(r.some(Boolean)) L.push('| '+d+' | '+r.join(' | ')+' |');
+    }
+    L.push('','## Met welk project beginnen we?','');
+    ['project','voortrekker','eerste-stap'].forEach(k=>{const f=document.querySelector('[data-key="'+k+'"]');L.push('- **'+f.dataset.name+'**: '+(val(k)||'_(leeg)_'))});
+    L.push('','_Gedownload op '+new Date().toLocaleString('nl-NL')+'_','');
+    return L.join('\n');
+  }
+  function download(){
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([verslag()],{type:'text/markdown'}));
+    a.download='2026-11-05-winter-is-coming-verslag.md';
+    document.body.appendChild(a);a.click();a.remove();
+  }
+  document.querySelectorAll('[data-act="download"]').forEach(b=>b.addEventListener('click',download));
+
+  // toetsen: typen in een veld mag de slides niet laten verspringen; T/R bedienen de timer
+  window.addEventListener('keydown',e=>{
+    const t=e.target;
+    if(t&&t.isContentEditable){e.stopImmediatePropagation();if(e.key==='Escape')t.blur();return}
+    if(e.key==='d'||e.key==='D'){download();return}
+    const tm=active().querySelector('.timer');
+    if(!tm)return;
+    if(e.key==='t'||e.key==='T'){toggle(tm)}
+    else if(e.key==='r'||e.key==='R'){reset(tm)}
+  },true);
+})();
+</script>
+</body>
+</html>
