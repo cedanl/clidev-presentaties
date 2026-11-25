@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Staat van Onderwijsinstelling — 1CHO Thinktank</title>
+
+<!-- Vrij-HTML-track, zie html-track.md. Serveer vanuit de projectroot:
+     npx serve .   (of python -m http.server 8080) -->
+<link rel="stylesheet" href="/style.css" />
+
+<style>
+  /* style.css declareert deze fonts op /npuls/... — dat pad werkt alleen
+     onder Slidev's public/-aliasing. Een gewone static server serveert
+     public/ gewoon als map, dus hier overschrijven met het juiste pad
+     (zelfde bestanden, /public/npuls/...). Zie html-track.md. */
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/public/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/public/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Cooper Light BT';
+    src: url('/public/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
+    font-weight: 300; font-style: normal; font-display: swap;
+  }
+
+  :root { --scene-pad: 4rem 6rem; }
+
+  html, body { margin: 0; height: 100%; font-family: var(--np-font); color: var(--np-ink); scroll-behavior: smooth; }
+  body { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
+
+  .scene {
+    height: 100vh; width: 100vw; box-sizing: border-box; padding: var(--scene-pad);
+    position: relative; overflow: hidden; scroll-snap-align: start;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .scene--light    { background: var(--np-bg); color: var(--np-ink); }
+  .scene--ink      { background: var(--np-ink); color: #fff; }
+  .scene--gradient { background: linear-gradient(135deg, var(--np-blue), var(--np-orange)); color: #fff; }
+  .scene--gradient-blue { background: linear-gradient(135deg, var(--np-dark-blue), var(--np-blue)); color: #fff; }
+
+  .eyebrow-html {
+    color: var(--np-orange); font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .scene--ink .eyebrow-html, .scene--gradient .eyebrow-html, .scene--gradient-blue .eyebrow-html { color: var(--np-yellow); }
+
+  .scene h1 { font-size: 2.6rem; margin: 0 0 0.5rem; color: inherit; }
+  .scene--light h1 { color: var(--np-orange); }
+  .scene p.lead { font-size: 1.1rem; max-width: 760px; opacity: 0.85; margin: 0; }
+  .scene--light p.np-subtitle { max-width: 760px; }
+
+  /* ---- Progress dots ---- */
+  .scene-nav { position: fixed; right: 1.4rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.55rem; z-index: 20; }
+  .scene-nav button { width: 9px; height: 9px; border-radius: 50%; border: none; background: var(--np-light-gray); cursor: pointer; padding: 0; }
+  .scene-nav button.is-active { background: var(--np-orange); }
+
+  /* ---- Scroll-reveal ---- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
+  .reveal-group .reveal:nth-child(2) { transition-delay: 0.1s; }
+  .reveal-group .reveal:nth-child(3) { transition-delay: 0.2s; }
+  .reveal-group .reveal:nth-child(4) { transition-delay: 0.3s; }
+  .reveal-group .reveal:nth-child(5) { transition-delay: 0.4s; }
+
+  /* ---- Pulse-lijn (vormentaal npuls-huisstijl.md §5) ---- */
+  .pulse-line { position: absolute; bottom: -2vh; left: 0; width: 100%; height: 22vh; opacity: 0.9; pointer-events: none; }
+  .pulse-line path { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw-in 1.8s ease-out forwards; }
+  @keyframes draw-in { to { stroke-dashoffset: 0; } }
+
+  .pulse-dot { position: absolute; border-radius: 50%; border: 2px solid var(--np-orange); opacity: 0.45; animation: breathe 3.4s ease-in-out infinite; pointer-events: none; }
+  .pulse-dot.blue { border-color: var(--np-light-blue); }
+  @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.45; } 50% { transform: scale(1.15); opacity: 0.12; } }
+
+  .starburst { position: absolute; inset: 0; background-image: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.2) 0, transparent 45%); animation: drift 6s ease-in-out infinite alternate; pointer-events: none; }
+  @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(-1.5%, 1.5%) scale(1.04); } }
+
+  .img-shot { max-height: 420px; width: auto; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-line path { animation: none; stroke-dashoffset: 0; }
+    .pulse-dot, .starburst { animation: none; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="scene-nav" aria-label="Slide-navigatie"></nav>
+
+<!-- ============ 1. TITEL ============ -->
+<section class="scene scene--light" data-scene="titel" style="align-items: center; text-align: center;">
+  <h1 class="reveal" style="font-size: 3rem;">Staat van Onderwijsinstelling</h1>
+  <p class="lead reveal">Stand van zaken en de weg naar december</p>
+  <div class="reveal" style="margin-top: 1rem; font-size: 0.95rem;"><strong style="color: var(--np-blue);">CEDA</strong> &middot; 1CHO Thinktank &middot; 23 september 2026</div>
+
+  <svg class="pulse-line" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,150 C200,20 350,20 500,120 C650,220 800,60 1000,100 C1100,120 1150,80 1200,60" fill="none" stroke="var(--np-orange)" stroke-width="6" stroke-linecap="round" />
+  </svg>
+  <div class="pulse-dot" style="width: 140px; height: 140px; right: 8%; top: 12%;"></div>
+  <div class="pulse-dot blue" style="width: 90px; height: 90px; right: 15%; top: 24%; animation-delay: 0.6s;"></div>
+</section>
+
+<!-- ============ 2. AGENDA ============ -->
+<section class="scene scene--light" data-scene="agenda">
+  <p class="eyebrow-html reveal">Waar we het over hebben</p>
+  <h1 class="reveal">Agenda</h1>
+  <div class="reveal-group" style="display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem;">
+    <div class="reveal" style="display: flex; align-items: center; gap: 0.8rem;"><span class="np-num">1</span><div><strong>Sinds juni</strong><br/><span class="muted" style="font-size: 0.82rem;">Wat is er gebouwd</span></div></div>
+    <div class="reveal" style="display: flex; align-items: center; gap: 0.8rem;"><span class="np-num" style="background: var(--np-orange);">2</span><div><strong>Validatie: de ontbrekende stap</strong><br/><span class="muted" style="font-size: 0.82rem;">Eerlijk statusbeeld</span></div></div>
+    <div class="reveal" style="display: flex; align-items: center; gap: 0.8rem;"><span class="np-num" style="background: var(--np-green);">3</span><div><strong>Vraag</strong><br/><span class="muted" style="font-size: 0.82rem;">Wie doet mee?</span></div></div>
+    <div class="reveal" style="display: flex; align-items: center; gap: 0.8rem;"><span class="np-num">4</span><div><strong>Vooruitblik 2026</strong><br/><span class="muted" style="font-size: 0.82rem;">Waar staan we, waar gaan we heen</span></div></div>
+    <div class="reveal" style="display: flex; align-items: center; gap: 0.8rem;"><span class="np-num" style="background: var(--np-orange);">5</span><div><strong>WVTTK</strong></div></div>
+  </div>
+</section>
+
+<!-- ============ 3. WIE IS CEDA (vaste slide, letterlijk) ============ -->
+<section class="scene scene--light" data-scene="ceda" style="padding: 4rem 6rem;">
+  <div class="starburst" style="background-image: radial-gradient(circle at 88% 30%, rgba(61,104,236,0.10) 0, transparent 45%);"></div>
+  <div class="reveal-group" style="max-width: 620px;">
+    <p class="eyebrow-html reveal">Wie is CEDA</p>
+    <h1 class="reveal" style="font-size: 1.9rem;">Centre of Educational Data Analytics</h1>
+    <p class="np-subtitle reveal" style="margin-top: 0.4rem;">Eén team binnen Npuls. Van ruwe data tot AI-toepassing, open source.</p>
+    <ul style="font-size: 0.92rem; line-height: 1.8;">
+      <li class="reveal">Data, analytics en generatieve AI in één keten</li>
+      <li class="reveal">Altijd in co-creatie met mbo, hbo en wo</li>
+      <li class="reveal">Open source, voor elke instelling</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 4. DIVIDER: Sinds juni ============ -->
+<section class="scene scene--gradient-blue" data-scene="divider-1" style="align-items: center; text-align: center;">
+  <div class="starburst"></div>
+  <p class="eyebrow-html reveal">Deel 1</p>
+  <h1 class="reveal" style="font-size: 3.2rem;">Sinds juni</h1>
+  <p class="lead reveal">Wat is er gebouwd</p>
+</section>
+
+<!-- ============ 5. Zo begint het ============ -->
+<section class="scene scene--light" data-scene="input">
+  <p class="eyebrow-html reveal">Sinds juni</p>
+  <h1 class="reveal">Zo begint het</h1>
+  <p class="np-subtitle reveal">Eén verplicht bestand, twee optioneel &mdash; hetzelfde scherm voor alle drie de bronnen.</p>
+  <div class="np-grid-2 reveal-group" style="margin-top: 0.5rem; align-items: center;">
+    <ul class="reveal" style="font-size: 0.92rem; line-height: 1.7;">
+      <li>Verplicht: het 1CHO-bestand zelf</li>
+      <li>Optioneel: VAKHAVW (vakcijfers) en VLPBEK (bekostiging), plus analyseniveau</li>
+      <li>Ontbreekt een kolom? Dat meldt het dashboard direct na uploaden</li>
+    </ul>
+    <div class="reveal" style="display: flex; justify-content: center;"><img class="img-shot" src="/public/shots/input_pagina.png" /></div>
+  </div>
+</section>
+
+<!-- ============ 6. VAKHAVW gekoppeld ============ -->
+<section class="scene scene--light" data-scene="vakhavw" style="align-items: center; text-align: center;">
+  <p class="eyebrow-html reveal">Sinds juni</p>
+  <h1 class="reveal">VAKHAVW gekoppeld</h1>
+  <p class="np-subtitle reveal"><strong style="color: var(--np-green);">Afgerond.</strong> Niet alleen de vooropleiding, maar de middelbareschoolcijfers zelf zijn nu in te zien, per vak.</p>
+  <img class="img-shot reveal" style="max-height: 300px; margin-top: 0.4rem;" src="/public/shots/vakhawv_dashboard.png" />
+  <p class="muted reveal" style="font-size: 0.75rem; margin-top: 0.5rem; max-width: 640px;">Live screenshot op de meegeleverde voorbeelddata (3 studenten) &mdash; te klein voor een patroon. Precies waarom we validatie nodig hebben.</p>
+</section>
+
+<!-- ============ 7. Van idee naar rapport ============ -->
+<section class="scene scene--light" data-scene="benchmarkrapport" style="align-items: center; text-align: center;">
+  <p class="eyebrow-html reveal">Sinds juni</p>
+  <h1 class="reveal">Van idee naar rapport</h1>
+  <p class="np-subtitle reveal"><strong style="color: var(--np-blue);">Afgerond.</strong> In juni een pitch op deze slides, nu een download in het dashboard.</p>
+  <p class="muted reveal" style="font-size: 0.8rem; margin: 0.2rem 0;">Juni: "Jouw uitval is 18%, mediaan 14%" &mdash; nu een echte kolom in dit bestand.</p>
+  <img class="img-shot reveal" style="max-height: 260px;" src="/public/shots/benchmarkrapport_excel.png" />
+  <div class="np-bottomline reveal" style="margin-top: 0.7rem; max-width: 640px;">Discussie: zouden jullie dit willen <strong>delen met andere instellingen</strong> voor een eerlijke vergelijking?</div>
+</section>
+
+<!-- ============ 8. Bekostiging ============ -->
+<section class="scene scene--light" data-scene="bekostiging" style="align-items: center; text-align: center;">
+  <p class="eyebrow-html reveal">Sinds juni</p>
+  <h1 class="reveal">Bekostiging: de vierde bron</h1>
+  <p class="np-subtitle reveal"><strong style="color: var(--np-green);">Afgerond.</strong> Eigen tabblad in het dashboard, naast VAKHAVW.</p>
+  <p class="muted reveal" style="font-size: 0.8rem; margin: 0.2rem 0;">Koppelt het VLPBEK-bestand aan de indicatoren &mdash; % bekostigd per sector, vorm en niveau.</p>
+  <img class="img-shot reveal" style="max-height: 280px;" src="/public/shots/bekostiging_dashboard.png" />
+  <p class="muted reveal" style="font-size: 0.75rem; margin-top: 0.5rem;">Live screenshot op de voorbeelddata (3 studenten).</p>
+</section>
+
+<!-- ============ 9. Instroomjaar-bug ============ -->
+<section class="scene scene--light" data-scene="instroomjaar">
+  <p class="eyebrow-html reveal">Sinds juni</p>
+  <h1 class="reveal">Ook opgelost: instroomjaar-verwarring</h1>
+  <p class="np-subtitle reveal"><strong style="color: var(--np-orange);">Bug fix.</strong> Besproken in juni &mdash; nu uit elkaar getrokken.</p>
+  <div class="np-grid-2 reveal-group" style="margin-top: 0.5rem; align-items: start;">
+    <div class="np-card accent-orange reveal"><h3>Het probleem</h3><p class="muted" style="font-size: 0.86rem; margin: 0;">"Eerste jaar in de opleiding" en "eerste jaar aan de instelling" liepen door elkaar bij studenten die van opleiding wisselden.</p></div>
+    <div class="np-card accent-green reveal"><h3>De oplossing</h3><p class="muted" style="font-size: 0.86rem; margin: 0;">Expliciete keuze via Analyseniveau: studentniveau (eerste jaar aan de instelling) of inschrijvingsniveau (eerste jaar in déze opleiding).</p></div>
+  </div>
+  <div class="np-bottomline reveal" style="margin-top: 0.8rem;">Dezelfde knop die je net op het uploadscherm zag &mdash; nu ook correct doorgerekend.</div>
+</section>
+
+<!-- ============ 10. DIVIDER: Validatie ============ -->
+<section class="scene scene--gradient" data-scene="divider-2" style="align-items: center; text-align: center;">
+  <div class="starburst"></div>
+  <p class="eyebrow-html reveal">Deel 2</p>
+  <h1 class="reveal" style="font-size: 3.2rem;">Validatie</h1>
+  <p class="lead reveal">De ontbrekende stap</p>
+</section>
+
+<!-- ============ 11. Quote: nog niet gezet ============ -->
+<section class="scene scene--ink" data-scene="validatie-quote" style="align-items: center; text-align: center;">
+  <div class="pulse-dot" style="width: 220px; height: 220px; left: -60px; top: -60px; border-color: var(--np-blue); opacity: 0.25;"></div>
+  <div class="pulse-dot" style="width: 160px; height: 160px; right: -30px; bottom: -30px; animation-delay: 1s; opacity: 0.2;"></div>
+  <p class="eyebrow-html reveal">Sinds juni op de planning</p>
+  <div class="reveal" style="font-family: 'Cooper Light BT', serif; font-size: 1.9rem; line-height: 1.5; max-width: 720px;">Valideren bij meerdere instellingen &mdash; ook bij Avans.</div>
+  <div class="reveal" style="margin-top: 1.6rem; font-size: 1.2rem; font-weight: 700; color: var(--np-orange);">Die stap is nog niet gezet.</div>
+</section>
+
+<!-- ============ 12. Wat checken we precies ============ -->
+<section class="scene scene--light" data-scene="checkpunten" style="align-items: center; text-align: center;">
+  <p class="eyebrow-html reveal">Validatie</p>
+  <h1 class="reveal">Wat checken we precies?</h1>
+  <p class="np-subtitle reveal">Vijf controlepunten &mdash; al ingebouwd in het rapport van net.</p>
+  <img class="img-shot reveal" style="max-width: 90%; width: 900px; height: auto;" src="/public/shots/benchmarkrapport_validatie.png" />
+  <p class="muted reveal" style="font-size: 0.78rem; margin-top: 0.6rem; max-width: 720px;">Echt tabblad "Validatie" uit het benchmarkrapport &mdash; instellingen hoeven dit niet zelf te bedenken, het rapport vertelt je waar je op moet letten.</p>
+</section>
+
+<!-- ============ 13. Wat betekent valideren, concreet ============ -->
+<section class="scene scene--light" data-scene="valideren-stappen">
+  <p class="eyebrow-html reveal">Validatie</p>
+  <h1 class="reveal">Wat betekent valideren, concreet?</h1>
+  <p class="np-subtitle reveal">Vijf checkpunten hierboven, uitgevoerd in vier stappen.</p>
+  <div class="np-pipeline reveal-group" style="margin-top: 1.4rem;">
+    <div class="np-step blue reveal" style="flex: 1; max-width: 190px;"><strong style="font-size: 0.95rem;">1. Draaien</strong><small>Eigen 1CHO-extract door de package halen</small></div>
+    <div class="np-arrow">&#8594;</div>
+    <div class="np-step orange reveal" style="flex: 1; max-width: 190px;"><strong style="font-size: 0.95rem;">2. Vergelijken</strong><small>Uitkomsten naast eigen cijfers leggen</small></div>
+    <div class="np-arrow">&#8594;</div>
+    <div class="np-step green reveal" style="flex: 1; max-width: 190px;"><strong style="font-size: 0.95rem;">3. Signaleren</strong><small>Missen er indicatoren of grafieken die je zou verwachten?</small></div>
+    <div class="np-arrow">&#8594;</div>
+    <div class="np-step blue reveal" style="flex: 1; max-width: 190px;"><strong style="font-size: 0.95rem;">4. Terugkoppelen</strong><small>Verschillen, gaten en verrassingen delen met CEDA</small></div>
+  </div>
+  <div class="np-proof-strip reveal" style="justify-content: center; margin-top: 1.2rem;">
+    <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Ongeveer een dagdeel werk</div>
+    <div class="np-proof-divider"></div>
+    <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Geen code nodig</div>
+    <div class="np-proof-divider"></div>
+    <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Ruwe data blijft van jullie &mdash; alleen bevindingen worden gedeeld</div>
+  </div>
+</section>
+
+<!-- ============ 14. Vraag ============ -->
+<section class="scene scene--light" data-scene="vraag">
+  <p class="eyebrow-html reveal">Validatie</p>
+  <h1 class="reveal">Vraag</h1>
+  <p class="np-subtitle reveal">Jullie zijn al aangesloten en geïnteresseerd &mdash; willen jullie de eerste validatiepartners zijn?</p>
+  <div class="np-grid-2 reveal-group" style="margin-top: 0.5rem; align-items: start;">
+    <div class="np-card accent-green reveal"><span class="np-badge green">Avans</span><h3 style="margin-top: 0.5rem;">Oorspronkelijke bron</h3><p class="muted" style="font-size: 0.86rem; margin: 0 0 0.5rem;">De indicatoren komen uit jullie eigen Staat van Avans.</p><p style="font-size: 0.86rem; margin: 0;">Klopt de output nog steeds met wat jullie gewend zijn uit de eigen rapportage?</p></div>
+    <div class="np-card accent-blue reveal"><span class="np-badge blue">Windesheim</span><h3 style="margin-top: 0.5rem;">Eerste externe test</h3><p class="muted" style="font-size: 0.86rem; margin: 0 0 0.5rem;">Jullie hebben nog niet met deze tool gewerkt.</p><p style="font-size: 0.86rem; margin: 0;">Draait de package op jullie eigen 1CHO-data, en kloppen de uitkomsten met wat jullie al weten?</p></div>
+  </div>
+  <div class="np-bottomline reveal" style="margin-top: 0.8rem;">Streven: uitkomsten terug <strong>voor half november</strong>, ruim vóór het "af"-moment.</div>
+</section>
+
+<!-- ============ 15. Tijdlijn ============ -->
+<section class="scene scene--light" data-scene="tijdlijn">
+  <p class="eyebrow-html reveal">Vooruitblik 2026</p>
+  <h1 class="reveal">Waar staan we, waar gaan we heen</h1>
+  <p class="np-subtitle reveal">December is het doel. Vandaag is het startpunt.</p>
+  <div class="np-timeline reveal">
+    <div class="np-timeline-point"><div class="np-timeline-dot"></div></div>
+    <div class="np-timeline-line"></div>
+    <div class="np-timeline-point"><div class="np-timeline-marker">VANDAAG</div><div class="np-timeline-dot now"></div></div>
+    <div class="np-timeline-line"></div>
+    <div class="np-timeline-point"><div class="np-timeline-dot blue"></div></div>
+    <div class="np-timeline-line"></div>
+    <div class="np-timeline-point"><div class="np-timeline-dot green"></div></div>
+  </div>
+  <div class="np-timeline-labels">
+    <div><strong class="mid-gray">Juni</strong><span>Benchmarking op de planning</span></div>
+    <div></div>
+    <div><strong class="orange">23 sep</strong><span class="ink">Terugblik + validatie-ask</span></div>
+    <div></div>
+    <div><strong class="blue">Okt&ndash;nov</strong><span>Valideren met Avans &amp; Windesheim</span></div>
+    <div></div>
+    <div><strong class="green">December 2026</strong><span>Aanbieden aan HO-instellingen</span></div>
+  </div>
+  <div class="np-bottomline reveal" style="margin-top: 1.4rem;">In <strong>december</strong> bieden we het aan &mdash; geen flashy launch, wel een duidelijk moment.</div>
+</section>
+
+<!-- ============ 16. WVTTK ============ -->
+<section class="scene scene--light" data-scene="wvttk" style="align-items: center; text-align: center;">
+  <div class="reveal" style="font-family: 'Cooper Light BT', serif; font-size: 2.1rem; color: var(--np-blue);">WVTTK</div>
+  <div class="reveal" style="margin-top: 1rem; font-size: 1.05rem; color: var(--np-dark-gray);">Wat wil jij nog ter tafel brengen?</div>
+</section>
+
+<!-- ============ 17. AFSLUITING ============ -->
+<section class="scene scene--ink" data-scene="afsluiting" style="align-items: center; text-align: center;">
+  <p class="eyebrow-html reveal">Tot slot</p>
+  <h1 class="reveal" style="font-size: 2.6rem;">Blijf in contact</h1>
+  <p class="lead reveal">Vragen, feedback of zin om mee te bouwen? We horen graag van je.</p>
+  <div class="reveal-group" style="display: flex; gap: 1rem; margin-top: 1.6rem; justify-content: center; flex-wrap: wrap;">
+    <div class="np-card accent-blue reveal" style="padding: 0.9rem 1.4rem;"><span class="np-badge blue">GitHub</span><p style="margin:0.5rem 0 0; font-size:0.86rem; color: var(--np-ink);">github.com/cedanl/staat-van-onderwijsinstelling</p></div>
+    <div class="np-card accent-green reveal" style="padding: 0.9rem 1.4rem;"><span class="np-badge green">Community</span><p style="margin:0.5rem 0 0; font-size:0.86rem; color: var(--np-ink);">community.npuls.nl/groups/data-ai</p></div>
+    <div class="np-card accent-orange reveal" style="padding: 0.9rem 1.4rem;"><span class="np-badge orange">Email</span><p style="margin:0.5rem 0 0; font-size:0.86rem; color: var(--np-ink);">ceda@surf.nl</p></div>
+  </div>
+</section>
+
+<script>
+  const scenes = Array.from(document.querySelectorAll('.scene'));
+  const nav = document.querySelector('.scene-nav');
+
+  scenes.forEach((scene, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', scene.dataset.scene || `Slide ${i + 1}`);
+    dot.addEventListener('click', () => scene.scrollIntoView({ behavior: 'smooth' }));
+    nav.appendChild(dot);
+  });
+  const dots = Array.from(nav.children);
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const idx = scenes.indexOf(entry.target);
+      if (entry.isIntersecting) {
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+        entry.target.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+      }
+    });
+  }, { threshold: 0.5 });
+  scenes.forEach((s) => io.observe(s));
+
+  document.addEventListener('keydown', (e) => {
+    const current = dots.findIndex((d) => d.classList.contains('is-active'));
+    if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+      e.preventDefault();
+      scenes[Math.min(current + 1, scenes.length - 1)].scrollIntoView({ behavior: 'smooth' });
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      scenes[Math.max(current - 1, 0)].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>

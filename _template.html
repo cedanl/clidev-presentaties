@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Titel van de presentatie</title>
+
+<!--
+  VRIJ-HTML-TRACK — prototype (zie html-track.md voor de volledige workflow)
+
+  Dit is GEEN Slidev-bestand. Geen vaste achtergrond-PNG's, geen gemeten
+  content-zones — je tekent vrij met CSS/SVG. De huisstijl komt uit
+  dezelfde bron als de Slidev-track: style.css in de projectroot (zelfde
+  --np-* tokens, geen duplicatie, dus geen aparte sync-check nodig).
+
+  Serveren vanuit de projectroot (zodat /style.css en /npuls/... resolven):
+    npx serve .
+    of: python -m http.server 8080
+-->
+<link rel="stylesheet" href="/style.css" />
+
+<style>
+  /* style.css declareert deze fonts op /npuls/... — dat pad werkt alleen
+     onder Slidev's public/-aliasing. Een gewone static server serveert
+     public/ gewoon als map, dus hier overschrijven met het juiste pad
+     (zelfde bestanden, /public/npuls/...). Zie html-track.md. */
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/public/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/public/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Cooper Light BT';
+    src: url('/public/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
+    font-weight: 300; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --scene-pad: 4rem 6rem;
+  }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    font-family: var(--np-font);
+    color: var(--np-ink);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  /* ---- Scene = 1 "slide", vrij te vullen ---- */
+  .scene {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: var(--scene-pad);
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .scene--light  { background: var(--np-bg); color: var(--np-ink); }
+  .scene--ink    { background: var(--np-ink); color: #fff; }
+  .scene--gradient {
+    background: linear-gradient(135deg, var(--np-blue), var(--np-orange));
+    color: #fff;
+  }
+
+  .eyebrow-html {
+    color: var(--np-orange);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .scene--ink .eyebrow-html,
+  .scene--gradient .eyebrow-html { color: var(--np-yellow); }
+
+  .scene h1 { font-size: 3rem; margin: 0 0 0.6rem; color: inherit; }
+  .scene--light h1 { color: var(--np-orange); }
+  .scene p.lead { font-size: 1.2rem; max-width: 720px; opacity: 0.85; margin: 0; }
+
+  /* ---- Progress dots ---- */
+  .scene-nav {
+    position: fixed;
+    right: 1.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    z-index: 20;
+  }
+  .scene-nav button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--np-light-gray);
+    cursor: pointer;
+    padding: 0;
+  }
+  .scene-nav button.is-active { background: var(--np-orange); }
+
+  /* ---- Scroll-reveal: fade + rise, getriggerd door IntersectionObserver ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  /* stagger: elk volgend .reveal-item in dezelfde scene iets later */
+  .reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
+  .reveal-group .reveal:nth-child(2) { transition-delay: 0.12s; }
+  .reveal-group .reveal:nth-child(3) { transition-delay: 0.24s; }
+  .reveal-group .reveal:nth-child(4) { transition-delay: 0.36s; }
+
+  /* ---- Pulse-lijn motief (vormentaal npuls-huisstijl.md §5) ---- */
+  .pulse-line {
+    position: absolute;
+    bottom: -2vh;
+    left: 0;
+    width: 100%;
+    height: 22vh;
+    opacity: 0.9;
+  }
+  .pulse-line path {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw-in 1.8s ease-out forwards;
+  }
+  @keyframes draw-in { to { stroke-dashoffset: 0; } }
+
+  /* ---- Concentrische cirkels, zacht ademend ---- */
+  .pulse-dot {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--np-orange);
+    opacity: 0.5;
+    animation: breathe 3.4s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.15); opacity: 0.15; }
+  }
+
+  /* ---- Starburst-vormige radiale lijnen voor hoofdstukdividers ---- */
+  .starburst {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18) 0, transparent 45%);
+    animation: drift 6s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-1.5%, 1.5%) scale(1.04); }
+  }
+
+  /* Respecteer reduced-motion: geen enkele animatie mag verplicht zijn */
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-line path { animation: none; stroke-dashoffset: 0; }
+    .pulse-dot, .starburst { animation: none; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="scene-nav" aria-label="Slide-navigatie"></nav>
+
+<!-- ================= SCENE 1: TITEL ================= -->
+<section class="scene scene--light" data-scene="titel">
+  <p class="eyebrow-html reveal">CEDA &middot; Npuls &middot; 2026</p>
+  <h1 class="reveal">Titel van de presentatie</h1>
+  <p class="lead reveal">Ondertitel of pakkende eenregelige samenvatting.</p>
+
+  <svg class="pulse-line" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,150 C200,20 350,20 500,120 C650,220 800,60 1000,100 C1100,120 1150,80 1200,60"
+          fill="none" stroke="var(--np-orange)" stroke-width="6" stroke-linecap="round" />
+  </svg>
+  <div class="pulse-dot" style="width: 140px; height: 140px; right: 8%; top: 12%;"></div>
+  <div class="pulse-dot" style="width: 90px; height: 90px; right: 14%; top: 22%; animation-delay: 0.6s;"></div>
+</section>
+
+<!-- ================= SCENE 2: CONTENT MET STAGGER-REVEAL ================= -->
+<section class="scene scene--light" data-scene="content">
+  <p class="eyebrow-html reveal">Waar het om draait</p>
+  <h1 class="reveal" style="font-size: 2.2rem;">Slidetitel</h1>
+  <div class="reveal-group" style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; max-width: 760px;">
+    <div class="np-card accent-blue reveal"><h3>Punt een</h3><p class="muted" style="margin:0;">Korte toelichting.</p></div>
+    <div class="np-card accent-orange reveal"><h3>Punt twee</h3><p class="muted" style="margin:0;">Korte toelichting.</p></div>
+    <div class="np-card accent-green reveal"><h3>Punt drie</h3><p class="muted" style="margin:0;">Korte toelichting.</p></div>
+  </div>
+</section>
+
+<!-- ================= SCENE 3: HOOFDSTUKDIVIDER ================= -->
+<section class="scene scene--gradient" data-scene="divider" style="align-items: center; text-align: center;">
+  <div class="starburst"></div>
+  <p class="eyebrow-html reveal">Deel 1</p>
+  <h1 class="reveal" style="font-size: 3.4rem;">Hoofdstuktitel</h1>
+</section>
+
+<!-- ================= SCENE 4: AFSLUITING ================= -->
+<section class="scene scene--ink" data-scene="afsluiting" style="align-items: center; text-align: center;">
+  <p class="eyebrow-html reveal">Tot slot</p>
+  <h1 class="reveal" style="font-size: 2.6rem;">Blijf in contact</h1>
+  <div class="reveal-group" style="display: flex; gap: 1rem; margin-top: 1.6rem; justify-content: center; flex-wrap: wrap;">
+    <div class="np-card accent-blue reveal" style="padding: 0.9rem 1.4rem;"><span class="np-badge blue">GitHub</span><p style="margin:0.5rem 0 0; font-size:0.86rem; color: var(--np-ink);">github.com/cedanl</p></div>
+    <div class="np-card accent-orange reveal" style="padding: 0.9rem 1.4rem;"><span class="np-badge orange">Email</span><p style="margin:0.5rem 0 0; font-size:0.86rem; color: var(--np-ink);">ceda@surf.nl</p></div>
+  </div>
+</section>
+
+<script>
+  const scenes = Array.from(document.querySelectorAll('.scene'));
+  const nav = document.querySelector('.scene-nav');
+
+  // Progress dots
+  scenes.forEach((scene, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', scene.dataset.scene || `Slide ${i + 1}`);
+    dot.addEventListener('click', () => scene.scrollIntoView({ behavior: 'smooth' }));
+    nav.appendChild(dot);
+  });
+  const dots = Array.from(nav.children);
+
+  // Actieve dot + reveal-animatie triggeren zodra scene in beeld komt
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const idx = scenes.indexOf(entry.target);
+      if (entry.isIntersecting) {
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+        entry.target.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+      }
+    });
+  }, { threshold: 0.5 });
+  scenes.forEach((s) => io.observe(s));
+
+  // Toetsenbordnavigatie: pijl-omlaag/omhoog, spatie, page-down/up
+  document.addEventListener('keydown', (e) => {
+    const current = scenes.findIndex((s) => dots[scenes.indexOf(s)].classList.contains('is-active'));
+    if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+      e.preventDefault();
+      scenes[Math.min(current + 1, scenes.length - 1)].scrollIntoView({ behavior: 'smooth' });
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      scenes[Math.max(current - 1, 0)].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>
